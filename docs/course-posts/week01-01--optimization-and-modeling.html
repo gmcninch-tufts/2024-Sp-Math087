@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - week01-01--optimization-and-modeling</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-info/documents.html">Info</a>	    
+	    <a href="../course-info/01-assignment-schedule.html">Assignment-Schedule</a>
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>week01-01--optimization-and-modeling</h1>
+            <article>
+    <section class="header">
+        Posted on 2024-01-11
+        
+    </section>
+    <section>
+        <h1 id="optimization-overview">Optimization Overview</h1>
+<p>Optimization is the most common application of mathematics. Here are
+some “real-world” examples:</p>
+<ul>
+<li><p><strong>Business optimization</strong>. A business manager attempts to understand
+and control parameters in order to maximize profit and minimize
+costs.</p></li>
+<li><p><strong>Natural resource management</strong>. Control harvest rates to maximize
+long-term yield, while conserving resources.</p></li>
+<li><p><strong>Environmental regulation</strong>. Governments sets standards to minimize
+environmental costs, while maximizing production of goods.</p></li>
+</ul>
+<hr />
+<ul>
+<li><p><strong>IT management</strong>. Computer system managers try to maximize
+throughput and minimize delays.</p></li>
+<li><p><strong>Pharmaceutical optimization</strong>. Doctors and pharmacists regulate
+drugs to minimize harmful side effects and maximize healing.</p></li>
+</ul>
+<hr />
+<p>In this first part of our modeling course, we are going to discuss some
+sorts of optimization problems and related matters:</p>
+<ul>
+<li><p><em>single variable optimization</em> and <em>sensitivity analysis</em></p></li>
+<li><p><em>multivariable optimization</em></p></li>
+<li><p><em>multivariable optimization with constraints</em></p></li>
+</ul>
+<hr />
+<p>We begin this week with a discussion of <em>single variable
+optimization</em>.</p>
+<h1 id="single-variable-optimization">Single Variable Optimization</h1>
+<ul>
+<li>In this first section of our modeling class, we examine a few
+<em>single variable</em> optimization problems. In some sense, these amount
+to – perhaps complicated examples of! – <em>word problems</em> that you
+might have met in Calculus I (differential calculus).</li>
+</ul>
+<hr />
+<p>The procedure to carry out a calculus based solution can then be
+described roughly as follows:</p>
+<ul>
+<li><p>find the function <span class="math inline">\(f(x)\)</span> that measures the quantity that you desire
+to optimize, and the relevant interval <span class="math inline">\([a,b]\)</span> of values of
+independent variable <span class="math inline">\(x\)</span>.</p></li>
+<li><p>find the critical points <span class="math inline">\(c_1,c_2,\dots,c_N\)</span> of <span class="math inline">\(f\)</span> in the interval
+<span class="math inline">\((a,b)\)</span>.</p></li>
+<li><p>if <span class="math inline">\(f\)</span> is a <em>differentiable</em> function, the maximum and minimum value of
+<span class="math inline">\(f\)</span> will be found in the list <span class="math inline">\(f(a),f(c_1),\dots,f(c_N),f(b)\)</span>;
+remember that you must check the endpoints <span class="math inline">\(a,b\)</span>!</p></li>
+</ul>
+<h1 id="modeling-in-general">Modeling, in general</h1>
+<ol type="1">
+<li>Ask the question:
+<ul>
+<li>Here the question should be phrased correctly in mathematical
+terms; this will help make clear what must be found.</li>
+<li>Make a list of all the variables and constants; include units as
+appropriate.</li>
+<li>State all assumptions about these variables and constants;
+include equations and inequalities.</li>
+<li>Check units to make sure things make sense.</li>
+<li>State your objective in mathematical terms (i.e., “minimization
+problem” in the example above).</li>
+<li>It may even be useful to make an educated guess at this point on
+what the answer should be.</li>
+</ul></li>
+</ol>
+<hr />
+<ol start="2" type="1">
+<li>Select the modeling approach.
+<ul>
+<li>Choose a general solution procedure to solve the mathematical
+problem (in our case first and second derivative tests).</li>
+<li>This might be the most difficult part and to a large extent
+depends on just good experience. That’s our goal…to get some
+experience.</li>
+</ul></li>
+</ol>
+<hr />
+<ol start="3" type="1">
+<li>Formulate the model.
+<ul>
+<li>Restate the question in terms of your model (in our example,
+what function are we taking the derivative of?).</li>
+<li>You may need to relabel or redefine things to make it work. This
+is where the mathematical model and real physical model may
+start to differ…</li>
+</ul></li>
+</ol>
+<hr />
+<ol start="4" type="1">
+<li>Solve the model.
+<ul>
+<li>Apply Step 2 to Step 3.</li>
+<li>Use any useful technologies, such as computation if necessary,
+but consider the errors that they may introduce.</li>
+</ul></li>
+</ol>
+<hr />
+<ol start="5" type="1">
+<li><p>Answer the question.</p>
+<ul>
+<li>Rephrase the result of Step 4 in non-technical terms.</li>
+<li>Goal is now to make your answer understandable to the person
+that posed it, keeping in mind that person may not be a
+mathematician.</li>
+<li>Think about what the errors might be, or how realistic the
+answer actually is.</li>
+<li>How did it compare to what expectations?</li>
+</ul></li>
+</ol>
+<hr />
+<p>Of course this procedure is described in very general terms, and may
+need adaptation according to the problem at hand.</p>
+<p>But: at least it describes our goals in modeling.</p>
+    </section>
+</article>
+
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

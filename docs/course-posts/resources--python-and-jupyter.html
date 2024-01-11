@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - Resources -- python & jupyter</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-info/documents.html">Info</a>	    
+	    <a href="../course-info/01-assignment-schedule.html">Assignment-Schedule</a>
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>Resources -- python & jupyter</h1>
+            <article>
+    <section class="header">
+        Posted on 2024-01-10
+        
+            by George McNinch
+        
+    </section>
+    <section>
+        <h1 id="overview">Overview</h1>
+<p>Our course will use the <code>python</code> programming language to perform
+some machine computations needed to carry out mathematical modeling
+tasks.</p>
+<p>And parts of the notes of the course lectures will be made available
+as <code>jupyter notebooks</code>.</p>
+<p>There are a few ways that you should learn to interact with <code>python</code>
+and <code>jupyter</code> for our class:</p>
+<ol>
+<li>via <a href="https://colab.research.google.com/">Google’s colab</a></li>
+<li>by executing <code>python</code> code in a <code>python</code> interpreter on your computer</li>
+<li>(optionally) using <a href="http://www.jupyter.org">jupyter notebooks</a> on your computer.</li>
+</ol>
+<p>Here is a bit of what you need to know to enable these interactions:</p>
+<ul>
+<li><a href="#notebooks">Overview of <code>jupyter</code> notebooks</a></li>
+<li><a href="#colab">Interacting with <code>jupyter</code> notebooks via colab</a></li>
+<li><a href="#conda">installing the tools on your computer</a></li>
+<li><a href="#jupyter">using the <code>jupyter notebook</code> viewer on your computer</a></li>
+</ul>
+<p>Before diving into the details, let me try to answer a few question
+that you may have:</p>
+<dl>
+<dt><strong>Q</strong> - do I need <code>juptyer</code> and <code>colab</code> on my computer, or I just use <code>colab</code>?</dt>
+<dd>
+<p><strong>A</strong> - It is probably possible to just use <code>colab</code>. <code>colab</code>
+provides a reasonable environment for reading the course material,
+though for code execution it may (?) be a tad slow.</p>
+</dd>
+</dl>
+<p><strong>But</strong>: using <code>python</code> exclusively through <code>colab</code> is a somewhat
+imperfect environment for producing code, and at least in the long
+run you’ll be better served by learning to work with these tools on
+your own computer.</p>
+<h1 id="notebooks">An overview of <code>jupyter</code> notebooks</h1>
+<p><a href="https://jupyter.org/"><code>Jupyter</code> notebooks</a> provide a way to package written material – with
+possible mathematical markup – together with an interactive
+environment for executing computer code.</p>
+<p>The material for this course will mostly be presented in the form of
+these <code>notebooks</code>. You can recognize <code>notebook</code> files by their
+filename extension – their file name has the form <code>*.ipynb</code>.</p>
+<p>On the course site, notebooks will be posted with <em>two links</em>.</p>
+<ul>
+<li><p>The simplest way to interact with <code>jupyter notebooks</code> is to use
+<a href="https://colab.research.google.com/">Google’s colab</a>. Clicking one of the links will open the notebook
+in <code>colab</code>.</p></li>
+<li><p>The other one link permits you to download the <code>notebook</code> file to
+your computer. In order to use this file, you will need to have a
+working installation of <code>python</code> and <code>jupyter</code>. See below for some
+discussion of how to <a href="#conda">set up the required tools</a> and how to
+<a href="#jupyter">use <code>jupyter</code></a>.</p></li>
+</ul>
+<h1 id="colab">Interacting with <code>jupyter</code> notebooks via Google’s CoLab</h1>
+<p>As <a href="#notebooks">mentioned above</a>, the course material will be
+presented in the form of <code>jupyter</code> notebooks, and for each notebook
+there will be a link to a copy of this notebook available via
+<code>colab</code>.</p>
+<p><code>Colab</code> is a web-based free-to-use Jupyter notebook environment that
+runs in <em>the cloud</em> and stores its notebooks on Google Drive. When
+you view a notebook in <code>colab</code> containing code, that code can be
+executed. The code execution occurs <em>in the cloud</em>, which basically
+means <em>on some google computer</em>. Thus, google’s computer has <code>python</code>
+and the relevant libraries installed and available.</p>
+<p>You can choose to interact with the course notebooks on <code>colab</code>, abd
+create your own notebooks there.</p>
+<p>A good starting point to learn how to use colab (and jupyter notebooks
+in general) is the document <a href="https://colab.research.google.com/notebooks/basic_features_overview.ipynb">Overview of Colaboratory
+Features</a>.</p>
+<h1 id="conda">Installing the tools on your computer</h1>
+<p>Here I hope to answer the questions: “What do I need to do to be able
+to create and execute <code>python</code> code for the course on my computer?” and
+“What do I need to do to be able to view and execute <code>jupyter</code>
+notebooks on my computer?”</p>
+<p>I suggest that you use a tool known as <code>conda</code> (short for <em>anaconda</em>;
+together with <code>python</code>, I this amounts to a bunch of snakes …).</p>
+<p><a href="https://conda.org"><code>conda</code></a> describes itself as follows:</p>
+<blockquote>
+<p>Initially started as a multi-platform package management tool, the
+term “conda” has since evolved to encompass an entire open-source
+packaging ecosystem and philosophy. This ecosystem is supported by
+many organizations who all share the common goal of providing
+easier access to programming tools and libraries.</p>
+</blockquote>
+<p>Specifically, I recommend installing <code>conda</code> using something called
+the <code>miniforge</code> – here is the <a href="https://github.com/conda-forge/miniforge"><code>miniforge</code> github
+repository</a>.</p>
+<p><a href="https://github.com/conda-forge/miniforge#miniforge3">Here is the list of
+<em>installers</em>.</a>
+The installer must be chose to match your computer’s architecture and
+operating system.</p>
+<ul>
+<li><p>If you have a recent Apple MacBook (“M1” or “M2”) your architecture is
+likely <code>arm64</code> and you need to use the <code>OS X</code> <code>arm64 (Apple Silicon)</code> installer.</p></li>
+<li><p>somewhat older Apple MacBooks need to use the <code>OS X</code> <code>x86_64</code> installer.</p></li>
+<li><p>Windows users need to use the <code>Windows</code> <code>x86_64</code> installer.</p></li>
+<li><p>There are installers for <code>linux</code> users as well.</p></li>
+</ul>
+<p>You should now read and follow the <a href="https://github.com/conda-forge/miniforge#install">installation
+instructions</a> for
+your operating system. (I’ve provided some annotation below, which you might read first).</p>
+<h2 id="installing-in-mac-os-or-linux">installing in <code>Mac OS</code> or <code>Linux</code></h2>
+<p>The <code>Mac OS &amp; Linux</code> instructions tell you to execute the following commands in a terminal window (i.e. a “shell”):</p>
+<blockquote>
+<pre><code>~$ curl -L -O &quot;https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh&quot;
+
+~$ bash Miniforge3-$(uname)-$(uname -m).sh</code></pre>
+</blockquote>
+<p>Note that these should be executed in a <code>shell</code>– in particular, you don’t type the prompts (“<code>~$</code>”). The first command
+uses the utility <code>curl</code> to download the relevant installer (the
+expressions <code>$(uname)</code> and <code>$(uname- m)</code> should select the correct
+installer for your computers architecture + operating system, without
+you having to make the choice).</p>
+<p>The second command (<code>bash...</code>) <em>executes</em> the installer that you just
+downloaded. When it is running, you’ll need to interact a bit with it
+(pressing “ENTER” when requested, accepting the licence terms,
+confirming the install location, etc.)</p>
+<p>Once the installer is done downloading packages from the <code>conda-forge</code>, you will be asked:</p>
+<blockquote>
+<pre><code>Do you wish the installer to initialize Miniforge3
+by running conda init? [yes|no]</code></pre>
+</blockquote>
+<p>In order to use <code>conda</code>, you should answer <code>yes</code>. It will add some
+code to your config file <code>~/.bashrc</code>.</p>
+<p>After closing and reopening your shell, you should have a prompt that
+looks something like the following:</p>
+<blockquote>
+<pre><code>(base) george@valhalla:~$ </code></pre>
+</blockquote>
+<p>The <code>(base)</code> prefix indicates that the <code>base</code> environment of <code>conda</code>
+has been <code>activated</code>.</p>
+<p>Typing something like “<code>which python</code>”, you should get a response like the following:</p>
+<blockquote>
+<pre><code>(base) george@valhalla:~$ which python
+/home/george/miniforge3/bin/python</code></pre>
+</blockquote>
+<p>This indicates that if you execute <code>python</code> from the command shell, it
+will run the just-installed version from the <code>miniforge3/bin</code> directory.</p>
+<p>You can start a python <code>repl</code>:</p>
+<blockquote>
+<pre><code>(base) mcninch-store@valhalla:~$ python
+Python 3.10.12 | packaged by conda-forge | (main, Jun 23 2023, 22:40:32) [GCC 12.3.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;</code></pre>
+</blockquote>
+<p>You can exit the <code>python repl</code> by typing <code>C-d</code> (“control d”).</p>
+<p>You can deactivate <code>conda</code> with the command</p>
+<blockquote>
+<pre><code>(base) george@valhalla:~$ conda deactivate</code></pre>
+</blockquote>
+<p>And you can reactivate it with the command</p>
+<blockquote>
+<pre><code>george@valhalla:~$ conda activate base</code></pre>
+</blockquote>
+<h2 id="installing-in-windows">installing in <code>Windows</code></h2>
+<p>As the installation instructions say, you should download and execute
+the windows installer.</p>
+<p>Note that there will be a <code>Miniforge Prompt</code> installed to the start
+menu; opening that prompt should enable you to run software installed
+in the <code>miniforge</code>.</p>
+<p>For example, from that prompt you should be able to start a <code>python repl</code> by
+executing <code>python</code>.</p>
+<h2 id="remaining-installation-steps.">Remaining installation steps.</h2>
+<p>In this class, we are going to use some <code>python</code> libraries, as well as
+<code>jupyterlab</code>.</p>
+<p>Not everything we need was installed from <code>miniforge</code>, but it is now
+easy to install what we need.</p>
+<p>Execute the following commands:</p>
+<blockquote>
+<pre><code>(base) george@valhalla~$ mamba install jupyterlab numpy sympy pandas pydot </code></pre>
+</blockquote>
+<p>(You’ll have to respond to <code>Confirm changes: [Y/n]</code> by typing <code>Y</code>.
+And then the <code>mamba</code> will install probably a large number of new
+packages…)</p>
+<h1 id="an-editor">An editor</h1>
+<p>You need to use a text editor to create and edit <code>python</code> code. What
+editor you choose to use is a matter of personal preference, but I’m
+going to recommend that you use the <a href="https://atom.io/">Atom
+editor</a>. This doesn’t mean you are required to use
+<code>Atom</code>, but it is the editor that I’ll use in demonstrations. The
+above-linked web-site has installation instructions for Windows, Mac,
+and Linux computers.</p>
+<h1 id="jupyter">Interacting with <code>Jupyter</code> on your computer</h1>
+<p>You can always view and interact with <code>jupyter notebooks</code> on
+<code>colab</code>. But if you carried out the above instructions for installing
+<code>conda</code>, you can now use <code>jupyter</code> notebooks on your own computer.</p>
+<p>Start <code>jupyter</code> from the command-line. I actually find that I prefer
+the <code>jupyter lab</code> interface to the the plain <code>jupyter notebook</code>
+interface (and honestly I’m not sure I understand why there are two
+different interfaces) but you should experiment for yourself.</p>
+<p>So, type:</p>
+<blockquote>
+<pre><code>george@valhalla:~$ jupyter-lab</code></pre>
+</blockquote>
+<p>There will be some output to the terminal that you can mostly
+ignore. The significant effect of running this program is that <em>a page
+should open in your web browser</em>.</p>
+<p>The page that opens will have a <code>URL</code> that looks something like:</p>
+<blockquote>
+<pre><code>http://localhost:8888/lab</code></pre>
+</blockquote>
+<p>This <code>URL</code> tells you that there is now a <code>server</code> running on your
+local machine, and that your web browser is communicating with that
+server.</p>
+<p>In the web page at this location, you should see in particular an
+interface where you can interact with <code>jupyter notebooks</code>. You can
+create a new notebook from the <code>File</code> menu: <code>New -&gt; Notebook</code>. If you
+are asked to <code>Select Kernel</code>, you should select <code>Python 3</code>.</p>
+<p>You are now editing a file name <code>Untitled.ipynb</code>.</p>
+<p>If you save a <code>jupyter notebook</code> (i.e. a <code>ipynb</code> file) in your directory tree, you can open it using
+the <code>File</code> menu: <code>Open from path</code></p>
+<p>You can end the <code>jupyter</code> notebook session by typing <code>C-c</code> (twice)
+in the terminal where you started the command, or by menu-driven
+commands in the web-interface.</p>
+<h1 id="some-learning-resources-for-python-and-scientific-computing">Some learning resources for python and scientific computing</h1>
+<p>(Honestly, I just borrowed this list from a previous instructor, but
+the links look useful).</p>
+<ul>
+<li><a href="https://www.learnpython.org/">DataCamp’s interactive Intro to Python tutorial</a></li>
+<li><a href="https://www.py4e.com/lessons">Python for Everybody (University of Michigan MOOC)</a></li>
+<li><a href="http://cs231n.github.io/python-numpy-tutorial/">A short Python and NumPy tutorial (Stanford CS231)</a></li>
+<li><a href="https://docs.python.org/3/tutorial/index.html">Official Python tutorial</a></li>
+<li>Numpy
+<ul>
+<li><a href="https://jakevdp.github.io/PythonDataScienceHandbook/02.00-introduction-to-numpy.html">Introduction to
+NumPy</a></li>
+<li><a href="https://docs.scipy.org/doc/numpy/reference/">NumPy reference
+guide</a> (chapter 2 of
+VanderPlas’ <em>Python Data Science Handbook</em>)</li>
+</ul></li>
+<li>Matplotlib
+<ul>
+<li><a href="https://matplotlib.org/tutorials/introductory/pyplot.html">Official Pyplot tutorial
+(short)</a></li>
+<li><a href="https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html">Visualization with Matplotlib (chapter 4 of VanderPlas’ <em>Python
+Data Science
+Handbook</em>)</a></li>
+<li><a href="https://matplotlib.org/gallery/index.html">Gallery of Matplotlib
+examples</a></li>
+</ul></li>
+</ul>
+    </section>
+</article>
+
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>
