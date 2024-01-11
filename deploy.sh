@@ -5,4 +5,4 @@ cd /home/george/Classes/2024-Sp-Math087/
 git add .
 read -p "Commit message: " msg
 git commit -m "$msg"
-git push origin master
+git push origin main
