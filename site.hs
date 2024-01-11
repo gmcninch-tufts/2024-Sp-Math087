@@ -30,11 +30,11 @@ mathJaxAddedCompiler = pandocCompilerWith readMathjaxOptions writeMathjaxOptions
 
 main :: IO ()
 main = hakyllWith config $ do
-    match "assets/**" $ do
+    match "course-assets/**" $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "notebooks/**" $ do
+    match "course-notebooks/**" $ do
         route   idRoute
         compile copyFileCompiler
 

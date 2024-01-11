@@ -1,7 +1,7 @@
 ---
 author: George McNinch
 title: Resources -- python & jupyter
-date: 2024-01-10
+date: 2024-01-01
 ---
 
 # Overview

@@ -1,7 +1,7 @@
 ---
 author: George McNinch
 title: Resources -- LaTeX
-date: 2024-01-09
+date: 2024-01-01
 ---
 
 # LaTeX

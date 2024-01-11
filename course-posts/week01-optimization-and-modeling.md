@@ -1,5 +1,5 @@
 ---
-subtitle: Optimization and modeling generalities
+subtitle: "Optimization and modeling: generalities"
 date: 2024-01-11
 ---
 

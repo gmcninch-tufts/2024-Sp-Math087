@@ -6,7 +6,7 @@ This is the web site of a Spring 2024 course in the [Dept of
 Mathematics] at [Tufts University].
 
 ::::::{.image-container-1col}
-![](/assets/images/drawing.svg){.image}
+![](/course-assets/images/drawing.svg){.image}
 ::::::
 
 
