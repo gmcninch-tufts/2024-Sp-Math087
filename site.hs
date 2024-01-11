@@ -49,7 +49,7 @@ main = hakyllWith config $ do
         route   idRoute
         compile compressCssCompiler
 
-    match "pages/*md" $ do
+    match "course-pages/*md" $ do
         route $ setExtension "html"
         compile $ mathJaxAddedCompiler
             >>= loadAndApplyTemplate "templates/page.html"    postCtx

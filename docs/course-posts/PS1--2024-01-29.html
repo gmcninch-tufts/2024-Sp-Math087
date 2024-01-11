@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - ProblemSet 1 -- Optimization</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-info/documents.html">Info</a>	    
+	    <a href="../course-info/01-assignment-schedule.html">Assignment-Schedule</a>
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>ProblemSet 1 -- Optimization</h1>
+            <article>
+    <section class="header">
+        Posted on 2024-09-20
+        
+            by George McNinch
+        
+    </section>
+    <section>
+        <h2 id="an-optimization-question-in-auto-manufacturing">1. An optimization question in auto manufacturing</h2>
+<p>An automobile manufacturer makes a profit of <code>$</code>1,500 per unit on the
+sale of a certain car model. It is estimated that for every <code>$</code>100 of
+rebate, the number of units of this model sold in a given month will
+increase by 15%.</p>
+<ol type="a">
+<li><p>What amount of rebate will maximize the manufacturers profit for
+the month? Model the question as a single-variable optimization
+problem.</p></li>
+<li><p>Compute the sensitivity of your answer to the 15%
+assumption. Consider both the amount of rebate and the resulting
+profit.</p></li>
+<li><p>Suppose that rebates actually generate only a 10% increase in sales
+per <code>$</code>100. What is the effect? What if the response is somewhere
+between 10% and 15% per <code>$</code>100 of rebate?</p></li>
+<li><p>Under what circumstances would an offer of a rebate cause a
+reduction in profit?</p></li>
+</ol>
+<h2 id="oil-spill-again">2. Oil spill, again</h2>
+<p>Recall the problem about oil-spill cleanup described in <a href="https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-01--optimization.ipynb">the class
+notebook</a>.</p>
+<p>The task was to decide how many <em>external clean-up crews</em> to hire in
+order to minimize the total costs of the oil spill. The notebook above
+described the solution to this problem with the following parameters:</p>
+<ul>
+<li><span class="math inline">\(m\)</span> = miles cleaned per crew per day = <span class="math inline">\(5/7\)</span></li>
+<li><span class="math inline">\(f\)</span> = fine charged per day = $10,000</li>
+<li><span class="math inline">\(TC\)</span> = travel costs per outside crew = $18,000</li>
+</ul>
+<p>Describe the changes in the argument required to handle the case in which
+the parameters are changed to:</p>
+<ul>
+<li><span class="math inline">\(m = 0.6\)</span> miles /day</li>
+<li><span class="math inline">\(f =\)</span> $20,000 /day</li>
+<li><span class="math inline">\(TC=\)</span> $20,000 /crew</li>
+</ul>
+<p><em>You should just adapt the code from the notebook.</em></p>
+<ol type="a">
+<li><p>How many external crews must be hired to avoid a fine?</p></li>
+<li><p>How many external crews must be hired to minimize the total costs?</p></li>
+<li><p>What must be changed in the calculus-based argument found in the
+notebook confirming your answer to b.?</p></li>
+<li><p>Use <code>matplotlib</code> to produce a graph of the total cost function
+<span class="math inline">\(C_{\operatorname{tot}}(n)\)</span>. Be sure to consider the utility of
+your choice of the interval for values of <span class="math inline">\(n\)</span> in your graph.</p>
+<p>(To get a usable copy of your image, you can proceed in a few ways:</p>
+<ul>
+<li><p>if you produce the graph in <code>colab</code> you can <code>right-click</code> on
+the image and <code>Save As</code> a file on your file system.</p></li>
+<li><p>if you work in <code>python</code> on your computer, you can save the
+image via a command like</p>
+<pre><code>&gt;&gt;&gt; g.savefig(&quot;my_graph_image.png&quot;)</code></pre>
+<p>)</p></li>
+</ul></li>
+</ol>
+<h2 id="blood-typing">3. Blood typing</h2>
+<p>Human blood is generally classified in the “ABO” system, with four
+blood types: <code>A</code>, <code>B</code>, <code>O</code>, and <code>AB</code>. These four types reflect six
+gene pairs (genotypes), with blood type <code>A</code> corresponding to gene
+pairs <code>AA</code> and <code>AO</code>, blood type <code>B</code> corresponding to gene pairs <code>BB</code>
+and <code>BO</code>, blood type <code>O</code> corresponding to gene pair <code>OO</code>, and blood
+type <code>AB</code> corresponding to gene pair <code>AB</code>. Let <span class="math inline">\(p\)</span> be the proportion
+of gene <code>A</code> in the population, let <span class="math inline">\(q\)</span> be the proportion of gene <code>B</code>
+in the population, and let <span class="math inline">\(r\)</span> be the proportion of gene <code>O</code> in the
+population. Observe that <span class="math inline">\(p + q + r = 1\)</span>.</p>
+<ol type="a">
+<li><p><a href="https://en.wikipedia.org/wiki/Hardy%E2%80%93Weinberg_principle">The Hardy-Weinberg
+principle</a>
+implies that:</p>
+<blockquote>
+<p><span class="math inline">\((\clubsuit)\)</span> The quantities <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span>, and <span class="math inline">\(r\)</span> remain constant from
+generation to generation, as do the frequencies of occurrence of
+the different genotypes <code>AA</code>, <code>AO</code>, … .</p>
+</blockquote>
+<p>Assuming the validity of <span class="math inline">\((\clubsuit)\)</span>, what is the probability
+that an individual has genotype <code>AA</code>? <code>BB</code>? <code>OO</code>? What is the
+probability of an individual having two different genes? Express
+your response using the quantities <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span>.</p></li>
+<li><p>Still assuming the valiidty of <span class="math inline">\((\clubsuit)\)</span>, find the maximum
+percentage of the population that can have two different genes.
+Perform this computation in two different ways:</p>
+<blockquote>
+<ul>
+<li>directly maximize a function of only two variables</li>
+<li>use the method of Lagrange multipliers.</li>
+</ul>
+</blockquote></li>
+<li><p>Explain in words what the Lagrange multiplier represents in the
+second computation of part (b).</p></li>
+</ol>
+<h2 id="newtons-method-and-root-finding">4. Newton’s method and root finding</h2>
+<ol type="a">
+<li><p>microprocessors</p>
+<p>One of the uses of Newton’s method is in implementing division on
+microprocessors, where only addition and multiplication are
+available as primitive operations. To compute <span class="math inline">\(x = a/b\)</span>, first the
+root of <span class="math inline">\(f(x) = 1/x − b\)</span> is found using Newton’s method, then the
+fraction is computed with one last multiplication by <span class="math inline">\(a\)</span>.</p>
+<p>Find the Newton iteration needed to solve <span class="math inline">\(f(x) = 0\)</span> and explain
+why it is well-suited to this purpose. (<strong>Note</strong>: We are trying to
+approximate division, so we shouldn’t actually use division
+functions implemented in <code>python</code>…)</p></li>
+<li><p>experiments</p>
+<p>Apply Newton’s Method to compute <span class="math inline">\(1/b\)</span>, where <span class="math inline">\(b\)</span> is: (i) the last
+3 digits of your student number; and (ii) the area code of your
+phone number. For these experiments, report the number of
+iterations required for the approximation to be consistent to 10
+digits.</p></li>
+</ol>
+    </section>
+</article>
+
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

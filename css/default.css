@@ -205,3 +205,8 @@ footer nav {
 .document-list td {
     border-bottom: 0.1rem solid navy;
 }
+
+div.sourceCode {
+    background-color: Lavender;
+    padding: 10px;    
+}
