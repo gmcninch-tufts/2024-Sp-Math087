@@ -30,7 +30,7 @@ posts_pdf = $(posts:.md=.pdf)
 
 problems_dirs = problem-sets
 
-all: posts logistics 
+all: logistics 
 
 logistics: $(logistics_pdf) 
 
