@@ -1,5 +1,5 @@
 ---
-subtitle: "Optimization and modeling: jupyter notebooks"
+title: "Week01 -- Optimization and modeling: jupyter notebooks"
 date: 2024-01-11
 ---
 

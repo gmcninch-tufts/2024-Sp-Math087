@@ -1,5 +1,5 @@
 ---
-subtitle: "Optimization and modeling: generalities"
+title: "Week01 -- Optimization and modeling: overview"
 date: 2024-01-11
 ---
 

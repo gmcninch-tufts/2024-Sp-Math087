@@ -1,10 +1,10 @@
-cabal-version: 1.12
+ppcabal-version: 1.12
 
 -- This file has been generated from package.yaml by hpack version 0.36.0.
 --
 -- see: https://github.com/sol/hpack
 
-name:           math87-site
+name:           math087-site
 version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/gmcninch/personal#readme>
 homepage:       https://github.com/gmcninch-tufts/2024-Sp-Math087#readme
@@ -22,10 +22,10 @@ source-repository head
   type: git
   location: https://github.com/gmcninch-tufts/2024-Sp-Math087
 
-executable math87-site
+executable math087-site
   main-is: site.hs
   other-modules:
-      Paths_math87_site
+      Paths_math087_site
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
