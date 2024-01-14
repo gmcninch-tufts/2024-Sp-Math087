@@ -11,9 +11,7 @@ abstract: Course Syllabus
 - **Professor: **[George McNinch](http://gmcninch.math.tufts.edu)
   <<george.mcninch@tufts.edu>>
 
-- **Teaching Assistant: ** Eoghan O'Keefe.
-
-The class meets on Mondays and Wednesdays.
+- **Teaching Assistant: ** Eoghan O'Keefe <<John.O_Keefe@tufts.edu>>.
 
 - There is no required textbook for the course. I will post notes --
   usually in the form of `jupyter notebooks` on the course web site.
@@ -33,8 +31,9 @@ Here are details on these course components:
 
 - *weekly problem sets*, 
 
-  Problem sets will be collected weekly on *Fridays* (excluding weeks
-  in which a *report* is collected). [Here is the
+  Since the class meets on Mondays and Wednesdays, problem sets will
+  be collected weekly on *Fridays* (some weeks, a midterm report --
+  see below -- will instead by collected on Friday). [Here is the
   planned collection
   schedule](/course-pages/Math087--Assignments--AY2023-2024spring.html).
 
@@ -79,3 +78,8 @@ Table: **Grading**
 Your *letter grade* is then determined from this score using [the
 scheme described at this
 link](https://math.tufts.edu/resources/grading-schemes).
+
+# Student Resources
+
+  For a list of *student resources*, please see the *syllabus* section
+  of the `Canvas` site for the course.

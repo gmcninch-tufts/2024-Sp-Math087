@@ -49,6 +49,10 @@ main = hakyllWith config $ do
         route   idRoute
         compile compressCssCompiler
 
+    match "course-pages/*pdf" $ do
+      route idRoute
+      compile copyFileCompiler
+
     match "course-pages/*md" $ do
         route $ setExtension "html"
         compile $ mathJaxAddedCompiler
@@ -67,10 +71,10 @@ main = hakyllWith config $ do
     create ["archive.html"] $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            posts <- recentFirst =<< loadAll "course-posts/*"
             let archiveCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Prof Archives"            `mappend`
+                    constField "title" "Post archives"            `mappend`
                     defaultContext
 
             makeItem ""
