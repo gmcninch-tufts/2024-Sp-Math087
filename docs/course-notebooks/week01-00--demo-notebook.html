@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - week01-00--demo-notebook</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>week01-00--demo-notebook</h1>
+            <div id="a174dadb-e97f-4b79-af9b-e32bf1d3194a" class="cell markdown">
+
+</div>
+<div id="e603d0ff-ae51-483f-bcb4-2678b0e5ea63" class="cell markdown">
+<p>This notebook is intended to illustrate some features of <a href="https://jupyter.org/"><strong>jupyter</strong>
+notebooks</a>.</p>
+<p>For the most part, materials for this course will be presented in the
+form of notebooks like this one.</p>
+<p>You can view notebooks on
+<a href="https://colab.research.google.com/notebooks/intro.ipynb">colab</a> or you
+can install some software on your own computer and view/edit notebooks
+there; there is discussion of installation on the <a href="https://gmcninch-tufts.github.io/math87-fall2020/">course web
+site</a> – in
+particular, the <a href="https://gmcninch-tufts.github.io/math87-fall2020/course-info/03e-resources--python-and-jupyter.html">“python &amp; jupyter resources
+information”</a>
+page.</p>
+</div>
+<div id="8e4e1e24-eeaf-4668-a717-336cee1ed7ec" class="cell markdown">
+<h1 id="mathematical-typesetting">Mathematical typesetting</h1>
+<p>Jupyter notebooks contain text (like this) but also they can contain
+<em>mathematical symbols</em>; for example: <span class="math display">\[\int_{-\infty}^\infty f(x) dx =
+0 \quad \text{or} \quad \begin{bmatrix} \alpha &amp; \beta \\ \gamma &amp;
+\delta \end{bmatrix}\]</span></p>
+<p>If you are interested in what is going on “under the hood”, text is
+entered using <code>markdown</code> syntax which is converted to <code>html</code> and
+displayed in your browser.</p>
+</div>
+<div id="455249bc-e1cb-4c71-8e1c-ca7a6e9ec9c3" class="cell markdown">
+<h1 id="markdown-and-mathjax">Markdown and MathJax</h1>
+<p>You can see the <code>markdown</code> underlying what you are reading now by
+“double clicking”</p>
+<p>You can read about <a href="https://en.wikipedia.org/wiki/Markdown">markdown syntax starting from
+here</a>, though there shouldn’t be
+a need for you to write markdown for our course.</p>
+<p>The mathematical typeset appears thanks to an <em>extension</em> to
+markdown/html called <a href="https://www.mathjax.org/"><strong>MathJax</strong></a>; again, you
+don’t really need to know details about mathjax. But it is worth knowing
+that the syntax is the same as <code>LaTeX</code>.</p>
+</div>
+<div id="0a717048-1e92-469c-a179-508a09a8988d" class="cell markdown">
+<h1 id="under-the-hood">Under the hood?</h1>
+<p>If you are <em>curious</em>, you can see the markdown/mathjax that was used to
+create the text you are reading currently.</p>
+<p>First, notice that there is a “boxed region” containing this text - in
+the parlance of <code>jupyter</code> notebooks, that region is called a <code>cell</code>. If
+you click with the mouse pointer on this text, that <code>cell</code> receives
+<code>focus</code>.</p>
+<p>Now that you’ve focussed on this cell, you can get at the underlying
+<code>code</code> in a couple of ways:</p>
+<ul>
+<li><p>probably the simplest is to just double-click with the mouse inside
+the cell. In order to return to normal viewing, press
+shift-[enter]</p></li>
+<li><p>in <code>colab</code>, you can click the right-hand mouse button to get a menu
+of options - then choose “Edit”</p></li>
+<li><p>in <code>jupyter</code> lab/notebook, there are some key sequences that enable
+editing, but I think I won’t go into those details for now.
+“double-click” should always work…</p></li>
+</ul>
+</div>
+<div id="e73027b5-3571-4928-87a6-cdce49e42c95" class="cell markdown">
+<h1 id="code">Code!</h1>
+<p>More importantly, <code>jupyter</code> permits you to view and evaluate <code>code</code>. For
+this course, we’ll always use code in the <code>python</code> (specifically:
+<code>python3</code>) language, but other possibilities are available.</p>
+<p>Remember the <code>cells</code> that we mentioned above? Well, there are a few
+types of cells. One is called a <code>markdown</code> cell, and such cells contain
+text (and mathematics) for reading. Another is called a <code>code cell</code>, and
+it contains (in this case) <code>python</code> code.</p>
+<p>The next cell is an example of a <code>code cell</code>.</p>
+</div>
+<div id="5285968d-08e3-4529-901c-f6b9037ea61d" class="cell code" data-execution_count="1">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sin,cos</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(x):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sin(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> cos(x)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> h(x):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sin(x)<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> cos(x)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>g(i)<span class="sc">:.5f}</span><span class="ss"> - </span><span class="sc">{</span>h(i)<span class="sc">:.5f}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>0 - 1.00000 - -1.00000
+1 - 1.00000 - 0.41615
+2 - 1.00000 - 0.65364
+3 - 1.00000 - -0.96017
+4 - 1.00000 - 0.14550
+5 - 1.00000 - 0.83907
+6 - 1.00000 - -0.84385
+7 - 1.00000 - -0.13674
+8 - 1.00000 - 0.95766
+9 - 1.00000 - -0.66032
+10 - 1.00000 - -0.40808
+11 - 1.00000 - 0.99996
+12 - 1.00000 - -0.42418
+13 - 1.00000 - -0.64692
+14 - 1.00000 - 0.96261
+15 - 1.00000 - -0.15425
+16 - 1.00000 - -0.83422
+17 - 1.00000 - 0.84857
+18 - 1.00000 - 0.12796
+19 - 1.00000 - -0.95507
+</code></pre>
+</div>
+</div>
+<div id="b2ddf829-9166-4f56-a6e0-5fa0481b7fd3" class="cell markdown">
+<p>To execute the contents of a <code>code cell</code>, type [shift]-[enter] while
+that cell has the focus. If the code in the cell produced <code>output</code>, code
+execution will result in a new cell containing that output.</p>
+<p>Code in later code-cells will “remember” definitions from earlier
+cells.</p>
+<p>For example:</p>
+</div>
+<div id="94293733-5de0-4f6d-adbc-0f47037ab821" class="cell code" data-execution_count="2">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>h(<span class="dv">3</span>)</span></code></pre></div>
+<div class="output execute_result" data-execution_count="2">
+<pre><code>-0.960170286650366</code></pre>
+</div>
+</div>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

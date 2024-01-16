@@ -66,12 +66,13 @@ following (implicit) formula:
 
 Table: **Grading**
 
-| grade component |   percentage |
-| :-----------    | :----------- |
-| problem sets    |          50% |
-| engagement      |          10% |
-| midterm reports |          20% |
-| final report    |          20% |
+| grade component  |   percentage |
+| :-----------     | :----------- |
+| problem sets     |          50% |
+| engagement       |          10% |
+| midterm report 1 |          10% |
+| midterm report 2 |          10% |
+| final report     |          20% |
 
 -------
 

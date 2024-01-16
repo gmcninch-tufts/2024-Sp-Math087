@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - week03-02--02-network-flows-grocery</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>week03-02--02-network-flows-grocery</h1>
+            <div id="c4e6cc20-1d7b-4c24-a86d-8ae90341a779" class="cell markdown">
+
+</div>
+<div id="207cc0bb-e0c0-4fb4-b773-2d299e5be50d" class="cell markdown">
+<h1 id="george-mcninch-math-87---spring-2024"><a href="http://gmcninch.math.tufts.edu">George McNinch</a> Math 87 - Spring 2024</h1>
+<h1 id="week-3">Week 3</h1>
+<h1 id="network-flows-and-linear-programming-02">§ Network flows and linear programming 02</h1>
+<h1 id="grocery-example">Grocery example</h1>
+<p>A fruit wholesaler buys and sells apples according to the following
+prices and demand:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Month</th>
+<th style="text-align: right;">Aug</th>
+<th style="text-align: right;">Sep</th>
+<th style="text-align: right;">Oct</th>
+<th style="text-align: right;">Nov</th>
+<th style="text-align: right;">Dec</th>
+<th style="text-align: right;">Jan</th>
+<th style="text-align: right;">Feb</th>
+<th style="text-align: right;">Mar</th>
+<th style="text-align: right;">Apr</th>
+<th style="text-align: right;">May</th>
+<th style="text-align: right;">Jun</th>
+<th style="text-align: right;">Jul</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">price/kg from grower</td>
+<td style="text-align: right;">0.80</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sale price/kg</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.80</td>
+<td style="text-align: right;">0.80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">demand in 1000kg</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+<p>The wholesaler can store 50,000kg at a cost of $0.025 per kg per month.
+Unlimited supplies are available from September to January but only
+15,000kg are available in August and February and none during the rest
+of the year.</p>
+<p>We consider the profit for a year (12 months), from August to the next
+July. We suppose that there are <em>no</em> apples to carry over from the
+previous month – we begin with no apples.</p>
+<p>Our goal: Maximize the profit!</p>
+<p>:::</p>
+</div>
+<div id="7ffb0542-705d-4068-a0c1-b834aa0426fe" class="cell markdown">
+<p>We’ll begin by formulating the flow model.</p>
+<p>Remember that each edge in the graph corresponds to a variable in our
+linear program. We are going to label each edge with a symbol
+<span class="math inline">\([c,u,\ell]\)</span> representing the “cost” (i.e. the contribution of that
+variable to the objective function), an upper bound <span class="math inline">\(u\)</span> for that
+variable, and a lower bound <span class="math inline">\(\ell\)</span> for that variable.</p>
+<p>We are going to construct the diagram using <code>graphviz</code>, though the main
+point here is the diagram itself rather than the code used to produce
+it. (I’m including the code so you can copy it if you wish).</p>
+</div>
+<div id="3707fc84-2b1b-459a-8d57-bdc9c43199e4" class="cell code">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">## https://www.graphviz.org/</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">## https://graphviz.readthedocs.io/en/stable/index.html</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dot <span class="op">=</span> Digraph(<span class="st">'fruit wholesaler model'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>dot.attr(rankdir<span class="op">=</span><span class="st">'LR'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>dot.node(<span class="st">'g'</span>,<span class="st">'grower'</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> dot.subgraph(name<span class="op">=</span><span class="st">'months'</span>) <span class="im">as</span> c:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    c.attr(rank<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'aug'</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'sep'</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'oct'</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'nov'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'feb'</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'mar'</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>dot.node(<span class="st">'d'</span>,<span class="st">'demand'</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'g'</span>,<span class="st">'aug'</span>,label<span class="op">=</span><span class="st">'[-.8,15000,0]'</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'g'</span>,<span class="st">'sep'</span>,label<span class="op">=</span><span class="st">'[-.55,∞,0]'</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'g'</span>,<span class="st">'oct'</span>,label<span class="op">=</span><span class="st">'[-.55,∞,0]'</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'g'</span>,<span class="st">'nov'</span>,label<span class="op">=</span><span class="st">'[-.65,∞,0]'</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'g'</span>,<span class="st">'feb'</span>,label<span class="op">=</span><span class="st">'[-.95,15000,0]'</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'aug'</span>,<span class="st">'sep'</span>,label<span class="op">=</span><span class="st">'[-0.025,50K,0]'</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'sep'</span>,<span class="st">'oct'</span>,label<span class="op">=</span><span class="st">'[-0.025,50K,0]'</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'oct'</span>,<span class="st">'nov'</span>,label<span class="op">=</span><span class="st">'[-0.025,50K,0]'</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'feb'</span>,<span class="st">'mar'</span>,label<span class="op">=</span><span class="st">'[-0.025,50K,0]'</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'aug'</span>,<span class="st">'d'</span>,label<span class="op">=</span><span class="st">'[0.9,10000,0]'</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'sep'</span>,<span class="st">'d'</span>,label<span class="op">=</span><span class="st">'[0.65,15000,0]'</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'oct'</span>,<span class="st">'d'</span>,label<span class="op">=</span><span class="st">'[0.65,15000,0]'</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'nov'</span>,<span class="st">'d'</span>,label<span class="op">=</span><span class="st">'[0.85,15000,0]'</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'feb'</span>,<span class="st">'d'</span>,label<span class="op">=</span><span class="st">'[1.20,10000,0]'</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'mar'</span>,<span class="st">'d'</span>,label<span class="op">=</span><span class="st">'[1.20,10000,0]'</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>dot</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">#dot.format='png'</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co">#dot.render()</span></span></code></pre></div>
+</div>
+<div id="50227110-815b-458e-8fda-f7ed10def4d0" class="cell markdown">
+<p>Now let’s formulate the linear program.</p>
+<p>Let’s number our months in a slightly odd way. Our year starts in
+<code>august</code>, so we number as follows:</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><code>aug</code></th>
+<th style="text-align: right;"><code>sep</code></th>
+<th style="text-align: right;"><code>oct</code></th>
+<th style="text-align: right;"><code>nov</code></th>
+<th style="text-align: right;"><code>dec</code></th>
+<th style="text-align: right;"><code>jan</code></th>
+<th style="text-align: right;"><code>feb</code></th>
+<th style="text-align: right;"><code>mar</code></th>
+<th style="text-align: right;"><code>apr</code></th>
+<th style="text-align: right;"><code>may</code></th>
+<th style="text-align: right;"><code>jun</code></th>
+<th style="text-align: right;"><code>jul</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">12</td>
+</tr>
+</tbody>
+</table>
+<p>We need to name our variables; we’ll use the above numbering:</p>
+<ul>
+<li><span class="math inline">\(g_i\)</span> = # kg bought in month <span class="math inline">\(i\)</span>, for <span class="math inline">\(1 \le i \le 12\)</span>.</li>
+<li><span class="math inline">\(s_i\)</span> = # kg stored from month <span class="math inline">\(i\)</span> to month <span class="math inline">\(i+1\)</span></li>
+<li><span class="math inline">\(d_i\)</span> = # kg sold in month <span class="math inline">\(i\)</span></li>
+</ul>
+<p>All of our variables are assumed to be non-negative:
+<span class="math inline">\(g_i \ge 0, s_i \ge 0, d_i \ge 0\)</span> for all <span class="math inline">\(i\)</span>.</p>
+<p>We’ve been told the following:</p>
+<blockquote>
+<p>Unlimited supplies are available (from the grower) from September to
+January but only 15,000kg are available in August and February and
+none during the rest of the year.</p>
+</blockquote>
+<p>This gives us some “upper bound” inequalities:</p>
+<p><span class="math display">\[\begin{bmatrix}
+    g_1 \\ g_2 \\ g_3 \\ g_4 \\ g_5 \\ g_6 \\ 
+    \end{bmatrix}
+    \le 
+    \begin{bmatrix}
+       1500 \\   
+       \infty \\ 
+       \infty \\ 
+       \infty \\ 
+       \infty \\
+       \infty
+    \end{bmatrix}
+    \quad \text{and} \quad
+    \begin{bmatrix}
+    g_7 \\ g_8 \\ g_9 \\ g_{10} \\ g_{11} \\ g_{12}
+    \end{bmatrix}
+    \le 
+    \begin{bmatrix}
+    15000 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0
+    \end{bmatrix}\]</span></p>
+<p>(since <span class="math inline">\(g_i \ge 0\)</span> is non-negative, the above conditions for
+<span class="math inline">\(8 \le i \le 12\)</span> <em>amount to</em> an equality condition of <span class="math inline">\(g_i = 0\)</span> for
+these <span class="math inline">\(i\)</span>, but we’ll enter it as an inequality condition for
+uniformity).</p>
+<p>We’ve also been told:</p>
+<blockquote>
+<p>The wholesaler can store 50,000kg at a cost of $0.025 per kg per
+month.</p>
+</blockquote>
+<p>This yields the upper bound - <span class="math inline">\(s_i \le 50000\)</span> for <span class="math inline">\(1 \le i \le 12\)</span></p>
+<p>Now, we know from table the demand for each month. Remember what we are
+doing: with the linear program, we are trying to decide the optimal
+values of our decision variables – i.e. how many apples do we buy each
+month? and how many apples do we store each month? According to the
+model, the number of apples we expect to <em>sell</em> depends on these choices
+(via the conservation laws). So to be sensible, our model must view the
+anticipated demand (listed in the table) as an <strong>upper bound</strong> for the
+amount we can sell. More precisely, we should impose the constraint that
+the number <span class="math inline">\(d_i\)</span> of <code>kg</code> of apples delivered to customers is <span class="math inline">\(\le\)</span> the
+anticipated demand for each month. (Of course, this is what the label on
+the diagram indicates! Here I’m trying to explain why we have chosen
+that labeling).</p>
+<p>This amount to the condition: <span class="math display">\[\begin{bmatrix}
+    d_1 \\ d_2 \\ d_3 \\ d_4 \\ d_5 \\ d_6 \\ 
+    \end{bmatrix}
+    \le 
+    \begin{bmatrix}
+       10 \\   
+       15 \\ 
+       15 \\ 
+       15 \\ 
+       13 \\
+       10    \end{bmatrix}
+    \quad \text{and} \quad
+    \begin{bmatrix}
+    d_7 \\ d_8 \\ d_9 \\ d_{10} \\ d_{11} \\ d_{12}
+    \end{bmatrix}
+    \le 
+    \begin{bmatrix}
+    10 \\
+    10 \\
+    9 \\
+    7  \\
+    5 \\
+    5
+    \end{bmatrix}\]</span></p>
+<p>Conservation:</p>
+<p>The internal nodes of our network flow diagram correspond to months. The
+arrow “going in” to the node amount to available apples, and they
+correspond to purchases (<span class="math inline">\(g_i\)</span>) and storage (<span class="math inline">\(s_{i-1}\)</span> unless <span class="math inline">\(i=1\)</span>).
+The arrows going out correspond to storage (<span class="math inline">\(s_i\)</span>) and to apples
+delivered to customers (<span class="math inline">\(d_i\)</span>). Thus, we must have</p>
+<ul>
+<li><span class="math inline">\(s_1 + d_1 - g_1 = 0\)</span></li>
+<li><span class="math inline">\(s_2 + d_2 - g_2 - s_1 = 0\)</span>.</li>
+<li><span class="math inline">\(s_3 + d_3 - g_3 - s_2 = 0\)</span>.</li>
+<li><span class="math inline">\(\vdots\)</span></li>
+</ul>
+<p>Objective:</p>
+<p>The objective function represents profit, and each variable has some
+contribution to objective/profit function (we call this contribution
+“cost”). We spend money through apple purchases and through storage
+costs, and these costs have negative values. We get money through apple
+sales, and these costs have positive value.</p>
+<ul>
+<li><p>August contribution to the objective function:</p>
+<p><span class="math display">\[\begin{matrix} -0.80g_1 - 0.025s_1 + 0.9d_1 \end{matrix}\]</span></p></li>
+<li><p>September contribution to the objective function:</p>
+<p><span class="math display">\[\begin{matrix} -0.55g_1 - 0.025s_1 + 0.65d_1 \end{matrix}\]</span></p></li>
+<li><p><span class="math inline">\(\cdots\)</span></p></li>
+</ul>
+<p>Of course, the objective function is the <em>sum</em> of all 12 of these
+monthly contributions.</p>
+<p>Implementation follows:</p>
+</div>
+<div id="e26bd02f-b163-4906-ba3e-3d257825c673" class="cell code">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> linprog</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>float_formatter <span class="op">=</span> <span class="st">&quot;</span><span class="sc">{:.2f}</span><span class="st">&quot;</span>.<span class="bu">format</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(formatter<span class="op">=</span>{<span class="st">'float_kind'</span>:float_formatter})</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">## &quot;standard basis vector&quot;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sbv(index,size):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([<span class="fl">1.0</span> <span class="cf">if</span> i <span class="op">==</span> index<span class="op">-</span><span class="dv">1</span> <span class="cf">else</span> <span class="fl">0.0</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(size)])</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> from_indices(dat,length):</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">## dat is a list [(c,i).,,,] of pairs; the pair (c,i) determines</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">## the vector c*e_i where e_i is the ith standard basis vector</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>([c<span class="op">*</span>sbv(i,length) <span class="cf">for</span> (c,i) <span class="kw">in</span> dat],np.zeros(length))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> row(g<span class="op">=</span>[],</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span>[],</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        d<span class="op">=</span>[]):</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    gg <span class="op">=</span> from_indices(g,<span class="dv">12</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    ss <span class="op">=</span> from_indices(s,<span class="dv">12</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    dd <span class="op">=</span> from_indices(d,<span class="dv">12</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.block([gg,ss,dd])</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">## for uniformity, we actually consider 12 storage variables event though</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">## we shouldn't really put anything in storage in july (month 12)</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">## let's form the equality constraint matrix from the conservation laws.</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span>np.array([row(s<span class="op">=</span>[(<span class="dv">1</span>,<span class="dv">1</span>)],d<span class="op">=</span>[(<span class="dv">1</span>,<span class="dv">1</span>)],g<span class="op">=</span>[(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)])]     <span class="co"># first row</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>           <span class="op">+</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>           [row(s<span class="op">=</span>[(<span class="dv">1</span>,i),(<span class="op">-</span><span class="dv">1</span>,i<span class="op">-</span><span class="dv">1</span>)],</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>                d<span class="op">=</span>[(<span class="dv">1</span>,i)],</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>                g<span class="op">=</span>[(<span class="op">-</span><span class="dv">1</span>,i)]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,<span class="dv">13</span>)])   <span class="co"># remaining rows</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">## now let's make the inequality constraint matrix</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">## our inequality constraint will have the form Ax &lt;= b,</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">## so any &quot;lower bound&quot; constraints would need to be reversed using a sign change.</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co">## But anyhow we haven't specified any lower bounds...</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>Bs <span class="op">=</span> [row(s<span class="op">=</span>[(<span class="dv">1</span>,i)]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">13</span>)]</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>bs <span class="op">=</span> np.array([<span class="dv">50000</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">13</span>)])</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">## gi bounds</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>Bg_start <span class="op">=</span> [row(g<span class="op">=</span>[(<span class="dv">1</span>,<span class="dv">1</span>)]), row(g<span class="op">=</span>[(<span class="dv">1</span>,<span class="dv">7</span>)])]</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>Bg_end   <span class="op">=</span> [row(g<span class="op">=</span>[(<span class="dv">1</span>,i)]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>,<span class="dv">13</span>)]</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>Bg <span class="op">=</span> Bg_start <span class="op">+</span> Bg_end</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>bg <span class="op">=</span> np.array([<span class="dv">15000</span>,<span class="dv">15000</span>] <span class="op">+</span> <span class="dv">5</span><span class="op">*</span>[<span class="dv">0</span>])  <span class="co"># note that n*[0] is the list [0,0,...,0] with n zeros</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="co">## di bounds</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>Bd <span class="op">=</span> [row(d<span class="op">=</span>[(<span class="dv">1</span>,i)]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">13</span>)]</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>bd <span class="op">=</span> (<span class="dv">1000</span>)<span class="op">*</span>np.array([<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">13</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">5</span>])</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array(Bg <span class="op">+</span> Bs <span class="op">+</span> Bd) <span class="co">## concat the lists of rows; create a matrix from the resulting list</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.block([bg,bs,bd])   <span class="co">## concat the constraints</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="co">## objective function</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>grower_costs <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>np.array([<span class="fl">0.8</span>,<span class="fl">0.55</span>,<span class="fl">0.55</span>,<span class="fl">0.65</span>,<span class="fl">0.75</span>,<span class="fl">0.85</span>,<span class="fl">0.95</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>storage_costs <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>np.array(<span class="dv">12</span><span class="op">*</span>[<span class="fl">.025</span>])</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>sale_price <span class="op">=</span> np.array([<span class="fl">0.9</span>,<span class="fl">0.65</span>,<span class="fl">0.65</span>,<span class="fl">0.85</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="fl">1.2</span>,<span class="fl">1.2</span>,<span class="fl">1.2</span>,<span class="dv">1</span>,<span class="fl">.8</span>,<span class="fl">.8</span>])</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.block([grower_costs,storage_costs,sale_price])</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> linprog((<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>c,A_eq<span class="op">=</span>A,b_eq<span class="op">=</span>np.zeros(<span class="dv">12</span>),A_ub<span class="op">=</span>B,b_ub<span class="op">=</span>b)</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> month(i):</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    <span class="bu">dict</span><span class="op">=</span>{<span class="dv">1</span>:<span class="st">&quot;aug&quot;</span>,</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>          <span class="dv">2</span>:<span class="st">&quot;sep&quot;</span>,</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>          <span class="dv">3</span>:<span class="st">&quot;oct&quot;</span>,</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>          <span class="dv">4</span>:<span class="st">&quot;nov&quot;</span>,</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>          <span class="dv">5</span>:<span class="st">&quot;dec&quot;</span>,</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>          <span class="dv">6</span>:<span class="st">&quot;jan&quot;</span>,</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>          <span class="dv">7</span>:<span class="st">&quot;feb&quot;</span>,</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>          <span class="dv">8</span>:<span class="st">&quot;mar&quot;</span>,</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>          <span class="dv">9</span>:<span class="st">&quot;apr&quot;</span>,</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>          <span class="dv">10</span>:<span class="st">&quot;may&quot;</span>,</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>          <span class="dv">11</span>:<span class="st">&quot;jun&quot;</span>,</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>          <span class="dv">12</span>:<span class="st">&quot;jul&quot;</span>}</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">dict</span>[i]</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> report(res):</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>    <span class="co">## the argument ``res`` should be an instance of the class ``scipy.optimize.OptimizeResult`` -- </span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>    <span class="co">## i.e. a value of the form returned by ``linprog``</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    <span class="co">##</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>res.x</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>    profit  <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>result.fun</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join([<span class="ss">f&quot;linprog succeeded? </span><span class="sc">{</span>result<span class="sc">.</span>success<span class="sc">}</span><span class="ss">&quot;</span>]</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>                     <span class="op">+</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>                     [<span class="ss">f&quot;Optimal profit $</span><span class="sc">{</span>profit<span class="sc">:,.2f}</span><span class="ss">&quot;</span>]</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>                     <span class="op">+</span> </span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>                     [<span class="st">&quot;This is achieved by the following strategy:</span><span class="ch">\n</span><span class="st">&quot;</span>]</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>                     <span class="op">+</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>                     [<span class="ss">f&quot;purchase in kg for </span><span class="sc">{</span>month(i<span class="op">+</span><span class="dv">1</span>)<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>x[i]<span class="sc">:.2f}</span><span class="ss">&quot;</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>)]</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>                     <span class="op">+</span> </span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>                     [<span class="st">&quot;&quot;</span>]</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>                     <span class="op">+</span> </span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>                     [<span class="ss">f&quot;storage in kg for </span><span class="sc">{</span>month(i<span class="op">+</span><span class="dv">1</span>)<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>x[i<span class="op">+</span><span class="dv">12</span>]<span class="sc">:.2f}</span><span class="ss">&quot;</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>)]</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>                     <span class="op">+</span> </span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>                     [<span class="st">&quot;&quot;</span>]                     </span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>                     <span class="op">+</span> </span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>                     [<span class="ss">f&quot;sales in kg for </span><span class="sc">{</span>month(i<span class="op">+</span><span class="dv">1</span>)<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>x[i<span class="op">+</span><span class="dv">24</span>]<span class="sc">:.2f}</span><span class="ss">&quot;</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>)])</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report(result))</span></code></pre></div>
+</div>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

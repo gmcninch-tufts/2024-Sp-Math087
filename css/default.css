@@ -210,3 +210,37 @@ div.sourceCode {
     background-color: Lavender;
     padding: 10px;    
 }
+
+div.cell {
+    background-color: White;    
+    padding: 10px;
+    border-style: solid;
+    border-width: medium;
+    margin-bottom: 2px;
+}
+
+div.cell div.markdown {
+
+}
+
+div.cell {
+    border-style: solid;
+    border-width: 1px;
+}
+
+div .output {
+    color: Navy;
+    margin: 2px;
+    padding-left: 2px;
+    border-style: dashed;
+    border-color: red;
+    border-width: 1px;    
+}
+
+blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+} 
