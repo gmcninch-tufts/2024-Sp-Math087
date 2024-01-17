@@ -43,7 +43,22 @@ main = hakyllWith config $ do
     match "course-notebooks/*ipynb" $ version "copy" $ do
         route   idRoute
         compile copyFileCompiler
-          
+
+    match "course-assignments/*md" $ do
+        route $ setExtension "html"
+        compile $ mathJaxAddedCompiler
+          >>= loadAndApplyTemplate "templates/default.html" defaultContext
+          >>= relativizeUrls
+
+    match "course-assignments/*pdf" $ do
+      route idRoute
+      compile copyFileCompiler
+
+
+    -- match "course-assignments/*md" $ version "pdf" $ do
+    --   route $ setExtension "pdf"
+    --   compile pandocCompiler
+
 
     match (fromList ["about.md"]) $ do
         route   $ setExtension "html"

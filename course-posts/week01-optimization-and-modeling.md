@@ -6,6 +6,13 @@ date: 2024-01-11
 In the first week (well, really just the one day...) we discuss
 *single-variable optimization problems*.
 
+This week's homework assignment is 
+
+- [**[problem set 1]**](/course-assignments/PS1--2024-01-29.html) [[pdf]](/course-assignments/PS1--2024-01-29.pdf)
+
+It is due 2024-01-29 on `gradescope` (you can also get the
+assignment on `gradescope`).
+
 There are three associated `jupyter notebooks`. There are three ways
 to interact with this material: you can **[View]** the contents of the
 notebooks as a (non-interactive) web page, you can view the notebook
@@ -28,6 +35,7 @@ notebooks`](/course-posts/resources--python-and-jupyter.html).
   [[view]](/course-notebooks/week01-02--optimization-and-derivatives.html)
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-02--optimization-and-derivatives.ipynb)
   [[download]](/course-notebooks/week01-02--optimization-and-derivatives.ipynb)
+
 
 
 # Optimization Overview
