@@ -20,7 +20,7 @@
         <header>
           <div class="logo">
             <a href="../">
-	      Math87 - Spring 2024</a>
+	      Math87 - Spring 2024 - Tufts Univ</a>
           </div>
           <nav>
             <a href="../about.html">About</a>
@@ -37,7 +37,35 @@
         
     </section>
     <section>
-        <h1 id="optimization-overview">Optimization Overview</h1>
+        <p>In the first week (well, really just the one day…) we discuss
+<em>single-variable optimization problems</em>.</p>
+<p>This week’s homework assignment is</p>
+<ul>
+<li><a href="../course-assignments/PS1--2024-01-29.html"><strong>[problem set 1]</strong></a> <a href="../course-assignments/PS1--2024-01-29.pdf">[pdf]</a></li>
+</ul>
+<p>It is due 2024-01-29 on <code>gradescope</code> (you can also get the
+assignment on <code>gradescope</code>).</p>
+<p>There are three associated <code>jupyter notebooks</code>. There are three ways
+to interact with this material: you can <strong>[View]</strong> the contents of the
+notebooks as a (non-interactive) web page, you can view the notebook
+<strong>[via colab]</strong>, or you can <strong>[download]</strong> the <code>ipynb</code> file for use
+with <code>jupyter</code> running on your computer. The latter two choices permit
+you to edit and execute code; for more information, see the
+<a href="../course-posts/resources--python-and-jupyter.html">course-resource discussion about <code>jupyter notebooks</code></a>.</p>
+<ul>
+<li><p><strong>jupyter demo</strong> <a href="../course-notebooks/week01-00--demo-notebook.html">[view]</a>
+<a href="https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-00--demo-notebook.ipynb">[via colab]</a>
+<a href="../course-notebooks/week01-00--demo-notebook.ipynb">[download]</a></p></li>
+<li><p><strong>single-variable optimization</strong>
+<a href="../course-notebooks/week01-01--optimization.html">[view]</a>
+<a href="https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-01--optimization.ipynb">[via colab]</a>
+<a href="../course-notebooks/week01-01--optimization.ipynb">[download]</a></p></li>
+<li><p><strong>optimization &amp; derivatives</strong>
+<a href="../course-notebooks/week01-02--optimization-and-derivatives.html">[view]</a>
+<a href="https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-02--optimization-and-derivatives.ipynb">[via colab]</a>
+<a href="../course-notebooks/week01-02--optimization-and-derivatives.ipynb">[download]</a></p></li>
+</ul>
+<h1 id="optimization-overview">Optimization Overview</h1>
 <p>Optimization is the most common application of mathematics. Here are
 some “real-world” examples:</p>
 <ul>
@@ -48,9 +76,6 @@ costs.</p></li>
 long-term yield, while conserving resources.</p></li>
 <li><p><strong>Environmental regulation</strong>. Governments sets standards to minimize
 environmental costs, while maximizing production of goods.</p></li>
-</ul>
-<hr />
-<ul>
 <li><p><strong>IT management</strong>. Computer system managers try to maximize
 throughput and minimize delays.</p></li>
 <li><p><strong>Pharmaceutical optimization</strong>. Doctors and pharmacists regulate
@@ -64,7 +89,6 @@ sorts of optimization problems and related matters:</p>
 <li><p><em>multivariable optimization</em></p></li>
 <li><p><em>multivariable optimization with constraints</em></p></li>
 </ul>
-<hr />
 <p>We begin this week with a discussion of <em>single variable
 optimization</em>.</p>
 <h1 id="single-variable-optimization">Single Variable Optimization</h1>
@@ -74,7 +98,6 @@ optimization</em>.</p>
 to – perhaps complicated examples of! – <em>word problems</em> that you
 might have met in Calculus I (differential calculus).</li>
 </ul>
-<hr />
 <p>The procedure to carry out a calculus based solution can then be
 described roughly as follows:</p>
 <ul>
@@ -87,26 +110,24 @@ independent variable <span class="math inline">\(x\)</span>.</p></li>
 <span class="math inline">\(f\)</span> will be found in the list <span class="math inline">\(f(a),f(c_1),\dots,f(c_N),f(b)\)</span>;
 remember that you must check the endpoints <span class="math inline">\(a,b\)</span>!</p></li>
 </ul>
-<h1 id="modeling-in-general">Modeling, in general</h1>
+<h1 id="some-remarks-on-modeling-in-general">Some remarks on modeling, in general</h1>
+<p>Here are some guidelines to follow when attempting to model a problem mathematically:</p>
 <ol type="1">
-<li>Ask the question:
+<li><p>Ask the question:</p>
 <ul>
-<li>Here the question should be phrased correctly in mathematical
-terms; this will help make clear what must be found.</li>
+<li>The question should be phrased using correct mathematics; this
+will help make clear what must be found.</li>
 <li>Make a list of all the variables and constants; include units as
 appropriate.</li>
 <li>State all assumptions about these variables and constants;
 include equations and inequalities.</li>
 <li>Check units to make sure things make sense.</li>
-<li>State your objective in mathematical terms (i.e., “minimization
-problem” in the example above).</li>
+<li>State your objective in mathematical terms (i.e., the <em>oil
+spill</em> problem this week is a “minimization problem”).</li>
 <li>It may even be useful to make an educated guess at this point on
 what the answer should be.</li>
 </ul></li>
-</ol>
-<hr />
-<ol start="2" type="1">
-<li>Select the modeling approach.
+<li><p>Select the modeling approach.</p>
 <ul>
 <li>Choose a general solution procedure to solve the mathematical
 problem (in our case first and second derivative tests).</li>
@@ -114,10 +135,7 @@ problem (in our case first and second derivative tests).</li>
 depends on just good experience. That’s our goal…to get some
 experience.</li>
 </ul></li>
-</ol>
-<hr />
-<ol start="3" type="1">
-<li>Formulate the model.
+<li><p>Formulate the model.</p>
 <ul>
 <li>Restate the question in terms of your model (in our example,
 what function are we taking the derivative of?).</li>
@@ -125,30 +143,23 @@ what function are we taking the derivative of?).</li>
 is where the mathematical model and real physical model may
 start to differ…</li>
 </ul></li>
-</ol>
-<hr />
-<ol start="4" type="1">
-<li>Solve the model.
+<li><p>Solve the model.</p>
 <ul>
 <li>Apply Step 2 to Step 3.</li>
 <li>Use any useful technologies, such as computation if necessary,
 but consider the errors that they may introduce.</li>
 </ul></li>
-</ol>
-<hr />
-<ol start="5" type="1">
 <li><p>Answer the question.</p>
 <ul>
 <li>Rephrase the result of Step 4 in non-technical terms.</li>
-<li>Goal is now to make your answer understandable to the person
-that posed it, keeping in mind that person may not be a
+<li>The goal is now to make the answer understandable to the
+person that posed it, keeping in mind that person may not be a
 mathematician.</li>
 <li>Think about what the errors might be, or how realistic the
 answer actually is.</li>
-<li>How did it compare to what expectations?</li>
+<li>Assess to what extent the answer met expectations.</li>
 </ul></li>
 </ol>
-<hr />
 <p>Of course this procedure is described in very general terms, and may
 need adaptation according to the problem at hand.</p>
 <p>But: at least it describes our goals in modeling.</p>

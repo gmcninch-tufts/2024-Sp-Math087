@@ -34,9 +34,31 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "course-notebooks/**" $ do
+    match "course-notebooks/*ipynb" $ do
+        route $ setExtension "html"
+        compile $ mathJaxAddedCompiler
+          >>= loadAndApplyTemplate "templates/default.html" defaultContext
+          >>= relativizeUrls
+
+    match "course-notebooks/*ipynb" $ version "copy" $ do
         route   idRoute
         compile copyFileCompiler
+
+    match "course-assignments/*md" $ do
+        route $ setExtension "html"
+        compile $ mathJaxAddedCompiler
+          >>= loadAndApplyTemplate "templates/default.html" defaultContext
+          >>= relativizeUrls
+
+    match "course-assignments/*pdf" $ do
+      route idRoute
+      compile copyFileCompiler
+
+
+    -- match "course-assignments/*md" $ version "pdf" $ do
+    --   route $ setExtension "pdf"
+    --   compile pandocCompiler
+
 
     match (fromList ["about.md"]) $ do
         route   $ setExtension "html"
@@ -48,6 +70,10 @@ main = hakyllWith config $ do
     match "css/*" $ do
         route   idRoute
         compile compressCssCompiler
+
+    match "course-pages/*pdf" $ do
+      route idRoute
+      compile copyFileCompiler
 
     match "course-pages/*md" $ do
         route $ setExtension "html"
@@ -67,10 +93,10 @@ main = hakyllWith config $ do
     create ["archive.html"] $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            posts <- recentFirst =<< loadAll "course-posts/*"
             let archiveCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Prof Archives"            `mappend`
+                    constField "title" "Post archives"            `mappend`
                     defaultContext
 
             makeItem ""

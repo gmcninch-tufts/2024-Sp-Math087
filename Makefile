@@ -1,68 +1,53 @@
-FILTERS = --lua-filter pandoc-proofs.lua --filter pandoc-xnos --filter pandoc-eqnos --filter pandoc-secnos 
-
-MACROS=build-assets/latex-macros.md
-
-CMD=/home/george/.local/bin/course report
+#-*-mode: makefile -*-
 
 META=--metadata-file=build-assets/metadata.yaml
 BEAMER_META=--metadata-file=build-assets/beamer-metadata.yaml
 
-PD=pandoc --standalone --from markdown -V linkcolor:red \
-    $(MACROS) $(FILTERS) --citeproc $(META)
+PD=pandoc --standalone --from markdown -V linkcolor:red --citeproc
+CMD=/home/george/.local/bin/course report
 
-PD_BEAMER=pandoc --standalone --from markdown --number-sections -V linkcolor:red \
-    $(MACROS) $(FILTERS) --citeproc $(BEAMER_META)
+VPATH = .:course-pages:course-posts
 
+CSS_DEFAULT="build-assets/default.css"
 
-YQ=yq -n '[inputs] | add'
+posts=$(notdir $(wildcard course-posts/*.md))
+pages=$(notdir $(wildcard course-pages/*.md))
 
-CSS_DEFAULT="/home/george/Classes/AY2023-24--2024-sp--math87/assets/default.css"
+pages_pdf=$(addprefix course-assets/pages-pdf/,$(pages:.md=.pdf))
 
-VPATH = .:pacing:resources:problem-sets:lectures:Exams:practicum:Exam-review
+posts_pdf=$(addprefix course-assets/posts-pdf/,$(posts:.md=.pdf))
 
+problems=$(wildcard course-assignments/*.md)
+problems_pdf=$(problems:.md=.pdf)
 
-logistics=$(wildcard course-page/*.md)
-logistics_pdf=$(logistics:.md=.pdf)
+all: pages posts problems
 
-
-posts = $(wildcard course-posts/*.md)
-posts_pdf = $(posts:.md=.pdf)
-
-problems_dirs = problem-sets
-
-all: logistics 
-
-logistics: $(logistics_pdf) 
-
+pages: $(pages_pdf)
 posts: $(posts_pdf)
+problems: $(problems_pdf)
 
-MJ=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js
-
-
-# %.html: %.md
-# 	$(PD) $(META) $< assets/biblio.md --css=$(CSS_DEFAULT)  --mathjax=$(MJ) --to html  -o $@
+%-slides.html: %.md
+	$(PD) $(META) $< build-assets/biblio.md --css=$(CSS_DEFAULT) -V slideous-url=$(SLIDEOUS) -t slidy --mathjax=$(MJ)  -o $@
 
 
-%.pdf: %.md
-	$(PD) $(META) $< build-assets/biblio.md --pdf-engine=xelatex --resource-path=$(RP) --to pdf -o $@
+course-assets/pages-pdf/%.pdf course-assets/posts-pdf/%.pdf %.pdf: %.md
+	$(PD) $(META) $< build-assets/biblio.md --pdf-engine=xelatex --resource-path=$(RP) -t latex -o $@
 
-
-
-.PHONY = echoes
+.PHONY: echoes
 
 echoes:
-	@echo Content: $(content_json) $(content_pdf) $(content_md)
-	@echo Logistics: $(logistics)
+	@echo $(pages)
+	@echo $(pages_pdf)
+	@echo $(posts)
+	@echo $(posts_pdf)
 
-.PHONY = clean
 
-clean: clean_content clean_logistics clean_posts
+.PHONY: clean
 
-clean_content:
-	-rm -f $(content_json) $(content_pdf)  $(content_md) $(content_tex)
+clean: clean_pdf clean_html
 
-clean_logistics:
-	-rm -f $(logistics_html) $(pacing_md) $(logistics_pdf)
+clean_pdf:
+	-rm -f $(notes_pdf)
 
-clean_posts:
-	-rm -f $(posts_slides) $(posts_pdf)  $(posts_html)
+clean_html:
+	-rm -f $(notes_html)

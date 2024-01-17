@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Math87-Tufts University - ProblemSet 1 -- Optimization</title>
+        <title>Math87-Tufts University - ProblemSet 1 -- Optimization
+</title>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
 	</script>	
         <link rel="stylesheet" href="../css/default.css" />
@@ -20,7 +21,7 @@
         <header>
           <div class="logo">
             <a href="../">
-	      Math87 - Spring 2024</a>
+	      Math87 - Spring 2024 - Tufts Univ</a>
           </div>
           <nav>
             <a href="../about.html">About</a>
@@ -30,16 +31,9 @@
         </header>
 
         <main role="main">
-            <h1>ProblemSet 1 -- Optimization</h1>
-            <article>
-    <section class="header">
-        Posted on 2024-09-20
-        
-            by George McNinch
-        
-    </section>
-    <section>
-        <h2 id="an-optimization-question-in-auto-manufacturing">1. An optimization question in auto manufacturing</h2>
+            <h1>ProblemSet 1 -- Optimization
+</h1>
+            <h2 id="an-optimization-question-in-auto-manufacturing">1. An optimization question in auto manufacturing</h2>
 <p>An automobile manufacturer makes a profit of <code>$</code>1,500 per unit on the
 sale of a certain car model. It is estimated that for every <code>$</code>100 of
 rebate, the number of units of this model sold in a given month will
@@ -57,43 +51,27 @@ between 10% and 15% per <code>$</code>100 of rebate?</p></li>
 <li><p>Under what circumstances would an offer of a rebate cause a
 reduction in profit?</p></li>
 </ol>
-<h2 id="oil-spill-again">2. Oil spill, again</h2>
-<p>Recall the problem about oil-spill cleanup described in <a href="https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-01--optimization.ipynb">the class
-notebook</a>.</p>
-<p>The task was to decide how many <em>external clean-up crews</em> to hire in
-order to minimize the total costs of the oil spill. The notebook above
-described the solution to this problem with the following parameters:</p>
-<ul>
-<li><span class="math inline">\(m\)</span> = miles cleaned per crew per day = <span class="math inline">\(5/7\)</span></li>
-<li><span class="math inline">\(f\)</span> = fine charged per day = $10,000</li>
-<li><span class="math inline">\(TC\)</span> = travel costs per outside crew = $18,000</li>
-</ul>
-<p>Describe the changes in the argument required to handle the case in which
-the parameters are changed to:</p>
-<ul>
-<li><span class="math inline">\(m = 0.6\)</span> miles /day</li>
-<li><span class="math inline">\(f =\)</span> $20,000 /day</li>
-<li><span class="math inline">\(TC=\)</span> $20,000 /crew</li>
-</ul>
-<p><em>You should just adapt the code from the notebook.</em></p>
-<ol type="a">
-<li><p>How many external crews must be hired to avoid a fine?</p></li>
-<li><p>How many external crews must be hired to minimize the total costs?</p></li>
-<li><p>What must be changed in the calculus-based argument found in the
-notebook confirming your answer to b.?</p></li>
-<li><p>Use <code>matplotlib</code> to produce a graph of the total cost function
-<span class="math inline">\(C_{\operatorname{tot}}(n)\)</span>. Be sure to consider the utility of
-your choice of the interval for values of <span class="math inline">\(n\)</span> in your graph.</p>
+<h2 id="computing-yields-with-multi-variate-optimization">2. Computing yields with multi-variate optimization</h2>
+<p>A chemist is synthesizing a compound. In the last step, she must dissolve her reagents in a
+solution with a particular <code>pH</code> level <span class="math inline">\(H\)</span>, for <span class="math inline">\(1.2 ≤ H ≤ 2.7\)</span>, and heated to a temperature <span class="math inline">\(T\)</span> (in
+degrees Celsius), for <span class="math inline">\(66 ≤ T ≤ 98\)</span>. Her goal is to maximize her percent yield as a percentage
+of the initial mass of the reagents.</p>
+<p>The equation determining the percentage <span class="math inline">\(F (H,T)\)</span> is</p>
+<p><span class="math display">\[F(H,T) = −0.038\cdot T^2 − 0.223 \cdot T\cdot H − 10.982 \cdot H^2 +
+7.112 \cdot T + 60.912 \cdot H − 328.898.\]</span></p>
+<ol type="1">
+<li><p>Find the optimal temperature and <code>pH</code> level in the allowed range.</p></li>
+<li><p>Use <code>matplotlib</code> to produce a graph and a contour plot of the percentage of the powder
+function <span class="math inline">\(F (H, T )\)</span>.</p></li>
+</ol>
 <p>(To get a usable copy of your image, you can proceed in a few ways:</p>
 <ul>
-<li><p>if you produce the graph in <code>colab</code> you can <code>right-click</code> on
-the image and <code>Save As</code> a file on your file system.</p></li>
-<li><p>if you work in <code>python</code> on your computer, you can save the
-image via a command like</p>
-<pre><code>&gt;&gt;&gt; g.savefig(&quot;my_graph_image.png&quot;)</code></pre>
-<p>)</p></li>
-</ul></li>
-</ol>
+<li><p>if you produce the graph in colab you can right-click on the image
+and Save As a file on your file system.</p></li>
+<li><p>if you work in Python on your computer, you can save the image via
+a command like</p>
+<pre><code>&gt; g.savefig(”my graph image.png”)</code></pre></li>
+</ul>
 <h2 id="blood-typing">3. Blood typing</h2>
 <p>Human blood is generally classified in the “ABO” system, with four
 blood types: <code>A</code>, <code>B</code>, <code>O</code>, and <code>AB</code>. These four types reflect six
@@ -148,9 +126,6 @@ phone number. For these experiments, report the number of
 iterations required for the approximation to be consistent to 10
 digits.</p></li>
 </ol>
-    </section>
-</article>
-
         </main>
 
         <footer>
