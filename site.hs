@@ -16,7 +16,7 @@ mathjaxExtensions = extensionsFromList
 readMathjaxOptions :: ReaderOptions 
 readMathjaxOptions = defaultHakyllReaderOptions
                 {
-                    readerExtensions = (readerExtensions defaultHakyllReaderOptions) <> mathjaxExtensions
+                    readerExtensions = readerExtensions defaultHakyllReaderOptions <> mathjaxExtensions
                 }
 writeMathjaxOptions :: WriterOptions
 writeMathjaxOptions = defaultHakyllWriterOptions 
@@ -26,6 +26,10 @@ writeMathjaxOptions = defaultHakyllWriterOptions
 mathJaxAddedCompiler :: Compiler (Item String)
 mathJaxAddedCompiler = pandocCompilerWith readMathjaxOptions writeMathjaxOptions
 
+
+
+-- nbCompiler :: Compiler (Item String)
+-- nbCompiler = pandocCompilerWithTransformM readMathjaxOptions writeMathjaxOptions $ extractMedia "course-notebooksd/"
 
 
 main :: IO ()
@@ -40,9 +44,17 @@ main = hakyllWith config $ do
     --       >>= loadAndApplyTemplate "templates/default.html" defaultContext
     --       >>= relativizeUrls
 
-    match "course-notebooks/**" $ version "copy" $ do
+    match "course-notebooks/*md" $ do
+        route $ setExtension "html"
+        compile $ mathJaxAddedCompiler
+            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= relativizeUrls
+
+
+    match ("course-notebooks/*ipynb" .||. "course-notebooks/*png" .||. "course-notebooks/images/**" ) $ version "copy" $ do
         route   idRoute
         compile copyFileCompiler
+
 
     match "course-assignments/*md" $ do
         route $ setExtension "html"

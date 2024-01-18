@@ -91,6 +91,7 @@ follows. First, create a project in overleaf. Next, delete the
 template that is provided for the new project, and paste this into the
 editor. Now, when you click “recompile”, overleaf should render the
 output.</p>
+<p><a href="../course-assets/latex-template.pdf">Here is the resulting <code>PDF</code> obtained from compiling this <code>latex</code> document</a>.</p>
 <hr />
 <div class="sourceCode" id="cb1"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">article</span>}</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   </span>
@@ -186,10 +187,20 @@ output.</p>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> square(x): </span>
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">*</span>x</span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    <span class="bu">map</span>(square,[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  <span class="kw">\end</span>{<span class="ex">minted</span>}</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">problem</span>}</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    result1<span class="op">=</span><span class="bu">list</span>(<span class="bu">map</span>(square,[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]))</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    result2<span class="op">=</span><span class="bu">list</span>(<span class="bu">map</span>(square,[<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>]))</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(result1)</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(result2)</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>  <span class="kw">\end</span>{<span class="ex">minted</span>}</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>  and we include also the <span class="fu">\emph</span>{output} from this code's execution:</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>  <span class="kw">\begin</span>{<span class="ex">verbatim</span>}</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="vs">  [1, 4, 9]</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="vs">  [2, 16, 36]</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="kw">\end</span>{<span class="ex">verbatim</span>}</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">problem</span>}</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
     </section>
 </article>
 

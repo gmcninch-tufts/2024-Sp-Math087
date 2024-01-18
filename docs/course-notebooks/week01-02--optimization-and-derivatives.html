@@ -33,32 +33,37 @@
             <h1>week01-02--optimization-and-derivatives</h1>
             <div id="9370c408-0db3-49bb-8c5c-f359902aa62a" class="cell markdown">
 <h1 id="george-mcninch-math-87---spring-2024"><a href="http://gmcninch.math.tufts.edu">George McNinch</a> Math 87 - Spring 2024</h1>
-<h1 id="week-1.3">§ Week 1.3</h1>
-<h1 id="optimization-derivatives-of-functions">Optimization &amp; derivatives of functions</h1>
+<h1 id="-week-13">§ Week 1.3</h1>
+<h1 id="optimization--derivatives-of-functions">Optimization &amp; derivatives of functions</h1>
 </div>
 <div id="a7f22aa0-3b59-4880-ab4b-95cfd6244e72" class="cell markdown">
 <h1 id="using-code-to-calculate-derivatives">Using code to calculate derivatives</h1>
-<p>In our discussion of the <code>oil spill</code> problem, you may have been disappointed to have to do calculations with paper-and-pencil.</p>
-<p>There are two possible ways around this, which I’d like to discuss briefly (with examples).</p>
+<p>In our discussion of the <code>oil spill</code> problem, you may have been
+disappointed to have to do calculations with paper-and-pencil.</p>
+<p>There are two possible ways around this, which I'd like to discuss
+briefly (with examples).</p>
 <ul>
 <li><p>We can use software for symbolic calculation of derivatives.</p></li>
 <li><p>Alternatively, we can <em>numerically approximate</em> derivatives.</p></li>
 </ul>
-<p>This <code>notebook</code> will discuss these possibilities. For each method, we first treat some simple examples, and then we apply the method to the <code>oil spill</code> problem.</p>
+<p>This <code>notebook</code> will discuss these possibilities. For each method, we
+first treat some simple examples, and then we apply the method to the
+<code>oil spill</code> problem.</p>
 </div>
 <div id="d8c6c55e-e921-43ac-8e81-10b63c28e4dd" class="cell markdown">
 <h1 id="symbolic-calculations">Symbolic calculations</h1>
-<p>First, let’s investige how <code>python</code> can make symbolic calculations using the <code>sympy</code> package.</p>
-<p>For more details about symbolic calculations in python consult the <a href="https://www.sympy.org/en/index.html">symbolic
-mathematics package</a>.</p>
+<p>First, let's investige how <code>python</code> can make symbolic calculations
+using the <code>sympy</code> package.</p>
+<p>For more details about symbolic calculations in python consult the
+<a href="https://www.sympy.org/en/index.html">symbolic mathematics package</a>.</p>
 </div>
 <div id="d9a9ec4c-0abc-4290-a9d9-67370e504158" class="cell markdown">
 <h2 id="a-simple-example">A simple example</h2>
-<p>Let’s find and classify the critical points for the cubic polynomial</p>
+<p>Let's find and classify the critical points for the cubic polynomial</p>
 <p><span class="math display">\[G(t) = t^3 - 4t^2 - 5t - 2.\]</span></p>
 </div>
 <div id="33616bbc-f439-42cc-b4af-865e9e25df9f" class="cell markdown">
-<p>Let’s import the <code>sympy</code> package, and declare <code>tt</code> to be a <em>symbol</em>:</p>
+<p>Let's import the <code>sympy</code> package, and declare <code>tt</code> to be a <em>symbol</em>:</p>
 </div>
 <div id="6d438a59-0df7-4091-9610-0b9334c51c94" class="cell code" data-execution_count="1">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
@@ -67,7 +72,8 @@ mathematics package</a>.</p>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tt <span class="op">=</span> sp.Symbol(<span class="st">'t'</span>) </span></code></pre></div>
 </div>
 <div id="3b42aee5-80b1-41bc-82cf-03348d6a1874" class="cell markdown">
-<p>We now define the function <span class="math inline">\(G\)</span>, and we create a corresponding <em>symbolic</em> version of <span class="math inline">\(G\)</span> by evaluating the function <span class="math inline">\(G\)</span> at the symbol <code>tt</code>.</p>
+<p>We now define the function <span class="math inline">\(G\)</span>, and we create a corresponding <em>symbolic</em>
+version of <span class="math inline">\(G\)</span> by evaluating the function <span class="math inline">\(G\)</span> at the symbol <code>tt</code>.</p>
 </div>
 <div id="81105534-abe3-4c7e-a996-968231d3fec5" class="cell code" data-execution_count="2">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> G(t): <span class="cf">return</span> t<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>t <span class="op">-</span> <span class="dv">2</span></span>
@@ -75,9 +81,7 @@ mathematics package</a>.</p>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Gs <span class="op">=</span> G(tt)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Gs</span></code></pre></div>
 <div class="output execute_result" data-execution_count="2">
-<p><img src="f92b3ed2eb938bbf25b7d5dfcf1c9c1faae98aae.png" /></p>
-<pre><code> 3      2          
-t  - 4⋅t  - 5⋅t - 2</code></pre>
+<p><img src="../course-notebooks/images/f92b3ed2eb938bbf25b7d5dfcf1c9c1faae98aae.png" /></p>
 </div>
 </div>
 <div id="d2e5d0c9-a858-4bba-97f9-e9deb300bce1" class="cell markdown">
@@ -85,155 +89,157 @@ t  - 4⋅t  - 5⋅t - 2</code></pre>
 the function <code>diff</code> from the <code>sympy</code> package:</p>
 </div>
 <div id="420938c1-0b3f-483c-8fe5-8d9fb420fd5b" class="cell code" data-execution_count="3">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DGs <span class="op">=</span> sp.diff(Gs,tt)           <span class="co"># first derivative</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>DDGs <span class="op">=</span> sp.diff(DGs,tt)         <span class="co"># second derivative</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DGs <span class="op">=</span> sp.diff(Gs,tt)           <span class="co"># first derivative</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>DDGs <span class="op">=</span> sp.diff(DGs,tt)         <span class="co"># second derivative</span></span></code></pre></div>
 </div>
 <div id="723d4032-6164-4281-acf7-622096edc7ff" class="cell markdown">
 <p>For example, we can see the first derivative:</p>
 </div>
 <div id="a7bc13b2-6334-47b9-ae0c-15fe776e3501" class="cell code" data-execution_count="4">
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DGs</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DGs</span></code></pre></div>
 <div class="output execute_result" data-execution_count="4">
-<p><img src="beb6082c6e399ba35d39c5424c265d072dd54b43.png" /></p>
-<pre><code>   2          
-3⋅t  - 8⋅t - 5</code></pre>
+<p><img src="../course-notebooks/images/beb6082c6e399ba35d39c5424c265d072dd54b43.png" /></p>
 </div>
 </div>
 <div id="f8f456e3-0d75-46b6-a5a0-8543c631f413" class="cell markdown">
-<p>Now we use the <code>sympy</code> solver to find the critical points of <span class="math inline">\(G\)</span> - i.e the solutions of the equation <code>DGs == 0</code></p>
+<p>Now we use the <code>sympy</code> solver to find the critical points of <span class="math inline">\(G\)</span> - i.e
+the solutions of the equation <code>DGs == 0</code></p>
 </div>
 <div id="1636c6a2-d68c-4ae4-945e-e1d9340a8d9c" class="cell code" data-execution_count="5">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>crits <span class="op">=</span> sp.solve(DGs,tt)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>crits</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>crits <span class="op">=</span> sp.solve(DGs,tt)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>crits</span></code></pre></div>
 <div class="output execute_result" data-execution_count="5">
-<p><img src="6bf0a8070034571e432a5bd2c2f2febf671becef.png" /></p>
-<pre><code>⎡4   √31  4   √31⎤
-⎢─ - ───, ─ + ───⎥
-⎣3    3   3    3 ⎦</code></pre>
+<p><img src="../course-notebooks/images/6bf0a8070034571e432a5bd2c2f2febf671becef.png" /></p>
 </div>
 </div>
 <div id="c4887e3a-e3a4-4a2d-881d-01c9f1bacbbd" class="cell code" data-execution_count="7">
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> c: c.evalf(),crits))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> c: c.evalf(),crits))</span></code></pre></div>
 <div class="output execute_result" data-execution_count="7">
-<p><img src="63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png" /></p>
-<pre><code>[-0.522588120943341, 3.18925478761001]</code></pre>
+<p><img src="../course-notebooks/images/63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png" /></p>
 </div>
 </div>
 <div id="f833bb4c-3c7b-4912-a13f-3e820ba8ccc7" class="cell markdown">
-<p>Using the fuction <code>lambdify</code>, we make an actual function <code>DDG</code> out of the symbolic expression <code>DDGs</code> and apply this function to each critical point:</p>
+<p>Using the fuction <code>lambdify</code>, we make an actual function <code>DDG</code> out of
+the symbolic expression <code>DDGs</code> and apply this function to each critical
+point:</p>
 </div>
 <div id="d4905dd7-0ee1-4fe9-8a0a-04a19358f08f" class="cell code">
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>DDG <span class="op">=</span> sp.lambdify(tt,DDGs)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">map</span>(DDG,crits))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DDG <span class="op">=</span> sp.lambdify(tt,DDGs)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">map</span>(DDG,crits))</span></code></pre></div>
 </div>
 <div id="9c5e1199-1406-4c25-adfd-972c9898befb" class="cell markdown">
-<p>Since the value of <code>DDG</code> is <em>negative</em> at the first critical point, we see that <span class="math inline">\(G\)</span> has a local max at <span class="math inline">\(t=\dfrac{4}{3} - \dfrac{\sqrt{31}}{3}\)</span>.</p>
-<p>Similarly, <span class="math inline">\(G\)</span> has a local min at <span class="math inline">\(t=\dfrac{4}{3} +\dfrac{\sqrt{31}}{3}\)</span>.</p>
+<p>Since the value of <code>DDG</code> is <em>negative</em> at the first critical point, we
+see that <span class="math inline">\(G\)</span> has a local max at <span class="math inline">\(t=\dfrac{4}{3} - \dfrac{\sqrt{31}}{3}\)</span>.</p>
+<p>Similarly, <span class="math inline">\(G\)</span> has a local min at
+<span class="math inline">\(t=\dfrac{4}{3} +\dfrac{\sqrt{31}}{3}\)</span>.</p>
 <p>We confirm this with a sketch of the graph of <span class="math inline">\(G\)</span>:</p>
 </div>
 <div id="7cd3fd9e-174a-4d96-a677-f84199b5e3f3" class="cell code">
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>,<span class="dv">6</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()  </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>ax.plot(t,G(t),label<span class="op">=</span><span class="st">&quot;G&quot;</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> crits:</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        ax.axvline(x<span class="op">=</span>t, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, dashes<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">4</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>,<span class="dv">6</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()  </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>ax.plot(t,G(t),label<span class="op">=</span><span class="st">&quot;G&quot;</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> crits:</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        ax.axvline(x<span class="op">=</span>t, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, dashes<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">4</span>])</span></code></pre></div>
 </div>
 <div id="63cddc08-9c69-4e63-af5d-07ce384148b6" class="cell markdown">
 <h2 id="a-trig-example">A trig example</h2>
-<p>Let <span class="math inline">\(H1(t) = \sin(5t)\)</span> and <span class="math inline">\(H2(t) = \sin(5t + 3\pi/8)\)</span>. Let’s classify the critical points of <span class="math inline">\(H1(t)\)</span> and <span class="math inline">\(H2(t)\)</span> on the interval <span class="math inline">\([-\pi,\pi]\)</span>.</p>
+<p>Let <span class="math inline">\(H1(t) = \sin(5t)\)</span> and <span class="math inline">\(H2(t) = \sin(5t + 3\pi/8)\)</span>. Let's classify
+the critical points of <span class="math inline">\(H1(t)\)</span> and <span class="math inline">\(H2(t)\)</span> on the interval <span class="math inline">\([-\pi,\pi]\)</span>.</p>
 <p>This time, we use the <code>sin</code> function from the <code>sympy</code> library.</p>
 </div>
 <div id="1091b541-0211-4290-a03d-f578dbf06fc2" class="cell code">
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sp.init_printing()</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>tt <span class="op">=</span> sp.Symbol(<span class="st">'t'</span>) </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>H1s <span class="op">=</span> sp.sin(<span class="dv">5</span><span class="op">*</span>tt)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>H2s <span class="op">=</span> sp.sin(<span class="dv">5</span><span class="op">*</span>tt <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>sp.S.Pi<span class="op">/</span><span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sp.init_printing()</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>tt <span class="op">=</span> sp.Symbol(<span class="st">'t'</span>) </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>H1s <span class="op">=</span> sp.sin(<span class="dv">5</span><span class="op">*</span>tt)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>H2s <span class="op">=</span> sp.sin(<span class="dv">5</span><span class="op">*</span>tt <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>sp.S.Pi<span class="op">/</span><span class="dv">8</span>)</span></code></pre></div>
 </div>
 <div id="edd482ef-d732-4f7a-ba29-6a2400de4cac" class="cell code">
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>DH1s <span class="op">=</span> sp.diff(H1s)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>DH1s</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DH1s <span class="op">=</span> sp.diff(H1s)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>DH1s</span></code></pre></div>
 </div>
 <div id="70ca2619-96b9-45d7-b6d9-7f780b6e6a05" class="cell code">
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>DH2s <span class="op">=</span> sp.diff(H2s)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>DH2s</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>DH2s <span class="op">=</span> sp.diff(H2s)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>DH2s</span></code></pre></div>
 </div>
 <div id="db1c165b-696f-4c7a-a9be-b23aae6c6614" class="cell code">
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>DDH1s <span class="op">=</span> sp.diff(DH1s)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>DDH1s</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>DDH1s <span class="op">=</span> sp.diff(DH1s)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>DDH1s</span></code></pre></div>
 </div>
 <div id="1ca44d6c-3e46-485a-905d-8c8f0b9e5701" class="cell code">
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>DDH2s <span class="op">=</span> sp.diff(DH2s)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>DDH2s</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>DDH2s <span class="op">=</span> sp.diff(DH2s)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>DDH2s</span></code></pre></div>
 </div>
 <div id="a1c7d04c-8a12-4dc8-960f-35636f3d38b8" class="cell markdown">
-<p>Now, we want to find the critical points in the interval <span class="math inline">\([-\pi,\pi]\)</span>. For this, we first
-define this <code>interval</code> and use the <code>solveset</code> function to find the solutions to <code>DHs==0</code> on this interval:</p>
+<p>Now, we want to find the critical points in the interval <span class="math inline">\([-\pi,\pi]\)</span>.
+For this, we first define this <code>interval</code> and use the <code>solveset</code>
+function to find the solutions to <code>DHs==0</code> on this interval:</p>
 </div>
 <div id="51de2160-1a06-4922-a8d6-fdc2639929f7" class="cell code">
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span> <span class="op">=</span> sp.sets.sets.Interval(<span class="op">-</span>np.pi,np.pi)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>crits1 <span class="op">=</span> sp.solveset(DH1s,tt,domain<span class="op">=</span><span class="bu">int</span>)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(crits1)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span> <span class="op">=</span> sp.sets.sets.Interval(<span class="op">-</span>np.pi,np.pi)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>crits1 <span class="op">=</span> sp.solveset(DH1s,tt,domain<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(crits1)</span></code></pre></div>
 </div>
 <div id="a773e568-a605-4572-b413-8ebc6ac63863" class="cell code">
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>crits2 <span class="op">=</span> sp.solveset(DH2s,tt,domain<span class="op">=</span><span class="bu">int</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>crits2</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>crits2 <span class="op">=</span> sp.solveset(DH2s,tt,domain<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>crits2</span></code></pre></div>
 </div>
 <div id="c5cc6fcd-b673-466d-96d0-bc8c4faefcf2" class="cell markdown">
-<p>We now use the second derivative test to classify the critical points as a (local) <code>min</code> or <code>max</code></p>
+<p>We now use the second derivative test to classify the critical points as
+a (local) <code>min</code> or <code>max</code></p>
 </div>
 <div id="a693c257-138d-45f3-873a-94588517bcb4" class="cell code">
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classify(DD,cp): </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> DD.subs(tt,cp)<span class="op">&gt;</span><span class="dv">0</span>:</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;min&quot;</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> DD.subs(tt,cp)<span class="op">&lt;</span><span class="dv">0</span>:</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;max&quot;</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: <span class="cf">return</span> <span class="st">&quot;inconclusive&quot;</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: (x,classify(DDH1s,x)),crits1.evalf()))</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classify(DD,cp): </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> DD.subs(tt,cp)<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;min&quot;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> DD.subs(tt,cp)<span class="op">&lt;</span><span class="dv">0</span>:</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;max&quot;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: <span class="cf">return</span> <span class="st">&quot;inconclusive&quot;</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: (x,classify(DDH1s,x)),crits1.evalf()))</span></code></pre></div>
 </div>
 <div id="16b074b4-680c-40b6-aa15-3b4c3f298f96" class="cell code">
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: (x,classify(DDH2s,x)),crits2.evalf()))</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: (x,classify(DDH2s,x)),crits2.evalf()))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div>
 </div>
 <div id="dcfbb3c8-bd4a-4a15-bc14-25108c125739" class="cell markdown">
-<p>Let’s confirm our classification using graphs:</p>
+<p>Let's confirm our classification using graphs:</p>
 </div>
 <div id="d37ed067-78a0-4d05-9089-b01547ee175b" class="cell code">
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>tl <span class="op">=</span> np.linspace(<span class="op">-</span>np.pi,np.pi,<span class="dv">200</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> H1(t): <span class="cf">return</span> np.sin(<span class="dv">5</span><span class="op">*</span>t)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> H2(t): <span class="cf">return</span> np.sin(<span class="dv">5</span><span class="op">*</span>t <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>np.pi<span class="op">/</span><span class="dv">8</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()  </span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">&quot;Graph of H1(t) = sin(5t)&quot;</span>)</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>ax.plot(tl,H1(tl),label<span class="op">=</span><span class="st">&quot;H1&quot;</span>)</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> crits1:</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>        ax.axvline(x<span class="op">=</span>t, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, dashes<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">4</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>tl <span class="op">=</span> np.linspace(<span class="op">-</span>np.pi,np.pi,<span class="dv">200</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> H1(t): <span class="cf">return</span> np.sin(<span class="dv">5</span><span class="op">*</span>t)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> H2(t): <span class="cf">return</span> np.sin(<span class="dv">5</span><span class="op">*</span>t <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>np.pi<span class="op">/</span><span class="dv">8</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()  </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">&quot;Graph of H1(t) = sin(5t)&quot;</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>ax.plot(tl,H1(tl),label<span class="op">=</span><span class="st">&quot;H1&quot;</span>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> crits1:</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        ax.axvline(x<span class="op">=</span>t, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, dashes<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">4</span>])</span></code></pre></div>
 </div>
 <div id="9057983a-c662-4e7f-a7d1-7799100b2cd5" class="cell code">
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()  </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>ax.plot(tl,H2(tl),label<span class="op">=</span><span class="st">&quot;H2&quot;</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">&quot;Graph of H2(t) = sin(5t + 3pi/8)&quot;</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> crits2:</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        ax.axvline(x<span class="op">=</span>t, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, dashes<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">4</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()  </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ax.plot(tl,H2(tl),label<span class="op">=</span><span class="st">&quot;H2&quot;</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">&quot;Graph of H2(t) = sin(5t + 3pi/8)&quot;</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> crits2:</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        ax.axvline(x<span class="op">=</span>t, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, dashes<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">4</span>])</span></code></pre></div>
 </div>
 <div id="2a3e5f73-e1e5-4b27-acd6-a85a3c4ad785" class="cell markdown">
-<h2 id="return-to-the-oil-spill-problem">Return to the “oil spill” problem</h2>
+<h2 id="return-to-the-oil-spill-problem">Return to the "oil spill" problem</h2>
 <p>Recall the <code>python</code> expressions for the main function of interest:</p>
 <ul>
 <li>$C_{tot}(n) $ <code>c.cost(n)</code></li>
@@ -250,78 +256,86 @@ such tests can’t be sensibly interpreted).</p>
 expression <em>can</em> be evaluated at the symbolic variable <code>y</code>.</p>
 <p>And <em>sympy</em> permits us to symbolically differentiate the resulting
 expression:</p>
-<p>In the next cell, we load the <em>definitions</em> from the <code>oil spill</code> notebook.</p>
+<p>In the next cell, we load the <em>definitions</em> from the <code>oil spill</code>
+notebook.</p>
 </div>
 <div id="868c1292-0c3a-433e-a863-05332ed0798b" class="cell code">
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run week01<span class="op">-</span><span class="dv">0</span><span class="er">2</span><span class="op">--</span>optimization.ipynb <span class="im">import</span> <span class="op">*</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run week01<span class="op">-</span><span class="dv">0</span><span class="er">2</span><span class="op">--</span>optimization.ipynb <span class="im">import</span> <span class="op">*</span></span></code></pre></div>
 </div>
 <div id="7dbd73cd-744f-46db-99ac-da9e0fb1f89e" class="cell code">
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>sp.init_printing()</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> OilSpillCleanup()</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sp.Symbol(<span class="st">'y'</span>)    <span class="co"># symbolic variable</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lcost(n):</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c.crew_costs(n) <span class="op">+</span> c.fine_per_day <span class="op">*</span> (c.time(n) <span class="op">-</span> <span class="dv">14</span>)</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>lcost_symb <span class="op">=</span> lcost(y)</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>D_lcost_symb <span class="op">=</span> sp.diff(lcost_symb,y)  <span class="co"># first derivative, for n&lt;19</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>DD_lcost_symb <span class="op">=</span> sp.diff(D_lcost_symb,y) <span class="co"># second derivative, for n&lt;19</span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>lcost_symb</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>sp.init_printing()</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> OilSpillCleanup()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sp.Symbol(<span class="st">'y'</span>)    <span class="co"># symbolic variable</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lcost(n):</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c.crew_costs(n) <span class="op">+</span> c.fine_per_day <span class="op">*</span> (c.time(n) <span class="op">-</span> <span class="dv">14</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>lcost_symb <span class="op">=</span> lcost(y)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>D_lcost_symb <span class="op">=</span> sp.diff(lcost_symb,y)  <span class="co"># first derivative, for n&lt;19</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>DD_lcost_symb <span class="op">=</span> sp.diff(D_lcost_symb,y) <span class="co"># second derivative, for n&lt;19</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>lcost_symb</span></code></pre></div>
 </div>
 <div id="05590baa-42c2-4b22-b1ea-1b86825579aa" class="cell code">
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>D_lcost_symb</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>D_lcost_symb</span></code></pre></div>
 </div>
 <div id="40eb970d-f100-469b-8ab4-fe022cea70c2" class="cell code">
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>DD_lcost_symb</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>DD_lcost_symb</span></code></pre></div>
 </div>
 <div id="cc4cd615-e326-47b3-a4df-552384fac771" class="cell markdown">
 <p>Now e.g. <code>sympy</code> solvers are able to find the critical point for the
 symbolic derivative <code>D_lcost_symb</code>, as follows:</p>
 </div>
 <div id="2d9d4dfb-9609-4b7e-9a65-ebdc0c761116" class="cell code">
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>crits <span class="op">=</span> sp.solve(D_lcost_symb,y)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crits)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>crits <span class="op">=</span> sp.solve(D_lcost_symb,y)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crits)</span></code></pre></div>
 </div>
 <div id="704afbc0-1546-4cb7-91d3-e3b756f5e86c" class="cell markdown">
-<p>Notice that the value of the second derivative at the positive critical point <span class="math inline">\(11.28\)</span> is positive:</p>
+<p>Notice that the value of the second derivative at the positive critical
+point <span class="math inline">\(11.28\)</span> is positive:</p>
 </div>
 <div id="a8400ffe-4e21-4483-9b83-e7dcfc286dc6" class="cell code">
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>DD_lcost <span class="op">=</span> sp.lambdify(y,DD_lcost_symb)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>DD_lcost(crits[<span class="dv">1</span>])<span class="op">&gt;</span><span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>DD_lcost <span class="op">=</span> sp.lambdify(y,DD_lcost_symb)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>DD_lcost(crits[<span class="dv">1</span>])<span class="op">&gt;</span><span class="dv">0</span></span></code></pre></div>
 </div>
 <div id="60af21bb-92b9-4393-89d1-065fa129aaf6" class="cell markdown">
-<p>This the second derivative test shows that our postive critical point of 11.28 determines a <em>local minimum</em> for the cost function; this is the conclusion we came to previously.</p>
-<p>Note that this symbolic method doesn’t completely solve the problem: we still require analysis
-about the interval <span class="math inline">\(19 &lt; n\)</span> (where the cost function isn’t modeled by our symbolic function <code>lcost_symb</code>).</p>
+<p>This the second derivative test shows that our postive critical point of
+11.28 determines a <em>local minimum</em> for the cost function; this is the
+conclusion we came to previously.</p>
+<p>Note that this symbolic method doesn't completely solve the problem: we
+still require analysis about the interval <span class="math inline">\(19 &lt; n\)</span> (where the cost
+function isn’t modeled by our symbolic function <code>lcost_symb</code>).</p>
 </div>
 <div id="025f9490-7663-4d32-9ec4-88edd7fde59b" class="cell markdown">
 <h1 id="numerical-calculations">Numerical calculations</h1>
-<p>In another direction, rather than relying on symbolic calculations, we can use numerical methods to approximate derivatives.</p>
-<p>Let’s see what this might look like. We import the <code>numpy</code> package, and define some functions to extract critical points. These functions depend on the <code>numpy</code> function
-<code>gradient</code> which - in the case of a function of a single variable - approximates the derivative.</p>
+<p>In another direction, rather than relying on symbolic calculations, we
+can use numerical methods to approximate derivatives.</p>
+<p>Let's see what this might look like. We import the <code>numpy</code> package, and
+define some functions to extract critical points. These functions depend
+on the <code>numpy</code> function <code>gradient</code> which - in the case of a function of
+a single variable - approximates the derivative.</p>
 </div>
 <div id="0ad5e8ef-5867-499a-9d34-55f0fd9697d6" class="cell code" data-execution_count="9">
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crit_pts(ff,xx,tol<span class="op">=</span><span class="fl">1E-5</span>):</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    gg <span class="op">=</span> np.gradient(ff,xx)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> [ x <span class="cf">for</span> (x,g) <span class="kw">in</span> <span class="bu">zip</span>(xx,gg)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> np.<span class="bu">abs</span>(g)<span class="op">&lt;</span>tol ]</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crit_pts_fun(f,a,b,n,tol<span class="op">=</span><span class="fl">1E-5</span>):</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    xx<span class="op">=</span>np.arange(a,b,<span class="dv">1</span><span class="op">/</span>n)</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    ff<span class="op">=</span>f(xx)</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> crit_pts(ff,xx,tol)</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crit_pts(ff,xx,tol<span class="op">=</span><span class="fl">1E-5</span>):</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    gg <span class="op">=</span> np.gradient(ff,xx)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> [ x <span class="cf">for</span> (x,g) <span class="kw">in</span> <span class="bu">zip</span>(xx,gg)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> np.<span class="bu">abs</span>(g)<span class="op">&lt;</span>tol ]</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crit_pts_fun(f,a,b,n,tol<span class="op">=</span><span class="fl">1E-5</span>):</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    xx<span class="op">=</span>np.arange(a,b,<span class="dv">1</span><span class="op">/</span>n)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    ff<span class="op">=</span>f(xx)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> crit_pts(ff,xx,tol)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
 </div>
 <div id="339d1c31-dadc-4d43-a8ce-a642837b8dfb" class="cell markdown">
 <p>Let use these functions on our cubic polynomial <span class="math inline">\(G(t)\)</span> from above.
@@ -329,63 +343,59 @@ Remember that the <code>sympy</code> solve found the critical points to be
 <span class="math inline">\(\dfrac{4}{3} \pm \dfrac{\sqrt{31}}{3}\)</span>.</p>
 </div>
 <div id="d1ea771b-87f0-40f6-8e3a-09ea1f7fd31a" class="cell code" data-execution_count="10">
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> G(t): <span class="cf">return</span> t<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>t <span class="op">-</span> <span class="dv">2</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>crit_pts_fun(G,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="fl">5E3</span>,tol<span class="op">=</span><span class="fl">1E-3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> G(t): <span class="cf">return</span> t<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>t <span class="op">-</span> <span class="dv">2</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>crit_pts_fun(G,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="fl">5E3</span>,tol<span class="op">=</span><span class="fl">1E-3</span>)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="10">
-<p><img src="b9eb0e7894a01c8e2ef5169ec7ce9d221c72a326.png" /></p>
-<pre><code>[-0.5226000000001627, 3.1891999999994285]</code></pre>
+<p><img src="../course-notebooks/images/b9eb0e7894a01c8e2ef5169ec7ce9d221c72a326.png" /></p>
 </div>
 </div>
 <div id="a7089ab3-fb59-459a-a5c1-f3019c9ab3f0" class="cell markdown">
 <p>Compare with:</p>
 </div>
 <div id="9179e3c1-6fda-47b2-9bab-9fae26509fdf" class="cell code" data-execution_count="12">
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span><span class="op">/</span><span class="dv">3</span> <span class="op">-</span> np.sqrt(<span class="dv">31</span>)<span class="op">/</span><span class="dv">3</span>,<span class="dv">4</span><span class="op">/</span><span class="dv">3</span> <span class="op">+</span> np.sqrt(<span class="dv">31</span>)<span class="op">/</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span><span class="op">/</span><span class="dv">3</span> <span class="op">-</span> np.sqrt(<span class="dv">31</span>)<span class="op">/</span><span class="dv">3</span>,<span class="dv">4</span><span class="op">/</span><span class="dv">3</span> <span class="op">+</span> np.sqrt(<span class="dv">31</span>)<span class="op">/</span><span class="dv">3</span>]</span></code></pre></div>
 <div class="output execute_result" data-execution_count="12">
-<p><img src="63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png" /></p>
-<pre><code>[-0.5225881209433405, 3.189254787610007]</code></pre>
+<p><img src="../course-notebooks/images/63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png" /></p>
 </div>
 </div>
 <div id="a972ad55-21bc-4ecd-945c-da3be6125eb0" class="cell markdown">
-<p><strong>But</strong>: if we change the tolerances in the argument to <code>crit_pts_fun</code>, we get redundant critical points, or we miss critical points.</p>
+<p><strong>But</strong>: if we change the tolerances in the argument to <code>crit_pts_fun</code>,
+we get redundant critical points, or we miss critical points.</p>
 </div>
 <div id="f6b48135-7ed6-42e9-ba78-108faf6a7ec2" class="cell code" data-execution_count="22">
-<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>crit_pts_fun(G,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="fl">5E3</span>,tol<span class="op">=</span><span class="fl">5E-3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>crit_pts_fun(G,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="fl">5E3</span>,tol<span class="op">=</span><span class="fl">5E-3</span>)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="22">
-<p><img src="775b95a96a0ce35325ff4075641d3ae4598f054d.png" /></p>
-<pre><code>[-0.5230000000001627, -0.5228000000001627, -0.5226000000001627, -0.5224000000001627, -0.52220000000016
-28, 3.188999999999428, 3.1891999999994285, 3.189399999999429, 3.1895999999994284]</code></pre>
+<p><img src="../course-notebooks/images/775b95a96a0ce35325ff4075641d3ae4598f054d.png" /></p>
 </div>
 </div>
 <div id="9a3eadb8-04e0-4a45-97ee-a66d62c0649e" class="cell code" data-execution_count="23">
-<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>crit_pts_fun(G,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="fl">5E3</span>,tol<span class="op">=</span><span class="fl">1E-4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>crit_pts_fun(G,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="fl">5E3</span>,tol<span class="op">=</span><span class="fl">1E-4</span>)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="23">
-<p><img src="b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png" /></p>
-<pre><code>[]</code></pre>
+<p><img src="../course-notebooks/images/b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png" /></p>
 </div>
 </div>
 <div id="9c5942e4-3aab-404e-9ae8-e069aefec84e" class="cell markdown">
-<p>Let’s return to our <code>oil spill</code> problem.</p>
+<p>Let's return to our <code>oil spill</code> problem.</p>
 </div>
 <div id="168729e5-9bdb-494b-9721-c01c1bd522c0" class="cell code" data-execution_count="19">
-<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run week01<span class="op">-</span><span class="dv">0</span><span class="er">1</span><span class="op">--</span>optimization.ipynb <span class="im">import</span> <span class="op">*</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run week01<span class="op">-</span><span class="dv">0</span><span class="er">1</span><span class="op">--</span>optimization.ipynb <span class="im">import</span> <span class="op">*</span></span></code></pre></div>
 </div>
 <div id="f538e286-ab4b-4421-b28f-32d6e51ba632" class="cell markdown">
-<p>If we make good choices of tolerances, we can get a pretty good estimate for the critical point of the cost function:</p>
+<p>If we make good choices of tolerances, we can get a pretty good estimate
+for the critical point of the cost function:</p>
 </div>
 <div id="9dcfe343-57fc-464d-9284-b32188e95b79" class="cell code" data-execution_count="32">
-<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> OilSpillCleanup()</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> np.vectorize(c.cost)</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>res<span class="op">=</span>crit_pts_fun(f,<span class="dv">0</span>,<span class="dv">19</span>,<span class="fl">1E4</span>,<span class="fl">1E-1</span>)</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> OilSpillCleanup()</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> np.vectorize(c.cost)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>res<span class="op">=</span>crit_pts_fun(f,<span class="dv">0</span>,<span class="dv">19</span>,<span class="fl">1E4</span>,<span class="fl">1E-1</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
 <div class="output execute_result" data-execution_count="32">
-<p><img src="36c7bfc7e90531d9187b20b17e2b22c2a488c99d.png" /></p>
-<pre><code>[11.283700000000001]</code></pre>
+<p><img src="../course-notebooks/images/36c7bfc7e90531d9187b20b17e2b22c2a488c99d.png" /></p>
 </div>
 </div>
 <div id="933fe3c5-bbbc-454d-b9a7-08f074859fa3" class="cell markdown">
@@ -393,22 +403,20 @@ Remember that the <code>sympy</code> solve found the critical points to be
 <p>with the wrong tolerances, it is easy to miss the critical point:</p>
 </div>
 <div id="413f1151-24ad-4c2d-96a2-95664e541b63" class="cell code" data-execution_count="37">
-<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>res<span class="op">=</span>crit_pts_fun(f,<span class="dv">0</span>,<span class="dv">19</span>,<span class="fl">1E4</span>,<span class="fl">1E-2</span>)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>res<span class="op">=</span>crit_pts_fun(f,<span class="dv">0</span>,<span class="dv">19</span>,<span class="fl">1E4</span>,<span class="fl">1E-2</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
 <div class="output execute_result" data-execution_count="37">
-<p><img src="b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png" /></p>
-<pre><code>[]</code></pre>
+<p><img src="../course-notebooks/images/b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png" /></p>
 </div>
 </div>
 <div id="a334e536-3772-4ecf-977b-42a0fa5f0009" class="cell markdown">
 <p>And it is easy to get redundant reported critical points:</p>
 </div>
 <div id="2e1ab6fe-1e3c-461f-9382-409880822133" class="cell code" data-execution_count="36">
-<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>res<span class="op">=</span>crit_pts_fun(f,<span class="dv">0</span>,<span class="dv">19</span>,<span class="fl">1E4</span>,<span class="fl">4E-1</span>)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>res<span class="op">=</span>crit_pts_fun(f,<span class="dv">0</span>,<span class="dv">19</span>,<span class="fl">1E4</span>,<span class="fl">4E-1</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
 <div class="output execute_result" data-execution_count="36">
-<p><img src="180923d75e3b701be5b1433d11fa5135e04ecfc4.png" /></p>
-<pre><code>[11.2836, 11.283700000000001, 11.283800000000001]</code></pre>
+<p><img src="../course-notebooks/images/180923d75e3b701be5b1433d11fa5135e04ecfc4.png" /></p>
 </div>
 </div>
         </main>

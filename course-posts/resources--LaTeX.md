@@ -69,7 +69,7 @@ template that is provided for the new project, and paste this into the
 editor. Now, when you click "recompile", overleaf should render the
 output.
 
-
+[Here is the resulting `PDF` obtained from compiling this `latex` document](/course-assets/latex-template.pdf).
 
 ----
 
@@ -169,8 +169,18 @@ And it has a
     def square(x): 
     return x*x
     
-    map(square,[1,2,3])
+    result1=list(map(square,[1,2,3]))
+    result2=list(map(square,[2,4,6]))
+    print(result1)
+    print(result2)
   \end{minted}
+
+  and we include also the \emph{output} from this code's execution:
+  \begin{verbatim}
+  [1, 4, 9]
+  [2, 16, 36]
+  \end{verbatim}
+
 \end{problem}
 \end{document}
 ```

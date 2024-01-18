@@ -13,7 +13,7 @@
 > An oil spill has contaminated 200 miles of Alaskan shoreline. The
 > shipping company responsible for the accident has been given 14 days
 > to clean up the shoreline, after which it will be required to pay a
-> fine of \$10,000 per day for each day in which any part of the
+> fine of \$\$\$10,000 per day for each day in which any part of the
 > shoreline remains uncleaned.
 
 Let's assume that the fine depends on fractional days. For example, if
@@ -25,11 +25,12 @@ $$1.5 \cdot 10000 = 15000.$$
 > Cleanup crews can be hired, and each crew cleans 5 miles of beach per
 > week.
 >
-> There is one local cleanup crew available at a cost of \$500 per day.
+> There is one local cleanup crew available at a cost of \\\$500 per
+> day.
 >
 > Additional non-local crews can be hired. The hire of each non-local
-> crew incurs an \$18,000 one-time travel cost. These additional crews
-> work for \$800 per day for each crew (and each crew has the same
+> crew incurs an \\\$18,000 one-time travel cost. These additional crews
+> work for \\\$800 per day for each crew (and each crew has the same
 > cleanup rate of 5 miles of beach per week).
 :::
 
@@ -87,7 +88,7 @@ class OilSpillCleanup:
         self.miles = miles                
         self.cleanup_rate = cleanup_rate   
         self.tc = tc                      
-        self.fine_per_day = fine_per_day
+        self.fin).e_per_day = fine_per_day
        
     def report_params(self):
         return { "miles to clean": self.miles,
@@ -625,7 +626,7 @@ gg=create_graph(c,vlines=[11.23,19])
 ```
 
 ::: {.output .display_data}
-![](course-notebooks/a7233cf65ae83103873e8358f8c8c86c8e189747.png)
+![](../course-notebooks/images/a7233cf65ae83103873e8358f8c8c86c8e189747.png)
 :::
 :::
 

@@ -36,7 +36,7 @@
 </div>
 <div id="1ecadfa0-57b3-4ecb-a091-ee09e6f7a73d" class="cell markdown">
 <h1 id="george-mcninch-math-87---spring-2024"><a href="http://gmcninch.math.tufts.edu">George McNinch</a> Math 87 - Spring 2024</h1>
-<h1 id="multi-variable-optimization">§ Multi-variable Optimization</h1>
+<h1 id="-multi-variable-optimization">§ Multi-variable Optimization</h1>
 </div>
 <div id="34c4fcd8-ff55-4e9a-a968-4e3a2cf7e0ef" class="cell markdown">
 <h1 id="optimization-with-functions-of-several-variables">Optimization with functions of several variables</h1>
@@ -144,8 +144,7 @@ derivative test tells us:</p>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>              y0<span class="op">=</span><span class="dv">0</span>,</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>              elev_azim<span class="op">=</span>[(<span class="dv">35</span>,<span class="dv">15</span>),(<span class="dv">35</span>,<span class="dv">30</span>),(<span class="dv">35</span>,<span class="dv">75</span>)])</span></code></pre></div>
 <div class="output display_data">
-<p><img src="187f7c6a7ee678b12c5d722bbab00faee206a40f.png" /></p>
-<pre><code>&lt;Figure size 2000x2000 with 3 Axes&gt;</code></pre>
+<p><img src="../course-notebooks/images/187f7c6a7ee678b12c5d722bbab00faee206a40f.png" /></p>
 </div>
 </div>
 <div id="73a60cdd-b142-4ee3-969b-81951517f74d" class="cell markdown">
@@ -188,8 +187,8 @@ so that
 <span class="math display">\[P(s,t) =  −400, 000 + 144s + 174t − 0.01s^2 − 0.01t^2 − 0.007st \quad \text{dollars}.\]</span></li>
 </ul>
 <hr />
-<p>Of course, our goal is to maximize profit – i.e. to find <span class="math inline">\((s_0,t_0)\)</span> for
-which <span class="math inline">\(P(s_0,t_0)\)</span> is at a maximum.</p>
+<p>Of course, our goal is to maximize profit – i.e. to find <span class="math inline">\((s_0,t_0)\)</span>
+for which <span class="math inline">\(P(s_0,t_0)\)</span> is at a maximum.</p>
 <p>According to the discussion above, we should compute the partial
 derivitives of <span class="math inline">\(P\)</span> and simultaneously solve the equations <span class="math display">\[0 =
   \dfrac{\partial P}{\partial s} = \dfrac{\partial P}{\partial t}\]</span></p>
@@ -217,9 +216,9 @@ occurs at <span class="math inline">\((s_0,t_0) = (4735,7043)\)</span>.</p>
 computer:</p>
 </div>
 <div id="d97315c4-3077-497c-ba38-e3c4798afd63" class="cell code">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span> np.array([[<span class="fl">.02</span>,<span class="fl">.007</span>],[<span class="fl">.007</span>,<span class="fl">.02</span>]])</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>np.array([<span class="dv">144</span>,<span class="dv">174</span>])</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>np.linalg.solve(A,b)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span> np.array([[<span class="fl">.02</span>,<span class="fl">.007</span>],[<span class="fl">.007</span>,<span class="fl">.02</span>]])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>np.array([<span class="dv">144</span>,<span class="dv">174</span>])</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>np.linalg.solve(A,b)</span></code></pre></div>
 </div>
 <div id="3bdcbe48-3c5a-47c4-a421-9772403ca3f5" class="cell markdown">
 <p>The matrix of second derivatives is
@@ -237,32 +236,31 @@ case that would be the point <span class="math inline">\((0,0)\)</span> which cl
 <p>Let’s produce a (or a few…) graph(s) to confirm our work:</p>
 </div>
 <div id="ad92bf8f-e0bd-4797-8493-1b416d09d03b" class="cell code">
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.linspace(<span class="dv">2000</span>,<span class="dv">8000</span>,<span class="dv">25</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">2000</span>,<span class="dv">8000</span>,<span class="dv">25</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> p(s,t):</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">400000</span> <span class="op">+</span> <span class="dv">144</span><span class="op">*</span>s <span class="op">+</span> <span class="dv">174</span><span class="op">*</span>t <span class="op">-</span> <span class="fl">0.01</span><span class="op">*</span>s<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">0.01</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">.007</span><span class="op">*</span>s<span class="op">*</span>t</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>draw_graph(p,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>             x<span class="op">=</span>s,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>             y<span class="op">=</span>t,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>             x0<span class="op">=</span><span class="dv">4735</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>             y0<span class="op">=</span><span class="dv">7043</span>,</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>             elev_azim<span class="op">=</span>[(<span class="dv">45</span>,<span class="dv">20</span>),(<span class="dv">45</span>,<span class="dv">55</span>)])</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.linspace(<span class="dv">2000</span>,<span class="dv">8000</span>,<span class="dv">25</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">2000</span>,<span class="dv">8000</span>,<span class="dv">25</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> p(s,t):</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">400000</span> <span class="op">+</span> <span class="dv">144</span><span class="op">*</span>s <span class="op">+</span> <span class="dv">174</span><span class="op">*</span>t <span class="op">-</span> <span class="fl">0.01</span><span class="op">*</span>s<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">0.01</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">.007</span><span class="op">*</span>s<span class="op">*</span>t</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>draw_graph(p,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>             x<span class="op">=</span>s,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>             y<span class="op">=</span>t,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>             x0<span class="op">=</span><span class="dv">4735</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>             y0<span class="op">=</span><span class="dv">7043</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>             elev_azim<span class="op">=</span>[(<span class="dv">45</span>,<span class="dv">20</span>),(<span class="dv">45</span>,<span class="dv">55</span>)])</span></code></pre></div>
 </div>
 <div id="8a09fdba-8cb6-42f2-95bd-1da6b85f8d58" class="cell code">
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># countour plot</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>S,T <span class="op">=</span> np.meshgrid(s,t)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>figc <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">10</span>))</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>axc <span class="op">=</span> figc.add_subplot()</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>axc.contourf(S,T,p(S,T),levels<span class="op">=</span><span class="dv">20</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>             , extend<span class="op">=</span><span class="st">'both'</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>axc.scatter(<span class="dv">4735</span>,<span class="dv">7043</span>,marker<span class="op">=</span><span class="st">&quot;X&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># countour plot</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>S,T <span class="op">=</span> np.meshgrid(s,t)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>figc <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">10</span>))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>axc <span class="op">=</span> figc.add_subplot()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>axc.contourf(S,T,p(S,T),levels<span class="op">=</span><span class="dv">20</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>             , extend<span class="op">=</span><span class="st">'both'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>axc.scatter(<span class="dv">4735</span>,<span class="dv">7043</span>,marker<span class="op">=</span><span class="st">&quot;X&quot;</span>)</span></code></pre></div>
 </div>
 <div id="247d4b56-9943-4063-8dda-f965fd533483" class="cell markdown">
 <h1 id="sensitivity-analysis-the-television-example-continued">Sensitivity Analysis (the television example, continued)</h1>

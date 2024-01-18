@@ -69,7 +69,7 @@ Gs
 ```
 
 ::: {.output .execute_result execution_count="2"}
-![](course-notebooks/f92b3ed2eb938bbf25b7d5dfcf1c9c1faae98aae.png)
+![](../course-notebooks/images/f92b3ed2eb938bbf25b7d5dfcf1c9c1faae98aae.png)
 :::
 :::
 
@@ -95,7 +95,7 @@ DGs
 ```
 
 ::: {.output .execute_result execution_count="4"}
-![](course-notebooks/beb6082c6e399ba35d39c5424c265d072dd54b43.png)
+![](../course-notebooks/images/beb6082c6e399ba35d39c5424c265d072dd54b43.png)
 :::
 :::
 
@@ -111,7 +111,7 @@ crits
 ```
 
 ::: {.output .execute_result execution_count="5"}
-![](course-notebooks/6bf0a8070034571e432a5bd2c2f2febf671becef.png)
+![](../course-notebooks/images/6bf0a8070034571e432a5bd2c2f2febf671becef.png)
 :::
 :::
 
@@ -121,7 +121,7 @@ list(map(lambda c: c.evalf(),crits))
 ```
 
 ::: {.output .execute_result execution_count="7"}
-![](course-notebooks/63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png)
+![](../course-notebooks/images/63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png)
 :::
 :::
 
@@ -442,7 +442,7 @@ crit_pts_fun(G,-2,6,5E3,tol=1E-3)
 ```
 
 ::: {.output .execute_result execution_count="10"}
-![](course-notebooks/b9eb0e7894a01c8e2ef5169ec7ce9d221c72a326.png)
+![](../course-notebooks/images/b9eb0e7894a01c8e2ef5169ec7ce9d221c72a326.png)
 :::
 :::
 
@@ -456,7 +456,7 @@ Compare with:
 ```
 
 ::: {.output .execute_result execution_count="12"}
-![](course-notebooks/63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png)
+![](../course-notebooks/images/63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png)
 :::
 :::
 
@@ -471,7 +471,7 @@ crit_pts_fun(G,-2,6,5E3,tol=5E-3)
 ```
 
 ::: {.output .execute_result execution_count="22"}
-![](course-notebooks/775b95a96a0ce35325ff4075641d3ae4598f054d.png)
+![](../course-notebooks/images/775b95a96a0ce35325ff4075641d3ae4598f054d.png)
 :::
 :::
 
@@ -481,7 +481,7 @@ crit_pts_fun(G,-2,6,5E3,tol=1E-4)
 ```
 
 ::: {.output .execute_result execution_count="23"}
-![](course-notebooks/b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png)
+![](../course-notebooks/images/b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png)
 :::
 :::
 
@@ -513,7 +513,7 @@ res
 ```
 
 ::: {.output .execute_result execution_count="32"}
-![](course-notebooks/36c7bfc7e90531d9187b20b17e2b22c2a488c99d.png)
+![](../course-notebooks/images/36c7bfc7e90531d9187b20b17e2b22c2a488c99d.png)
 :::
 :::
 
@@ -530,7 +530,7 @@ res
 ```
 
 ::: {.output .execute_result execution_count="37"}
-![](course-notebooks/b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png)
+![](../course-notebooks/images/b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png)
 :::
 :::
 
@@ -545,6 +545,6 @@ res
 ```
 
 ::: {.output .execute_result execution_count="36"}
-![](course-notebooks/180923d75e3b701be5b1433d11fa5135e04ecfc4.png)
+![](../course-notebooks/images/180923d75e3b701be5b1433d11fa5135e04ecfc4.png)
 :::
 :::

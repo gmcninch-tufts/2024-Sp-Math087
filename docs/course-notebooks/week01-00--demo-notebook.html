@@ -102,7 +102,7 @@ text (and mathematics) for reading. Another is called a <code>code cell</code>, 
 it contains (in this case) <code>python</code> code.</p>
 <p>The next cell is an example of a <code>code cell</code>.</p>
 </div>
-<div id="5285968d-08e3-4529-901c-f6b9037ea61d" class="cell code" data-execution_count="1">
+<div id="5285968d-08e3-4529-901c-f6b9037ea61d" class="cell code" data-execution_count="2">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sin,cos</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(x):</span>
@@ -111,7 +111,7 @@ it contains (in this case) <code>python</code> code.</p>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> h(x):</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sin(x)<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> cos(x)<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">15</span>):</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>g(i)<span class="sc">:.5f}</span><span class="ss"> - </span><span class="sc">{</span>h(i)<span class="sc">:.5f}</span><span class="ss">&quot;</span>)</span></code></pre></div>
 <div class="output stream stdout">
 <pre><code>0 - 1.00000 - -1.00000
@@ -128,28 +128,26 @@ it contains (in this case) <code>python</code> code.</p>
 11 - 1.00000 - 0.99996
 12 - 1.00000 - -0.42418
 13 - 1.00000 - -0.64692
-14 - 1.00000 - 0.96261
-15 - 1.00000 - -0.15425
-16 - 1.00000 - -0.83422
-17 - 1.00000 - 0.84857
-18 - 1.00000 - 0.12796
-19 - 1.00000 - -0.95507
-</code></pre>
+14 - 1.00000 - 0.96261</code></pre>
 </div>
 </div>
 <div id="b2ddf829-9166-4f56-a6e0-5fa0481b7fd3" class="cell markdown">
 <p>To execute the contents of a <code>code cell</code>, type [shift]-[enter] while
 that cell has the focus. If the code in the cell produced <code>output</code>, code
 execution will result in a new cell containing that output.</p>
-<p>Code in later code-cells will “remember” definitions from earlier
+<p>Code in later code-cells will "remember" definitions from earlier
 cells.</p>
 <p>For example:</p>
 </div>
-<div id="94293733-5de0-4f6d-adbc-0f47037ab821" class="cell code" data-execution_count="2">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>h(<span class="dv">3</span>)</span></code></pre></div>
-<div class="output execute_result" data-execution_count="2">
-<pre><code>-0.960170286650366</code></pre>
+<div id="94293733-5de0-4f6d-adbc-0f47037ab821" class="cell code" data-execution_count="4">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>h(<span class="fl">3.5</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>h</span></code></pre></div>
+<div class="output execute_result" data-execution_count="4">
+<pre><code>&lt;function __main__.h(x)&gt;</code></pre>
 </div>
+</div>
+<div id="4c6a47c8-e21b-4b8d-9333-dcf2936ff267" class="cell code">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 </div>
         </main>
 

@@ -135,7 +135,7 @@ af=draw_graph(f,
 ```
 
 ::: {.output .display_data}
-![](course-notebooks/187f7c6a7ee678b12c5d722bbab00faee206a40f.png)
+![](../course-notebooks/images/187f7c6a7ee678b12c5d722bbab00faee206a40f.png)
 :::
 :::
 

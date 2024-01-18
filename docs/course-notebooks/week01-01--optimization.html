@@ -36,7 +36,7 @@
 </div>
 <div id="a75604e8-1fac-4752-bd5e-3a4dbe75380c" class="cell markdown">
 <h1 id="george-mcninch-math-87---spring-2024"><a href="http://gmcninch.math.tufts.edu">George McNinch</a> Math 87 - Spring 2024</h1>
-<h1 id="week-1---optimization">§ Week 1 - Optimization</h1>
+<h1 id="-week-1---optimization">§ Week 1 - Optimization</h1>
 </div>
 <div id="97290256-82f3-40ce-884b-fa443c44ff0b" class="cell markdown">
 <h2 id="example-oil-spill">Example: Oil spill</h2>
@@ -44,7 +44,7 @@
 <p>An oil spill has contaminated 200 miles of Alaskan shoreline. The
 shipping company responsible for the accident has been given 14 days
 to clean up the shoreline, after which it will be required to pay a
-fine of $10,000 per day for each day in which any part of the
+fine of $$$10,000 per day for each day in which any part of the
 shoreline remains uncleaned.</p>
 </blockquote>
 <p>Let’s assume that the fine depends on fractional days. For example, if
@@ -54,11 +54,11 @@ pay a fine of</p>
 <blockquote>
 <p>Cleanup crews can be hired, and each crew cleans 5 miles of beach per
 week.</p>
-<p>There is one local cleanup crew available at a cost of $500 per
+<p>There is one local cleanup crew available at a cost of \$500 per
 day.</p>
 <p>Additional non-local crews can be hired. The hire of each non-local
-crew incurs an $18,000 one-time travel cost. These additional crews
-work for $800 per day for each crew (and each crew has the same
+crew incurs an \$18,000 one-time travel cost. These additional crews
+work for \$800 per day for each crew (and each crew has the same
 cleanup rate of 5 miles of beach per week).</p>
 </blockquote>
 </div>
@@ -112,7 +112,7 @@ the arguments of the <em>crew_cost</em> and <em>cost</em> functions.</p>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.miles <span class="op">=</span> miles                </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.cleanup_rate <span class="op">=</span> cleanup_rate   </span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.tc <span class="op">=</span> tc                      </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fine_per_day <span class="op">=</span> fine_per_day</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fin).e_per_day <span class="op">=</span> fine_per_day</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> report_params(<span class="va">self</span>):</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> { <span class="st">&quot;miles to clean&quot;</span>: <span class="va">self</span>.miles,</span>
@@ -170,8 +170,7 @@ data).</p>
 <pre><code>{'cleanup rate': 0.7142857142857143,
  'fine per day': 10000,
  'miles to clean': 200,
- 'transport costs': 18000}
-</code></pre>
+ 'transport costs': 18000}</code></pre>
 </div>
 </div>
 <div id="38362ebd-af65-4cec-9e44-e83bbe6718c9" class="cell code" data-execution_count="30">
@@ -395,32 +394,6 @@ data).</p>
   </tbody>
 </table>
 </div>
-<pre><code>    #external crews         cost   days         fine
-0                 0 2,800,000.00 280.00 2,660,000.00
-1                 1 1,460,000.00 140.00 1,260,000.00
-2                 2 1,025,333.33  93.33   793,333.33
-3                 3   817,000.00  70.00   560,000.00
-4                 4   699,200.00  56.00   420,000.00
-5                 5   626,666.67  46.67   326,666.67
-6                 6   580,000.00  40.00   260,000.00
-7                 7   549,500.00  35.00   210,000.00
-8                 8   529,777.78  31.11   171,111.11
-9                 9   517,600.00  28.00   140,000.00
-10               10   510,909.09  25.45   114,545.45
-11               11   508,333.33  23.33    93,333.33
-12               12   508,923.08  21.54    75,384.62
-13               13   512,000.00  20.00    60,000.00
-14               14   517,066.67  18.67    46,666.67
-15               15   523,750.00  17.50    35,000.00
-16               16   531,764.71  16.47    24,705.88
-17               17   540,888.89  15.56    15,555.56
-18               18   550,947.37  14.74     7,368.42
-19               19   561,800.00  14.00         0.00
-20               20   580,000.00  13.33         0.00
-21               21   598,181.82  12.73         0.00
-22               22   616,347.83  12.17         0.00
-23               23   634,500.00  11.67         0.00
-24               24   652,640.00  11.20         0.00</code></pre>
 </div>
 </div>
 <div id="bacdfa4f-10d3-42dc-a5d8-3a802ea380bc" class="cell markdown">
@@ -433,28 +406,28 @@ minimized. Finally, the loc property of <code>df</code> allows to select the dat
 <code>df.loc[j]</code> in the row with index label <code>j</code>.</p>
 </div>
 <div id="5fa80694-71fa-4c45-9d43-8321f30163f3" class="cell code" data-execution_count="31">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> minimize_costs(c,crew_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">25</span>)):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">## make the data-frame </span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    costs_df <span class="op">=</span> oil_spill_costs(c,crew_range) </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">## find the index of the data-frame entry with minimal costs</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    min_index <span class="op">=</span> costs_df[<span class="st">'cost'</span>].idxmin()</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">## return the corresponding data-frame entry  </span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> costs_df.loc[min_index]    </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> report_minimal_costs(c,crew_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">25</span>)):</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> minimize_costs(c,crew_range)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join([<span class="ss">f&quot;For n in </span><span class="sc">{</span>crew_range<span class="sc">}</span><span class="ss">, and with these parameters:&quot;</span>,</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;&quot;</span>,</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                      <span class="co">#pprint(c.report_params()),</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                      <span class="ss">f&quot;the total costs are minimized by hiring n = </span><span class="sc">{</span>r[<span class="st">'#external crews'</span>]<span class="sc">}</span><span class="ss"> external crews.&quot;</span>,</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Here are the details:&quot;</span>,</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;&quot;</span>,</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                      <span class="bu">str</span>(r)]) <span class="op">+</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> minimize_costs(c,crew_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">25</span>)):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">## make the data-frame </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    costs_df <span class="op">=</span> oil_spill_costs(c,crew_range) </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">## find the index of the data-frame entry with minimal costs</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    min_index <span class="op">=</span> costs_df[<span class="st">'cost'</span>].idxmin()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">## return the corresponding data-frame entry  </span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> costs_df.loc[min_index]    </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> report_minimal_costs(c,crew_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">25</span>)):</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> minimize_costs(c,crew_range)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join([<span class="ss">f&quot;For n in </span><span class="sc">{</span>crew_range<span class="sc">}</span><span class="ss">, and with these parameters:&quot;</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;&quot;</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                      <span class="co">#pprint(c.report_params()),</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                      <span class="ss">f&quot;the total costs are minimized by hiring n = </span><span class="sc">{</span>r[<span class="st">'#external crews'</span>]<span class="sc">}</span><span class="ss"> external crews.&quot;</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Here are the details:&quot;</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;&quot;</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>                      <span class="bu">str</span>(r)]) <span class="op">+</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span></span></code></pre></div>
 </div>
 <div id="234e5ff2-9b64-4809-b7b8-0422408b55e6" class="cell code" data-execution_count="32">
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">## c is the class obtained above via OilSpillCleanup()</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_minimal_costs(c))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## c is the class obtained above via OilSpillCleanup()</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_minimal_costs(c))</span></code></pre></div>
 <div class="output stream stdout">
 <pre><code>For n in range(0, 25), and with these parameters:
 
@@ -465,9 +438,7 @@ Here are the details:
 cost              508,333.33
 days                   23.33
 fine               93,333.33
-Name: 11, dtype: float64
-
-</code></pre>
+Name: 11, dtype: float64</code></pre>
 </div>
 </div>
 <div id="6cd4ac3d-6161-4307-8425-f3ef82198f5a" class="cell markdown">
@@ -485,18 +456,18 @@ though.</p>
 <p>Consider the following example:</p>
 </div>
 <div id="0f0c8f5d-240a-4a0e-ab2b-3e52a7c56181" class="cell code" data-execution_count="33">
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## make a new instance of our OilSpillCleanup class, with some different parameters</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> OilSpillCleanup(miles<span class="op">=</span><span class="dv">300</span>,fine_per_day<span class="op">=</span><span class="dv">20000</span>,tc<span class="op">=</span><span class="dv">15000</span>,cleanup_rate<span class="op">=</span><span class="fl">.5</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">## and look for minimal costs, first with the default range of n's, </span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">## and then with a slightly bigger range:</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_minimal_costs(c1))</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;-----------------------&quot;</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_minimal_costs(c1,crew_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">35</span>)))</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">## Notice! We wouldn't have seen the minimum if we had used the default crew_range...</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">## make a new instance of our OilSpillCleanup class, with some different parameters</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> OilSpillCleanup(miles<span class="op">=</span><span class="dv">300</span>,fine_per_day<span class="op">=</span><span class="dv">20000</span>,tc<span class="op">=</span><span class="dv">15000</span>,cleanup_rate<span class="op">=</span><span class="fl">.5</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">## and look for minimal costs, first with the default range of n's, </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">## and then with a slightly bigger range:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_minimal_costs(c1))</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;-----------------------&quot;</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_minimal_costs(c1,crew_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">35</span>)))</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">## Notice! We wouldn't have seen the minimum if we had used the default crew_range...</span></span></code></pre></div>
 <div class="output stream stdout">
 <pre><code>For n in range(0, 25), and with these parameters:
 
@@ -519,9 +490,7 @@ Here are the details:
 cost              1,027,142.86
 days                     21.43
 fine                148,571.43
-Name: 27, dtype: float64
-
-</code></pre>
+Name: 27, dtype: float64</code></pre>
 </div>
 </div>
 <div id="4bb1f9b2-3e8d-4d11-9d71-903c86f33607" class="cell markdown">
@@ -562,15 +531,15 @@ crews. They are given by the function:</p>
 C_{crew}(n) &amp; n \ge 19\end{matrix} \right .\]</span></p>
 </div>
 <div id="3c676352-7bb0-4a2b-8e1c-901e5b1f2fe3" class="cell code" data-execution_count="34">
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> sp.Symbol(<span class="st">&quot;n&quot;</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(n): <span class="cf">return</span> <span class="dv">10000</span><span class="op">*</span>(<span class="dv">280</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>n) <span class="op">-</span> <span class="dv">14</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>f(n) <span class="op">+</span> c.crew_costs(n)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> sp.Symbol(<span class="st">&quot;n&quot;</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(n): <span class="cf">return</span> <span class="dv">10000</span><span class="op">*</span>(<span class="dv">280</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>n) <span class="op">-</span> <span class="dv">14</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>f(n) <span class="op">+</span> c.crew_costs(n)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="34">
-<pre><code>18000*n + 160000*n/(0.714285714285714*n + 0.714285714285714) - 140000 + 2800000/(n + 1) + 100000/(0.714285714285714*n + 0.714285714285714)</code></pre>
+
 </div>
 </div>
 <div id="48e40f7f-34c8-4f90-9e47-feda2309e6b2" class="cell markdown">
@@ -591,37 +560,36 @@ functions <code>c.cost(n)</code> and <code>c.fine(c.time(n))</code> viewed as fu
 <code>n</code>.</p>
 </div>
 <div id="5e9fb059-297d-48fd-89b4-c4966c6f0348" class="cell code" data-execution_count="35" data-scrolled="true">
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> OilSpillCleanup()   <span class="co">### the class with the default values</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_graph(c, crew_min<span class="op">=</span><span class="dv">2</span>, crew_max<span class="op">=</span><span class="dv">30</span>, mesh<span class="op">=</span><span class="dv">200</span>, vlines <span class="op">=</span> []):</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(crew_min,crew_max,mesh)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))  </span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    ax.plot(x,np.array([c.cost(n) <span class="cf">for</span> n <span class="kw">in</span> x]),label<span class="op">=</span><span class="st">&quot;C_tot(n)&quot;</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    ax.plot(x,np.array([c.fine(c.time(n))  <span class="cf">for</span> n <span class="kw">in</span> x]),label<span class="op">=</span><span class="st">&quot;Fine(n)&quot;</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">&quot;# crews&quot;</span>)</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">&quot;total cost in $&quot;</span>)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    ax.legend()</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t <span class="kw">in</span> vlines:</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>        ax.axvline(x<span class="op">=</span>t, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, dashes<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">4</span>])</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="st">&quot;Cleanup costs&quot;</span>)</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>gg<span class="op">=</span>create_graph(c,vlines<span class="op">=</span>[<span class="fl">11.23</span>,<span class="dv">19</span>])</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co">## the return value of create_graph </span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="co">## in a notebook, you'll just see the graph output.</span></span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co">## if not in a notebook, you should now call gg.show() </span></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="co">## in order to *see* the graph...</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> OilSpillCleanup()   <span class="co">### the class with the default values</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_graph(c, crew_min<span class="op">=</span><span class="dv">2</span>, crew_max<span class="op">=</span><span class="dv">30</span>, mesh<span class="op">=</span><span class="dv">200</span>, vlines <span class="op">=</span> []):</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(crew_min,crew_max,mesh)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))  </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    ax.plot(x,np.array([c.cost(n) <span class="cf">for</span> n <span class="kw">in</span> x]),label<span class="op">=</span><span class="st">&quot;C_tot(n)&quot;</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    ax.plot(x,np.array([c.fine(c.time(n))  <span class="cf">for</span> n <span class="kw">in</span> x]),label<span class="op">=</span><span class="st">&quot;Fine(n)&quot;</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">&quot;# crews&quot;</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">&quot;total cost in $&quot;</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    ax.legend()</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t <span class="kw">in</span> vlines:</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        ax.axvline(x<span class="op">=</span>t, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, dashes<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">4</span>])</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="st">&quot;Cleanup costs&quot;</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>gg<span class="op">=</span>create_graph(c,vlines<span class="op">=</span>[<span class="fl">11.23</span>,<span class="dv">19</span>])</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co">## the return value of create_graph </span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co">## in a notebook, you'll just see the graph output.</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="co">## if not in a notebook, you should now call gg.show() </span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="co">## in order to *see* the graph...</span></span></code></pre></div>
 <div class="output display_data">
-<p><img src="a7233cf65ae83103873e8358f8c8c86c8e189747.png" /></p>
-<pre><code>&lt;Figure size 1200x600 with 1 Axes&gt;</code></pre>
+<p><img src="../course-notebooks/images/a7233cf65ae83103873e8358f8c8c86c8e189747.png" /></p>
 </div>
 </div>
 <div id="6c6a295b-527f-4e9a-be14-acda27771c34" class="cell markdown">
@@ -663,10 +631,10 @@ c(n+1)^2\]</span> or <span class="math display">\[(n+1)^2 = \dfrac{a_1 - b}{c}\]
 <p>Let’s compute this value:</p>
 </div>
 <div id="1076d74a-da2e-4b56-b6c8-a0c479a6d897" class="cell code" data-execution_count="36">
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>a_1 <span class="op">=</span> <span class="dv">10500</span><span class="op">*</span><span class="dv">280</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span><span class="dv">800</span><span class="op">*</span><span class="dv">280</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>c<span class="op">=</span><span class="dv">18000</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="dv">1</span> <span class="op">+</span> np.sqrt((a_1 <span class="op">-</span> b)<span class="op">/</span>c)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>a_1 <span class="op">=</span> <span class="dv">10500</span><span class="op">*</span><span class="dv">280</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span><span class="dv">800</span><span class="op">*</span><span class="dv">280</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>c<span class="op">=</span><span class="dv">18000</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="dv">1</span> <span class="op">+</span> np.sqrt((a_1 <span class="op">-</span> b)<span class="op">/</span>c)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="36">
 <pre><code>11.283683848458853</code></pre>
 </div>
@@ -704,31 +672,30 @@ regard <span class="math inline">\(m\)</span> in as an unknown parameter.</p>
 <p>We consider the cost function for <span class="math inline">\(n\)</span> in the range in which the fine
 applies (how reasonable is that assumption?!)</p>
 <p>Viewing <span class="math inline">\(m\)</span> as a <em>parameter</em> we see that the cost function is given by</p>
-<p><span class="math display">\[\begin{align*}
-C(n) &amp;= 500\dfrac{1400}{m(1+n)} + n \left( 18000 + 800 \dfrac{1400}{m(1+n)} \right)+ 10000\left(\dfrac{1400}{m(1+n)} - 14\right) \\
-&amp;= 18000n + 10500\dfrac{1400}{m(1+n)} + 800 \cdot 1400 \dfrac{n}{m(1+n)} - 14000
-\end{align*}\]</span></p>
+<p>\begin{align<em>} C(n) &amp;= 500\dfrac{1400}{m(1+n)} + n \left( 18000 + 800
+\dfrac{1400}{m(1+n)} \right)+ 10000\left(\dfrac{1400}{m(1+n)} -
+14\right) \ &amp;= 18000n + 10500\dfrac{1400}{m(1+n)} + 800 \cdot 1400
+\dfrac{n}{m(1+n)} - 14000 \end{align</em>}</p>
 <p>Thus
 <span class="math display">\[\dfrac{dC}{dn} = 18000 - 10500 \cdot \dfrac{200}{m(1+n)^2}+ 800 \cdot 200 \dfrac{1}{m(1+n)^2}\]</span></p>
 <p>We now see that <span class="math inline">\(C\)</span> has a critical point when
 <span class="math display">\[9700 \cdot \dfrac{1400}{m} = 1800(1+n)^2 \implies n = \sqrt{\dfrac{6790}{9m}} -1.\]</span></p>
 <p>So: we have described the critical point as a function of <span class="math inline">\(m\)</span>!</p>
-<p>Recall that the original value of <span class="math inline">\(m\)</span> was <span class="math inline">\(5\)</span> miles
-per day.</p>
+<p>Recall that the original value of <span class="math inline">\(m\)</span> was <span class="math inline">\(5\)</span> miles per day.</p>
 </div>
 <div id="b7efacd5-68ef-4d89-add2-f79fdb211f3e" class="cell code" data-execution_count="37">
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> n(m): <span class="cf">return</span> np.sqrt(<span class="fl">6790.0</span><span class="op">/</span>(<span class="dv">9</span><span class="op">*</span>m)) <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>n(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> n(m): <span class="cf">return</span> np.sqrt(<span class="fl">6790.0</span><span class="op">/</span>(<span class="dv">9</span><span class="op">*</span>m)) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>n(<span class="dv">5</span>)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="37">
 <pre><code>11.283683848458853</code></pre>
 </div>
 </div>
 <div id="902e6fb9-d0d4-49c7-b239-b9c910032147" class="cell markdown">
-<p>We find critical points for “nearby” values of <span class="math inline">\(m\)</span>:</p>
+<p>We find critical points for "nearby" values of <span class="math inline">\(m\)</span>:</p>
 </div>
 <div id="5b7d513f-35d6-4a2e-bddd-aac361456cea" class="cell code" data-execution_count="38">
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">5</span><span class="op">+</span><span class="fl">.1</span><span class="op">*</span>e,n(<span class="dv">5</span> <span class="op">+</span> <span class="fl">.1</span><span class="op">*</span>e)) <span class="cf">for</span> e <span class="kw">in</span> <span class="bu">range</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">5</span><span class="op">+</span><span class="fl">.1</span><span class="op">*</span>e,n(<span class="dv">5</span> <span class="op">+</span> <span class="fl">.1</span><span class="op">*</span>e)) <span class="cf">for</span> e <span class="kw">in</span> <span class="bu">range</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>)]</span></code></pre></div>
 <div class="output execute_result" data-execution_count="38">
 <pre><code>[(4.5, 11.948139672850859),
  (4.6, 11.806625700618754),
@@ -760,21 +727,21 @@ x} \cdot \dfrac{x}{y(x)}\]</span></p>
 <p>Now the sensitivity <span class="math inline">\(S(n,m)\)</span> is given by</p>
 <p><span class="math display">\[S(n,m) = \dfrac{dn}{dm}
 \cdot \dfrac{m}{n(m)}.\]</span></p>
-<p>Let’s represent this by some code:</p>
+<p>Let's represent this by some code:</p>
 </div>
 <div id="fce4accb-450c-4929-9d1d-7feea932245b" class="cell code" data-execution_count="39">
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> n(m):</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> np.sqrt(<span class="fl">754.44</span>)<span class="op">*</span>m<span class="op">**-</span><span class="fl">.5</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dn(m):</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">*</span>np.sqrt(<span class="fl">754.44</span>)<span class="op">*</span>m<span class="op">**</span>(<span class="op">-</span><span class="fl">1.5</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Snm(m):</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dn(m)<span class="op">*</span>m<span class="op">/</span>n(m)</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>Snm(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> n(m):</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> np.sqrt(<span class="fl">754.44</span>)<span class="op">*</span>m<span class="op">**-</span><span class="fl">.5</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dn(m):</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">*</span>np.sqrt(<span class="fl">754.44</span>)<span class="op">*</span>m<span class="op">**</span>(<span class="op">-</span><span class="fl">1.5</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Snm(m):</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dn(m)<span class="op">*</span>m<span class="op">/</span>n(m)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>Snm(<span class="dv">5</span>)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="39">
 <pre><code>-0.5443119117831824</code></pre>
 </div>

@@ -88,7 +88,7 @@ it contains (in this case) `python` code.
 The next cell is an example of a `code cell`.
 :::
 
-::: {#5285968d-08e3-4529-901c-f6b9037ea61d .cell .code execution_count="1"}
+::: {#5285968d-08e3-4529-901c-f6b9037ea61d .cell .code execution_count="2"}
 ``` python
 from math import sin,cos
 
@@ -98,7 +98,7 @@ def g(x):
 def h(x):
     return sin(x)**2 - cos(x)**2
 
-for i in range(20):
+for i in range(15):
     print(f"{i} - {g(i):.5f} - {h(i):.5f}")
 ```
 
@@ -118,11 +118,6 @@ for i in range(20):
     12 - 1.00000 - -0.42418
     13 - 1.00000 - -0.64692
     14 - 1.00000 - 0.96261
-    15 - 1.00000 - -0.15425
-    16 - 1.00000 - -0.83422
-    17 - 1.00000 - 0.84857
-    18 - 1.00000 - 0.12796
-    19 - 1.00000 - -0.95507
 :::
 :::
 
@@ -137,12 +132,18 @@ cells.
 For example:
 :::
 
-::: {#94293733-5de0-4f6d-adbc-0f47037ab821 .cell .code execution_count="2"}
+::: {#94293733-5de0-4f6d-adbc-0f47037ab821 .cell .code execution_count="4"}
 ``` python
-h(3)
+h(3.5)
+h
 ```
 
-::: {.output .execute_result execution_count="2"}
-    -0.960170286650366
+::: {.output .execute_result execution_count="4"}
+    <function __main__.h(x)>
 :::
+:::
+
+::: {#4c6a47c8-e21b-4b8d-9333-dcf2936ff267 .cell .code}
+``` python
+```
 :::
