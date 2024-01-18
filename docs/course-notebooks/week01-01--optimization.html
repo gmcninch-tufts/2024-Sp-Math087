@@ -106,7 +106,7 @@ fine is given by the indicated formula)</p>
 <p>Note that we use the parameter values as <em>default values</em> for some of
 the arguments of the <em>crew_cost</em> and <em>cost</em> functions.</p>
 </div>
-<div id="43d59496-3a93-4c3a-bdc7-84e03aa939e6" class="cell code" data-execution_count="1">
+<div id="43d59496-3a93-4c3a-bdc7-84e03aa939e6" class="cell code" data-execution_count="27">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> OilSpillCleanup:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,cleanup_rate<span class="op">=</span><span class="fl">5.0</span><span class="op">/</span><span class="dv">7</span>,tc<span class="op">=</span><span class="dv">18000</span>,miles<span class="op">=</span><span class="dv">200</span>,fine_per_day<span class="op">=</span><span class="dv">10000</span>):</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.miles <span class="op">=</span> miles                </span>
@@ -151,7 +151,7 @@ module</a>. We’ll use the
 which the keys are the column headers and the values are the column
 data).</p>
 </div>
-<div id="ca12bb61-1adc-441e-8252-8eb0fb42acff" class="cell code" data-execution_count="2">
+<div id="ca12bb61-1adc-441e-8252-8eb0fb42acff" class="cell code" data-execution_count="28">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">## The following overrides the usual display formatting of floating point numbers. </span></span>
@@ -159,7 +159,7 @@ data).</p>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.float_format'</span>, <span class="kw">lambda</span> x: <span class="st">&quot;</span><span class="sc">{:,.2f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(x))</span></code></pre></div>
 </div>
-<div id="e01e1e18-eecb-4df6-9f97-6df2ceff1742" class="cell code" data-execution_count="3">
+<div id="e01e1e18-eecb-4df6-9f97-6df2ceff1742" class="cell code" data-execution_count="29">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># define an instance of the OilSpillCleanup class, with the default arguments.</span></span>
@@ -174,7 +174,7 @@ data).</p>
 </code></pre>
 </div>
 </div>
-<div id="38362ebd-af65-4cec-9e44-e83bbe6718c9" class="cell code" data-execution_count="4">
+<div id="38362ebd-af65-4cec-9e44-e83bbe6718c9" class="cell code" data-execution_count="30">
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># and define a function of two arguments:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># c, a class of type OilSpillCleanup, and</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># crew_range, a list of integers, to be used as the &quot;number of external crews hired&quot;</span></span>
@@ -191,7 +191,7 @@ data).</p>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>oil_spill_costs(c)  <span class="co">## Compute use the *default* parameter values.</span></span></code></pre></div>
-<div class="output execute_result" data-execution_count="4">
+<div class="output execute_result" data-execution_count="30">
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -432,7 +432,7 @@ costs are minimized. But we can also use <em>pandas</em> API-functions.</p>
 minimized. Finally, the loc property of <code>df</code> allows to select the data
 <code>df.loc[j]</code> in the row with index label <code>j</code>.</p>
 </div>
-<div id="5fa80694-71fa-4c45-9d43-8321f30163f3" class="cell code" data-execution_count="5">
+<div id="5fa80694-71fa-4c45-9d43-8321f30163f3" class="cell code" data-execution_count="31">
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> minimize_costs(c,crew_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">25</span>)):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">## make the data-frame </span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    costs_df <span class="op">=</span> oil_spill_costs(c,crew_range) </span>
@@ -451,7 +451,7 @@ minimized. Finally, the loc property of <code>df</code> allows to select the dat
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;&quot;</span>,</span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                      <span class="bu">str</span>(r)]) <span class="op">+</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span></span></code></pre></div>
 </div>
-<div id="234e5ff2-9b64-4809-b7b8-0422408b55e6" class="cell code" data-execution_count="6">
+<div id="234e5ff2-9b64-4809-b7b8-0422408b55e6" class="cell code" data-execution_count="32">
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">## c is the class obtained above via OilSpillCleanup()</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report_minimal_costs(c))</span></code></pre></div>
@@ -484,7 +484,7 @@ careful that the range of crew sizes the code considers is large enough,
 though.</p>
 <p>Consider the following example:</p>
 </div>
-<div id="0f0c8f5d-240a-4a0e-ab2b-3e52a7c56181" class="cell code" data-execution_count="7">
+<div id="0f0c8f5d-240a-4a0e-ab2b-3e52a7c56181" class="cell code" data-execution_count="33">
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## make a new instance of our OilSpillCleanup class, with some different parameters</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> OilSpillCleanup(miles<span class="op">=</span><span class="dv">300</span>,fine_per_day<span class="op">=</span><span class="dv">20000</span>,tc<span class="op">=</span><span class="dv">15000</span>,cleanup_rate<span class="op">=</span><span class="fl">.5</span>)</span>
@@ -561,7 +561,7 @@ crews. They are given by the function:</p>
 <span class="math display">\[C_{tot}(n) = \left \{ \begin{matrix} F(n) + C_{crew}(n) &amp; n &lt; 19 \\
 C_{crew}(n) &amp; n \ge 19\end{matrix} \right .\]</span></p>
 </div>
-<div id="3c676352-7bb0-4a2b-8e1c-901e5b1f2fe3" class="cell code" data-execution_count="8">
+<div id="3c676352-7bb0-4a2b-8e1c-901e5b1f2fe3" class="cell code" data-execution_count="34">
 <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> sp.Symbol(<span class="st">&quot;n&quot;</span>)</span>
@@ -569,7 +569,7 @@ C_{crew}(n) &amp; n \ge 19\end{matrix} \right .\]</span></p>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(n): <span class="cf">return</span> <span class="dv">10000</span><span class="op">*</span>(<span class="dv">280</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>n) <span class="op">-</span> <span class="dv">14</span>)</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>f(n) <span class="op">+</span> c.crew_costs(n)</span></code></pre></div>
-<div class="output execute_result" data-execution_count="8">
+<div class="output execute_result" data-execution_count="34">
 <pre><code>18000*n + 160000*n/(0.714285714285714*n + 0.714285714285714) - 140000 + 2800000/(n + 1) + 100000/(0.714285714285714*n + 0.714285714285714)</code></pre>
 </div>
 </div>
@@ -590,7 +590,7 @@ C_{crew}(n) &amp; n \ge 19\end{matrix} \right .\]</span></p>
 functions <code>c.cost(n)</code> and <code>c.fine(c.time(n))</code> viewed as functions of
 <code>n</code>.</p>
 </div>
-<div id="5e9fb059-297d-48fd-89b4-c4966c6f0348" class="cell code" data-execution_count="9">
+<div id="5e9fb059-297d-48fd-89b4-c4966c6f0348" class="cell code" data-execution_count="35" data-scrolled="true">
 <div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> OilSpillCleanup()   <span class="co">### the class with the default values</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -662,12 +662,12 @@ c(n+1)^2\]</span> or <span class="math display">\[(n+1)^2 = \dfrac{a_1 - b}{c}\]
 <span class="math display">\[n= -1+\sqrt{\dfrac{a_1 - b}{c}}\]</span></p>
 <p>Let’s compute this value:</p>
 </div>
-<div id="1076d74a-da2e-4b56-b6c8-a0c479a6d897" class="cell code" data-execution_count="10">
+<div id="1076d74a-da2e-4b56-b6c8-a0c479a6d897" class="cell code" data-execution_count="36">
 <div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>a_1 <span class="op">=</span> <span class="dv">10500</span><span class="op">*</span><span class="dv">280</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span><span class="dv">800</span><span class="op">*</span><span class="dv">280</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>c<span class="op">=</span><span class="dv">18000</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="dv">1</span> <span class="op">+</span> np.sqrt((a_1 <span class="op">-</span> b)<span class="op">/</span>c)</span></code></pre></div>
-<div class="output execute_result" data-execution_count="10">
+<div class="output execute_result" data-execution_count="36">
 <pre><code>11.283683848458853</code></pre>
 </div>
 </div>
@@ -716,20 +716,20 @@ C(n) &amp;= 500\dfrac{1400}{m(1+n)} + n \left( 18000 + 800 \dfrac{1400}{m(1+n)} 
 <p>Recall that the original value of <span class="math inline">\(m\)</span> was <span class="math inline">\(5\)</span> miles
 per day.</p>
 </div>
-<div id="b7efacd5-68ef-4d89-add2-f79fdb211f3e" class="cell code" data-execution_count="23">
+<div id="b7efacd5-68ef-4d89-add2-f79fdb211f3e" class="cell code" data-execution_count="37">
 <div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> n(m): <span class="cf">return</span> np.sqrt(<span class="fl">6790.0</span><span class="op">/</span>(<span class="dv">9</span><span class="op">*</span>m)) <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>n(<span class="dv">5</span>)</span></code></pre></div>
-<div class="output execute_result" data-execution_count="23">
+<div class="output execute_result" data-execution_count="37">
 <pre><code>11.283683848458853</code></pre>
 </div>
 </div>
 <div id="902e6fb9-d0d4-49c7-b239-b9c910032147" class="cell markdown">
 <p>We find critical points for “nearby” values of <span class="math inline">\(m\)</span>:</p>
 </div>
-<div id="5b7d513f-35d6-4a2e-bddd-aac361456cea" class="cell code" data-execution_count="29">
+<div id="5b7d513f-35d6-4a2e-bddd-aac361456cea" class="cell code" data-execution_count="38">
 <div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">5</span><span class="op">+</span><span class="fl">.1</span><span class="op">*</span>e,n(<span class="dv">5</span> <span class="op">+</span> <span class="fl">.1</span><span class="op">*</span>e)) <span class="cf">for</span> e <span class="kw">in</span> <span class="bu">range</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>)]</span></code></pre></div>
-<div class="output execute_result" data-execution_count="29">
+<div class="output execute_result" data-execution_count="38">
 <pre><code>[(4.5, 11.948139672850859),
  (4.6, 11.806625700618754),
  (4.7, 11.669652503626441),
@@ -762,7 +762,7 @@ x} \cdot \dfrac{x}{y(x)}\]</span></p>
 \cdot \dfrac{m}{n(m)}.\]</span></p>
 <p>Let’s represent this by some code:</p>
 </div>
-<div id="fce4accb-450c-4929-9d1d-7feea932245b" class="cell code" data-execution_count="31">
+<div id="fce4accb-450c-4929-9d1d-7feea932245b" class="cell code" data-execution_count="39">
 <div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> n(m):</span>
@@ -775,7 +775,7 @@ x} \cdot \dfrac{x}{y(x)}\]</span></p>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dn(m)<span class="op">*</span>m<span class="op">/</span>n(m)</span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>Snm(<span class="dv">5</span>)</span></code></pre></div>
-<div class="output execute_result" data-execution_count="31">
+<div class="output execute_result" data-execution_count="39">
 <pre><code>-0.5443119117831824</code></pre>
 </div>
 </div>
