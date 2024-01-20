@@ -81,7 +81,7 @@ version of <span class="math inline">\(G\)</span> by evaluating the function <sp
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Gs <span class="op">=</span> G(tt)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Gs</span></code></pre></div>
 <div class="output execute_result" data-execution_count="2">
-<p><img src="../course-notebooks/images/f92b3ed2eb938bbf25b7d5dfcf1c9c1faae98aae.png" /></p>
+<p><img src="images/f92b3ed2eb938bbf25b7d5dfcf1c9c1faae98aae.png" /></p>
 </div>
 </div>
 <div id="d2e5d0c9-a858-4bba-97f9-e9deb300bce1" class="cell markdown">
@@ -98,7 +98,7 @@ the function <code>diff</code> from the <code>sympy</code> package:</p>
 <div id="a7bc13b2-6334-47b9-ae0c-15fe776e3501" class="cell code" data-execution_count="4">
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DGs</span></code></pre></div>
 <div class="output execute_result" data-execution_count="4">
-<p><img src="../course-notebooks/images/beb6082c6e399ba35d39c5424c265d072dd54b43.png" /></p>
+<p><img src="images/beb6082c6e399ba35d39c5424c265d072dd54b43.png" /></p>
 </div>
 </div>
 <div id="f8f456e3-0d75-46b6-a5a0-8543c631f413" class="cell markdown">
@@ -109,13 +109,13 @@ the solutions of the equation <code>DGs == 0</code></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>crits <span class="op">=</span> sp.solve(DGs,tt)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>crits</span></code></pre></div>
 <div class="output execute_result" data-execution_count="5">
-<p><img src="../course-notebooks/images/6bf0a8070034571e432a5bd2c2f2febf671becef.png" /></p>
+<p><img src="images/6bf0a8070034571e432a5bd2c2f2febf671becef.png" /></p>
 </div>
 </div>
 <div id="c4887e3a-e3a4-4a2d-881d-01c9f1bacbbd" class="cell code" data-execution_count="7">
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> c: c.evalf(),crits))</span></code></pre></div>
 <div class="output execute_result" data-execution_count="7">
-<p><img src="../course-notebooks/images/63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png" /></p>
+<p><img src="images/63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png" /></p>
 </div>
 </div>
 <div id="f833bb4c-3c7b-4912-a13f-3e820ba8ccc7" class="cell markdown">
@@ -347,7 +347,7 @@ Remember that the <code>sympy</code> solve found the critical points to be
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>crit_pts_fun(G,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="fl">5E3</span>,tol<span class="op">=</span><span class="fl">1E-3</span>)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="10">
-<p><img src="../course-notebooks/images/b9eb0e7894a01c8e2ef5169ec7ce9d221c72a326.png" /></p>
+<p><img src="images/b9eb0e7894a01c8e2ef5169ec7ce9d221c72a326.png" /></p>
 </div>
 </div>
 <div id="a7089ab3-fb59-459a-a5c1-f3019c9ab3f0" class="cell markdown">
@@ -356,7 +356,7 @@ Remember that the <code>sympy</code> solve found the critical points to be
 <div id="9179e3c1-6fda-47b2-9bab-9fae26509fdf" class="cell code" data-execution_count="12">
 <div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span><span class="op">/</span><span class="dv">3</span> <span class="op">-</span> np.sqrt(<span class="dv">31</span>)<span class="op">/</span><span class="dv">3</span>,<span class="dv">4</span><span class="op">/</span><span class="dv">3</span> <span class="op">+</span> np.sqrt(<span class="dv">31</span>)<span class="op">/</span><span class="dv">3</span>]</span></code></pre></div>
 <div class="output execute_result" data-execution_count="12">
-<p><img src="../course-notebooks/images/63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png" /></p>
+<p><img src="images/63d240ad7ae5e6692472ab849bd8b6c0c85e7da7.png" /></p>
 </div>
 </div>
 <div id="a972ad55-21bc-4ecd-945c-da3be6125eb0" class="cell markdown">
@@ -366,13 +366,13 @@ we get redundant critical points, or we miss critical points.</p>
 <div id="f6b48135-7ed6-42e9-ba78-108faf6a7ec2" class="cell code" data-execution_count="22">
 <div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>crit_pts_fun(G,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="fl">5E3</span>,tol<span class="op">=</span><span class="fl">5E-3</span>)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="22">
-<p><img src="../course-notebooks/images/775b95a96a0ce35325ff4075641d3ae4598f054d.png" /></p>
+<p><img src="images/775b95a96a0ce35325ff4075641d3ae4598f054d.png" /></p>
 </div>
 </div>
 <div id="9a3eadb8-04e0-4a45-97ee-a66d62c0649e" class="cell code" data-execution_count="23">
 <div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>crit_pts_fun(G,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="fl">5E3</span>,tol<span class="op">=</span><span class="fl">1E-4</span>)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="23">
-<p><img src="../course-notebooks/images/b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png" /></p>
+<p><img src="images/b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png" /></p>
 </div>
 </div>
 <div id="9c5942e4-3aab-404e-9ae8-e069aefec84e" class="cell markdown">
@@ -395,7 +395,7 @@ for the critical point of the cost function:</p>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>res<span class="op">=</span>crit_pts_fun(f,<span class="dv">0</span>,<span class="dv">19</span>,<span class="fl">1E4</span>,<span class="fl">1E-1</span>)</span>
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
 <div class="output execute_result" data-execution_count="32">
-<p><img src="../course-notebooks/images/36c7bfc7e90531d9187b20b17e2b22c2a488c99d.png" /></p>
+<p><img src="images/36c7bfc7e90531d9187b20b17e2b22c2a488c99d.png" /></p>
 </div>
 </div>
 <div id="933fe3c5-bbbc-454d-b9a7-08f074859fa3" class="cell markdown">
@@ -406,7 +406,7 @@ for the critical point of the cost function:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>res<span class="op">=</span>crit_pts_fun(f,<span class="dv">0</span>,<span class="dv">19</span>,<span class="fl">1E4</span>,<span class="fl">1E-2</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
 <div class="output execute_result" data-execution_count="37">
-<p><img src="../course-notebooks/images/b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png" /></p>
+<p><img src="images/b3e0e0375316ee30e796bb5300ad2e52dc75c77b.png" /></p>
 </div>
 </div>
 <div id="a334e536-3772-4ecf-977b-42a0fa5f0009" class="cell markdown">
@@ -416,7 +416,7 @@ for the critical point of the cost function:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>res<span class="op">=</span>crit_pts_fun(f,<span class="dv">0</span>,<span class="dv">19</span>,<span class="fl">1E4</span>,<span class="fl">4E-1</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
 <div class="output execute_result" data-execution_count="36">
-<p><img src="../course-notebooks/images/180923d75e3b701be5b1433d11fa5135e04ecfc4.png" /></p>
+<p><img src="images/180923d75e3b701be5b1433d11fa5135e04ecfc4.png" /></p>
 </div>
 </div>
         </main>

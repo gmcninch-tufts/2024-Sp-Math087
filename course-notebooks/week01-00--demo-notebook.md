@@ -135,7 +135,6 @@ For example:
 ::: {#94293733-5de0-4f6d-adbc-0f47037ab821 .cell .code execution_count="4"}
 ``` python
 h(3.5)
-h
 ```
 
 ::: {.output .execute_result execution_count="4"}

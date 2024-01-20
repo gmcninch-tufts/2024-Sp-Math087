@@ -626,7 +626,7 @@ gg=create_graph(c,vlines=[11.23,19])
 ```
 
 ::: {.output .display_data}
-![](../course-notebooks/images/a7233cf65ae83103873e8358f8c8c86c8e189747.png)
+![](images/a7233cf65ae83103873e8358f8c8c86c8e189747.png)
 :::
 :::
 

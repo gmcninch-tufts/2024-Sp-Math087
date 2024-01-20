@@ -4,9 +4,7 @@
 ::: {#ef80e7ac-612d-4bfe-b162-b58cfb1d5eb6 .cell .markdown}
 # [George McNinch](http://gmcninch.math.tufts.edu) Math 87 - Spring 2024
 
-------------------------------------------------------------------------
-
-# § Root Finding {#-root-finding}
+# Week 2: Root Finding
 :::
 
 ::: {#da8c77b2-9610-44cb-a32d-9701119fc03a .cell .markdown}
@@ -29,8 +27,9 @@ real numbers in case of $𝑏^2−4 𝑎 𝑐 \ge 0$).
 
 But such a formula is far too much to ask for, in general!
 
-We describe here algorithmic methods for approximating roots of "nice
-enough" functions which are less precise but more generally applicable.
+We describe here some algorithmic methods for approximating roots of
+"nice enough" functions. These methods are less precise than, say, the
+quadratic formula, but they are more generally applicable.
 :::
 
 ::: {#64115675-5d80-4561-b052-2d03a19300c6 .cell .markdown}
@@ -81,7 +80,7 @@ scipy.optimize.bisect(f,a,b,args=(),
 :::
 
 ::: {#abf1f3f0-22ca-4390-88a9-371a621bfea1 .cell .markdown}
-Here `f` is the function in question, and `a` and `b` are the values
+Here `f` is the function in question, and `a` and `b` are values
 bracketing some root of `f`.
 
 Morally, the argument `rtol` indicates the desired tolerance -- thus the
@@ -98,11 +97,19 @@ Also:
 ::: {#7e304b31-df23-4f10-82f1-7c66a9159be1 .cell .markdown}
 # Example
 
-For example, we can use 'bisect' to approximate the roots of $$f(x) =
-x^2 - x -1$$. Recall that those roots are $$\dfrac{1 \pm \sqrt{5}}{2}.$$
+For example, we can use `bisect` to approximate the roots of $$f(x) =
+x^2 - x -1.$$
+
+Recall that we actually know already - from the quadratic formula - that
+those roots are $$\dfrac{1 \pm \sqrt{5}}{2}.$$
+
+Let\'s try to find them using bisection.
+
+We first bracket by the interval $[1,2]$ and then by the interval
+$[-2,0]$:
 :::
 
-::: {#9cb9191d-09c7-4047-bc1a-29eca6b380d9 .cell .code}
+::: {#9cb9191d-09c7-4047-bc1a-29eca6b380d9 .cell .code execution_count="5"}
 ``` python
 import numpy as np
 from scipy.optimize import bisect
@@ -115,6 +122,17 @@ def f(x):
 approx_sol = np.array([bisect(f,1,2),
                        bisect(f,-2,0)])
 
+approx_sol
+```
+
+::: {.output .execute_result execution_count="5"}
+    array([ 1.61803399, -0.61803399])
+:::
+:::
+
+::: {#7a7430b5-102f-4bc4-9e52-b908be904463 .cell .code execution_count="3"}
+``` python
+
 sol_via_radicals = np.array([(1+np.sqrt(5))/2,
                              (1-np.sqrt(5))/2 ])
 
@@ -124,6 +142,12 @@ report = "\n".join([f"bisection solutions: {approx_sol}",
 
 print(report)
 ```
+
+::: {.output .stream .stdout}
+    bisection solutions: [ 1.61803399 -0.61803399]
+    via radicals:        [ 1.61803399 -0.61803399]
+    difference:          [-1.17417187e-12  1.17417187e-12]
+:::
 :::
 
 ::: {#a6be5123-a000-485a-be7a-83541065cb19 .cell .markdown}
@@ -138,12 +162,16 @@ $\sin(4)<0$, and $\pi$ is the unique root of $\sin(x)=0$ between $1$ and
 $4$:
 :::
 
-::: {#7b3bd11a-d433-443f-8d3f-0f09cc7c68b8 .cell .code}
+::: {#7b3bd11a-d433-443f-8d3f-0f09cc7c68b8 .cell .code execution_count="6"}
 ``` python
 def g(x): return np.sin(x)
 
 bisect(g,1,4)
 ```
+
+::: {.output .execute_result execution_count="6"}
+    3.1415926535887593
+:::
 :::
 
 ::: {#123116ac-2f1c-42c3-9b5f-5a7475235cf1 .cell .markdown}
@@ -160,13 +188,17 @@ finding roots of the function $f(x) = 1 - \ln(x)$:
 (**Question**: try comparing the answer with `np.exp(1)`).
 :::
 
-::: {#25601e9b-6df1-45f0-8b79-76b3f8df6aac .cell .code}
+::: {#25601e9b-6df1-45f0-8b79-76b3f8df6aac .cell .code execution_count="7"}
 ``` python
 def h(x):
     return 1 - np.log(x)
 
 bisect(h,1,3)
 ```
+
+::: {.output .execute_result execution_count="7"}
+    2.7182818284582027
+:::
 :::
 
 ::: {#deb9dc55-a973-49a1-b03c-1d42c7e2e16b .cell .markdown}
@@ -207,8 +239,8 @@ tangent line to $f$ at $(x_0,f(x_0)$.
 The process is then iterated: for $n \ge 2$, we set $$x_n = x_{n-1} -
 \dfrac{f(x_{n-1})}{f'(x_{n-1})}.$$
 
-Under favorable circumstances, $\lim_{n \to \infty} x_n$ is a root of
-$f$.
+Under favorable circumstances, $\displaystyle \lim_{n \to \infty} x_n$
+is a root of $f$.
 
 The `scipy` library makes both the secant method and Newton's method
 available via
@@ -259,7 +291,7 @@ Let's repeat the preceding examples:
 -   $f(x) = x^2 - x -1$.
 :::
 
-::: {#ec9fc341-a286-4561-ba4e-ddbd33809536 .cell .code}
+::: {#ec9fc341-a286-4561-ba4e-ddbd33809536 .cell .code execution_count="8"}
 ``` python
 from scipy.optimize import newton
 
@@ -279,6 +311,11 @@ report = "\n".join([f"secant {sec}",
                     f"newton {newt}",])
 print(report)
 ```
+
+::: {.output .stream .stdout}
+    secant [1.618033988749909, -0.6180339887498949]
+    newton [1.618033988749895, -0.6180339887498948]
+:::
 :::
 
 ::: {#48ba47cc-be0b-4680-a37e-05744418fbd7 .cell .markdown}
@@ -287,7 +324,7 @@ print(report)
 $\pi$ via $\sin$
 :::
 
-::: {#6a6c681b-57e4-4bf9-991c-109936d834ff .cell .code}
+::: {#6a6c681b-57e4-4bf9-991c-109936d834ff .cell .code execution_count="9"}
 ``` python
 ## use the secant method with x0 = 1 and x1 = 4
 sec_pi = newton(np.sin,1.0,x1=4.0)
@@ -300,6 +337,11 @@ report = "\n".join([f"secant: {sec_pi}",
 
 print(report)
 ```
+
+::: {.output .stream .stdout}
+    secant: 3.141592653589793
+    newton: 3.141592653589793
+:::
 :::
 
 ::: {#bda4f616-65c1-412f-8357-ef52c550ca89 .cell .markdown}
@@ -308,7 +350,7 @@ print(report)
 $e$ via $h(x) = 1 - \ln(x)$.
 :::
 
-::: {#a314905f-93ad-4a79-9775-f76904622fa7 .cell .code}
+::: {#a314905f-93ad-4a79-9775-f76904622fa7 .cell .code execution_count="10"}
 ``` python
 def h(x):
     return 1 - np.log(x)
@@ -325,6 +367,11 @@ report = "\n".join([f"secant: {e_secant}",
 
 print(report)
 ```
+
+::: {.output .stream .stdout}
+    secant: 2.718281828459045
+    newton: 2.718281828459045
+:::
 :::
 
 ::: {#d5c85e8b-dc61-4af5-a57b-6ad46fa14d68 .cell .markdown}
@@ -391,7 +438,7 @@ apply Newton's method. For this, we need to know $g'(x)$ as well; it is
 $$g'(x) = \dfrac{2}{x^3} - (\ln q)^2 q^x.$$
 :::
 
-::: {#52acb095-73c2-4351-b2b5-16b112d51a84 .cell .code}
+::: {#52acb095-73c2-4351-b2b5-16b112d51a84 .cell .code execution_count="11"}
 ``` python
 import numpy as np
 from functools import partial 
@@ -418,4 +465,14 @@ def newt(q):
 
 list(map(lambda x: (x,newt(x)),q_values))
 ```
+
+::: {.output .execute_result execution_count="11"}
+    [(0.7, 2.719531322598942),
+     (0.8, 2.9381695580526563),
+     (0.9, 3.7545775568830564),
+     (0.95, 5.02238523178711),
+     (0.99, 10.516237295014893),
+     (0.999, 32.12707425945638),
+     (0.9999, 100.5012836847976)]
+:::
 :::

@@ -36,7 +36,7 @@ notebooks: $(notebooks_md)
 	$(PD) $(META) $< build-assets/biblio.md --css=$(CSS_DEFAULT) -V slideous-url=$(SLIDEOUS) -t slidy --mathjax=$(MJ)  -o $@
 
 %.md: %.ipynb
-	$(PDJ) $< --extract-media=../course-notebooks/images -o $@
+	$(PDJ) $< --extract-media=course-assets/images -o $@
 
 course-assets/pages-pdf/%.pdf course-assets/posts-pdf/%.pdf %.pdf: %.md
 	$(PD) $(META) $< build-assets/biblio.md --pdf-engine=xelatex --resource-path=$(RP) -t latex -o $@
