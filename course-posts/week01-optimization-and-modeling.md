@@ -22,17 +22,14 @@ you to edit and execute code; for more information, see the
 [course-resource discussion about `jupyter
 notebooks`](/course-posts/resources--python-and-jupyter.html).
 
-- **jupyter demo** [[view]](/course-notebooks/week01-00--demo-notebook.html)
-  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-00--demo-notebook.ipynb) 
+- **jupyter demo** [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-00--demo-notebook.ipynb) 
    [[download]](/course-notebooks/week01-00--demo-notebook.ipynb) 
 
 - **single-variable optimization** 
-  [[view]](/course-notebooks/week01-01--optimization.html) 
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-01--optimization.ipynb)
   [[download]](/course-notebooks/week01-01--optimization.ipynb) 
 
 - **optimization & derivatives**
-  [[view]](/course-notebooks/week01-02--optimization-and-derivatives.html)
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-02--optimization-and-derivatives.ipynb)
   [[download]](/course-notebooks/week01-02--optimization-and-derivatives.ipynb)
 

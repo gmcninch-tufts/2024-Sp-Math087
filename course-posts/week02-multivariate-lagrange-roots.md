@@ -15,17 +15,15 @@ The homework assignment due on `gradescope` this week, on Friday
 There are three associated [`jupyter
 notebooks`](/course-posts/resources--python-and-jupyter.html).
 
-- **multi-variate optimization** [[view]](/course-notebooks/week02-01--multivariable-optimization.html)
+- **multi-variate optimization** 
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week02-01--multivariable-optimization.ipynb) 
    [[download]](/course-notebooks/week02-01--multivariable-optimization.ipynb) 
 
 - **multi-variate continued: Lagrange multipliers** 
-  [[view]](/course-notebooks/week02-02--lagrange.html) 
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week02-02--lagrange.ipynb)
   [[download]](/course-notebooks/week02-02--lagrange.ipynb) 
 
 - **root finding algorithms**
-  [[view]](/course-notebooks/week02-03--root-finding.html)
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week02-03--root-finding.ipynb)
   [[download]](/course-notebooks/week02-03--root-finding.ipynb)
 

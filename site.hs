@@ -55,6 +55,10 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
+    match "course-notebooks/*assets" $ do
+        route   idRoute
+        compile copyFileCompiler
+
 
     match "course-assignments/*md" $ do
         route $ setExtension "html"

@@ -53,9 +53,7 @@ the <em>cross product</em>
 defined by <span class="math inline">\(F = 0\)</span>. Then the gradient <span class="math inline">\(\nabla F\)</span> defines a normal vector
 at each point <span class="math inline">\(P\)</span>, where
 <span class="math display">\[(\nabla F)_P = \left(\dfrac{\partial F}{\partial x} \mathbf{i} + \dfrac{\partial F}{\partial y} \mathbf{j} + \dfrac{\partial F}{\partial z} \mathbf{k}\right)_P.\]</span></p>
-<p><em>Wikipedia</em> actually has a decent discussion of normal vectors here:
-<a href="https://en.wikipedia.org/wiki/Normal_(geometry)"><strong>normal vector</strong></a>.
-Both points of view can be useful, but here they lead to the same
+<p>Both points of view can be useful, but here they lead to the same
 formula. At the point <span class="math inline">\(P=(x_0,y_0,f(x_0,y_0))\)</span> one has a normal to the
 surface defined by <span class="math inline">\(z = f(x,y)\)</span> given by
 <span class="math display">\[\mathbf{n}\vert_P = \left ( \mathbf{i} + \dfrac{\partial f}{\partial x} \mathbf{k} \right )_P \times 
@@ -99,6 +97,12 @@ critical point.</p>
 <p>c. If <span class="math inline">\(D&lt;0\)</span>, then <span class="math inline">\(f(x,y)\)</span> has a saddle point at <span class="math inline">\((x_0,y_0)\)</span>.</p>
 <p>d. If <span class="math inline">\(D=0\)</span>, the second derivative test is inconclusive.</p>
 </section>
+<div class="cell markdown">
+<p>Let's examine some <em>graphs</em> in order to see examples of critical opints
+&amp; relative max/mins.</p>
+<p>We are going to use the <code>python</code> library
+<a href="https://matplotlib.org/">matplotlib</a> to draw graphs.</p>
+</div>
 <div class="cell code" data-execution_count="1">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -121,18 +125,8 @@ critical point.</p>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span></code></pre></div>
 </div>
 <div class="cell markdown">
-<p>````{prf:theorem} Orthogonal-Projection-Theorem :label: my-theorem</p>
-<p>Given <span class="math inline">\(y \in \mathbb R^n\)</span> and linear subspace <span class="math inline">\(S \subset \mathbb R^n\)</span>,
-there exists a unique solution to the minimization problem</p>
-<p><code>{math} \hat y := \argmin_{z \in S} \|y - z\|</code></p>
-<p>The minimizer <span class="math inline">\(\hat y\)</span> is the unique vector in <span class="math inline">\(\mathbb R^n\)</span> that
-satisfies</p>
-<ul>
-<li><p><span class="math inline">\(\hat y \in S\)</span></p></li>
-<li><p><span class="math inline">\(y - \hat y \perp S\)</span></p></li>
-</ul>
-<p>The vector <span class="math inline">\(\hat y\)</span> is called the <strong>orthogonal projection</strong> of <span class="math inline">\(y\)</span> onto
-<span class="math inline">\(S\)</span>. ````</p>
+<p>Now we define some functions <code>f(x)</code> and <code>g(x)</code> and use the function=
+<code>draw_graph</code> that we just defined to render an image of their graphs.</p>
 </div>
 <div class="cell code" data-execution_count="2">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x,y):</span>
@@ -145,8 +139,16 @@ satisfies</p>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>              y0<span class="op">=</span><span class="dv">0</span>,</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>              elev_azim<span class="op">=</span>[(<span class="dv">35</span>,<span class="dv">15</span>),(<span class="dv">35</span>,<span class="dv">30</span>),(<span class="dv">35</span>,<span class="dv">75</span>)])</span></code></pre></div>
 <div class="output display_data">
-<p><img src="images/9c2313aa7917d57d6632025decf93620995b9968.png" /></p>
+<p><img src="course-assets/images/9c2313aa7917d57d6632025decf93620995b9968.png" /></p>
 </div>
+</div>
+<div class="cell markdown">
+<p>Note that <span class="math inline">\((0,0)\)</span> is a critical point for <span class="math inline">\(f(x) = x^2 + y^2\)</span>. Moreover,
+<span class="math display">\[D(x,y) = \det \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 2
+\end{pmatrix} = 4.\]</span></p>
+<p>Since <span class="math inline">\(D(0,0) &gt; 0\)</span> and <span class="math inline">\(\dfrac{\partial^2 f}{\partial x^2} = 2 &gt;0\)</span>, the
+second derivative test shows that the function <span class="math inline">\(f\)</span> has a <code>relative min</code>
+at <span class="math inline">\((0,0)\)</span> (&amp; this is confirmed by the viewing the image).</p>
 </div>
 <div class="cell code" data-execution_count="3">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(x,y):</span>
@@ -159,8 +161,16 @@ satisfies</p>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>              y0<span class="op">=</span><span class="dv">0</span>,</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>              elev_azim<span class="op">=</span>[(<span class="dv">35</span>,<span class="dv">20</span>),(<span class="dv">35</span>,<span class="dv">40</span>),(<span class="dv">35</span>,<span class="dv">60</span>)])</span></code></pre></div>
 <div class="output display_data">
-<p><img src="images/9ccb3350cb0a6c7cfa5bd9d210d43ebe0286e550.png" /></p>
+<p><img src="course-assets/images/9ccb3350cb0a6c7cfa5bd9d210d43ebe0286e550.png" /></p>
 </div>
+</div>
+<div class="cell markdown">
+<p>Again, <span class="math inline">\((0,0)\)</span> is the only critical point for <span class="math inline">\(g(x,y) = x^2 - y^2\)</span>.
+Moreover, <span class="math display">\[D(x,y) = \det \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; -2
+\end{pmatrix} = -4.\]</span></p>
+<p>Since <span class="math inline">\(D(0,0) &lt; 0\)</span>, the second derivative test shows that the function
+<span class="math inline">\(g\)</span> has a <code>saddle point</code> at <span class="math inline">\((0,0)\)</span> (&amp; this is confirmed by examining
+the graph).</p>
 </div>
 <section id="example-television-manufacturer" class="cell markdown">
 <h2><strong>Example:</strong> Television manufacturer</h2>
@@ -222,9 +232,11 @@ augmented matrix:</p>
 </ul>
 <p>We find that the function <span class="math inline">\(P\)</span> has exactly one critical point which
 occurs at <span class="math inline">\((s_0,t_0) = (4735,7043)\)</span>.</p>
-<p>Let's quickly pause and see how to solve this matrix equation using the
-computer:</p>
 </section>
+<div class="cell markdown">
+<p>Alternatively, we can use <code>numpy</code> to solve the matrix equation, as
+follows:</p>
+</div>
 <div class="cell code" data-execution_count="4" data-lines_to_next_cell="2">
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span> np.array([[<span class="fl">.02</span>,<span class="fl">.007</span>],[<span class="fl">.007</span>,<span class="fl">.02</span>]])</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>np.array([<span class="dv">144</span>,<span class="dv">174</span>])</span>
@@ -234,6 +246,8 @@ computer:</p>
 </div>
 </div>
 <div class="cell markdown">
+<p>Now, let's apply the second derivative test to investigate this
+critical point.</p>
 <p>The matrix of second derivatives is
 <span class="math display">\[ \begin{bmatrix} \dfrac{\partial^2 P}{\partial s^2} &amp; \dfrac{\partial^2 P}{\partial s \partial t} \\
  \dfrac{\partial^2 P}{\partial s^2} &amp; \dfrac{\partial^2 P}{\partial s \partial t} \end{bmatrix}
@@ -265,7 +279,7 @@ case that would be the point <span class="math inline">\((0,0)\)</span> which cl
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>             y0<span class="op">=</span><span class="dv">7043</span>,</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>             elev_azim<span class="op">=</span>[(<span class="dv">45</span>,<span class="dv">20</span>),(<span class="dv">45</span>,<span class="dv">55</span>)])</span></code></pre></div>
 <div class="output display_data">
-<p><img src="images/2faaf5d7cf327e13235425654218316f53d7a491.png" /></p>
+<p><img src="course-assets/images/2faaf5d7cf327e13235425654218316f53d7a491.png" /></p>
 </div>
 </div>
 <div class="cell code" data-execution_count="6">
@@ -282,7 +296,7 @@ case that would be the point <span class="math inline">\((0,0)\)</span> which cl
 <pre><code>&lt;matplotlib.collections.PathCollection at 0x7f6e3c60dbd0&gt;</code></pre>
 </div>
 <div class="output display_data">
-<p><img src="images/3c79125f8a95789fc2467549115beed4e779f671.png" /></p>
+<p><img src="course-assets/images/3c79125f8a95789fc2467549115beed4e779f671.png" /></p>
 </div>
 </div>
 <section id="sensitivity-analysis-the-television-example-continued" class="cell markdown">
@@ -290,11 +304,17 @@ case that would be the point <span class="math inline">\((0,0)\)</span> which cl
 <p>Just as in the single-variable case, we should be able to perform
 <em>Sensitivity Analysis</em> for our optimization problems.</p>
 <p>Let’s start by picking a parameter we want to change.</p>
-<p><strong>Definition</strong>(Price Elasticity). Let the <em>Price Elasticity</em> parameter,
-<span class="math inline">\(a\)</span>, be the amount the selling price of say the 19” TVs decreases per
-19” TV sold.</p>
-<p>We started with <span class="math inline">\(a = 0.01\)</span>.</p>
-<p>Using this let’s rewrite the Profit equation with <span class="math inline">\(a\)</span>:</p>
+<p>Consider the <em>Price Elasticity</em> parameter, <span class="math inline">\(a\)</span> for 19" TVs. Thus, <span class="math inline">\(a\)</span>
+is the amount the selling price of the 19” TVs decreases per 19” TV sold
+(due to the volume discount).</p>
+<p>In the original description of the problem, this is described as:</p>
+<blockquote>
+<p>volume discount calculated as 1¢ per 19” TV</p>
+</blockquote>
+<p>Thus, we considered above the case <span class="math inline">\(a = 0.01\)</span>.</p>
+<p>Rewriting our parameters using <span class="math inline">\(a\)</span>, we see that the selling price of
+19" TVs is given by <span class="math inline">\(p(s,t) = 339 − as − 0.003t\)</span> dollars.</p>
+<p>In turn, rewriting the profit equation with <span class="math inline">\(a\)</span>, we obtain:</p>
 <p><span class="math display">\[P(s,t) = 144s + 174t − as^2 − 0.01t^2 − 0.007st − 400000\]</span></p>
 <p>We now look for optimal values <span class="math inline">\(s = s(a)\)</span> and <span class="math inline">\(t = t(a)\)</span> depending on
 <span class="math inline">\(a\)</span>.</p>
@@ -320,9 +340,6 @@ increases by 10% (i.e. the warehouse receives a bigger bulk discount)
 the optimal value of <span class="math inline">\(s\)</span> decreases by 11% and the optimal value of <span class="math inline">\(t\)</span>
 increases by 2.7%</p>
 </section>
-<div class="cell code">
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-</div>
         </main>
 
         <footer>

@@ -27,8 +27,6 @@ defined by $F = 0$. Then the gradient $\nabla F$ defines a normal vector
 at each point $P$, where
 $$(\nabla F)_P = \left(\dfrac{\partial F}{\partial x} \mathbf{i} + \dfrac{\partial F}{\partial y} \mathbf{j} + \dfrac{\partial F}{\partial z} \mathbf{k}\right)_P.$$
 
-*Wikipedia* actually has a decent discussion of normal vectors here:
-[**normal vector**](https://en.wikipedia.org/wiki/Normal_(geometry)).
 Both points of view can be useful, but here they lead to the same
 formula. At the point $P=(x_0,y_0,f(x_0,y_0))$ one has a normal to the
 surface defined by $z = f(x,y)$ given by
@@ -88,6 +86,14 @@ c\. If $D<0$, then $f(x,y)$ has a saddle point at $(x_0,y_0)$.
 d\. If $D=0$, the second derivative test is inconclusive.
 :::
 
+::: {.cell .markdown}
+Let\'s examine some *graphs* in order to see examples of critical opints
+& relative max/mins.
+
+We are going to use the `python` library
+[matplotlib](https://matplotlib.org/) to draw graphs.
+:::
+
 ::: {.cell .code execution_count="1"}
 ``` python
 import matplotlib.pyplot as plt
@@ -113,24 +119,8 @@ def draw_graph(f,x,y,x0,y0,elev_azim=[]):
 :::
 
 ::: {.cell .markdown}
-\`\`\`\`{prf:theorem} Orthogonal-Projection-Theorem :label: my-theorem
-
-Given $y \in \mathbb R^n$ and linear subspace $S \subset \mathbb R^n$,
-there exists a unique solution to the minimization problem
-
-``` {math}
-\hat y := \argmin_{z \in S} \|y - z\|
-```
-
-The minimizer $\hat y$ is the unique vector in $\mathbb R^n$ that
-satisfies
-
--   $\hat y \in S$
-
--   $y - \hat y \perp S$
-
-The vector $\hat y$ is called the **orthogonal projection** of $y$ onto
-$S$. \`\`\`\`
+Now we define some functions `f(x)` and `g(x)` and use the function=
+`draw_graph` that we just defined to render an image of their graphs.
 :::
 
 ::: {.cell .code execution_count="2"}
@@ -147,8 +137,18 @@ af=draw_graph(f,
 ```
 
 ::: {.output .display_data}
-![](images/9c2313aa7917d57d6632025decf93620995b9968.png)
+![](course-assets/images/9c2313aa7917d57d6632025decf93620995b9968.png)
 :::
+:::
+
+::: {.cell .markdown}
+Note that $(0,0)$ is a critical point for $f(x) = x^2 + y^2$. Moreover,
+$$D(x,y) = \det \begin{pmatrix} 2 & 0 \\ 0 & 2
+\end{pmatrix} = 4.$$
+
+Since $D(0,0) > 0$ and $\dfrac{\partial^2 f}{\partial x^2} = 2 >0$, the
+second derivative test shows that the function $f$ has a `relative min`
+at $(0,0)$ (& this is confirmed by the viewing the image).
 :::
 
 ::: {.cell .code execution_count="3"}
@@ -165,8 +165,18 @@ ag=draw_graph(g,
 ```
 
 ::: {.output .display_data}
-![](images/9ccb3350cb0a6c7cfa5bd9d210d43ebe0286e550.png)
+![](course-assets/images/9ccb3350cb0a6c7cfa5bd9d210d43ebe0286e550.png)
 :::
+:::
+
+::: {.cell .markdown}
+Again, $(0,0)$ is the only critical point for $g(x,y) = x^2 - y^2$.
+Moreover, $$D(x,y) = \det \begin{pmatrix} 2 & 0 \\ 0 & -2
+\end{pmatrix} = -4.$$
+
+Since $D(0,0) < 0$, the second derivative test shows that the function
+$g$ has a `saddle point` at $(0,0)$ (& this is confirmed by examining
+the graph).
 :::
 
 ::: {.cell .markdown}
@@ -251,9 +261,11 @@ What do we *know* to start with??
 
 We find that the function $P$ has exactly one critical point which
 occurs at $(s_0,t_0) = (4735,7043)$.
+:::
 
-Let\'s quickly pause and see how to solve this matrix equation using the
-computer:
+::: {.cell .markdown}
+Alternatively, we can use `numpy` to solve the matrix equation, as
+follows:
 :::
 
 ::: {.cell .code execution_count="4" lines_to_next_cell="2"}
@@ -269,6 +281,9 @@ np.linalg.solve(A,b)
 :::
 
 ::: {.cell .markdown}
+Now, let\'s apply the second derivative test to investigate this
+critical point.
+
 The matrix of second derivatives is
 $$ \begin{bmatrix} \dfrac{\partial^2 P}{\partial s^2} & \dfrac{\partial^2 P}{\partial s \partial t} \\
  \dfrac{\partial^2 P}{\partial s^2} & \dfrac{\partial^2 P}{\partial s \partial t} \end{bmatrix}
@@ -308,7 +323,7 @@ a=draw_graph(p,
 ```
 
 ::: {.output .display_data}
-![](images/2faaf5d7cf327e13235425654218316f53d7a491.png)
+![](course-assets/images/2faaf5d7cf327e13235425654218316f53d7a491.png)
 :::
 :::
 
@@ -330,7 +345,7 @@ axc.scatter(4735,7043,marker="X")
 :::
 
 ::: {.output .display_data}
-![](images/3c79125f8a95789fc2467549115beed4e779f671.png)
+![](course-assets/images/3c79125f8a95789fc2467549115beed4e779f671.png)
 :::
 :::
 
@@ -342,13 +357,20 @@ Just as in the single-variable case, we should be able to perform
 
 Let's start by picking a parameter we want to change.
 
-**Definition**(Price Elasticity). Let the *Price Elasticity* parameter,
-$a$, be the amount the selling price of say the 19" TVs decreases per
-19" TV sold.
+Consider the *Price Elasticity* parameter, $a$ for 19\" TVs. Thus, $a$
+is the amount the selling price of the 19" TVs decreases per 19" TV sold
+(due to the volume discount).
 
-We started with $a = 0.01$.
+In the original description of the problem, this is described as:
 
-Using this let's rewrite the Profit equation with $a$:
+> volume discount calculated as 1¢ per 19" TV
+
+Thus, we considered above the case $a = 0.01$.
+
+Rewriting our parameters using $a$, we see that the selling price of
+19\" TVs is given by $p(s,t) = 339 − as − 0.003t$ dollars.
+
+In turn, rewriting the profit equation with $a$, we obtain:
 
 $$P(s,t) = 144s + 174t − as^2 − 0.01t^2 − 0.007st − 400000$$
 
@@ -381,9 +403,4 @@ $$S(s,0.01) \approx -1.1 \quad \text{and} \quad
 increases by 10% (i.e. the warehouse receives a bigger bulk discount)
 the optimal value of $s$ decreases by 11% and the optimal value of $t$
 increases by 2.7%
-:::
-
-::: {.cell .code}
-``` python
-```
 :::

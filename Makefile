@@ -15,8 +15,8 @@ CSS_DEFAULT="build-assets/default.css"
 posts=$(notdir $(wildcard course-posts/*.md))
 pages=$(notdir $(wildcard course-pages/*.md))
 
-notebooks=$(wildcard course-notebooks/*.ipynb)
-notebooks_md=$(notebooks:.ipynb=.md)
+#notebooks=$(wildcard course-notebooks/*.ipynb)
+#notebooks_md=$(notebooks:.ipynb=.md)
 
 pages_pdf=$(addprefix course-assets/pages-pdf/,$(pages:.md=.pdf))
 
@@ -30,13 +30,13 @@ all: pages posts problems notebooks
 pages: $(pages_pdf)
 posts: $(posts_pdf)
 problems: $(problems_pdf)
-notebooks: $(notebooks_md)
+#notebooks: $(notebooks_md)
 
 %-slides.html: %.md
 	$(PD) $(META) $< build-assets/biblio.md --css=$(CSS_DEFAULT) -V slideous-url=$(SLIDEOUS) -t slidy --mathjax=$(MJ)  -o $@
 
-%.md: %.ipynb
-	$(PDJ) $< --extract-media=course-assets/images -o $@
+#%.md: %.ipynb
+#	$(PDJ) $< --extract-media=course-assets/images -o $@
 
 course-assets/pages-pdf/%.pdf course-assets/posts-pdf/%.pdf %.pdf: %.md
 	$(PD) $(META) $< build-assets/biblio.md --pdf-engine=xelatex --resource-path=$(RP) -t latex -o $@

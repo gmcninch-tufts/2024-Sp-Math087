@@ -1,7 +1,0 @@
-    def square(x):
-    return x*x
-
-    result1=list(map(square,[1,2,3]))
-    result2=list(map(square,[2,4,6]))
-    print(result1)
-    print(result2)
