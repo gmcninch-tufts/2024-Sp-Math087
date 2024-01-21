@@ -44,14 +44,14 @@ main = hakyllWith config $ do
     --       >>= loadAndApplyTemplate "templates/default.html" defaultContext
     --       >>= relativizeUrls
 
-    match "course-notebooks/*md" $ do
-        route $ setExtension "html"
-        compile $ mathJaxAddedCompiler
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
-            >>= relativizeUrls
+    -- match "course-notebooks/*md" $ do
+    --     route $ setExtension "html"
+    --     compile $ mathJaxAddedCompiler
+    --         >>= loadAndApplyTemplate "templates/default.html" postCtx
+    --         >>= relativizeUrls
 
 
-    match ("course-notebooks/*ipynb" .||. "course-notebooks/*png" .||. "course-notebooks/images/**" ) $ version "copy" $ do
+    match ("course-notebooks/*ipynb" .||. "course-notebooks/*pdf" ) $ version "copy" $ do
         route   idRoute
         compile copyFileCompiler
 

@@ -17,14 +17,17 @@ notebooks`](/course-posts/resources--python-and-jupyter.html).
 
 - **multi-variate optimization** 
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week02-01--multivariable-optimization.ipynb) 
-   [[download]](/course-notebooks/week02-01--multivariable-optimization.ipynb) 
+   [[download notebook]](/course-notebooks/week02-01--multivariable-optimization.ipynb) 
+   [[pdf]](/course-notebooks/week02-01--multivariable-optimization.pdf)    
 
-- **multi-variate continued: Lagrange multipliers** 
+- **multi-variate cont'd: Lagrange multipliers** 
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week02-02--lagrange.ipynb)
-  [[download]](/course-notebooks/week02-02--lagrange.ipynb) 
+  [[download notebook]](/course-notebooks/week02-02--lagrange.ipynb) 
+  [[pdf]](/course-notebooks/week02-02--lagrange.pdf)   
 
 - **root finding algorithms**
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week02-03--root-finding.ipynb)
-  [[download]](/course-notebooks/week02-03--root-finding.ipynb)
+  [[download notebook]](/course-notebooks/week02-03--root-finding.ipynb)
+  [[pdf]](/course-notebooks/week02-03--root-finding.pdf)  
 
 
