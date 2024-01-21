@@ -41,7 +41,7 @@ notebooks: $(notebooks_pdf)
 
 %.pdf: %.ipynb
 	jupyter nbconvert --to pdf  $<
-	jupyter nbconvert --to pdf --template=build-assets/secnum.tplx $<
+#	jupyter nbconvert --to pdf --template=build-assets/secnum.tplx $<
 
 course-assets/pages-pdf/%.pdf course-assets/posts-pdf/%.pdf %.pdf: %.md
 	$(PD) $(META) $< build-assets/biblio.md --pdf-engine=xelatex --resource-path=$(RP) -t latex -o $@
