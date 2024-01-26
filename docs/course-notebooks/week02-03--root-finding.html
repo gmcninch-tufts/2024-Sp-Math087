@@ -52,9 +52,8 @@ roots, given by the <em>quadratic formula</em>
 <span class="math display">\[𝑥_0=\dfrac{−𝑏±\sqrt{𝑏^2−4𝑎𝑐}}{2𝑎}.\]</span> (Of course, these roots are only
 real numbers in case of <span class="math inline">\(𝑏^2−4 𝑎 𝑐 \ge 0\)</span>).</p>
 <p>But such a formula is far too much to ask for, in general!</p>
-<p>We describe here some algorithmic methods for approximating roots of
-“nice enough” functions. These methods are less precise than, say, the
-quadratic formula, but they are more generally applicable.</p>
+<p>We describe here some algorithmic methods for approximating roots of “nice
+enough” functions. These methods are less precise than, say, the quadratic formula, but they are more generally applicable.</p>
 </div>
 <div id="64115675-5d80-4561-b052-2d03a19300c6" class="cell markdown">
 <h1 id="bisection---overview">Bisection - overview</h1>
@@ -104,11 +103,9 @@ raised. Must be &gt;= 0.</p>
 <h1 id="example">Example</h1>
 <p>For example, we can use <code>bisect</code> to approximate the roots of <span class="math display">\[f(x) =
 x^2 - x -1.\]</span></p>
-<p>Recall that we actually know already - from the quadratic formula - that
-those roots are <span class="math display">\[\dfrac{1 \pm \sqrt{5}}{2}.\]</span></p>
-<p>Let's try to find them using bisection.</p>
-<p>We first bracket by the interval <span class="math inline">\([1,2]\)</span> and then by the interval
-<span class="math inline">\([-2,0]\)</span>:</p>
+<p>Recall that we actually know already - from the quadratic formula - that those roots are <span class="math display">\[\dfrac{1 \pm \sqrt{5}}{2}.\]</span></p>
+<p>Let’s try to find them using bisection.</p>
+<p>We first bracket by the interval <span class="math inline">\([1,2]\)</span> and then by the interval <span class="math inline">\([-2,0]\)</span>:</p>
 </div>
 <div id="9cb9191d-09c7-4047-bc1a-29eca6b380d9" class="cell code" data-execution_count="5">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -140,7 +137,8 @@ those roots are <span class="math display">\[\dfrac{1 \pm \sqrt{5}}{2}.\]</span>
 <div class="output stream stdout">
 <pre><code>bisection solutions: [ 1.61803399 -0.61803399]
 via radicals:        [ 1.61803399 -0.61803399]
-difference:          [-1.17417187e-12  1.17417187e-12]</code></pre>
+difference:          [-1.17417187e-12  1.17417187e-12]
+</code></pre>
 </div>
 </div>
 <div id="a6be5123-a000-485a-be7a-83541065cb19" class="cell markdown">
@@ -208,8 +206,8 @@ the <span class="math inline">\(x\)</span>-coordinate of the point of intersecti
 tangent line to <span class="math inline">\(f\)</span> at <span class="math inline">\((x_0,f(x_0)\)</span>.</p>
 <p>The process is then iterated: for <span class="math inline">\(n \ge 2\)</span>, we set <span class="math display">\[x_n = x_{n-1} -
 \dfrac{f(x_{n-1})}{f'(x_{n-1})}.\]</span></p>
-<p>Under favorable circumstances, <span class="math inline">\(\displaystyle \lim_{n \to \infty} x_n\)</span>
-is a root of <span class="math inline">\(f\)</span>.</p>
+<p>Under favorable circumstances, <span class="math inline">\(\displaystyle \lim_{n \to \infty} x_n\)</span> is a root of
+<span class="math inline">\(f\)</span>.</p>
 <p>The <code>scipy</code> library makes both the secant method and Newton’s method
 available via
 <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html">scipy.optimize.newton</a></p>
@@ -260,7 +258,8 @@ a root.</p>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report)</span></code></pre></div>
 <div class="output stream stdout">
 <pre><code>secant [1.618033988749909, -0.6180339887498949]
-newton [1.618033988749895, -0.6180339887498948]</code></pre>
+newton [1.618033988749895, -0.6180339887498948]
+</code></pre>
 </div>
 </div>
 <div id="48ba47cc-be0b-4680-a37e-05744418fbd7" class="cell markdown">
@@ -280,7 +279,8 @@ newton [1.618033988749895, -0.6180339887498948]</code></pre>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report)</span></code></pre></div>
 <div class="output stream stdout">
 <pre><code>secant: 3.141592653589793
-newton: 3.141592653589793</code></pre>
+newton: 3.141592653589793
+</code></pre>
 </div>
 </div>
 <div id="bda4f616-65c1-412f-8357-ef52c550ca89" class="cell markdown">
@@ -304,7 +304,8 @@ newton: 3.141592653589793</code></pre>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(report)</span></code></pre></div>
 <div class="output stream stdout">
 <pre><code>secant: 2.718281828459045
-newton: 2.718281828459045</code></pre>
+newton: 2.718281828459045
+</code></pre>
 </div>
 </div>
 <div id="d5c85e8b-dc61-4af5-a57b-6ad46fa14d68" class="cell markdown">

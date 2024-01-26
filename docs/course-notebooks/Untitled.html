@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - Untitled</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>Untitled</h1>
+            <div id="d5c8e2ba-17af-4fd6-ac39-5897846c92cb" class="cell code" data-execution_count="1">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> newton</span></code></pre></div>
+</div>
+<div id="2d59095d-e7e2-406c-adb4-370c67d8b768" class="cell code" data-execution_count="4">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x): <span class="cf">return</span> <span class="dv">1</span><span class="op">/</span>x <span class="op">-</span> <span class="dv">4287</span></span></code></pre></div>
+</div>
+<div id="c0b7e7e0-c00d-453a-a1cd-fa897160404f" class="cell code" data-execution_count="11">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> df(x): <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span>)</span></code></pre></div>
+</div>
+<div id="38842c0d-b0bd-47b3-9eab-605b451dd93e" class="cell code" data-execution_count="15">
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>newton(f,<span class="dv">0</span>,fprime<span class="op">=</span>df)</span></code></pre></div>
+<div class="output stream stderr">
+<pre><code>/tmp/ipykernel_406572/538223209.py:1: RuntimeWarning: divide by zero encountered in scalar divide
+  def f(x): return 1/x - 4287
+/home/george/miniforge3/lib/python3.11/site-packages/scipy/optimize/_zeros_py.py:321: RuntimeWarning: invalid value encountered in scalar divide
+  newton_step = fval / fder
+</code></pre>
+</div>
+<div class="output error" data-ename="RuntimeError" data-evalue="Failed to converge after 50 iterations, value is nan.">
+<pre><code>[0;31m---------------------------------------------------------------------------[0m
+[0;31mRuntimeError[0m                              Traceback (most recent call last)
+Cell [0;32mIn[15], line 1[0m
+[0;32m----&gt; 1[0m [43mnewton[49m[43m([49m[43mf[49m[43m,[49m[38;5;241;43m0[39;49m[43m,[49m[43mfprime[49m[38;5;241;43m=[39;49m[43mdf[49m[43m)[49m
+
+File [0;32m~/miniforge3/lib/python3.11/site-packages/scipy/optimize/_zeros_py.py:384[0m, in [0;36mnewton[0;34m(func, x0, fprime, args, tol, maxiter, fprime2, x1, rtol, full_output, disp)[0m
+[1;32m    381[0m [38;5;28;01mif[39;00m disp:
+[1;32m    382[0m     msg [38;5;241m=[39m ([38;5;124m&quot;[39m[38;5;124mFailed to converge after [39m[38;5;132;01m%d[39;00m[38;5;124m iterations, value is [39m[38;5;132;01m%s[39;00m[38;5;124m.[39m[38;5;124m&quot;[39m
+[1;32m    383[0m            [38;5;241m%[39m (itr [38;5;241m+[39m [38;5;241m1[39m, p))
+[0;32m--&gt; 384[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m(msg)
+[1;32m    386[0m [38;5;28;01mreturn[39;00m _results_select(full_output, (p, funcalls, itr [38;5;241m+[39m [38;5;241m1[39m, _ECONVERR))
+
+[0;31mRuntimeError[0m: Failed to converge after 50 iterations, value is nan.
+</code></pre>
+</div>
+</div>
+<div id="ea7ca776-217f-4fe4-b68c-f93017b5d326" class="cell code" data-execution_count="6">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(x): <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> <span class="dv">4287</span><span class="op">*</span>x</span></code></pre></div>
+</div>
+<div id="8e26e3b2-2062-4f26-a455-91e6645d766d" class="cell code" data-execution_count="8">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dg(x): <span class="cf">return</span> <span class="op">-</span><span class="dv">4287</span></span></code></pre></div>
+</div>
+<div id="18b27a34-e857-47f7-ab45-e0229436e99d" class="cell code" data-execution_count="9">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>newton(g,<span class="dv">1</span>,fprime<span class="op">=</span>dg)</span></code></pre></div>
+<div class="output execute_result" data-execution_count="9">
+<pre><code>0.0002332633543270352</code></pre>
+</div>
+</div>
+<div id="95fce6d9-4483-417a-8eca-e596c737eef4" class="cell code" data-execution_count="10">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">/</span><span class="dv">4287</span></span></code></pre></div>
+<div class="output execute_result" data-execution_count="10">
+<pre><code>0.00023326335432703523</code></pre>
+</div>
+</div>
+<div id="5d34d091-f43d-4ea8-8d61-f8113cc59776" class="cell code">
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</div>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

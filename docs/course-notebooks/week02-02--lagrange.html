@@ -38,47 +38,31 @@
 </div>
 <section id="some-motivation" class="cell markdown">
 <h2>Some motivation</h2>
-<p>Let's recall our television manufacturing example for a moment. The
-model we solved was interesting but most likely unrealistic. A
-manufacturer, for instance, probably has a limited capacity and can only
-produce a certain amount of TVs in total per year.</p>
+<p>Let’s recall our television manufacturing example for a moment. The model we solved was interesting
+but most likely unrealistic. A manufacturer, for instance, probably has a limited
+capacity and can only produce a certain amount of TVs in total per year.</p>
 <p>Let’s look at an example where that capacity is 10,000 TVs per year.</p>
-<p>So given the <em>constraint</em>, <span class="math inline">\(s + t ≤ 10,000\)</span>, how many of each model
-should they produce now??</p>
-<p>Well, first notice that the <em>unconstrained optimum</em> with <span class="math inline">\(s = 4,735\)</span> and
-<span class="math inline">\(t = 7,043\)</span> -- found <em>previously</em> -- does not satisfy the constraint
-(since <span class="math inline">\(s + t = 4735 + 7043 &gt; 11700\)</span>).</p>
-<p>Now let's recall that in the single variable case, trying to find a
-<em>constrained optimum</em> amounts to optimizing a function on a closed
-interval -- so you proceed with the usual procedure for optimization
-but must also check boundary points (endpoints).</p>
-<p>If we proceed in this fashion, we'd check the "boundary" conditions
-corresponding to <span class="math inline">\(t=0\)</span> and <span class="math inline">\(s=0\)</span>.</p>
+<p>So given the <em>constraint</em>, <span class="math inline">\(s + t ≤ 10,000\)</span>, how many of each model should they produce now??</p>
+<p>Well, first notice that the <em>unconstrained optimum</em> with <span class="math inline">\(s = 4,735\)</span> and <span class="math inline">\(t = 7,043\)</span> – found <em>previously</em> –
+does not satisfy the constraint (since <span class="math inline">\(s + t = 4735 + 7043 &gt; 11700\)</span>).</p>
+<p>Now let’s recall that in the single variable case, trying to find a <em>constrained optimum</em> amounts to optimizing a function on a closed interval – so you proceed with the usual procedure for optimization but must also check boundary points (endpoints).</p>
+<p>If we proceed in this fashion, we’d check the “boundary” conditions corresponding to <span class="math inline">\(t=0\)</span> and <span class="math inline">\(s=0\)</span>.</p>
 <p>Well, setting <span class="math inline">\(t=0\)</span> we see that the profit function is given by</p>
 <p><span class="math display">\[P(s,0) = 144s - 0.01s^2 - 400,000.\]</span></p>
-<p>Since this is a function only of <span class="math inline">\(s\)</span> we can use 1-dimensional
-optimization techniques:</p>
+<p>Since this is a function only of <span class="math inline">\(s\)</span> we can use 1-dimensional optimization techniques:</p>
 <p><span class="math display">\[\dfrac{\partial P}{\partial S}(S,0) = 144 - 0.02s = 0 \implies s = 7200.\]</span></p>
-<p>On this boundary, we need to consider <span class="math inline">\((0,0)\)</span> and <span class="math inline">\((10,000,0)\)</span> (the
-boundary of the boundary...) as well as <span class="math inline">\((7200,0)\)</span>.</p>
+<p>On this boundary, we need to consider <span class="math inline">\((0,0)\)</span> and <span class="math inline">\((10,000,0)\)</span> (the boundary of the boundary…) as well as <span class="math inline">\((7200,0)\)</span>.</p>
 <p>We can treat the boundary with <span class="math inline">\(s =0\)</span> similarly.</p>
 <p>But the boundary condition with <span class="math inline">\(s+t = 0\)</span> will be more of a pain.</p>
-<p>The method of Lagrange multipliers gives a more systematic way to
-proceed!</p>
+<p>The method of Lagrange multipliers gives a more systematic way to proceed!</p>
 </section>
 <section id="lagrange-multipliers" class="cell markdown">
 <h2>Lagrange multipliers</h2>
-<p>Consider a function <span class="math inline">\(f(x,y)\)</span> of two variables. We are interested here in
-finding maximal or minimal values of <span class="math inline">\(f\)</span> subject to a <em>constraint</em>. The
-sort of constraint we have in mind is a restriction on the possible
-pairs <span class="math inline">\((x,y)\)</span> -- so we have a second function <span class="math inline">\(g(x,y)\)</span> and we want to
-maximize (or minimize) <span class="math inline">\(f\)</span> subject to the condition that <span class="math inline">\(g(x,y) = c\)</span>
-for some fixed quantity <span class="math inline">\(c\)</span>.</p>
-<p>We introduce a "new" function -- now of <em>three</em> variables - known as
-the <strong>Lagrangian</strong>. It is given by the formula
+<p>Consider a function <span class="math inline">\(f(x,y)\)</span> of two variables. We are interested here in finding maximal or minimal values of <span class="math inline">\(f\)</span> subject to a <em>constraint</em>. The sort of constraint we have in mind is a restriction on the possible pairs <span class="math inline">\((x,y)\)</span> – so we have a second function <span class="math inline">\(g(x,y)\)</span> and we want to maximize (or minimize) <span class="math inline">\(f\)</span> subject
+to the condition that <span class="math inline">\(g(x,y) = c\)</span> for some fixed quantity <span class="math inline">\(c\)</span>.</p>
+<p>We introduce a “new” function – now of <em>three</em> variables - known as the <strong>Lagrangian</strong>. It is given by the formula
 <span class="math display">\[\mathcal{L}(x,y,\lambda) = f(x,y) - \lambda \cdot (g(x,y)-c)\]</span></p>
-<p>(We use the Greek letter <span class="math inline">\(\lambda\)</span> for our third variable in part
-because it plays a different role for us than the variables <span class="math inline">\(x,y\)</span>).</p>
+<p>(We use the Greek letter <span class="math inline">\(\lambda\)</span> for our third variable in part because it plays a different role for us than the variables <span class="math inline">\(x,y\)</span>).</p>
 <p>We can calculate the <em>partial derivatives</em> of this Lagrangian; they are:</p>
 <p><span class="math display">\[\dfrac{\partial \mathcal{L}}{\partial x} = \dfrac{\partial f}{\partial x} - \lambda\dfrac{\partial g}{\partial x}\]</span></p>
 <p><span class="math display">\[\dfrac{\partial \mathcal{L}}{\partial y} = \dfrac{\partial f}{\partial y} - \lambda\dfrac{\partial g}{\partial y}\]</span></p>
@@ -88,64 +72,52 @@ because it plays a different role for us than the variables <span class="math in
 and similarly for <span class="math inline">\(y\)</span>, so that
 <span class="math display">\[ \dfrac{\partial f}{\partial x} = \lambda \dfrac{\partial g}{\partial x} \quad \text{and}\quad
 \dfrac{\partial f}{\partial y} = \lambda \dfrac{\partial g}{\partial y}.\]</span>
-Recall that the <em>gradient</em> <span class="math inline">\(\nabla f\)</span> of <span class="math inline">\(f\)</span> is given by
-<span class="math inline">\(\nabla f = \dfrac{\partial f}{\partial x} \mathbf{i} + \dfrac{\partial f}{\partial y} \mathbf{j}\)</span>
--- or
-<span class="math inline">\(\nabla f = \left(\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right)\)</span>
--- so these conditions amount to:</p>
+Recall that the <em>gradient</em> <span class="math inline">\(\nabla f\)</span> of <span class="math inline">\(f\)</span> is given by <span class="math inline">\(\nabla f = \dfrac{\partial f}{\partial x} \mathbf{i} + \dfrac{\partial f}{\partial y} \mathbf{j}\)</span> – or <span class="math inline">\(\nabla f = \left(\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right)\)</span> – so these conditions amount to:</p>
 <p><span class="math display">\[\nabla f = \lambda \cdot \nabla \mathcal{L}\]</span></p>
 <p>Moreover, we find that
 <span class="math display">\[0 = \dfrac{\partial \mathcal{L}}{\partial \lambda} = c - g(x,y).\]</span></p>
 <p>Summarizing, we record</p>
-<p><strong>Proposition</strong> : The condition that <span class="math inline">\((x_0,y_0,\lambda_0)\)</span> is a critical
-point of <span class="math inline">\(F\)</span> is equivalent to two requirements:</p>
+<dl>
+<dt><strong>Proposition</strong></dt>
+<dd>
+The condition that <span class="math inline">\((x_0,y_0,\lambda_0)\)</span> is a critical point of <span class="math inline">\(F\)</span> is equivalent to two requirements:
+</dd>
+</dl>
 <p><strong>(a).</strong> <span class="math inline">\((x_0,y_0)\)</span> must be on the level curve <span class="math inline">\(g(x,y) = c\)</span>, and</p>
-<p><strong>(b).</strong> the gradient vectors must satisfy
-<span class="math inline">\(\nabla f \vert_{(x_0,y_0)} = \lambda_0 \nabla g \vert_{(x_0,y_0)}\)</span>.</p>
+<p><strong>(b).</strong> the gradient vectors must satisfy <span class="math inline">\(\nabla f \vert_{(x_0,y_0)} = \lambda_0 \nabla g \vert_{(x_0,y_0)}\)</span>.</p>
 </section>
 <div class="cell markdown">
-<p>The reason for interest in the critical points of <span class="math inline">\(\mathcal{L}\)</span> is the
-following:</p>
-<p><strong>Proposition</strong> : Optimal values for <span class="math inline">\(f\)</span> along the level curve
-<span class="math inline">\(g(x,y) = c\)</span> will be found among the critical points of <span class="math inline">\(F\)</span>.</p>
-<p>Indeed, suppose <span class="math inline">\((x_0,y_0)\)</span> is a point on the level curve at which <span class="math inline">\(f\)</span>
-takes its max (or min) value (on the level surface). We need to argue
-that the gradient vector <span class="math inline">\(\nabla f \vert_{(x_0,y_0)}\)</span> is "parallel" to
-the gradient vector <span class="math inline">\(\nabla g \vert_{(x_0,y_0)}\)</span> -- i.e. that <strong>(b)</strong>
-above holds.</p>
-<p>Well, we can of course write
-<span class="math inline">\(\nabla f \vert_{(x_0,y_0)} = \mathbf{v} + \mu \nabla g \vert_{(x_0,y_0)}\)</span>
-for a vector <span class="math inline">\(\mathbf{v}\)</span> perpendicular to <span class="math inline">\(\nabla g \vert_{(x_0,y_0)}\)</span>
-(and for some scalar <span class="math inline">\(\mu\)</span>). To confirm that <strong>(b)</strong> holds, we must
-argue that <span class="math inline">\(\mathbf{v}\)</span> is zero.</p>
-<p>But if <span class="math inline">\(\mathbf{v}\)</span> is non-zero, then walking along the level curve
-<span class="math inline">\(g(x,y) = c\)</span> "in the direction of <span class="math inline">\(\mathbf{v}\)</span>" will lead to points at
-which the function <span class="math inline">\(f\)</span> will take larger values, contrary to the
-assumption that on the level curve, <span class="math inline">\(f\)</span> has a maximum at <span class="math inline">\((x_0,y_0)\)</span>.
+<p>The reason for interest in the critical points of <span class="math inline">\(\mathcal{L}\)</span> is the following:</p>
+<dl>
+<dt><strong>Proposition</strong></dt>
+<dd>
+Optimal values for <span class="math inline">\(f\)</span> along the level curve <span class="math inline">\(g(x,y) = c\)</span> will be found among the critical points of <span class="math inline">\(F\)</span>.
+</dd>
+</dl>
+<p>Indeed, suppose <span class="math inline">\((x_0,y_0)\)</span>
+is a point on the level curve at which <span class="math inline">\(f\)</span> takes its max (or min) value (on the level surface).
+We need to argue that the gradient vector <span class="math inline">\(\nabla f \vert_{(x_0,y_0)}\)</span> is “parallel” to the gradient
+vector <span class="math inline">\(\nabla g \vert_{(x_0,y_0)}\)</span> – i.e. that <strong>(b)</strong> above holds.</p>
+<p>Well, we can of course write <span class="math inline">\(\nabla f \vert_{(x_0,y_0)} = \mathbf{v} + \mu \nabla g \vert_{(x_0,y_0)}\)</span>
+for a vector <span class="math inline">\(\mathbf{v}\)</span> perpendicular to <span class="math inline">\(\nabla g \vert_{(x_0,y_0)}\)</span> (and for some scalar <span class="math inline">\(\mu\)</span>). To confirm that <strong>(b)</strong> holds,
+we must argue that <span class="math inline">\(\mathbf{v}\)</span> is zero.</p>
+<p>But if <span class="math inline">\(\mathbf{v}\)</span> is non-zero, then walking along the level curve <span class="math inline">\(g(x,y) = c\)</span> “in the direction of <span class="math inline">\(\mathbf{v}\)</span>”
+will lead to points at which the function <span class="math inline">\(f\)</span> will take larger values, contrary to the assumption that on the level curve, <span class="math inline">\(f\)</span> has a maximum at <span class="math inline">\((x_0,y_0)\)</span>.
 <span class="math inline">\(\quad \blacksquare\)</span></p>
 </div>
 <section id="maxima-or-minima-and-an-interpretation-of-lambda" class="cell markdown">
 <h2>Maxima (or minima) and an interpretation of <span class="math inline">\(\lambda\)</span></h2>
-<p>Haivng found the critical points of <span class="math inline">\(F\)</span>, one can find the extrema for
-<span class="math inline">\(f\)</span> simple by evaluating and comparing the results (<em>well, this works at
-least if there are just a finite list of critical points</em>).</p>
-<p>If <span class="math inline">\(M^*\)</span> denotes the max (or min) value of <span class="math inline">\(f\)</span> subject to the constraint
-<span class="math inline">\(g(x,y)=c\)</span>, we can view <span class="math inline">\(F^*\)</span> as a function <span class="math inline">\(F^*(c)\)</span> of <span class="math inline">\(c\)</span>. (Different
-values of <span class="math inline">\(c\)</span> result in different extrema for <span class="math inline">\(f\)</span> on the curve
-<span class="math inline">\(g(x,y) = c\)</span>...)</p>
-<p>We now claim that if <span class="math inline">\((x_0,y_0,\lambda_0)\)</span> is a critical point for <span class="math inline">\(F\)</span>
-for which <span class="math inline">\(F^* = f(x_0,y_0)\)</span>, then <span class="math display">\[\dfrac{dF^*}{dc} = \lambda_0.\]</span></p>
-<p>We are first going to consider this observation in the case of an
-<em>application</em>. Then we'll explain why this observation is true in
-general.</p>
+<p>Haivng found the critical points of <span class="math inline">\(F\)</span>, one can find the extrema for <span class="math inline">\(f\)</span> simple by evaluating and comparing the results (<em>well, this works at least if there are just a finite list of critical points</em>).</p>
+<p>If <span class="math inline">\(M^*\)</span> denotes the max (or min) value of <span class="math inline">\(f\)</span> subject to the constraint <span class="math inline">\(g(x,y)=c\)</span>, we can view <span class="math inline">\(F^*\)</span> as a function <span class="math inline">\(F^*(c)\)</span> of <span class="math inline">\(c\)</span>. (Different values of <span class="math inline">\(c\)</span> result in different extrema for <span class="math inline">\(f\)</span> on the curve <span class="math inline">\(g(x,y) = c\)</span>…)</p>
+<p>We now claim that if <span class="math inline">\((x_0,y_0,\lambda_0)\)</span> is a critical point for <span class="math inline">\(F\)</span> for which <span class="math inline">\(F^* = f(x_0,y_0)\)</span>, then
+<span class="math display">\[\dfrac{dF^*}{dc} = \lambda_0.\]</span></p>
+<p>We are first going to consider this observation in the case of an <em>application</em>. Then we’ll explain why this observation is true in general.</p>
 </section>
 <section id="televisions-again" class="cell markdown">
 <h2>Televisions, again</h2>
-<p>Let’s return to the television manufacturing problem. We consider the
-constraint <span class="math display">\[g(s, t) = s + t = 10,000\]</span> i.e. "the manufacturer produces
-exactly 10,000 televisions".</p>
-<p>Consider the <em>Lagrangian</em> function
-<span class="math inline">\(\mathcal{L}(s,t,\lambda) = P(s,t) - \lambda(s+t-10,000).\)</span></p>
+<p>Let’s return to the television manufacturing problem. We consider the constraint <span class="math display">\[g(s, t) = s + t = 10,000\]</span>
+i.e. “the manufacturer produces exactly 10,000 televisions”.</p>
+<p>Consider the <em>Lagrangian</em> function <span class="math inline">\(\mathcal{L}(s,t,\lambda) = P(s,t) - \lambda(s+t-10,000).\)</span></p>
 <p>Looking for critical points of <span class="math inline">\(\mathcal{L}\)</span>, we find that:</p>
 <p><span class="math display">\[ \left \{ 
 \begin{matrix}
@@ -154,8 +126,7 @@ exactly 10,000 televisions".</p>
 g(s,t) - c &amp;=&amp; -10000 +s +t &amp;=  0
 \end{matrix}
 \right .\]</span></p>
-<p>This leads to 3 linear equations in 3 unknowns, which we can easily
-solve bny hand. Or we can use <code>python</code> and <code>numpy</code> as follows:</p>
+<p>This leads to 3 linear equations in 3 unknowns, which we can easily solve bny hand. Or we can use <code>python</code> and <code>numpy</code> as follows:</p>
 </section>
 <div class="cell code" data-execution_count="12">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -171,14 +142,12 @@ solve bny hand. Or we can use <code>python</code> and <code>numpy</code> as foll
 </div>
 </div>
 <div class="cell markdown">
-<p>we find that <span class="math inline">\(s \approx 3846\)</span>, <span class="math inline">\(t \approx 6154\)</span> and <span class="math inline">\(λ = 24\)</span>.</p>
-<p>Now, remember that we want to maximize the profit function <span class="math inline">\(P\)</span> subject
-to the constraint <span class="math inline">\(s+t=10,000\)</span> where <span class="math inline">\(s \ge 0\)</span> and <span class="math inline">\(t \ge 0\)</span>. On this
-"closed interval", the function <span class="math inline">\(P\)</span> will assume a maximum and a
-minimum value. We've found the critical point of <span class="math inline">\(P\)</span> on this
-"interval" -- namely <span class="math inline">\((3846, 6154)\)</span>. The <em>endpoints</em> of the interval
-are <span class="math inline">\((0,10000)\)</span> and <span class="math inline">\((10000,0)\)</span>.</p>
-<p>Let's compare the values of <span class="math inline">\(P\)</span> at these three points of interest:</p>
+<p>we find that
+<span class="math inline">\(s \approx 3846\)</span>, <span class="math inline">\(t \approx 6154\)</span>
+and <span class="math inline">\(λ = 24\)</span>.</p>
+<p>Now, remember that we want to maximize the profit function <span class="math inline">\(P\)</span> subject to the constraint
+<span class="math inline">\(s+t=10,000\)</span> where <span class="math inline">\(s \ge 0\)</span> and <span class="math inline">\(t \ge 0\)</span>. On this “closed interval”, the function <span class="math inline">\(P\)</span> will assume a maximum and a minimum value. We’ve found the critical point of <span class="math inline">\(P\)</span> on this “interval” – namely <span class="math inline">\((3846, 6154)\)</span>. The <em>endpoints</em> of the interval are <span class="math inline">\((0,10000)\)</span> and <span class="math inline">\((10000,0)\)</span>.</p>
+<p>Let’s compare the values of <span class="math inline">\(P\)</span> at these three points of interest:</p>
 </div>
 <div class="cell code" data-execution_count="17">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> p(s,t):</span>
@@ -206,22 +175,20 @@ are <span class="math inline">\((0,10000)\)</span> and <span class="math inline"
 <p>(Could you have guessed that <em>a priori</em>?)</p>
 </div>
 <section id="shadow-prices-and-an-interpretation-for-the-multiplier-lambda" class="cell markdown">
-<h2>Shadow prices and an interpretation for the "multiplier" <span class="math inline">\(\lambda\)</span></h2>
-<p>Let's carry out <em>sensitivity analysis</em> on the value of the
-<em>constraint</em>.</p>
+<h2>Shadow prices and an interpretation for the “multiplier” <span class="math inline">\(\lambda\)</span></h2>
+<p>Let’s carry out <em>sensitivity analysis</em> on the value of the <em>constraint</em>.</p>
 <p>Recall that our constraint is <span class="math inline">\(g(s,t) = s+t = 10000\)</span>. So we instead set
 <span class="math display">\[g(s,t) = s + t = c.\]</span></p>
-<p>In this case, we must instead solve the system of equations <span class="math inline">\(Mx = b\)</span>
-where <span class="math display">\[M = \begin{pmatrix} 0.02 &amp; 0.007 &amp; 1 \\
+<p>In this case, we must instead solve the system of equations
+<span class="math inline">\(Mx = b\)</span> where
+<span class="math display">\[M = \begin{pmatrix} 0.02 &amp; 0.007 &amp; 1 \\
 0.007 &amp; 0.02 &amp; 1 \\
 1 &amp; 1 &amp; 0 
 \end{pmatrix} \quad \text{and} \quad
 b = \begin{pmatrix}
  144 \\ 174 \\ c
 \end{pmatrix}\]</span></p>
-<p>Since the vector <span class="math inline">\(b\)</span> has an "unknown" coefficient, it isn't clear how
-to use <code>numpy</code>'s <code>linalg.solve</code> method. We can circumvent this by
-<em>inverting</em> the coefficient matrix.</p>
+<p>Since the vector <span class="math inline">\(b\)</span> has an “unknown” coefficient, it isn’t clear how to use <code>numpy</code>’s <code>linalg.solve</code> method. We can circumvent this by <em>inverting</em> the coefficient matrix.</p>
 </section>
 <div class="cell code" data-execution_count="12">
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -243,14 +210,13 @@ to use <code>numpy</code>'s <code>linalg.solve</code> method. We can circumvent 
  [1.    1.    0.   ]]
 [[ 3.84615385e+01 -3.84615385e+01  5.00000000e-01]
  [-3.84615385e+01  3.84615385e+01  5.00000000e-01]
- [ 5.00000000e-01  5.00000000e-01 -1.35000000e-02]]</code></pre>
+ [ 5.00000000e-01  5.00000000e-01 -1.35000000e-02]]
+</code></pre>
 </div>
 </div>
 <div class="cell markdown">
 <p>We find the result by the computation <span class="math inline">\(\mathbf{x} = M^{-1} \mathbf{b}\)</span>.</p>
-<p>In order to represent the vector
-<span class="math inline">\(\mathbf{b} = \begin{pmatrix} 144 \\ 174 \\ c \end{pmatrix}\)</span>, we first
-use <code>sympy</code> to introduce a <code>symbol</code> for the unknown <code>c</code>.</p>
+<p>In order to represent the vector <span class="math inline">\(\mathbf{b} = \begin{pmatrix} 144 \\ 174 \\ c \end{pmatrix}\)</span>, we first use <code>sympy</code> to introduce a <code>symbol</code> for the unknown <code>c</code>.</p>
 </div>
 <div class="cell code" data-execution_count="14">
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -266,64 +232,56 @@ use <code>sympy</code> to introduce a <code>symbol</code> for the unknown <code>
 <div class="output stream stdout">
 <pre><code>s = 0.5*c - 1153.84615384615
 t = 0.5*c + 1153.84615384615
-lambda = 159.0 - 0.0135*c</code></pre>
+lambda = 159.0 - 0.0135*c
+</code></pre>
 </div>
 </div>
 <div class="cell markdown">
 <p>So we see that the solution has
 <span class="math display">\[s = \dfrac{c}{2} - 1153.85 \qquad t = \dfrac{c}{2} + 1153.85 \qquad \text{and} \qquad \lambda = 159 
 - 0.0135c.\]</span></p>
-<p>Thus <span class="math inline">\(\dfrac{ds}{dc} = \dfrac{dt}{dc} = \dfrac{1}{2}\)</span>. We can compute
-the sensitivity <span class="math display">\[S(s,c=10000) \approx 1.3\]</span> of <span class="math inline">\(s\)</span> as a function of
-<span class="math inline">\(c\)</span>, and <span class="math display">\[S(t,c=10000) \approx 0.8\]</span> pf <span class="math inline">\(t\)</span> as a function of <span class="math inline">\(t\)</span>. In
-particular, an increase in the maximum production level of TVs (i.e. an
-increase in <span class="math inline">\(c\)</span>) will result in an increase in the optimal production
-levels <span class="math inline">\(s\)</span> and <span class="math inline">\(t\)</span>.</p>
-<p>What about the sensitivity <span class="math inline">\(S(P,c) = \dfrac{dP}{dc} \cdot \dfrac{c}{P}\)</span>?
-For this, we first need to compute <span class="math inline">\(\dfrac{dP}{dc}\)</span>.</p>
+<p>Thus <span class="math inline">\(\dfrac{ds}{dc} = \dfrac{dt}{dc} = \dfrac{1}{2}\)</span>. We can compute the sensitivity
+<span class="math display">\[S(s,c=10000) \approx 1.3\]</span>
+of <span class="math inline">\(s\)</span> as a function of <span class="math inline">\(c\)</span>, and
+<span class="math display">\[S(t,c=10000) \approx 0.8\]</span>
+pf <span class="math inline">\(t\)</span> as a function of <span class="math inline">\(t\)</span>. In particular, an increase in the maximum production level of TVs (i.e. an increase in <span class="math inline">\(c\)</span>) will result in an increase in the optimal production levels <span class="math inline">\(s\)</span> and <span class="math inline">\(t\)</span>.</p>
+<p>What about the sensitivity <span class="math inline">\(S(P,c) = \dfrac{dP}{dc} \cdot \dfrac{c}{P}\)</span>? For this, we first need to compute <span class="math inline">\(\dfrac{dP}{dc}\)</span>.</p>
 <p>To compute <span class="math inline">\(\dfrac{dP}{dc}\)</span> we can use the several-variable chain rule
-<span class="math display">\[\dfrac{dP}{dc} = \dfrac{\partial P}{\partial s} \dfrac{ds}{dc} + \dfrac{\partial P}{\partial t} \dfrac{dt}{dc},\]</span>
-or just rewrite <span class="math inline">\(P\)</span> as a function of <span class="math inline">\(c\)</span>. Interestingly, observe that
-<em>at the critical point</em> on the curve <span class="math inline">\(g(s,t) = c\)</span>, the partial
-derivatives of <span class="math inline">\(P\)</span> satisfy
+<span class="math display">\[\dfrac{dP}{dc} = \dfrac{\partial P}{\partial s} \dfrac{ds}{dc} + \dfrac{\partial P}{\partial t} \dfrac{dt}{dc},\]</span> or just rewrite
+<span class="math inline">\(P\)</span> as a function of <span class="math inline">\(c\)</span>.
+Interestingly, observe that <em>at the critical point</em> on the curve <span class="math inline">\(g(s,t) = c\)</span>, the partial derivatives of <span class="math inline">\(P\)</span> satisfy
 <span class="math display">\[\dfrac{\partial P}{\partial s} = \lambda \dfrac{\partial g}{\partial s} = \lambda
 \quad \text{and} \quad
 \dfrac{\partial P}{\partial t} = \lambda \dfrac{\partial g}{\partial t} = \lambda
-\]</span> (since <span class="math inline">\(g(s,t) = s+t\)</span>).</p>
-<p>Since <span class="math inline">\(\dfrac{ds}{dc} = \dfrac{dt}{dc} = 1/2\)</span>, conclude that
-<span class="math display">\[\dfrac{dP}{dc} = \lambda.\]</span></p>
-<p>This confirms the formula we mentioned previously. In fact, as we
-pointed out, this formula holds in general. See the discussion at the
-end of this notebook, below.</p>
+\]</span>
+(since <span class="math inline">\(g(s,t) = s+t\)</span>).</p>
+<p>Since <span class="math inline">\(\dfrac{ds}{dc} = \dfrac{dt}{dc} = 1/2\)</span>, conclude that <span class="math display">\[\dfrac{dP}{dc} = \lambda.\]</span></p>
+<p>This confirms the formula we mentioned previously. In fact, as we pointed out, this formula holds in general. See the discussion at the end of this notebook, below.</p>
 </div>
 <div class="cell markdown">
 <p>We can now compute the <em>sensitivity</em> of the profit to the parameter <span class="math inline">\(c\)</span>:
 <span class="math display">\[S(P,c=10000)  \dfrac{dP}{dc} \cdot \dfrac{c}{P} \approx 24 \cdot \dfrac{10000}{532308} \approx 0.45.\]</span>
 So a 1% increase in <span class="math inline">\(c\)</span> yields a <span class="math inline">\(0.45%\)</span> increase in <span class="math inline">\(P\)</span>.</p>
-<p>Thus, the Lagrange multiplier, λ actually has a <em>concrete</em> meaning here
-as a <em>shadow price</em>. If you are allowed to produce more TV’s it tells
-you how much that change affects your profit. Therefore, if the cost of
-making the change in production level is less than the additional
-profit, you probably should go for it!</p>
+<p>Thus, the Lagrange multiplier, λ actually has a <em>concrete</em> meaning here as a <em>shadow price</em>. If you are allowed to
+produce more TV’s it tells you how much that change affects your profit. Therefore, if the cost of
+making the change in production level is less than the additional profit, you probably should go for it!</p>
 </div>
 <section id="interpreting-lambda-revisited" class="cell markdown">
 <h1>Interpreting <span class="math inline">\(\lambda\)</span>, revisited</h1>
-<p>Lets return to our general setting: <span class="math inline">\(f\)</span> is a function <span class="math inline">\(f(x,y)\)</span> of two
-variables that we want to optimize, and our constraint is given by an
-equation <span class="math inline">\(g(x,y) = c\)</span>.</p>
+<p>Lets return to our general setting: <span class="math inline">\(f\)</span> is a function <span class="math inline">\(f(x,y)\)</span> of two variables that we want to optimize,
+and our constraint is given by an equation <span class="math inline">\(g(x,y) = c\)</span>.</p>
 <p>Recall that the Lagrangian <span class="math inline">\(\mathcal{L}\)</span> is given by
 <span class="math display">\[\mathcal{L} = f(x,y) - \lambda(g(x,y) - c).\]</span></p>
-<p>Let's suppose that - as we've described above - for a given <span class="math inline">\(c\)</span>, the
-maximum value of <span class="math inline">\(f\)</span> is determined by the critical point
-<span class="math inline">\((x^*(c),y^*(c),\lambda^*(c))\)</span> of the Lagrangian <span class="math inline">\(\mathcal{L}\)</span>.</p>
-<p>Now, let's view the Lagrangian as a function of the <em>four</em> variables
+<p>Let’s suppose that - as we’ve described above - for a given <span class="math inline">\(c\)</span>, the maximum value of <span class="math inline">\(f\)</span> is determined
+by the critical point <span class="math inline">\((x^*(c),y^*(c),\lambda^*(c))\)</span> of the Lagrangian <span class="math inline">\(\mathcal{L}\)</span>.</p>
+<p>Now, let’s view the Lagrangian as a function of the <em>four</em> variables
 <span class="math display">\[\mathcal{L}(x,y,\lambda,c).\]</span></p>
 <p>We first note that
 <span class="math display">\[\dfrac{\partial \mathcal{L}}{\partial c} = \dfrac{\partial}{\partial c}\left[f(x,y) - \lambda(g(x,y) - c)\right] = \lambda.\]</span></p>
-<p>Since <span class="math inline">\((x^*(c),y^*(c),\lambda^*(c))\)</span> is a critical point of the
-Lagrangian, we know that <span class="math inline">\(g(x^*(c),y^*(c)) - c = 0\)</span>, so that
+<p>Since <span class="math inline">\((x^*(c),y^*(c),\lambda^*(c))\)</span> is a critical point of the Lagrangian, we know that <span class="math inline">\(g(x^*(c),y^*(c)) - c = 0\)</span>, so that
 <span class="math display">\[F^*(c) = \mathcal{L}(x^*(c),y^*(c),\lambda^*(c),c).\]</span></p>
-<p>Now use the multi-variate chain rule we see that <span class="math display">\[\dfrac{dF^*}{dc} = 
+<p>Now use the multi-variate chain rule we see that
+<span class="math display">\[\dfrac{dF^*}{dc} = 
 \dfrac{\partial{\mathcal{L}}}{\partial x}\dfrac{dx^*}{dc}
 + \dfrac{\partial{\mathcal{L}}}{\partial y}\dfrac{dy^*}{dc}
 + \dfrac{\partial{\mathcal{L}}}{\partial \lambda} \dfrac{d\lambda^*}{dc}
@@ -331,8 +289,8 @@ Lagrangian, we know that <span class="math inline">\(g(x^*(c),y^*(c)) - c = 0\)<
 <p>We now notice that the partial derivatives
 <span class="math inline">\(\dfrac{\partial \mathcal{L}}{\partial x}\)</span>,
 <span class="math inline">\(\dfrac{\partial \mathcal{L}}{\partial y}\)</span>,
-<span class="math inline">\(\dfrac{\partial \mathcal{L}}{\partial \lambda}\)</span> are all zero when
-evaluated at <span class="math inline">\((x^*(c),y^*(c),\lambda^*(c)\)</span>.</p>
+<span class="math inline">\(\dfrac{\partial \mathcal{L}}{\partial \lambda}\)</span>
+are all zero when evaluated at <span class="math inline">\((x^*(c),y^*(c),\lambda^*(c)\)</span>.</p>
 <p>This confirms that
 <span class="math display">\[\dfrac{dF^*}{dc} = \dfrac{\partial{\mathcal{L}}}{\partial c} = \lambda\]</span>
 as we asserted.</p>

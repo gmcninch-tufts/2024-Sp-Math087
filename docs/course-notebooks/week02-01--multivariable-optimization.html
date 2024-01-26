@@ -37,71 +37,50 @@
 </div>
 <section id="optimization-of-functions-of-several-variables" class="cell markdown">
 <h2>Optimization of functions of several variables</h2>
-<p>Consider a function <span class="math inline">\(f(x,y)\)</span> of two variables. You learned in Calculus 3
-(<em>vector calculus</em>) how to search for the points <span class="math inline">\((x,y)\)</span> at which <span class="math inline">\(f\)</span>
-assumes its maximum and minimum value. Let's briefly recapitulate this
-story.</p>
-<p>Recall that for a function of a single variable, critical points are
-those points for which the tangent line is horizontal. In the single
-variable case, the criteria depends instead on the <em>tangent plane</em>.</p>
-<p>Recall that the surface defined by <span class="math inline">\(z = f(x,y)\)</span> can be <em>parameterized</em>
-by <span class="math inline">\(\mathbf{r}(x,y) = (x,y,f(x,y))\)</span>. So a <strong>normal vector</strong> to this
-surface at a point <span class="math inline">\(P = (x_0,y_0,f(x_0,y_0))\)</span> on the surface is given by
-the <em>cross product</em>
-<span class="math display">\[\left (\dfrac{\partial \mathbf{r}}{\partial x} \times \dfrac{\partial \mathbf{r}}{\partial y}\right)_P.\]</span></p>
-<p>Alternatively, consider <span class="math inline">\(F(x,y,z) = z-f(x,y)\)</span> so that the surface is
-defined by <span class="math inline">\(F = 0\)</span>. Then the gradient <span class="math inline">\(\nabla F\)</span> defines a normal vector
-at each point <span class="math inline">\(P\)</span>, where
-<span class="math display">\[(\nabla F)_P = \left(\dfrac{\partial F}{\partial x} \mathbf{i} + \dfrac{\partial F}{\partial y} \mathbf{j} + \dfrac{\partial F}{\partial z} \mathbf{k}\right)_P.\]</span></p>
-<p>Both points of view can be useful, but here they lead to the same
-formula. At the point <span class="math inline">\(P=(x_0,y_0,f(x_0,y_0))\)</span> one has a normal to the
-surface defined by <span class="math inline">\(z = f(x,y)\)</span> given by
+<p>Consider a function <span class="math inline">\(f(x,y)\)</span> of two variables. You learned in
+Calculus 3 (<em>vector calculus</em>) how to search for the points <span class="math inline">\((x,y)\)</span> at which
+<span class="math inline">\(f\)</span> assumes its maximum and minimum value. Let’s briefly recapitulate this story.</p>
+<p>Recall that for a function of a single variable, critical points are those points for which the tangent line is horizontal. In the single variable case, the criteria depends instead on the <em>tangent plane</em>.</p>
+<p>Recall that the surface defined by <span class="math inline">\(z = f(x,y)\)</span> can be <em>parameterized</em> by <span class="math inline">\(\mathbf{r}(x,y) = (x,y,f(x,y))\)</span>.
+So a <strong>normal vector</strong> to this surface at a point <span class="math inline">\(P = (x_0,y_0,f(x_0,y_0))\)</span> on the surface is given
+by the <em>cross product</em> <span class="math display">\[\left (\dfrac{\partial \mathbf{r}}{\partial x} \times \dfrac{\partial \mathbf{r}}{\partial y}\right)_P.\]</span></p>
+<p>Alternatively, consider <span class="math inline">\(F(x,y,z) = z-f(x,y)\)</span> so that the surface is defined by <span class="math inline">\(F = 0\)</span>. Then the
+gradient <span class="math inline">\(\nabla F\)</span> defines a normal vector at each point <span class="math inline">\(P\)</span>, where <span class="math display">\[(\nabla F)_P = \left(\dfrac{\partial F}{\partial x} \mathbf{i} + \dfrac{\partial F}{\partial y} \mathbf{j} + \dfrac{\partial F}{\partial z} \mathbf{k}\right)_P.\]</span></p>
+<p>Both points of view can be useful, but here they lead to the same formula. At the point <span class="math inline">\(P=(x_0,y_0,f(x_0,y_0))\)</span> one has a normal to the surface defined by <span class="math inline">\(z = f(x,y)\)</span> given by
 <span class="math display">\[\mathbf{n}\vert_P = \left ( \mathbf{i} + \dfrac{\partial f}{\partial x} \mathbf{k} \right )_P \times 
                         \left ( \mathbf{j} + \dfrac{\partial f}{\partial y} \mathbf{k} \right )_P 
                      = \left ( \mathbf{k}  - \dfrac{\partial f}{\partial x} \mathbf{i}                                                                                - \dfrac{\partial f}{\partial y} \mathbf{j} \right )_P\]</span></p>
 <p>Now, the <strong>tangent plane</strong> at <span class="math inline">\(P\)</span> to the surface <span class="math inline">\(z = f(x,y)\)</span> is just
-the plane orthogonal to this normal vector <span class="math inline">\(\mathbf{n}_P\)</span>. Thus, the
-tangent plane at <span class="math inline">\(P\)</span> is horizontal -- parallel to the <span class="math inline">\(x,y\)</span>-plan --
-just in case this normal vector points in the <span class="math inline">\(\mathbf{k}\)</span> direction --
-i.e. provided that
+the plane orthogonal to this normal vector <span class="math inline">\(\mathbf{n}_P\)</span>. Thus, the tangent plane at
+<span class="math inline">\(P\)</span> is horizontal – parallel to the <span class="math inline">\(x,y\)</span>-plan – just in case this normal vector points in the <span class="math inline">\(\mathbf{k}\)</span>
+direction – i.e. provided that
 <span class="math display">\[(\clubsuit) \quad \dfrac{\partial{f}}{\partial{x}} \bigg\vert_{(x_0,y_0)} = 0 \quad
 \text{and} \quad  \dfrac{\partial{f}}{\partial{y}} \bigg\vert_{(x_0,y_0)} = 0\]</span></p>
-<p>Mimicking the one variable case, we say that the points <span class="math inline">\((x_0,y_0)\)</span> for
-which the tangent plane to the surface <span class="math inline">\(P=(x_0,y_0,f(x_0,y_0))\)</span> is
-horizontal are the <em>critical points</em>.</p>
-<p>So we find the critical points by simultaneously solving the equations
-<span class="math inline">\((\clubsuit)\)</span>.</p>
-<p>There is a <em>second derivative test</em> which gives information about the
-"max/min status" of these critical points.</p>
+<p>Mimicking the one variable case, we say that the points <span class="math inline">\((x_0,y_0)\)</span> for which the tangent plane to the surface <span class="math inline">\(P=(x_0,y_0,f(x_0,y_0))\)</span> is horizontal are the <em>critical points</em>.</p>
+<p>So we find the critical points by simultaneously solving the equations <span class="math inline">\((\clubsuit)\)</span>.</p>
+<p>There is a <em>second derivative test</em> which gives information about the “max/min status” of these critical points.</p>
 <p>To use this test, consider the matrix of second partial derivatives
 <span class="math display">\[ M(x_0,y_0) = \begin{pmatrix} 
         \dfrac{\partial^2 f}{\partial x^2} &amp; \dfrac{\partial^2 f}{\partial x \partial y} \\
         \dfrac{\partial^2 f}{\partial y \partial x} &amp; \dfrac{\partial^2 f}{\partial y^2} \\
       \end{pmatrix} \Bigg\vert_{(x_0,y_0)}.\]</span></p>
-<p>For a reasonable class of functions, the "mixed partials"
-<span class="math inline">\(\dfrac{\partial^2 f}{\partial x \partial y}\)</span> and
-<span class="math inline">\(\dfrac{\partial^2 f}{\partial y \partial x}\)</span> coincide.</p>
-<p>Remember that the determinant of a <span class="math inline">\(2 \times 2\)</span> matrix
-<span class="math inline">\(\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span> is <span class="math inline">\(ad - bc\)</span>.</p>
+<p>For a reasonable class of functions, the “mixed partials” <span class="math inline">\(\dfrac{\partial^2 f}{\partial x \partial y}\)</span> and <span class="math inline">\(\dfrac{\partial^2 f}{\partial y \partial x}\)</span> coincide.</p>
+<p>Remember that the determinant of a <span class="math inline">\(2 \times 2\)</span> matrix <span class="math inline">\(\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span> is <span class="math inline">\(ad - bc\)</span>.</p>
 <p>So, the <em>determinant</em> of <span class="math inline">\(M\)</span> is the expression</p>
 <p><span class="math display">\[D=D(x_0,y_0) = \left(\dfrac{\partial^2 f}{\partial x^2}\cdot \dfrac{\partial^2 f}{\partial y^2}
  - \left[\dfrac{\partial^2 f}{\partial x \partial y}\right]^2\right) \bigg\vert_{(x_0,y_0)} \]</span></p>
-<p><strong>Theorem:</strong> (Second derivative test) Suppose that <span class="math inline">\((x_0,y_0)\)</span> is a
-critical point.</p>
-<p>a. If <span class="math inline">\(D&gt;0\)</span> and
-<span class="math inline">\(\dfrac{\partial^2 f}{\partial x^2}\bigg\vert_{(x_0,y_0)}&lt;0\)</span>, then
-<span class="math inline">\(f(x,y)\)</span> has a relative maximum at <span class="math inline">\((x_0,y_0)\)</span>.</p>
-<p>b. If <span class="math inline">\(D&gt;0\)</span> and
-<span class="math inline">\(\dfrac{\partial^2 f}{\partial x^2}\bigg\vert_{(x_0,y_0)}&gt;0\)</span>, then
-<span class="math inline">\(f(x,y)\)</span> has a relative minimum at <span class="math inline">\((x_0,y_0)\)</span>.</p>
-<p>c. If <span class="math inline">\(D&lt;0\)</span>, then <span class="math inline">\(f(x,y)\)</span> has a saddle point at <span class="math inline">\((x_0,y_0)\)</span>.</p>
-<p>d. If <span class="math inline">\(D=0\)</span>, the second derivative test is inconclusive.</p>
+<p><strong>Theorem:</strong> (Second derivative test)
+Suppose that <span class="math inline">\((x_0,y_0)\)</span> is a critical point.</p>
+<ol type="a">
+<li><p>If <span class="math inline">\(D&gt;0\)</span> and <span class="math inline">\(\dfrac{\partial^2 f}{\partial x^2}\bigg\vert_{(x_0,y_0)}&lt;0\)</span>, then <span class="math inline">\(f(x,y)\)</span> has a relative maximum at <span class="math inline">\((x_0,y_0)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(D&gt;0\)</span> and <span class="math inline">\(\dfrac{\partial^2 f}{\partial x^2}\bigg\vert_{(x_0,y_0)}&gt;0\)</span>, then <span class="math inline">\(f(x,y)\)</span> has a relative minimum at <span class="math inline">\((x_0,y_0)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(D&lt;0\)</span>, then <span class="math inline">\(f(x,y)\)</span> has a saddle point at <span class="math inline">\((x_0,y_0)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(D=0\)</span>, the second derivative test is inconclusive.</p></li>
+</ol>
 </section>
 <div class="cell markdown">
-<p>Let's examine some <em>graphs</em> in order to see examples of critical opints
-&amp; relative max/mins.</p>
-<p>We are going to use the <code>python</code> library
-<a href="https://matplotlib.org/">matplotlib</a> to draw graphs.</p>
+<p>Let’s examine some <em>graphs</em> in order to see examples of critical opints &amp; relative max/mins.</p>
+<p>We are going to use the <code>python</code> library <a href="https://matplotlib.org/">matplotlib</a> to draw graphs.</p>
 </div>
 <div class="cell code" data-execution_count="1">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -125,8 +104,7 @@ critical point.</p>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span></code></pre></div>
 </div>
 <div class="cell markdown">
-<p>Now we define some functions <code>f(x)</code> and <code>g(x)</code> and use the function=
-<code>draw_graph</code> that we just defined to render an image of their graphs.</p>
+<p>Now we define some functions <code>f(x)</code> and <code>g(x)</code> and use the function= <code>draw_graph</code> that we just defined to render an image of their graphs.</p>
 </div>
 <div class="cell code" data-execution_count="2">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x,y):</span>
@@ -139,63 +117,58 @@ critical point.</p>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>              y0<span class="op">=</span><span class="dv">0</span>,</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>              elev_azim<span class="op">=</span>[(<span class="dv">35</span>,<span class="dv">15</span>),(<span class="dv">35</span>,<span class="dv">30</span>),(<span class="dv">35</span>,<span class="dv">75</span>)])</span></code></pre></div>
 <div class="output display_data">
-<p><img src="course-assets/images/9c2313aa7917d57d6632025decf93620995b9968.png" /></p>
+<p><img src="9c2313aa7917d57d6632025decf93620995b9968.png" /></p>
+<pre><code>&lt;Figure size 2000x2000 with 3 Axes&gt;</code></pre>
 </div>
 </div>
 <div class="cell markdown">
 <p>Note that <span class="math inline">\((0,0)\)</span> is a critical point for <span class="math inline">\(f(x) = x^2 + y^2\)</span>. Moreover,
 <span class="math display">\[D(x,y) = \det \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 2
 \end{pmatrix} = 4.\]</span></p>
-<p>Since <span class="math inline">\(D(0,0) &gt; 0\)</span> and <span class="math inline">\(\dfrac{\partial^2 f}{\partial x^2} = 2 &gt;0\)</span>, the
-second derivative test shows that the function <span class="math inline">\(f\)</span> has a <code>relative min</code>
-at <span class="math inline">\((0,0)\)</span> (&amp; this is confirmed by the viewing the image).</p>
+<p>Since <span class="math inline">\(D(0,0) &gt; 0\)</span> and <span class="math inline">\(\dfrac{\partial^2 f}{\partial x^2} = 2 &gt;0\)</span>, the second derivative test shows that the function <span class="math inline">\(f\)</span> has a <code>relative min</code> at
+<span class="math inline">\((0,0)\)</span> (&amp; this is confirmed by the viewing the image).</p>
 </div>
 <div class="cell code" data-execution_count="3">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(x,y):</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ag<span class="op">=</span>draw_graph(g,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>              x<span class="op">=</span>np.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">25</span>),</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>              y<span class="op">=</span>np.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">25</span>),</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>              x0<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>              y0<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>              elev_azim<span class="op">=</span>[(<span class="dv">35</span>,<span class="dv">20</span>),(<span class="dv">35</span>,<span class="dv">40</span>),(<span class="dv">35</span>,<span class="dv">60</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(x,y):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ag<span class="op">=</span>draw_graph(g,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>              x<span class="op">=</span>np.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">25</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>              y<span class="op">=</span>np.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">25</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>              x0<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>              y0<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>              elev_azim<span class="op">=</span>[(<span class="dv">35</span>,<span class="dv">20</span>),(<span class="dv">35</span>,<span class="dv">40</span>),(<span class="dv">35</span>,<span class="dv">60</span>)])</span></code></pre></div>
 <div class="output display_data">
-<p><img src="course-assets/images/9ccb3350cb0a6c7cfa5bd9d210d43ebe0286e550.png" /></p>
+<p><img src="9ccb3350cb0a6c7cfa5bd9d210d43ebe0286e550.png" /></p>
+<pre><code>&lt;Figure size 2000x2000 with 3 Axes&gt;</code></pre>
 </div>
 </div>
 <div class="cell markdown">
-<p>Again, <span class="math inline">\((0,0)\)</span> is the only critical point for <span class="math inline">\(g(x,y) = x^2 - y^2\)</span>.
-Moreover, <span class="math display">\[D(x,y) = \det \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; -2
+<p>Again, <span class="math inline">\((0,0)\)</span> is the only critical point for <span class="math inline">\(g(x,y) = x^2 - y^2\)</span>. Moreover,
+<span class="math display">\[D(x,y) = \det \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; -2
 \end{pmatrix} = -4.\]</span></p>
-<p>Since <span class="math inline">\(D(0,0) &lt; 0\)</span>, the second derivative test shows that the function
-<span class="math inline">\(g\)</span> has a <code>saddle point</code> at <span class="math inline">\((0,0)\)</span> (&amp; this is confirmed by examining
-the graph).</p>
+<p>Since <span class="math inline">\(D(0,0) &lt; 0\)</span>, the second derivative test shows that the function <span class="math inline">\(g\)</span> has a <code>saddle point</code> at <span class="math inline">\((0,0)\)</span> (&amp; this is confirmed by examining the graph).</p>
 </div>
 <section id="example-television-manufacturer" class="cell markdown">
 <h2><strong>Example:</strong> Television manufacturer</h2>
 <p>A company that makes TV sets sells two models: a 19” set and a 21” set.</p>
-<p>Their annual production costs are \$ 195 per TV for the 19” model and
-\$ 225 per TV for the 21” model, plus \$ 400,000 per year in fixed
-costs.</p>
-<p>They expect to sell their production to a single wholesaler who will pay
-a base price of \$ 339 per 19” TV and $399 per 21” TV. The wholesaler
-recieves a volume discount calculated as 1¢ per 19” TV + 0.3¢ per 21” TV
-for the 19” models and 1¢ per 21” TV + 0.4¢ per 19” TV for the 21”
-models.</p>
+<p>Their annual production costs
+are \$ 195 per TV for the 19” model and \$ 225 per TV for the 21” model, plus \$ 400,000 per year
+in fixed costs.</p>
+<p>They expect to sell their production to a single wholesaler who will pay a base
+price of \$ 339 per 19” TV and $399 per 21” TV. The wholesaler recieves a volume discount calculated as 1¢ per 19”
+TV + 0.3¢ per 21” TV for the 19” models and 1¢ per 21” TV + 0.4¢ per 19” TV for the 21” models.</p>
 <p>How many 19” and 21” TVs should be produced to maximize the profits?</p>
 <hr />
-<p>Let’s go through our modeling procedure. Let’s set up the problem and
-ask the right questions. What are our variables?</p>
-<ul>
-<li><span class="math inline">\(s\)</span> = # of 19” TVs produced</li>
-<li><span class="math inline">\(t\)</span> = # of 21” TVs produced</li>
-<li><span class="math inline">\(p\)</span> = selling price of each 19” TV</li>
-<li><span class="math inline">\(q\)</span> = selling price of each 21” TV</li>
-<li><span class="math inline">\(C\)</span> = cost of production</li>
-<li><span class="math inline">\(R\)</span> = total revenue of sales</li>
-<li><span class="math inline">\(P\)</span> = total profit</li>
-</ul>
+<p>Let’s go through our modeling procedure. Let’s set up the problem and ask the right questions.
+What are our variables?
+- <span class="math inline">\(s\)</span> = # of 19” TVs produced
+- <span class="math inline">\(t\)</span> = # of 21” TVs produced
+- <span class="math inline">\(p\)</span> = selling price of each 19” TV
+- <span class="math inline">\(q\)</span> = selling price of each 21” TV
+- <span class="math inline">\(C\)</span> = cost of production
+- <span class="math inline">\(R\)</span> = total revenue of sales
+- <span class="math inline">\(P\)</span> = total profit</p>
 <p>What do we <em>know</em> to start with??</p>
 <ul>
 <li><p><span class="math inline">\(p(s,t) = 339 − 0.01s − 0.003t\)</span> dollars</p></li>
@@ -206,10 +179,9 @@ ask the right questions. What are our variables?</p>
 <li><p><span class="math inline">\(P(s,t) = R(s,t) - C(s,t)\)</span></p>
 <p><span class="math inline">\(= −400, 000 + 144s + 174t − 0.01s^2 − 0.01t^2 − 0.007st\)</span> dollars</p>
 <hr />
-<p>Of course, our goal is to maximize profit -- i.e. to find
-<span class="math inline">\((s_0,t_0)\)</span> for which <span class="math inline">\(P(s_0,t_0)\)</span> is at a maximum.</p>
-<p>According to the discussion above, we should compute the partial
-derivitives of <span class="math inline">\(P\)</span> and simultaneously solve the equations
+<p>Of course, our goal is to maximize profit – i.e. to find <span class="math inline">\((s_0,t_0)\)</span> for which
+<span class="math inline">\(P(s_0,t_0)\)</span> is at a maximum.</p>
+<p>According to the discussion above, we should compute the partial derivitives of <span class="math inline">\(P\)</span> and simultaneously solve the equations
 <span class="math display">\[0 = \dfrac{\partial P}{\partial s} = \dfrac{\partial P}{\partial t}\]</span></p>
 <p>So we need to solve the equations:</p>
 <p><span class="math display">\[\dfrac{\partial P}{\partial s} = 144 − 0.02s − 0.007t = 0\]</span></p>
@@ -217,8 +189,7 @@ derivitives of <span class="math inline">\(P\)</span> and simultaneously solve t
 <p>This amounts to solving the matrix equation</p>
 <p><span class="math display">\[\begin{bmatrix} 0.02 &amp; 0.007 \\ 0.007 &amp; 0.02 \end{bmatrix} \begin{bmatrix} s \\ t \end{bmatrix}
   = \begin{bmatrix} 144 \\ 174 \end{bmatrix}\]</span></p>
-<p>which we can solve using <em>row reduction</em> on the corresponding
-augmented matrix:</p>
+<p>which we can solve using <em>row reduction</em> on the corresponding augmented matrix:</p>
 <p><span class="math display">\[\left[\begin{array}{rr|r} 0.02 &amp; 0.007 &amp; 144 \\
                  0.007 &amp; 0.02 &amp; 174 \end{array} \right]
   \sim \left[\begin{array}{rr|r} 1 &amp; .35 &amp; 7200 \\
@@ -230,115 +201,112 @@ augmented matrix:</p>
       \sim \left[\begin{array}{rr|r} 1 &amp; 0 &amp; 4734.9 \\
                  0 &amp; 1 &amp; 7043.135 \end{array} \right]\]</span></p></li>
 </ul>
-<p>We find that the function <span class="math inline">\(P\)</span> has exactly one critical point which
-occurs at <span class="math inline">\((s_0,t_0) = (4735,7043)\)</span>.</p>
+<p>We find that the function <span class="math inline">\(P\)</span> has exactly one critical point which occurs at <span class="math inline">\((s_0,t_0) = (4735,7043)\)</span>.</p>
 </section>
 <div class="cell markdown">
-<p>Alternatively, we can use <code>numpy</code> to solve the matrix equation, as
-follows:</p>
+<p>Alternatively, we can use <code>numpy</code> to solve the matrix equation, as follows:</p>
 </div>
 <div class="cell code" data-execution_count="4" data-lines_to_next_cell="2">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span> np.array([[<span class="fl">.02</span>,<span class="fl">.007</span>],[<span class="fl">.007</span>,<span class="fl">.02</span>]])</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>np.array([<span class="dv">144</span>,<span class="dv">174</span>])</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>np.linalg.solve(A,b)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span> np.array([[<span class="fl">.02</span>,<span class="fl">.007</span>],[<span class="fl">.007</span>,<span class="fl">.02</span>]])</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>np.array([<span class="dv">144</span>,<span class="dv">174</span>])</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>np.linalg.solve(A,b)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="4">
 <pre><code>array([4735.04273504, 7042.73504274])</code></pre>
 </div>
 </div>
 <div class="cell markdown">
-<p>Now, let's apply the second derivative test to investigate this
-critical point.</p>
+<p>Now, let’s apply the second derivative test to investigate this critical point.</p>
 <p>The matrix of second derivatives is
 <span class="math display">\[ \begin{bmatrix} \dfrac{\partial^2 P}{\partial s^2} &amp; \dfrac{\partial^2 P}{\partial s \partial t} \\
  \dfrac{\partial^2 P}{\partial s^2} &amp; \dfrac{\partial^2 P}{\partial s \partial t} \end{bmatrix}
  = \begin{bmatrix}
     -0.02 &amp; -0.007 \\
     -0.007 &amp; -0.02
-   \end{bmatrix}\]</span> which has determinant <span class="math inline">\((0.02)^2 - (.007)^2 &gt; 0\)</span>.</p>
-<p>Since <span class="math inline">\(\dfrac{\partial^2 P}{\partial s^2} = -0.02 &lt; 0\)</span>, the second
-derivative test shows that <span class="math inline">\(P\)</span> has is local maximum at <span class="math inline">\((s_0,t_0)\)</span>, and
-we conclude that profit is maximized there.</p>
-<p>(Technically, we should check for minima "on the boundary" but in this
-case that would be the point <span class="math inline">\((0,0)\)</span> which clearly doesn't maximize
-<span class="math inline">\(P\)</span>).</p>
-<p>Let's produce a (or a few...) graph(s) to confirm our work:</p>
+   \end{bmatrix}\]</span>
+which has determinant <span class="math inline">\((0.02)^2 - (.007)^2 &gt; 0\)</span>.</p>
+<p>Since <span class="math inline">\(\dfrac{\partial^2 P}{\partial s^2} = -0.02 &lt; 0\)</span>, the second derivative test shows that <span class="math inline">\(P\)</span> has is local maximum at <span class="math inline">\((s_0,t_0)\)</span>, and we conclude that profit is maximized there.</p>
+<p>(Technically, we should check for minima “on the boundary” but in this case that would be the point <span class="math inline">\((0,0)\)</span> which clearly doesn’t maximize <span class="math inline">\(P\)</span>).</p>
+<p>Let’s produce a (or a few…) graph(s) to confirm our work:</p>
 </div>
 <div class="cell code" data-execution_count="5">
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.linspace(<span class="dv">2000</span>,<span class="dv">8000</span>,<span class="dv">25</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">2000</span>,<span class="dv">8000</span>,<span class="dv">25</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> p(s,t):</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">400000</span> <span class="op">+</span> <span class="dv">144</span><span class="op">*</span>s <span class="op">+</span> <span class="dv">174</span><span class="op">*</span>t <span class="op">-</span> <span class="fl">0.01</span><span class="op">*</span>s<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">0.01</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">.007</span><span class="op">*</span>s<span class="op">*</span>t</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>draw_graph(p,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>             x<span class="op">=</span>s,</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>             y<span class="op">=</span>t,</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>             x0<span class="op">=</span><span class="dv">4735</span>,</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>             y0<span class="op">=</span><span class="dv">7043</span>,</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>             elev_azim<span class="op">=</span>[(<span class="dv">45</span>,<span class="dv">20</span>),(<span class="dv">45</span>,<span class="dv">55</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.linspace(<span class="dv">2000</span>,<span class="dv">8000</span>,<span class="dv">25</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">2000</span>,<span class="dv">8000</span>,<span class="dv">25</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> p(s,t):</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">400000</span> <span class="op">+</span> <span class="dv">144</span><span class="op">*</span>s <span class="op">+</span> <span class="dv">174</span><span class="op">*</span>t <span class="op">-</span> <span class="fl">0.01</span><span class="op">*</span>s<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">0.01</span><span class="op">*</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">.007</span><span class="op">*</span>s<span class="op">*</span>t</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>draw_graph(p,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>             x<span class="op">=</span>s,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>             y<span class="op">=</span>t,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>             x0<span class="op">=</span><span class="dv">4735</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>             y0<span class="op">=</span><span class="dv">7043</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>             elev_azim<span class="op">=</span>[(<span class="dv">45</span>,<span class="dv">20</span>),(<span class="dv">45</span>,<span class="dv">55</span>)])</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
 <div class="output display_data">
-<p><img src="course-assets/images/2faaf5d7cf327e13235425654218316f53d7a491.png" /></p>
+<p><img src="2faaf5d7cf327e13235425654218316f53d7a491.png" /></p>
+<pre><code>&lt;Figure size 2000x2000 with 2 Axes&gt;</code></pre>
 </div>
 </div>
 <div class="cell code" data-execution_count="6">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># countour plot</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>S,T <span class="op">=</span> np.meshgrid(s,t)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>figc <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">10</span>))</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>axc <span class="op">=</span> figc.add_subplot()</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>axc.contourf(S,T,p(S,T),levels<span class="op">=</span><span class="dv">20</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>             , extend<span class="op">=</span><span class="st">'both'</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>axc.scatter(<span class="dv">4735</span>,<span class="dv">7043</span>,marker<span class="op">=</span><span class="st">&quot;X&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># countour plot</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>S,T <span class="op">=</span> np.meshgrid(s,t)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>figc <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">10</span>))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>axc <span class="op">=</span> figc.add_subplot()</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>axc.contourf(S,T,p(S,T),levels<span class="op">=</span><span class="dv">20</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>             , extend<span class="op">=</span><span class="st">'both'</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>axc.scatter(<span class="dv">4735</span>,<span class="dv">7043</span>,marker<span class="op">=</span><span class="st">&quot;X&quot;</span>)</span></code></pre></div>
 <div class="output execute_result" data-execution_count="6">
 <pre><code>&lt;matplotlib.collections.PathCollection at 0x7f6e3c60dbd0&gt;</code></pre>
 </div>
 <div class="output display_data">
-<p><img src="course-assets/images/3c79125f8a95789fc2467549115beed4e779f671.png" /></p>
+<p><img src="3c79125f8a95789fc2467549115beed4e779f671.png" /></p>
+<pre><code>&lt;Figure size 2000x1000 with 1 Axes&gt;</code></pre>
 </div>
 </div>
 <section id="sensitivity-analysis-the-television-example-continued" class="cell markdown">
 <h2>Sensitivity Analysis (the television example, continued)</h2>
-<p>Just as in the single-variable case, we should be able to perform
-<em>Sensitivity Analysis</em> for our optimization problems.</p>
+<p>Just as in the single-variable case, we should be able to perform <em>Sensitivity Analysis</em> for our optimization problems.</p>
 <p>Let’s start by picking a parameter we want to change.</p>
-<p>Consider the <em>Price Elasticity</em> parameter, <span class="math inline">\(a\)</span> for 19" TVs. Thus, <span class="math inline">\(a\)</span>
-is the amount the selling price of the 19” TVs decreases per 19” TV sold
-(due to the volume discount).</p>
+<p>Consider the <em>Price Elasticity</em> parameter, <span class="math inline">\(a\)</span> for 19” TVs. Thus, <span class="math inline">\(a\)</span> is the amount the
+selling price of the 19” TVs decreases per 19” TV sold (due to the volume discount).</p>
 <p>In the original description of the problem, this is described as:</p>
 <blockquote>
 <p>volume discount calculated as 1¢ per 19” TV</p>
 </blockquote>
 <p>Thus, we considered above the case <span class="math inline">\(a = 0.01\)</span>.</p>
-<p>Rewriting our parameters using <span class="math inline">\(a\)</span>, we see that the selling price of
-19" TVs is given by <span class="math inline">\(p(s,t) = 339 − as − 0.003t\)</span> dollars.</p>
+<p>Rewriting our parameters using <span class="math inline">\(a\)</span>, we see that the selling price of 19” TVs is given by
+<span class="math inline">\(p(s,t) = 339 − as − 0.003t\)</span> dollars.</p>
 <p>In turn, rewriting the profit equation with <span class="math inline">\(a\)</span>, we obtain:</p>
 <p><span class="math display">\[P(s,t) = 144s + 174t − as^2 − 0.01t^2 − 0.007st − 400000\]</span></p>
-<p>We now look for optimal values <span class="math inline">\(s = s(a)\)</span> and <span class="math inline">\(t = t(a)\)</span> depending on
-<span class="math inline">\(a\)</span>.</p>
-<p>We need to solve the system: <span class="math display">\[\left\{\begin{matrix}
+<p>We now look for optimal values <span class="math inline">\(s = s(a)\)</span> and <span class="math inline">\(t = t(a)\)</span> depending on <span class="math inline">\(a\)</span>.</p>
+<p>We need to solve the system:
+<span class="math display">\[\left\{\begin{matrix}
     0 &amp; = \dfrac{\partial P}{\partial s} = 144 -2as - 0.007t \\
     0 &amp; = \dfrac{\partial P}{\partial t}= 174 -.02t - 0.007s
   \end{matrix}\right .\]</span></p>
-<p>Solving this system, find that <span class="math inline">\(s = s(a) = \dfrac{144-0.007t}{2a}\)</span> so
-that <span class="math display">\[174 - 0.02t - 0.007\cdot \dfrac{144-0.007t}{2a} = 0\]</span> We now find
-that <span class="math display">\[t = 8,700 - \dfrac{581,700}{40,000a -49}\]</span> and
+<p>Solving this system, find that <span class="math inline">\(s = s(a) = \dfrac{144-0.007t}{2a}\)</span> so that
+<span class="math display">\[174 - 0.02t - 0.007\cdot \dfrac{144-0.007t}{2a} = 0\]</span>
+We now find that
+<span class="math display">\[t = 8,700 - \dfrac{581,700}{40,000a -49}\]</span>
+and
 <span class="math display">\[s = \dfrac{1,662,000}{40,000a-49}\]</span></p>
 <p>Now we check the sensitivity:</p>
 <p><span class="math display">\[S(s,a) = \dfrac{ds}{da} \cdot \dfrac{a}{s} \quad \text{and} \quad
     S(t,a) = \dfrac{dt}{da} \cdot \dfrac{a}{t}\]</span></p>
-<p>Thus <span class="math display">\[S(s,a) = \dfrac{66,480,000,000}{(40,000a - 49)^2} \cdot
-            \dfrac{40,000a^2 - 49a}{1,662,000}\]</span> and
+<p>Thus
+<span class="math display">\[S(s,a) = \dfrac{66,480,000,000}{(40,000a - 49)^2} \cdot
+            \dfrac{40,000a^2 - 49a}{1,662,000}\]</span>
+and
 <span class="math display">\[S(t,a) = \dfrac{23,268,000,000}{(40,000a - 40)^2} \cdot 
             \dfrac{40,000a^2 - 49a}{8,700 \cdot (40,000a - 49) - 581,700}\]</span></p>
 <p>The sensitivity near our guess of <span class="math inline">\(a = 0.01\)</span> is thus
 <span class="math display">\[S(s,0.01) \approx -1.1 \quad \text{and} \quad
-  S(t,0,01) \approx 0.2\]</span> <strong>Interpretation:</strong> If the price elasticity
-increases by 10% (i.e. the warehouse receives a bigger bulk discount)
-the optimal value of <span class="math inline">\(s\)</span> decreases by 11% and the optimal value of <span class="math inline">\(t\)</span>
-increases by 2.7%</p>
+  S(t,0,01) \approx 0.2\]</span>
+<strong>Interpretation:</strong> If the price elasticity increases by 10% (i.e. the warehouse receives a bigger bulk discount) the optimal value of <span class="math inline">\(s\)</span> decreases by 11% and the optimal value of <span class="math inline">\(t\)</span> increases by 2.7%</p>
 </section>
         </main>
 
