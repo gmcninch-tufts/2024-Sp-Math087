@@ -17,7 +17,7 @@ a. What amount of rebate will maximize the manufacturers profit for
    the month? Model the question as a single-variable optimization
    problem.
 
-::: solution
+::: {.solution}
 Let's set some quantities:
 
 - $r$ = amount of rebate to be given, in dollars.
@@ -77,7 +77,7 @@ b. Compute the *sensitivity* of your answer to the 15%
    assumption. Consider both the amount of rebate and the resulting
    profit.
 
-::: solution
+::: {.solution}
 Note that
 
 $$\dfrac{dr^*}{ds} = u_0 \dfrac{d}{ds} \left( 50 \cdot 15 - \dfrac{50}{s}\right) = u_0 \dfrac{50}{s^2}.$$
@@ -108,10 +108,11 @@ c. Suppose that rebates actually generate only a 10% increase in sales
    per `$`100. What is the effect? What if the response is somewhere
    between 10% and 15% per `$`100 of rebate?
 
-::: solution
-$s=.10$ amounts to a -33% change in the "rebate benefit" from $s=.15$. So if instead $s$ were only 10%, 
-you'd expect the optimal rebate to be 
-$$r \approx 416.66 \cdot (1 - .33 \cdot .8) \approx 306.66$$
+::: {.solution} 
+$s=.10$ amounts to a -33% change in the "rebate benefit"
+from $s=.15$. So if instead $s$ were only 10%, you'd expect the
+optimal rebate to be
+$$r^* \approx 416.66 \cdot (1 - .33 \cdot .8) \approx 306.66$$
 and the optimized profit to be
 $$p \approx 1760.4 \cdot (1 - .33 \cdot .384) \approx 1537.32$$
 :::
@@ -119,13 +120,15 @@ $$p \approx 1760.4 \cdot (1 - .33 \cdot .384) \approx 1537.32$$
 d. Under what circumstances would an offer of a rebate cause a
    reduction in profit?
    
-::: solution
-If the "optimal rebate" is negative, offer of a rebate causes a
-reduction in profit.  Since the optimal rebate is given by the
-expression $$r = \dfrac{15s -1}{s/50} = \dfrac{50 \cdot (15s -
-1)}{s}$$ it is negative precisely when $15s -1 < 0$ i.e. when $s <
+::: {.solution} 
+
+If the "optimal rebate" is $\le 0$, offer of a rebate
+causes a reduction in profit.  Since the optimal rebate is given by
+the expression $$r^* = \dfrac{15s -1}{s/50} = \dfrac{50 \cdot (15s -
+1)}{s}$$ it is non-positive precisely when $15s -1 \le 0$ i.e. when $s \le
 \dfrac{1}{15} = 0.06$. So if the rebate benefit is less than 6%, we
-lose money when a rebate is given.
+lose money when a rebate is given.  
+
 :::
 
 2. Computing yields with multi-variate optimization
@@ -144,7 +147,7 @@ $$F(H,T) = −0.038\cdot T^2 − 0.223 \cdot T\cdot H − 10.982 \cdot H^2 +
 
 1. Find the optimal temperature and `pH` level in the allowed range.
 
-::: solution
+::: {.solution}
 To find optimal values let us consider partial derivatives:
 
 \begin{align*}
@@ -198,7 +201,7 @@ a. [The Hardy-Weinberg
    probability of an individual having two different genes?  Express
    your response using the quantities $p$, $q$ and $r$.
 
-::: solution
+::: {.solution}
 **Answer:** Since the probability of a single gene being ``A`` is $p$,
 the probability that an individual has 2 ``A`` genes, as required for
 the ``AA`` genotype, is just $p^2$. Similarly, the probability of
@@ -227,7 +230,7 @@ b. Still assuming the valiidty of $(\clubsuit)$, find the maximum
    >  - directly maximize a function of only two variables
    >  - use the method of Lagrange multipliers.
 
-::: solution
+::: {.solution}
 **Answer:** This question asks us to consider the maximum possible
 value of $f(p,q,r) = 1 − p^2 − q^2 − r^2$, subject to the constraint
 that $p + q + r = 1$. For the first approach, we write $r = 1 − p −
@@ -273,7 +276,7 @@ $p=q=r=\dfrac{1}{3}$ determine the optimal values.
 c. Explain in words what the Lagrange multiplier represents in the
    second computation of part (b).
 
-::: solution
+::: {.solution}
 Thinking about it as a “shadow price”, this would represent how much
 the probability of having two different genes would change if the
 total probability of having any one gene changes. Of course this isn’t
@@ -349,7 +352,7 @@ b. experiments
    iterations required for the approximation to be consistent to 10
    digits.
 
-::: solution
+::: {.solution}
 Let's use this strategy to estimate $1/4242$.
 
 

@@ -117,9 +117,10 @@ per <code>$</code>100. What is the effect? What if the response is somewhere
 between 10% and 15% per <code>$</code>100 of rebate?</li>
 </ol>
 <div class="solution">
-<p><span class="math inline">\(s=.10\)</span> amounts to a -33% change in the “rebate benefit” from <span class="math inline">\(s=.15\)</span>. So if instead <span class="math inline">\(s\)</span> were only 10%,
-you’d expect the optimal rebate to be
-<span class="math display">\[r \approx 416.66 \cdot (1 - .33 \cdot .8) \approx 306.66\]</span>
+<p><span class="math inline">\(s=.10\)</span> amounts to a -33% change in the “rebate benefit”
+from <span class="math inline">\(s=.15\)</span>. So if instead <span class="math inline">\(s\)</span> were only 10%, you’d expect the
+optimal rebate to be
+<span class="math display">\[r^* \approx 416.66 \cdot (1 - .33 \cdot .8) \approx 306.66\]</span>
 and the optimized profit to be
 <span class="math display">\[p \approx 1760.4 \cdot (1 - .33 \cdot .384) \approx 1537.32\]</span></p>
 </div>
@@ -128,10 +129,10 @@ and the optimized profit to be
 reduction in profit?</li>
 </ol>
 <div class="solution">
-<p>If the “optimal rebate” is negative, offer of a rebate causes a
-reduction in profit. Since the optimal rebate is given by the
-expression <span class="math display">\[r = \dfrac{15s -1}{s/50} = \dfrac{50 \cdot (15s -
-1)}{s}\]</span> it is negative precisely when <span class="math inline">\(15s -1 &lt; 0\)</span> i.e. when <span class="math inline">\(s &lt; \dfrac{1}{15} = 0.06\)</span>. So if the rebate benefit is less than 6%, we
+<p>If the “optimal rebate” is <span class="math inline">\(\le 0\)</span>, offer of a rebate
+causes a reduction in profit. Since the optimal rebate is given by
+the expression <span class="math display">\[r^* = \dfrac{15s -1}{s/50} = \dfrac{50 \cdot (15s -
+1)}{s}\]</span> it is non-positive precisely when <span class="math inline">\(15s -1 \le 0\)</span> i.e. when <span class="math inline">\(s \le \dfrac{1}{15} = 0.06\)</span>. So if the rebate benefit is less than 6%, we
 lose money when a rebate is given.</p>
 </div>
 <h2 id="computing-yields-with-multi-variate-optimization">2. Computing yields with multi-variate optimization</h2>
