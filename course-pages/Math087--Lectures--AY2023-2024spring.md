@@ -8,10 +8,10 @@ title: Math087 - Mathematical Modelling - AY2023-2024 spring
   | Date  | DOW | Desc    | Seq | Week | Details                                                        |
   |-------|-----|---------|-----|------|----------------------------------------------------------------|
   | 01/17 | Wed | Lecture | 1   | 1    | One dimensional optimization & sensitivity analysis            |
-  | 01/22 | Mon | Lecture | 2   | 2    | Multi-dimensional optimization; Lagrange multipliers           |
-  | 01/24 | Wed | Lecture | 3   | 2    | Mutli-dimensional continued: shadow prices                     |
+  | 01/22 | Mon | Lecture | 2   | 2    | Multi-dimensional optimization; Lagrange                       |
+  | 01/24 | Wed | Lecture | 3   | 2    | Lagrange continued                                             |
   | 01/24 | Wed | Tufts   |     | 2    | **Academic Date:** *Last day to add a course*                  |
-  | 01/29 | Mon | Lecture | 4   | 3    | Optim. - Newton's method & variants                            |
+  | 01/29 | Mon | Lecture | 4   | 3    | root finding via Newton's method & variants                    |
   | 01/31 | Wed | Lecture | 5   | 3    | Types of optimization & linear programming                     |
   | 02/05 | Mon | Lecture | 6   | 4    | Network flows & linear programming                             |
   | 02/07 | Wed | Lecture | 7   | 4    | Duality & complementary slackness                              |

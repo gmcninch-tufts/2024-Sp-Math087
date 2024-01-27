@@ -12,14 +12,14 @@ title: Math087 - Mathematical Modelling - AY2023-2024 spring
   | 01/19 | Fri | Meeting    | Office hours 0  | 1    | **13:30-14:30 JCC 559                                          |
   | 01/19 | Fri | Assignment |                 | 1    | no assignment collected                                        |
   | 01/22 | Mon | Meeting    | Office hours 0  | 2    | **13:30-14:30 JCC 559                                          |
-  | 01/22 | Mon | Lecture    | 2               | 2    | Multi-dimensional optimization; Lagrange multipliers           |
-  | 01/24 | Wed | Lecture    | 3               | 2    | Mutli-dimensional continued: shadow prices                     |
+  | 01/22 | Mon | Lecture    | 2               | 2    | Multi-dimensional optimization; Lagrange                       |
+  | 01/24 | Wed | Lecture    | 3               | 2    | Lagrange continued                                             |
   | 01/24 | Wed | Tufts      |                 | 2    | **Academic Date:** *Last day to add a course*                  |
   | 01/25 | Thu | Meeting    | Office hours 1  | 2    | **13:00-14:00 Zoom                                             |
   | 01/26 | Fri | Meeting    | Office hours 1  | 2    | **13:30-14:30 JCC 559                                          |
   | 01/26 | Fri | Assignment |                 | 2    | PS01: Optimization                                             |
   | 01/29 | Mon | Meeting    | Office hours 1  | 3    | **13:30-14:30 JCC 559                                          |
-  | 01/29 | Mon | Lecture    | 4               | 3    | Optim. - Newton's method & variants                            |
+  | 01/29 | Mon | Lecture    | 4               | 3    | root finding via Newton's method & variants                    |
   | 01/31 | Wed | Lecture    | 5               | 3    | Types of optimization & linear programming                     |
   | 02/01 | Thu | Meeting    | Office hours 2  | 3    | **13:00-14:00 Zoom                                             |
   | 02/02 | Fri | Meeting    | Office hours 2  | 3    | **13:30-14:30 JCC 559                                          |

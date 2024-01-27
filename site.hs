@@ -51,16 +51,18 @@ main = hakyllWith config $ do
     --         >>= relativizeUrls
 
 
-    match ("course-notebooks/*ipynb" .||. "course-notebooks/*pdf" ) $ version "copy" $ do
+    match ("course-content/*ipynb" .||. "course-content/*pdf" ) $ version "copy" $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "course-notebooks/*assets" $ do
+    match "course-content/*assets" $ do
         route   idRoute
         compile copyFileCompiler
 
 
-    match "course-assignments/*md" $ do
+    match ("course-assignments/*md"
+          .||. "course-content/*md"
+          )$ do
         route $ setExtension "html"
         compile $ mathJaxAddedCompiler
           >>= loadAndApplyTemplate "templates/default.html" defaultContext
@@ -99,7 +101,7 @@ main = hakyllWith config $ do
             >>= relativizeUrls
 
 
-    match "course-posts/*" $ do
+    match "course-posts/*md" $ do
         route $ setExtension "html"
         compile $ mathJaxAddedCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
