@@ -12,20 +12,17 @@ The homework assignment due on `gradescope` on Friday 2024-02-02 is:
 - [**[problem set 2]**](/course-assignments/PS02--2024-02-02.html)
   [**[pdf]**](/course-assignments/PS02--2024-02-02.pdf)
 
-There are two associated `jupyter notebooks`:
+Here are the `jupyter notebooks` for this week:
 
 - **root finding comments** 
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week03-00--root-finding-again.ipynb) 
    [[download notebook]](/course-content/week03-00--root-finding-again.ipynb) 
    [[pdf]](/course-content/week03-00--root-finding-again.pdf)    
 
-- **multi-variate cont'd: Lagrange multipliers** 
-  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week02-02--lagrange.ipynb)
-  [[download notebook]](/course-content/week02-02--lagrange.ipynb) 
-  [[pdf]](/course-content/week02-02--lagrange.pdf)   
+- **Linear programs and optimization** 
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week03-01--optimization-and-linprog.ipynb)
+  [[download notebook]](/course-content/week03-01--optimization-and-linprog.ipynb) 
+  [[pdf]](/course-content/week03-01--optimization-and-linprog.ipynb)   
 
-- **root finding algorithms**
-  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week02-03--root-finding.ipynb)
-  [[download notebook]](/course-content/week02-03--root-finding.ipynb)
-  [[pdf]](/course-content/week02-03--root-finding.pdf)  
+- [*...I may add some more before Wednesday...*]
 
