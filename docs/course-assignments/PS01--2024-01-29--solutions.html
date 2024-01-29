@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - ProblemSet 1 -- Optimization
+</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>ProblemSet 1 -- Optimization
+</h1>
+            <h2 id="an-optimization-question-in-auto-manufacturing">1. An optimization question in auto manufacturing</h2>
+<p>An automobile manufacturer makes a profit of <code>$</code>1,500 per unit on the
+sale of a certain car model. It is estimated that for every <code>$</code>100 of
+rebate, the number of units of this model sold in a given month will
+increase by 15%.</p>
+<ol type="a">
+<li>What amount of rebate will maximize the manufacturers profit for
+the month? Model the question as a single-variable optimization
+problem.</li>
+</ol>
+<div class="solution">
+<p>Let’s set some quantities:</p>
+<ul>
+<li><span class="math inline">\(r\)</span> = amount of rebate to be given, in dollars.</li>
+<li><span class="math inline">\(u_0\)</span> = units that will be sold, absent any rebate</li>
+<li><span class="math inline">\(s\)</span> = rebate benefit; i.e. relative change in sales per $100 of rebate<br />
+<span class="math inline">\(0.15\)</span> (i.e. “<span class="math inline">\(15\)</span> %”)</li>
+<li><span class="math inline">\(u = u(r)\)</span> = units that will be sold with rebate <span class="math inline">\(r\)</span> in place</li>
+<li><span class="math inline">\(p = p(r)\)</span> = profit for the month with rebate <span class="math inline">\(r\)</span> in place</li>
+</ul>
+<p>Then the number of units sold in the month with rebate <span class="math inline">\(r\)</span> is given by
+the expression <span class="math display">\[u = u(r) = u_0\cdot \left(1 + \dfrac{0.15}{100}
+r\right) = u_0 \cdot \left(1 + \dfrac{s}{100}r\right )\]</span></p>
+<p>and the month’s profit is the product</p>
+<blockquote>
+<p>(<code>profit per automobile</code>) <span class="math inline">\(\times\)</span> (<code>units sold</code>);</p>
+</blockquote>
+<p>i.e.</p>
+<p><span class="math display">\[\begin{align*}
+p = p(r) &amp;= (1500-r) \cdot u(r) \\
+&amp;=
+u_0(1500-r)\left(1 + \dfrac{0.15}{100}r\right) \\
+&amp;= u_0(1500-r)\left(1 +
+\dfrac{s}{100}r\right).
+\end{align*}\]</span></p>
+<p>Now, <span class="math inline">\(p\)</span> is a quadratic function of <span class="math inline">\(r\)</span>, and the coefficient of <span class="math inline">\(r^2\)</span>
+is <em>negative</em> (since <span class="math inline">\(s\)</span> is positive). Thus the profit is maximized at
+the unique critical point of this function, which is found by solving
+the equation <span class="math inline">\(\dfrac{dp}{dr} = 0\)</span> for <span class="math inline">\(r\)</span>. We must solve the equation:</p>
+<p><span class="math display">\[\begin{align*}
+0 &amp;= \dfrac{dp}{dr} = u_0\dfrac{d}{dr}\left(-\dfrac{s}{100}r^2 +
+ (1500\dfrac{s}{100} - 1)r + 1500\right) \\
+ &amp;= u_0\left( \dfrac{-s}{50}r +
+ 15s -1\right)
+\end{align*}\]</span></p>
+<p>Thus we need <span class="math inline">\(r= r^*\)</span> where
+<span class="math display">\[r^* = \dfrac{15s -1}{s/50} = \dfrac{50 \cdot (15s - 1)}{s}\]</span></p>
+<p>When <span class="math inline">\(s=.15\)</span>, find that the maximum profit is attained at <span class="math inline">\(r^*=\$416.\overline{66}\)</span>.</p>
+<p>As a function of an “unknown” rebate benefit <span class="math inline">\(s\)</span>, the maximum profit is attained when
+<span class="math inline">\(r^* = 50 \cdot 15 - \dfrac{50}{s}\)</span>.</p>
+<p>When <span class="math inline">\(s=.15\)</span> the maximum profit is <span class="math inline">\(p(416.66) \approx 1760.4\)</span>.</p>
+<p>As a function of <span class="math inline">\(s\)</span>, the maximum profit is
+<span class="math display">\[p\left(50 \cdot 15 - \dfrac{50}{s}\right) =  (5625\cdot s^2 + 750\cdot s + 25)/s\]</span></p>
+</div>
+<ol start="2" type="a">
+<li>Compute the <em>sensitivity</em> of your answer to the 15%
+assumption. Consider both the amount of rebate and the resulting
+profit.</li>
+</ol>
+<div class="solution">
+<p>Note that</p>
+<p><span class="math display">\[\dfrac{dr^*}{ds} = u_0 \dfrac{d}{ds} \left( 50 \cdot 15 - \dfrac{50}{s}\right) = u_0 \dfrac{50}{s^2}.\]</span></p>
+<p>Thus the sensitivity of the refund is</p>
+<p><span class="math display">\[S(r^*,s) = \dfrac{dr^*}{ds} \cdot \dfrac{s}{r^*} = \dfrac{50}{s^2} \bigg
+\vert_{s = 0.15} \cdot \dfrac{0.15}{416.66} = \dfrac{50}{0.15\cdot
+416.66} \approx 0.800\]</span></p>
+<p>(observe that the factor of <span class="math inline">\(u_0\)</span> in <span class="math inline">\(\dfrac{dr^*}{ds}\)</span> cancels the
+corresponding reciprocal factor in <span class="math inline">\(\dfrac{s}{r^*}\)</span>).</p>
+<p>We’ve seen already that the maximum profit is given by
+<span class="math display">\[p(s) =   (5625\cdot s^2 + 750\cdot s + 25)/s\]</span>
+so
+<span class="math display">\[\dfrac{dp}{ds} = 5625 - \dfrac{25}{s^2}\bigg \vert_{s=0.15} = 4513.89\]</span></p>
+<p>Thus
+<span class="math display">\[S(p,s) = \dfrac{dp}{ds} \cdot \dfrac{s}{p} = 4513.88 \cdot
+\dfrac{0.15}{1760.4} \approx .384 \]</span></p>
+<p>This means that a 1% change in the “rebate benefit” should cause a 0.8% change in
+the “optimal rebate” and roughly a 0.4% change in the monthly profits.</p>
+</div>
+<ol start="3" type="a">
+<li>Suppose that rebates actually generate only a 10% increase in sales
+per <code>$</code>100. What is the effect? What if the response is somewhere
+between 10% and 15% per <code>$</code>100 of rebate?</li>
+</ol>
+<div class="solution">
+<p><span class="math inline">\(s=.10\)</span> amounts to a -33% change in the “rebate benefit”
+from <span class="math inline">\(s=.15\)</span>. So if instead <span class="math inline">\(s\)</span> were only 10%, you’d expect the
+optimal rebate to be
+<span class="math display">\[r^* \approx 416.66 \cdot (1 - .33 \cdot .8) \approx 306.66\]</span>
+and the optimized profit to be
+<span class="math display">\[p \approx 1760.4 \cdot (1 - .33 \cdot .384) \approx 1537.32\]</span></p>
+</div>
+<ol start="4" type="a">
+<li>Under what circumstances would an offer of a rebate cause a
+reduction in profit?</li>
+</ol>
+<div class="solution">
+<p>If the “optimal rebate” is <span class="math inline">\(\le 0\)</span>, offer of a rebate
+causes a reduction in profit. Since the optimal rebate is given by
+the expression <span class="math display">\[r^* = \dfrac{15s -1}{s/50} = \dfrac{50 \cdot (15s -
+1)}{s}\]</span> it is non-positive precisely when <span class="math inline">\(15s -1 \le 0\)</span> i.e. when <span class="math inline">\(s \le \dfrac{1}{15} = 0.06\)</span>. So if the rebate benefit is less than 6%, we
+lose money when a rebate is given.</p>
+</div>
+<h2 id="computing-yields-with-multi-variate-optimization">2. Computing yields with multi-variate optimization</h2>
+<p>A chemist is synthesizing a compound. In the last step, she must dissolve her reagents in a
+solution with a particular <code>pH</code> level <span class="math inline">\(H\)</span>, for <span class="math inline">\(1.2 ≤ H ≤ 2.7\)</span>, and heated to a temperature <span class="math inline">\(T\)</span> (in
+degrees Celsius), for <span class="math inline">\(66 ≤ T ≤ 98\)</span>. Her goal is to maximize her percent yield as a percentage
+of the initial mass of the reagents.</p>
+<p>The equation determining the percentage <span class="math inline">\(F (H,T)\)</span> is</p>
+<p><span class="math display">\[F(H,T) = −0.038\cdot T^2 − 0.223 \cdot T\cdot H − 10.982 \cdot H^2 +
+7.112 \cdot T + 60.912 \cdot H − 328.898.\]</span></p>
+<ol type="1">
+<li>Find the optimal temperature and <code>pH</code> level in the allowed range.</li>
+</ol>
+<div class="solution">
+<p>To find optimal values let us consider partial derivatives:</p>
+<p><span class="math display">\[\begin{align*}
+\dfrac{\partial F}{\partial H} &amp;= −0.223T − 21.964H + 60.912 = 0 \\
+\dfrac{\partial F}{\partial T} &amp;= −0.076T − 0.223H + 7.112 = 0
+\end{align*}\]</span></p>
+<p>One can solve this using elementary methods to obtain:</p>
+<p><span class="math display">\[T = 88.0651, H = 1.87914\]</span></p>
+</div>
+<ol start="2" type="1">
+<li>Use <code>matplotlib</code> to produce a graph and a contour plot of the percentage of the powder
+function <span class="math inline">\(F (H, T )\)</span>.</li>
+</ol>
+<p>(To get a usable copy of your image, you can proceed in a few ways:</p>
+<ul>
+<li><p>if you produce the graph in colab you can right-click on the image
+and Save As a file on your file system.</p></li>
+<li><p>if you work in Python on your computer, you can save the image via
+a command like</p>
+<pre><code>&gt; g.savefig(”my graph image.png”)</code></pre></li>
+</ul>
+<h2 id="blood-typing">3. Blood typing</h2>
+<p>Human blood is generally classified in the “ABO” system, with four
+blood types: <code>A</code>, <code>B</code>, <code>O</code>, and <code>AB</code>. These four types reflect six
+gene pairs (genotypes), with blood type <code>A</code> corresponding to gene
+pairs <code>AA</code> and <code>AO</code>, blood type <code>B</code> corresponding to gene pairs <code>BB</code>
+and <code>BO</code>, blood type <code>O</code> corresponding to gene pair <code>OO</code>, and blood
+type <code>AB</code> corresponding to gene pair <code>AB</code>. Let <span class="math inline">\(p\)</span> be the proportion
+of gene <code>A</code> in the population, let <span class="math inline">\(q\)</span> be the proportion of gene <code>B</code>
+in the population, and let <span class="math inline">\(r\)</span> be the proportion of gene <code>O</code> in the
+population. Observe that <span class="math inline">\(p + q + r = 1\)</span>.</p>
+<ol type="a">
+<li><p><a href="https://en.wikipedia.org/wiki/Hardy%E2%80%93Weinberg_principle">The Hardy-Weinberg
+principle</a>
+implies that:</p>
+<blockquote>
+<p><span class="math inline">\((\clubsuit)\)</span> The quantities <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span>, and <span class="math inline">\(r\)</span> remain constant from
+generation to generation, as do the frequencies of occurrence of
+the different genotypes <code>AA</code>, <code>AO</code>, … .</p>
+</blockquote>
+<p>Assuming the validity of <span class="math inline">\((\clubsuit)\)</span>, what is the probability
+that an individual has genotype <code>AA</code>? <code>BB</code>? <code>OO</code>? What is the
+probability of an individual having two different genes? Express
+your response using the quantities <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span>.</p></li>
+</ol>
+<div class="solution">
+<p><strong>Answer:</strong> Since the probability of a single gene being <code>A</code> is <span class="math inline">\(p\)</span>,
+the probability that an individual has 2 <code>A</code> genes, as required for
+the <code>AA</code> genotype, is just <span class="math inline">\(p^2\)</span>. Similarly, the probability of
+genotype <code>BB</code> is <span class="math inline">\(q^2\)</span>, and the probability of genotype <code>OO</code> is
+<span class="math inline">\(r^2\)</span>. The probability of an individual having two different genes
+is, simply, the probability that they are of none of genotypes <code>AA</code>,
+<code>BB</code>, or <code>OO</code>; this is <span class="math display">\[(\clubsuit) \quad (1 − p^2 − q^2 − r^2.\]</span></p>
+<p>Alternatively, notice that the genotypes should be viewed as <em>ordered
+pairs</em> - i.e. <code>AB</code> is distinct from <code>BA</code>. So the probability of
+having two different genes is the probability of having genotype given
+by one of the ordered pairs <code>AB</code>, <code>BA</code>, <code>AO</code>, <code>OA</code>, <code>BO</code>, or
+<code>OB</code>. Thus that probability is</p>
+<p><span class="math display">\[(\diamondsuit) \quad pq + qp + pr + rp + qr + rq = 2pq + 2pr + 2qr\]</span></p>
+<p>Notice that <span class="math display">\[1 = p+q+r \implies 1 = (p+q+r)^2 = p^2 + q^2 + r^2 +
+2pq + 2pr + 2pq\]</span> which confirms that <span class="math inline">\((\clubsuit) = (\diamondsuit)\)</span>
+coincide.</p>
+</div>
+<ol start="2" type="a">
+<li><p>Still assuming the valiidty of <span class="math inline">\((\clubsuit)\)</span>, find the maximum
+percentage of the population that can have two different genes.
+Perform this computation in two different ways:</p>
+<blockquote>
+<ul>
+<li>directly maximize a function of only two variables</li>
+<li>use the method of Lagrange multipliers.</li>
+</ul>
+</blockquote></li>
+</ol>
+<div class="solution">
+<p><strong>Answer:</strong> This question asks us to consider the maximum possible
+value of <span class="math inline">\(f(p,q,r) = 1 − p^2 − q^2 − r^2\)</span>, subject to the constraint
+that <span class="math inline">\(p + q + r = 1\)</span>. For the first approach, we write <span class="math inline">\(r = 1 − p − q\)</span>, to obtain <span class="math inline">\(g(p,q) = 1 − p^2 − q^2 − (1 − p − q)^2\)</span> as a function
+of two variables that we can maximize directly. The second approach
+will use the constraint <span class="math inline">\(h(p,q,r) = p + q + r = 1\)</span>.</p>
+<p>For the first approach, we compute the partial derivates of <span class="math inline">\(g(p,q)\)</span>:</p>
+<p><span class="math display">\[\dfrac{\partial g}{\partial p} = - 2p - 2(1-p-q)(-1) = 2 - 4p -2q\]</span>
+<span class="math display">\[\dfrac{\partial g}{\partial q} = - 2q - 2(1-p-q)(-1) = 2 - 2p -4q\]</span></p>
+<p>Thus <span class="math display">\[\mathbf{0} = \nabla g = (2 - 4p - 2q)\mathbf{i} + (2-2p-4q)\mathbf{j} \implies p = q = \dfrac{1}{3}.\]</span></p>
+<p>Then also <span class="math inline">\(r=\dfrac{1}{3}\)</span> as one sees using the formula <span class="math inline">\(p+q+r=1\)</span>.</p>
+<p>The problem is defined for <span class="math inline">\(0 \le p,r,q \le 1\)</span>; since <span class="math inline">\(p+q+r = 1\)</span>, the
+“boundary values” occur when <span class="math inline">\(\begin{bmatrix} p \\ q \\ r \end{bmatrix}\)</span> is equal to <span class="math inline">\(\mathbf{i},\mathbf{j},\)</span> or <span class="math inline">\(\mathbf{k}\)</span>.</p>
+<p>Evaluating the function <span class="math inline">\(g\)</span> at these boundary values and at
+<span class="math inline">\(\dfrac{1}{3} \cdot \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}\)</span>, one
+sees that the maximum value is <span class="math display">\[g(1/3,1/3,1/3) = 2(1/9 + 1/9 + 1/9) =
+2/3\]</span>.</p>
+<p>For the second approach, we note that
+<span class="math display">\[\nabla f = \dfrac{\partial f}{\partial p} \mathbf{i} +
+\dfrac{\partial f}{\partial q} \mathbf{j} + \dfrac{\partial
+f}{\partial r} \mathbf{k} = -2(p\mathbf{i} + q\mathbf{j} +
+r\mathbf{k})\]</span></p>
+<p>while</p>
+<p><span class="math display">\[\nabla h = \mathbf{i} + \mathbf{j} + \mathbf{k}\]</span></p>
+<p>Thus <span class="math display">\[\nabla f = \lambda \nabla h \implies -2p = -2q = -2r =
+\lambda.\]</span> Thus, <span class="math inline">\(-2(p+q+r) = -2p-2q-2r = 3\lambda\)</span>; now using the
+constraint <span class="math inline">\(p+q+r=1\)</span> we see that <span class="math inline">\(\lambda = \dfrac{-2}{3}\)</span> so that
+<span class="math inline">\(p=q=r=\dfrac{1}{3}\)</span> determine the optimal values.</p>
+</div>
+<ol start="3" type="a">
+<li>Explain in words what the Lagrange multiplier represents in the
+second computation of part (b).</li>
+</ol>
+<div class="solution">
+<p>Thinking about it as a “shadow price”, this would represent how much
+the probability of having two different genes would change if the
+total probability of having any one gene changes. Of course this isn’t
+really possible, because the sum of probabilities is always equal
+to 1. But it would say that if the probability of having an <code>A</code>,
+<code>B</code>, or <code>O</code> gene went down (maybe because there was a new gene
+discovered…), then the likelihood of having two distinct genes would
+go up!</p>
+</div>
+<h2 id="newtons-method-and-root-finding">4. Newton’s method and root finding</h2>
+<ol type="a">
+<li><p>microprocessors</p>
+<p>One of the uses of Newton’s method is in implementing division on
+microprocessors, where only addition and multiplication are
+available as primitive operations. To compute <span class="math inline">\(x = a/b\)</span>, first the
+root of <span class="math inline">\(f(x) = 1/x − b\)</span> is found using Newton’s method, then the
+fraction is computed with one last multiplication by <span class="math inline">\(a\)</span>.</p>
+<p>Find the Newton iteration needed to solve <span class="math inline">\(f(x) = 0\)</span> and explain
+why it is well-suited to this purpose. (<strong>Note</strong>: We are trying to
+approximate division, so we shouldn’t actually use division
+functions implemented in <code>python</code>…)</p></li>
+</ol>
+<div class="solution">
+<p>Given an initial guess <span class="math inline">\(x_0\)</span> for the reciprocal of <span class="math inline">\(b\)</span>, Newton’s method refines the guess
+by the rule
+<span class="math display">\[x_1 = x_0 - \dfrac{f(x_0)}{f'(x_0)}.\]</span></p>
+<p>More generally, given if you’ve already found the <span class="math inline">\(n\)</span>th refined guess <span class="math inline">\(x_n\)</span>, you obtain the next refinement
+by the rule
+<span class="math display">\[x_{n+1} = x_n - \dfrac{f(x_n)}{f'(x_n)}.\]</span></p>
+<p>Note that <span class="math inline">\(f'(x) = \dfrac{-1}{x^2}\)</span>.
+Now, let’s ofind a simpler expression for <span class="math inline">\(x_{n+1}\)</span>:
+<span class="math display">\[\begin{align*}
+x_{n+1} &amp;= x_n - \dfrac{f(x_n)}{f'(x_n)}
+= x_n - \dfrac{\dfrac{1}{x_n} - b}{\dfrac{-1}{x_n^2}}
+= x_n + x_n - bx_n^2 \\
+&amp;= 2x_n - bx_n^2
+\end{align*}\]</span></p>
+<p>Thus, computing <span class="math inline">\(x_{n+1}\)</span> from <span class="math inline">\(x_n\)</span> involves a few multiplications
+and a subtraction operation (but no division!).</p>
+<p>Here is some <code>python</code> code that implements this strategy:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> newtonStep(x,b):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">-</span> b<span class="op">*</span>x<span class="op">*</span>x</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> approx(b,x0,num):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x0<span class="op">*</span><span class="fl">1.0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        xnew <span class="op">=</span> newtonStep(x,b<span class="op">*</span><span class="fl">1.0</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> xnew</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code></pre></div>
+</div>
+<ol start="2" type="a">
+<li><p>experiments</p>
+<p>Apply Newton’s Method to compute <span class="math inline">\(1/b\)</span>, where <span class="math inline">\(b\)</span> is: (i) the last
+3 digits of your student number; and (ii) the area code of your
+phone number. For these experiments, report the number of
+iterations required for the approximation to be consistent to 10
+digits.</p></li>
+</ol>
+<div class="solution">
+<p>Let’s use this strategy to estimate <span class="math inline">\(1/4242\)</span>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> [ <span class="ss">f&quot;</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>approx(<span class="dv">4242</span>,<span class="fl">.0001</span>,i)<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>pprint(results)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>[<span class="st">'0 - 0.0001'</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a> <span class="st">'1 - 0.00015758'</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a> <span class="st">'2 - 0.0002098249619512'</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a> <span class="st">'3 - 0.00023288944872391684'</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a> <span class="st">'4 - 0.0002357034422709971'</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a> <span class="st">'5 - 0.000235737854475393'</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a> <span class="st">'6 - 0.00023573785950023563'</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a> <span class="st">'7 - 0.00023573785950023574'</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a> <span class="st">'8 - 0.00023573785950023574'</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a> <span class="st">'9 - 0.00023573785950023574'</span>]</span></code></pre></div>
+<p>so the approximate is consistent to 10 digits after 5 iterations.</p>
+</div>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

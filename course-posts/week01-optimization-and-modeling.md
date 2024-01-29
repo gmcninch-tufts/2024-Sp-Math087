@@ -8,7 +8,7 @@ In the first week (well, really just the one day...) we discuss
 
 This week's homework assignment is 
 
-- [**[problem set 1]**](/course-assignments/PS1--2024-01-29.html) [[pdf]](/course-assignments/PS1--2024-01-29.pdf)
+- [**[problem set 1]**](/course-assignments/PS01--2024-01-29.html) [[pdf]](/course-assignments/PS01--2024-01-29.pdf)
 
 It is due 2024-01-29 on `gradescope` (you can also get the
 assignment on `gradescope`).
@@ -22,19 +22,19 @@ you to edit and execute code; for more information, see the
 [course-resource discussion about `jupyter
 notebooks`](/course-posts/resources--python-and-jupyter.html).
 
-- **jupyter demo** [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-00--demo-notebook.ipynb) 
-   [[download notebook]](/course-notebooks/week01-00--demo-notebook.ipynb) 
-   [[pdf]](/course-notebooks/week01-00--demo-notebook.pdf) 
+- **jupyter demo** [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week01-00--demo-notebook.ipynb) 
+   [[download notebook]](/course-content/week01-00--demo-notebook.ipynb) 
+   [[pdf]](/course-content/week01-00--demo-notebook.pdf) 
 
 - **single-variable optimization** 
-  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-01--optimization.ipynb)
-  [[download notebook]](/course-notebooks/week01-01--optimization.ipynb) 
-  [[pdf]](/course-notebooks/week01-01--optimization.pdf)   
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week01-01--optimization.ipynb)
+  [[download notebook]](/course-content/week01-01--optimization.ipynb) 
+  [[pdf]](/course-content/week01-01--optimization.pdf)   
 
 - **optimization & derivatives**
-  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-notebooks/week01-02--optimization-and-derivatives.ipynb)
-  [[download notebook]](/course-notebooks/week01-02--optimization-and-derivatives.ipynb)
-  [[pdf]](/course-notebooks/week01-02--optimization-and-derivatives.pdf)  
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week01-02--optimization-and-derivatives.ipynb)
+  [[download notebook]](/course-content/week01-02--optimization-and-derivatives.ipynb)
+  [[pdf]](/course-content/week01-02--optimization-and-derivatives.pdf)  
 
 
 

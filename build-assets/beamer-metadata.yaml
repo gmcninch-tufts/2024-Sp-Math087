@@ -1,9 +1,5 @@
 author: George McNinch
 title: Math 87 Spring 2024
-bibliography:
-- /home/george/Prof-Math/assets/math-bibliography.bib
-- /home/george/Prof-Math/assets/teaching.bib
-csl: assets/chicago-author-date.csl
 xnos-cleveref: True
 header-includes: |
   \setmainfont{FreeSerif}
