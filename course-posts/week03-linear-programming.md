@@ -22,7 +22,12 @@ Here are the `jupyter notebooks` for this week:
 - **Linear programs and optimization** 
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week03-01--optimization-and-linprog.ipynb)
   [[download notebook]](/course-content/week03-01--optimization-and-linprog.ipynb) 
-  [[pdf]](/course-content/week03-01--optimization-and-linprog.ipynb)   
+  [[pdf]](/course-content/week03-01--optimization-and-linprog.pdf)   
 
-- [*...I may add some more before Wednesday...*]
+- **Network flows** 
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week03-02--network-flows.ipynb)
+  [[download notebook]](/course-content/week03-02--network-flows.ipynb) 
+  [[pdf]](/course-content/week03-02--network-flows.pdf)   
+
+
 
