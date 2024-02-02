@@ -11,7 +11,7 @@ The homework assignment due on `gradescope` this week, on Friday
 
 - [**[problem set 1]**](/course-assignments/PS01--2024-01-29.html)
   [[pdf]](/course-assignments/PS01--2024-01-29.pdf)
-- [**[problem set 1 solutions]**](/course-assignments/PS01--2024-01-29--solutions.html) [[pdf]](/course-assignments/PS01--2024-01-29--solutions.pdf)
+- [**[problem set 1 solutions]**](/course-assignments/PS01--2024-01-29--solutions.html) 
 
 
 There are three associated [`jupyter

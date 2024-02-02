@@ -9,7 +9,7 @@ In the first week (well, really just the one day...) we discuss
 This week's homework assignment is 
 
 - [**[problem set 1]**](/course-assignments/PS01--2024-01-29.html) [[pdf]](/course-assignments/PS01--2024-01-29.pdf)
-- [**[problem set 1 solutions]**](/course-assignments/PS01--2024-01-29--solutions.html) [[pdf]](/course-assignments/PS01--2024-01-29--solutions.pdf)
+- [**[problem set 1 solutions]**](/course-assignments/PS01--2024-01-29--solutions.html)
 
 
 It is due 2024-01-29 on `gradescope` (you can also get the
