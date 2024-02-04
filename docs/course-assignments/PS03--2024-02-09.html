@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - ProblemSet 3 -- Dual linear programs
+</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>ProblemSet 3 -- Dual linear programs
+</h1>
+            <ol type="1">
+<li>Consider the primal linear program</li>
+</ol>
+<p><code>Maximize</code>
+<span class="math display">\[11x + 5y\]</span>
+<code>subject to</code>
+<span class="math display">\[\begin{bmatrix}
+1 &amp; 1 \\
+10 &amp; 4
+\end{bmatrix}
+\begin{bmatrix}
+x \\ y
+\end{bmatrix}
+\le \begin{bmatrix}
+7 \\
+40
+\end{bmatrix} \quad
+\text{and}
+\quad
+\begin{bmatrix}
+x \\ y
+\end{bmatrix} \ge \mathbf{0}\]</span></p>
+<ol type="a">
+<li><p>Write the dual linear program.</p></li>
+<li><p>Find the optimal solution to both the primal and the dual linear
+programs. You may do this using <code>python</code>’s <code>linprog</code>, or by
+plotting the feasible sets. Confirm that both the strong duality
+theorem and complementary slackness are satisfied. What are the
+dual prices of each of the constraints?</p></li>
+<li><p>Does the dual price provide an accurate prediction of the
+increase in the primal objective function when the right-hand side
+of the first constraint is increased from 7 to 8? From 7 to 9?
+From 7 to 11?</p></li>
+</ol>
+<hr />
+<ol start="2" type="1">
+<li><p>Consider the linear program</p>
+<p><code>maximize</code> <span class="math inline">\(\quad y + z\)</span></p>
+<p><code>subject to</code>
+<span class="math inline">\(\quad \mathbf{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix} \ge 0\)</span></p>
+<p>and <span class="math inline">\(A \mathbf{x} \le \mathbf{b}\)</span></p>
+<p>where <span class="math inline">\(A = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; -1 \end{bmatrix}\)</span>
+and <span class="math inline">\(\mathbf{b} = \begin{bmatrix} 10 \\ 1 \end{bmatrix}\)</span>.</p>
+<ol type="a">
+<li><p>What is the value of the objective function at points of the
+form</p>
+<p><span class="math display">\[\mathbf{p}(c,t) = \begin{bmatrix} c \\ 0 \\ 0 \end{bmatrix} +
+t\begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} = \begin{bmatrix}
+c\\t\\t \end{bmatrix} \quad c,t \in \mathbb{R}?\]</span></p></li>
+<li><p>Under what conditions on <span class="math inline">\(c,t\)</span> is the point <span class="math inline">\(\mathbf{p}(c,t)\)</span>
+in the <em>feasible region</em> of the linear program?</p></li>
+<li><p>Does the linear program have an optimal solution?</p></li>
+<li><p>What is the dual linear program? Does the dual linear program
+have any feasible points? Does it have an optimal solution?</p></li>
+</ol></li>
+</ol>
+<hr />
+<ol start="3" type="1">
+<li><p>An author of a dystopian novel wants to write a scene in which a
+characters plans and builds a <em>doomsday shelter</em> under his
+home.</p>
+<p>In the novel, the character will store food supplies in a large underground
+storage container, which has 50 liters of storage in which he will
+store <code>dried beans</code> and <code>rice</code>.</p>
+<p>It seems at least somewhat realistic to expect that a liter of beans
+provides nutrition for approx. 9 days, while a liter of rice
+provides nutrition for approx. 5 day.</p>
+<p>Each liter of beans costs $12.0 and each liter of rice costs $5.00.</p>
+<p>The character will spend $60.</p>
+<ol type="a">
+<li><p>Write the primal and dual linear programs.</p>
+<p>In each case, indicate the variables, the objective, and the
+constraints.</p></li>
+<li><p>Find solutions to both the primal and dual linear
+programs. Confirm that both the <code>strong duality theorem</code> and
+<code>complementary slackness</code> hold.</p></li>
+<li><p>Indicate and explain the <em>dual prices</em> for each of the <code>primal</code>
+constraints.</p></li>
+<li><p>Suppose the author had instead envisioned a storage container
+holding an additional <code>c</code> liters of food. Does the dual price
+for this modified constraint provide an accurate prediction for
+the increase in the primal objective function (i.e. for the
+number of days of nutrition provided?)</p></li>
+</ol></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>
