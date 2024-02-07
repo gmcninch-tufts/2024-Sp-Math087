@@ -142,9 +142,9 @@ table a {
 
 @media (min-width: 640px) {
   body {
-    width: 60rem;
+    width: 70rem;
     margin: 0 auto;
-    padding: 0;
+    padding: 10;
   }
   header {
     margin: 0 0 3rem;
