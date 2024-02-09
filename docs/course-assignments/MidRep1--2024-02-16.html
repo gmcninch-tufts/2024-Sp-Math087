@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - Midterm Project 1 -- Supply chain</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>Midterm Project 1 -- Supply chain</h1>
+            <h1 id="instructions">Instructions</h1>
+<p>Complete the project report described below in the style of a lab
+report. You may attach embedded code in the
+submitted PDF. Take care to explain fully the formulation of linear
+programs and the associated flow diagrams – including all choices of
+nodes and edges. Write a summary of your solution, identifying the
+optimal shipping routes and how to deal with unexpected crises.</p>
+<h1 id="the-problem">The problem</h1>
+<p>In this problem, consider yourself to be the logistics manager for a
+supply-chain company that makes and sells rubber ducks.</p>
+<p>Your task is to minimize the shipping costs for your supply chain
+system for a given month, and then to maximize the overall profit for
+that month.</p>
+<p>You have 3 main warehouses in Santa Fe, El Paso, and Tampa Bay. At
+each warehouse, you are given a certain number of rubber ducks that
+must be shipped to your stores in various cities across the US. The
+number of supplies (in units of <code>ducks</code>) for each warehouse is listed
+here:</p>
+<table>
+<caption>Supplies (in <code>ducks</code>)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Santa Fe</th>
+<th style="text-align: left;">El Paso</th>
+<th style="text-align: left;">Tampa Bay</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">700</td>
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">200</td>
+</tr>
+</tbody>
+</table>
+<p>You have 5 stores located across the US that will sell these ducks to
+your customers. The demands at each store for the given month are as
+follows (again in units of <code>ducks</code>):</p>
+<table>
+<caption>Demand (in <code>ducks</code>)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Chicago</th>
+<th style="text-align: left;">LA</th>
+<th style="text-align: left;">NY</th>
+<th style="text-align: left;">Houston</th>
+<th style="text-align: left;">Atlanta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">250</td>
+<td style="text-align: left;">300</td>
+<td style="text-align: left;">150</td>
+</tr>
+</tbody>
+</table>
+<p>In order to ship the rubber ducks to each of these cities, you use an
+air-freight service that charges different prices between different
+cities depending on how many ducks you ship. Some routes are not
+available. The following grid indicates the cost per duck (in dollars)
+to ship from a warehouse to a store (these routes are one-way; you
+can’t ship from a store back to the warehouse):</p>
+<table>
+<caption>Shipping costs ($ per <code>duck</code>)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Chicago</th>
+<th style="text-align: left;">LA</th>
+<th style="text-align: left;">NY</th>
+<th style="text-align: left;">Houston</th>
+<th style="text-align: left;">Atlanta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Santa Fe</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">El Paso</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tampa Bay</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">4</td>
+</tr>
+</tbody>
+</table>
+<p>Thus e.g. it costs 6 dollars to ship a single duck from Santa Fe to
+Chicago.</p>
+<p>Now, Houston and Atlanta are hubs that – in addition to accepting
+ducks to meet their own local demand – can also relay ducks to some
+other destinations. Those routes and their associated costs are
+indicated here:</p>
+<table>
+<caption>Relay route costs ($ per duck)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Chicago</th>
+<th style="text-align: left;">LA</th>
+<th style="text-align: left;">NY</th>
+<th style="text-align: left;">Houston</th>
+<th style="text-align: left;">Atlanta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Houston</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Atlanta</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, shipping on each route is restricted to a maximum of 200
+units (ducks) for the month.</p>
+<p>The basic problem is to determine an optimum shipping plan that
+minimizes the total cost of shipping while meeting all customer
+demands with available supplies. Your task will be to formulate a
+linear program to solve this problem – and some variations of this
+problem –, and to enter this linear program and solve it using
+<code>python/scipy</code>.</p>
+<p>For simplicity, I’ll accept answers involving partial ducks – you
+shouldn’t treat this as an integer programming problem.</p>
+<h1 id="your-tasks">Your tasks:</h1>
+<ol type="1">
+<li><p>Formulate and draw a network-flow model describing this supply
+chain problem. You must explain all the constraints that you have
+included and why you have included them. You are <em>strongly</em>
+encouraged to include a node for the source of ducks (an
+<code>initial</code> node) and a node for the customers (a <code>terminal</code>
+node) even though these nodes are not really involved in the
+air-freight.</p></li>
+<li><p>Use your network-flow model to formulate the linear program.</p>
+<p>Make sure that you include a clear description (in addition to
+code) of the objective function, the equality constraints, and the
+inequality constraints and how this data is obtained from the
+network flow.</p>
+<p>You may adapt the code given in examples in class
+(<code>restaurant/tablecloths</code> example, and <code>grocery store</code> example), or
+you may “start from scratch” and write your own code to handle this
+model.</p></li>
+<li><p>Enter your model into <code>python</code> and use the <code>linprog</code> command
+(from <code>scipy.optimize</code>) to find an optimal solution. As usual,
+you can use <code>colab</code> or a <code>python</code> interpreter.</p>
+<p>Be sure to include any code used in producing the specifications
+for the equality and inequality constraints. Include in your report
+the formulation of the call to <code>linprog</code> and the text of the
+output of that function.</p></li>
+<li><p>Next, consider the following variant problems. Assume that shipping
+workers in LA are unhappy and contemplating a strike. They demand
+changes that would result in the doubling of all shipping costs to
+LA; if their demand is not met they will strike and the maximum
+number of supplies that can be shipped on <em>all routes to LA</em> is cut
+in half (i.e., from 200 to 100). Model both scenarios and see which
+one increases the cost more.</p>
+<p>Explain how you adapt your model to account for these scenarios.</p></li>
+<li><p>Test the same scenarios contemplated in 4. on the hub city of
+Houston. Is the result more or less drastic? Which city (LA or
+Houston) would have the larger impact on costs if a work stoppage
+occurred?</p></li>
+<li><p>Finally, return to the non-strike scenario, and consider the value
+of the goods being made and sold. The following table shows the
+profit made at each city from selling 1 rubber duck. Note that in
+the warehouse cities, you are making the goods, which amounts to a
+cost rather than revenue. Now, use a related linear program to
+maximize the total profit, taking into account the shipping costs.</p></li>
+</ol>
+<table>
+<caption>Profit by city (in $ per duck)</caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 13%" />
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 6%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Santa fe</th>
+<th style="text-align: left;">El Paso</th>
+<th style="text-align: left;">Tampa Bay</th>
+<th style="text-align: left;">Chicago</th>
+<th style="text-align: left;">NY</th>
+<th style="text-align: left;">Houston</th>
+<th style="text-align: left;">Atlanta</th>
+<th style="text-align: left;">LA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">-8</td>
+<td style="text-align: left;">-5</td>
+<td style="text-align: left;">-10</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">20</td>
+</tr>
+</tbody>
+</table>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>
