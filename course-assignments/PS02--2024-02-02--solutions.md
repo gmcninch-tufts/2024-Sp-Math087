@@ -106,7 +106,7 @@ date: 2024-01-29
 	  ```
       which results in
 	  
-	  ![](feasible.png){width=750px}
+	  ![](/course-assets/images/feasible.png){width=750px}
 	  
       :::
 

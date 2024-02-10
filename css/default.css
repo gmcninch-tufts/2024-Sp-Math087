@@ -142,9 +142,9 @@ table a {
 
 @media (min-width: 640px) {
   body {
-    width: 70rem;
+    width: 80rem;
     margin: 0 auto;
-    padding: 10;
+    padding: 5;
   }
   header {
     margin: 0 0 3rem;
@@ -208,7 +208,8 @@ footer nav {
 
 div.sourceCode {
     background-color: Lavender;
-    padding: 10px;    
+    padding: 10px;
+    font-size: 11px;
 }
 
 div.cell {
