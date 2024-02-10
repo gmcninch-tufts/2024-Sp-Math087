@@ -12,6 +12,8 @@ The homework assignment due on `gradescope` on Friday 2024-02-02 is:
 - [**[problem set 2]**](/course-assignments/PS02--2024-02-02.html)
   [**[pdf]**](/course-assignments/PS02--2024-02-02.pdf)
 
+- [**[problem set 2 solutions]**](/course-assignments/PS02--2024-02-02--solutions.html)
+
 Here are the `jupyter notebooks` for this week:
 
 - **root finding comments** 

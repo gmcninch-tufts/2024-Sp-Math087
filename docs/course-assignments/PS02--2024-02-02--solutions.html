@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - ProblemSet 2 -- Linear programs
+</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>ProblemSet 2 -- Linear programs
+</h1>
+            <ol type="1">
+<li><p>A linear program</p>
+<p>Consider the optimization problem: find the <span class="math inline">\(\max\)</span> of <span class="math inline">\(f(x, y) = x + 2y\)</span> subject to the
+following constraints:</p>
+<p><span class="math display">\[\begin{align*}
+y &amp;\le 9 \\
+−y &amp;\le −1 \\
+2x + y &amp;≤ 25 \\
+−2x − y &amp;≤ −9 \\
+−2x + y &amp;≤ 1 \\
+2x − y &amp;≤ 15.
+\end{align*}\]</span></p>
+<ol type="a">
+<li><p>Draw the feasible region. Label the boundary curves and corner points.</p>
+<div class="solution">
+<p>We can use <code>matplotlib</code> to draw a sketch of the feasible region, as follows.
+Of course, you can also just hand sketch it!</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({<span class="st">'font.size'</span>: <span class="dv">19</span>})</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the feasible region</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">11</span>,<span class="dv">500</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">11</span>,<span class="dv">500</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>xx,yy <span class="op">=</span> np.meshgrid(d,e)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">15</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>ax.imshow(((yy <span class="op">&gt;=</span> <span class="dv">1</span>) <span class="op">&amp;</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>           (yy <span class="op">&lt;=</span> <span class="dv">9</span>) <span class="op">&amp;</span> </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> 		 (<span class="dv">9</span> <span class="op">&lt;=</span> <span class="dv">2</span><span class="op">*</span>xx <span class="op">+</span> yy) <span class="op">&amp;</span> </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a> 		 (<span class="dv">2</span><span class="op">*</span>xx <span class="op">+</span> yy <span class="op">&lt;=</span> <span class="dv">25</span>) <span class="op">&amp;</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a> 		 (<span class="op">-</span><span class="dv">1</span> <span class="op">&lt;=</span> <span class="dv">2</span><span class="op">*</span>xx <span class="op">-</span> yy) <span class="op">&amp;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>           (<span class="dv">2</span><span class="op">*</span>xx <span class="op">-</span> yy <span class="op">&lt;=</span> <span class="dv">15</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>           ).astype(<span class="bu">int</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>          extent<span class="op">=</span>(xx.<span class="bu">min</span>(),xx.<span class="bu">max</span>(),yy.<span class="bu">min</span>(),yy.<span class="bu">max</span>()),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>          origin<span class="op">=</span><span class="st">&quot;lower&quot;</span>, </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>          cmap<span class="op">=</span><span class="st">&quot;Reds&quot;</span>, </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>          alpha <span class="op">=</span> <span class="fl">0.2</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the lines defining the constraints</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> l1(x): <span class="cf">return</span> <span class="dv">25</span> <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>x</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> l2(x): <span class="cf">return</span> <span class="dv">9</span> <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>x</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> l3(x): <span class="cf">return</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> l4(x): <span class="cf">return</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">-</span> <span class="dv">15</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="fl">5.5</span>,<span class="dv">11</span>,<span class="dv">500</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>ax.plot(x, l1(x) , label<span class="op">=</span><span class="st">&quot;2x + y = 25&quot;</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="fl">6.5</span>,<span class="dv">500</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>ax.plot(x, l2(x) , label<span class="op">=</span><span class="st">&quot;2x + y = 9&quot;</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="fl">6.5</span>,<span class="dv">500</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>ax.plot(x, l3(x), label <span class="op">=</span> <span class="st">&quot;2x - y = -1&quot;</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="fl">5.5</span>,<span class="dv">11</span>,<span class="dv">500</span>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>ax.plot(x, l4(x), label <span class="op">=</span> <span class="st">&quot;2x - y = 15&quot;</span>)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>ax.axhline(y<span class="op">=</span><span class="dv">1</span>, color <span class="op">=</span> <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>ax.axhline(y<span class="op">=</span><span class="dv">9</span>, color <span class="op">=</span> <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">&quot;Feasible Region&quot;</span>)</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&quot;x axis&quot;</span>)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">&quot;y axis&quot;</span>)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ann_pt(x,y):</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;annotate the point (x,y)&quot;</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> <span class="ss">f&quot;(</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">)&quot;</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    ax.annotate(s,xy<span class="op">=</span>(x,y),xytext<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>),textcoords<span class="op">=</span><span class="st">'offset points'</span>)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="dv">8</span>, <span class="dv">9</span>,s<span class="op">=</span><span class="dv">100</span>,color<span class="op">=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>ann_pt(<span class="dv">8</span>,<span class="dv">9</span>)</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="dv">4</span>,<span class="dv">9</span>,s<span class="op">=</span><span class="dv">100</span>,color<span class="op">=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>ann_pt(<span class="dv">4</span>,<span class="dv">9</span>)</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="dv">4</span>,<span class="dv">1</span>,s<span class="op">=</span><span class="dv">100</span>,color<span class="op">=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>ann_pt(<span class="dv">4</span>,<span class="dv">1</span>)</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="dv">8</span>,<span class="dv">1</span>,s<span class="op">=</span><span class="dv">100</span>,color<span class="op">=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>ann_pt(<span class="dv">8</span>,<span class="dv">1</span>)</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="dv">2</span>,<span class="dv">5</span>,s<span class="op">=</span><span class="dv">100</span>,color<span class="op">=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>ann_pt(<span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="dv">10</span>,<span class="dv">5</span>,s<span class="op">=</span><span class="dv">100</span>,color<span class="op">=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>ann_pt(<span class="dv">10</span>,<span class="dv">5</span>)</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">&quot;feasible.png&quot;</span>)</span></code></pre></div>
+<p>which results in</p>
+<p><img src="feasible.png" width="750" /></p>
+</div></li>
+<li><p>Find the maximum value of f and the point where it occurs.</p>
+<div class="solution">
+<p>We evaluate the function <code>f</code> at each intersection point.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>intersection_pts <span class="op">=</span> [ (<span class="dv">4</span>,<span class="dv">9</span>), (<span class="dv">8</span>,<span class="dv">9</span>), (<span class="dv">10</span>,<span class="dv">5</span>), (<span class="dv">8</span>,<span class="dv">1</span>), (<span class="dv">4</span>,<span class="dv">1</span>), (<span class="dv">2</span>,<span class="dv">5</span>) ]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x,y): <span class="cf">return</span> x <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>y</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">## make a list of the pairs ( f(pt), pt) ) and sort the list</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>[ ( f(pt[<span class="dv">0</span>],pt[<span class="dv">1</span>]) , pt ) <span class="cf">for</span> pt <span class="kw">in</span> intersection_pts ]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>a.sort()</span></code></pre></div>
+<p>This yields</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">6</span>, (<span class="dv">4</span>, <span class="dv">1</span>)), (<span class="dv">10</span>, (<span class="dv">8</span>, <span class="dv">1</span>)), (<span class="dv">12</span>, (<span class="dv">2</span>, <span class="dv">5</span>)), (<span class="dv">20</span>, (<span class="dv">10</span>, <span class="dv">5</span>)), (<span class="dv">22</span>, (<span class="dv">4</span>, <span class="dv">9</span>)), (<span class="dv">26</span>, (<span class="dv">8</span>, <span class="dv">9</span>))]</span></code></pre></div>
+<p>We see that the <em>maximum value of <code>f</code></em> is 26, and this maximum occurs at
+<span class="math inline">\((x,y) = (8,9)\)</span>.</p>
+</div></li>
+<li><p>Verify your answer using <code>SciPy</code>.</p>
+<div class="solution">
+<p>We need to define the <em>objective function</em> <code>f</code> as a <em>vector</em> <code>c</code>,
+and we must define the <code>inequality constraints.</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Aub <span class="op">=</span> np.array([ [<span class="dv">0</span>,<span class="dv">1</span>],</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                 [<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>],</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> 			   [<span class="dv">2</span>,<span class="dv">1</span>],</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a> 			   [<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>],</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a> 			   [<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>],</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a> 			   [<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a> 			   ])</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>bub <span class="op">=</span> np.array([ <span class="dv">9</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                <span class="op">-</span><span class="dv">1</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a> 			  <span class="dv">25</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a> 			  <span class="op">-</span><span class="dv">9</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a> 			  <span class="dv">1</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a> 			  <span class="dv">15</span>])</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<p>and now we run the <code>linprog</code> solver. Remember that since we want to <em>maximize</em> the objective function,
+we must use <code>-c</code> for the objective function!</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> linprog</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> linprog((<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>c,A_ub<span class="op">=</span>Aub,b_ub<span class="op">=</span>bub)</span></code></pre></div>
+<p>This gives the result</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>        message: Optimization terminated successfully. (HiGHS Status <span class="dv">7</span>: Optimal)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        success: <span class="va">True</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         status: <span class="dv">0</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            fun: <span class="op">-</span><span class="fl">26.0</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>              x: [ <span class="fl">8.000e+00</span>  <span class="fl">9.000e+00</span>]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            nit: <span class="dv">2</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>          lower:  residual: [ <span class="fl">8.000e+00</span>  <span class="fl">9.000e+00</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                 marginals: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>          upper:  residual: [       inf        inf]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                 marginals: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>          eqlin:  residual: []</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                 marginals: []</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        ineqlin:  residual: [ <span class="fl">0.000e+00</span>  <span class="fl">8.000e+00</span>  <span class="fl">0.000e+00</span>  <span class="fl">1.600e+01</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                              <span class="fl">8.000e+00</span>  <span class="fl">8.000e+00</span>]</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                 marginals: [<span class="op">-</span><span class="fl">1.500e+00</span> <span class="op">-</span><span class="fl">0.000e+00</span> <span class="op">-</span><span class="fl">5.000e-01</span> <span class="op">-</span><span class="fl">0.000e+00</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                             <span class="op">-</span><span class="fl">0.000e+00</span> <span class="op">-</span><span class="fl">0.000e+00</span>]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a> mip_node_count: <span class="dv">0</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a> mip_dual_bound: <span class="fl">0.0</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        mip_gap: <span class="fl">0.0</span>	  </span></code></pre></div>
+<p>which confirms that the max of 26 occurs at the point <code>(8,9)</code>
+(see the fields <code>fun</code> and <code>x</code> in the result).</p>
+</div></li>
+</ol></li>
+<li><p>Bakers</p>
+<p>A bakery wants to sell forty five Valentine’s Day gift bags. They
+have decided to offer two types of bags:</p>
+<ul>
+<li><p>Bags of type A will contain four cupcakes and two cookies, and
+will be sold for $12</p></li>
+<li><p>bags of type B will contain two cupcakes and five cookies, and
+will be sold for $16</p></li>
+</ul>
+<p>The bakery has 90 cookies and 115 cupcakes in total. Write the
+bakery’s optimization problem as a linear program. Solve this to
+determine how many baskets of both types should be made. If a
+fractional solution is obtained, round down to whole number
+solutions. What is the maximum profit?</p>
+<p>You may solve this by drawing the feasible region or using python.</p>
+<div class="solution">
+<p>We’ve written some code that assembles the objective function
+<code>obj</code>, and the constraint data <code>Aub</code> and <code>bub</code> in order to use
+<code>scipy.optimize.linprog</code> to solve the linear program.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> linprog</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>bag_specs <span class="op">=</span> { <span class="st">'A'</span> : { <span class="st">'price'</span>: <span class="fl">12.0</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'cupcakes'</span>: <span class="dv">4</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'cookies'</span>: <span class="dv">2</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'bags'</span>: <span class="dv">1</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                      },</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>              <span class="st">'B'</span> : { <span class="st">'price'</span>: <span class="fl">16.0</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'cupcakes'</span>: <span class="dv">2</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'cookies'</span>: <span class="dv">5</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'bags'</span>: <span class="dv">1</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                      }</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>              }</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>resources <span class="op">=</span> { <span class="st">'cupcakes'</span>: <span class="fl">115.0</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>              <span class="st">'cookies'</span>: <span class="fl">90.0</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>              <span class="st">'bags'</span>: <span class="dv">45</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>              }</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># objective function, as a vector</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>obj <span class="op">=</span> np.array([ bags_specs[item][<span class="st">'price'</span>] <span class="cf">for</span> item <span class="kw">in</span> bag_specs.keys() ]))</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co"># upper bound constraint matrix</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>Aub <span class="op">=</span> np.array([ [ bag_specs[item][resource]</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">for</span> item <span class="kw">in</span> bag_specs.keys()</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>                  ]</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>                 <span class="cf">for</span> resource <span class="kw">in</span> resources.keys()</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>                ])</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co"># upper bound constraint vector</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>bub <span class="op">=</span> np.array([ resources[res] <span class="cf">for</span> res <span class="kw">in</span> resources.keys()])</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="co"># remember that this is a maximizing problem, so multiply the objective function by (-1)</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> linprog( (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>obj, A_ub <span class="op">=</span> Aub, b_ub <span class="op">=</span> bub)</span></code></pre></div>
+<p>This is perhaps overly complicated for a 2-variable problem, but it yields
+the following values:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>obj </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> array([<span class="fl">12.</span>, <span class="fl">16.</span>])</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>Aub</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> array([[<span class="dv">4</span>, <span class="dv">2</span>],</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>          [<span class="dv">2</span>, <span class="dv">5</span>],</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a> 		 [<span class="dv">1</span>, <span class="dv">1</span>]])</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>bub </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> array([<span class="fl">115.</span>,  <span class="fl">90.</span>,  <span class="fl">45.</span>])</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>res</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        message: Optimization terminated successfully. (HiGHS Status <span class="dv">7</span>: Optimal)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        success: <span class="va">True</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>         status: <span class="dv">0</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>            fun: <span class="op">-</span><span class="fl">426.25</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>              x: [ <span class="fl">2.469e+01</span>  <span class="fl">8.125e+00</span>]</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>            nit: <span class="dv">2</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>          lower:  residual: [ <span class="fl">2.469e+01</span>  <span class="fl">8.125e+00</span>]</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>                 marginals: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>          upper:  residual: [       inf        inf]</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                 marginals: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>          eqlin:  residual: []</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>                 marginals: []</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>        ineqlin:  residual: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>                 marginals: [<span class="op">-</span><span class="fl">1.750e+00</span> <span class="op">-</span><span class="fl">2.500e+00</span>]</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a> mip_node_count: <span class="dv">0</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a> mip_dual_bound: <span class="fl">0.0</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        mip_gap: <span class="fl">0.0</span>   </span></code></pre></div>
+<p>This result indicates that the max profit should be <span class="math inline">\(426.25\)</span>, obtained at the point
+<span class="math inline">\((24.69, 8.125)\)</span>. However, since we need to round to a whole number we find that we should
+make 24 or 25 <code>A</code>-type bags and 8 or 9 <code>B</code> type bags.</p>
+<p>Let’s compute</p>
+<p>(notice that the <code>numpy</code> operation <code>M @ v</code> means “multiply the matrix M and the vector v”.
+You could also do this via <code>np.matmul(M,v)</code>).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pp <span class="op">=</span> [ [<span class="dv">24</span>,<span class="dv">8</span>], [<span class="dv">24</span>,<span class="dv">9</span>], [<span class="dv">25</span>,<span class="dv">8</span>], [<span class="dv">25</span>,<span class="dv">9</span>] ]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join([ <span class="ss">f&quot;</span><span class="sc">{</span>p<span class="sc">}</span><span class="ss"> =&gt; </span><span class="sc">{</span>Aub <span class="op">@</span> np<span class="sc">.</span>array(p)<span class="sc">}</span><span class="ss">    </span><span class="sc">{</span>Aub <span class="op">@</span> np<span class="sc">.</span>array(p) <span class="op">&lt;=</span> bub<span class="sc">}</span><span class="ss">&quot;</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span>  p <span class="kw">in</span> pp ]))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span>  </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">24</span>, <span class="dv">8</span>] <span class="op">=&gt;</span> [<span class="dv">112</span>  <span class="dv">88</span>]   [ <span class="va">True</span>  <span class="va">True</span>]</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>[<span class="dv">24</span>, <span class="dv">9</span>] <span class="op">=&gt;</span> [<span class="dv">114</span>  <span class="dv">93</span>]   [ <span class="va">True</span> <span class="va">False</span>]</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">25</span>, <span class="dv">8</span>] <span class="op">=&gt;</span> [<span class="dv">116</span>  <span class="dv">90</span>]   [<span class="va">False</span>  <span class="va">True</span>]</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>[<span class="dv">25</span>, <span class="dv">9</span>] <span class="op">=&gt;</span> [<span class="dv">118</span>  <span class="dv">95</span>]   [<span class="va">False</span> <span class="va">False</span>]</span></code></pre></div>
+<p>This shows that, for example, making 24 <code>A</code> bags and 9 <code>B</code> bags requires 114 cupcakes and 93 cookies
+(which exceeds available resources).</p>
+<p>Inspecting the list, we see that we should make 24 <code>A</code> bags and 8 <code>B</code> bags, yielding a profit of $416</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>obj <span class="op">@</span> np.array([<span class="dv">24</span>,<span class="dv">8</span>]) </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dv">416</span></span></code></pre></div>
+</div></li>
+<li><p>A farmer owns 45 acres of land. This season, she will plant each
+acre with either wheat or corn. Each acre of wheat yields $200 in
+seasonal profits, whereas each acre of corn yields $300 in
+seasonal profits. Each acre of wheat requires 3 workers and 2 tons
+of fertilizer, while each acre of corn requires 2 workers and 4
+tons of fertilizer. The farmer has 100 workers and 120 tons of
+fertilizer available. Determine how many acres of wheat and corn
+need to be planted to maximize profits for the season. (Non-integer
+acreage values are allowed in the solution.)</p>
+<div class="solution">
+<p>We’ve written some code that assembles the objective function
+<code>obj</code>, and the constraint data <code>Aub</code> and <code>bub</code> in order to use
+<code>scipy.optimize.linprog</code> to solve the linear program.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> linprog</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">## requirements per acre,</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">## as a (nested) python dictionary</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">## e.g. `crop_specs['corn']['fertilizer']` reflects the </span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">## amount of fertilizer (in tons) required</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">## for an acre of corn</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>crop_specs <span class="op">=</span> { <span class="st">'wheat'</span> : { <span class="st">'profits'</span>: <span class="fl">200.0</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                           <span class="st">'workers'</span>: <span class="dv">3</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>                           <span class="st">'fertilizer'</span>: <span class="dv">2</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>                           <span class="st">'acres'</span>: <span class="dv">1</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>                          },</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>               <span class="st">'corn'</span> : { <span class="st">'profits'</span>: <span class="fl">300.0</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>                          <span class="st">'workers'</span>: <span class="dv">2</span>,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>                          <span class="st">'fertilizer'</span>: <span class="dv">4</span>,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>                          <span class="st">'acres'</span>: <span class="dv">1</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>                         }</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>              }</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>resource_specs <span class="op">=</span> { <span class="st">'workers'</span>: <span class="fl">100.0</span>,</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'fertilizer'</span>: <span class="fl">120.0</span>,</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'acres'</span>: <span class="dv">45</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>                  }</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co"># objective function, as a vector</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>obj <span class="op">=</span> np.array([ crop_specs[c][<span class="st">'profits'</span>] <span class="cf">for</span> c <span class="kw">in</span> crop_specs.keys() ])</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="co"># upper bound constraint matrix</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="co"># this matrix has a row for each `resource`,</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="co"># and the entries for that row are obtained from the `crop_specs`</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>Aub <span class="op">=</span> np.array([ [ crop_specs[c][res]</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">for</span> c <span class="kw">in</span> crop_specs.keys()</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>                  ]</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>                 <span class="cf">for</span> res <span class="kw">in</span> resource_specs.keys()</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>                ])</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="co"># upper bound constraint vector</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>bub <span class="op">=</span> np.array([ resource_specs[res] <span class="cf">for</span> res <span class="kw">in</span> resource_specs.keys()])</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> linprog( (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>obj, A_ub <span class="op">=</span> Aub, b_ub <span class="op">=</span> bub)</span></code></pre></div>
+<p>This gives the following results:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>obj </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>[<span class="fl">200.</span> <span class="fl">300.</span>]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>Aub </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>[[<span class="dv">3</span> <span class="dv">2</span>]</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a> [<span class="dv">2</span> <span class="dv">4</span>]</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span> <span class="dv">1</span>]]</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a> bub</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a> <span class="op">=&gt;</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>[<span class="fl">100.</span> <span class="fl">120.</span>  <span class="fl">45.</span>]</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>res</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>           message: Optimization terminated successfully. (HiGHS Status <span class="dv">7</span>: Optimal)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        success: <span class="va">True</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>         status: <span class="dv">0</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>            fun: <span class="op">-</span><span class="fl">10000.0</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>              x: [ <span class="fl">2.000e+01</span>  <span class="fl">2.000e+01</span>]</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>            nit: <span class="dv">2</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>          lower:  residual: [ <span class="fl">2.000e+01</span>  <span class="fl">2.000e+01</span>]</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>                 marginals: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>          upper:  residual: [       inf        inf]</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>                 marginals: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>          eqlin:  residual: []</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>                 marginals: []</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>        ineqlin:  residual: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>  <span class="fl">5.000e+00</span>]</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>                 marginals: [<span class="op">-</span><span class="fl">2.500e+01</span> <span class="op">-</span><span class="fl">6.250e+01</span> <span class="op">-</span><span class="fl">0.000e+00</span>]</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a> mip_node_count: <span class="dv">0</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a> mip_dual_bound: <span class="fl">0.0</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>        mip_gap: <span class="fl">0.0</span></span></code></pre></div>
+<p>The result shows that the maximal profit is $10,000 and it is achievd
+by planting 20 acres of corn and 20 acres of wheat.</p>
+<p>This may seem slightly surprising, since after all we have 45 available acres.</p>
+<p>Let’s investigate this solution a bit:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>usage <span class="op">=</span> Aub <span class="op">@</span> np.array([<span class="dv">20</span>,<span class="dv">20</span>])</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> resources:</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>r<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>usage[resources.index(r)]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>workers <span class="op">-&gt;</span> <span class="dv">100</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>fertilizer <span class="op">-&gt;</span> <span class="dv">120</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>acres <span class="op">-&gt;</span> <span class="dv">40</span></span></code></pre></div>
+<p>We see that this solutions requires all available of workers
+and all available tonnage of fertilizer, so it is indeed
+plausible that the maximum profit is achieved without use of the
+remaining 5 acres of land.</p>
+</div></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>
