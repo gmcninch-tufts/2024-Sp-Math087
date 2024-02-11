@@ -28,7 +28,7 @@ posts_pdf=$(addprefix course-assets/posts-pdf/,$(posts:.md=.pdf))
 problems=$(wildcard course-assignments/*.md)
 problems_pdf=$(problems:.md=.pdf)
 
-all: pages posts problems  notebooks # slides
+all: pages posts # problems  notebooks # slides
 
 pages: $(pages_pdf)
 posts: $(posts_pdf)
