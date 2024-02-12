@@ -4,6 +4,9 @@ title: |
 date: 2024-02-12
 ---
 
+The first of two *midterm reports* is due this Friday. If you want,
+you can look back over the [comments on rubrics I made in an earlier
+post](resources--expectations-and-rubrics.html).
 
 - [**[midterm report 1]**](/course-assignments/MidRep1--2024-02-16.html)
   [**[pdf]**](/course-assignments/MidRep1--2024-02-16.pdf)
@@ -18,6 +21,6 @@ strategies to avoid *brute force checking*.
 - **Integer programming via branch-and-bound**
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week05-01--branch-and-bound.ipynb)
   [[download notebook]](/course-content/week05-01--branch-and-bound.ipynb) 
-  [[pdf]](/course-content/week05-01--branch-and-bound.ipynb)   
+  [[pdf]](/course-content/week05-01--branch-and-bound.pdf)   
 
 Next week's problem sert (PS04) will likely contain a problem about integer programming.
