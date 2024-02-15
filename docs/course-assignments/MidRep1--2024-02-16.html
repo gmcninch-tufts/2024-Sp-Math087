@@ -224,7 +224,23 @@ of the goods being made and sold. The following table shows the
 profit made at each city from selling 1 rubber duck. Note that in
 the warehouse cities, you are making the goods, which amounts to a
 cost rather than revenue. Now, use a related linear program to
-maximize the total profit, taking into account the shipping costs.</p></li>
+maximize the total profit, taking into account the shipping costs.</p>
+<blockquote>
+<p>In contrast to the first part where you minimize the <em>shipping
+costs</em>, when you are maximizing profit you should view the
+number of available ducks in each warehouse, and demand for
+ducks at the stores, as <em>upper bounds</em> on the relevant variables.</p>
+</blockquote>
+<blockquote>
+<p>In words, this means that you ship <strong>no more than</strong> the
+available ducks from each warehouse. And you can sell <strong>no more
+than</strong> the indicated demand for ducks allows in each city.</p>
+</blockquote>
+<blockquote>
+<p>In this setting, you may well end up not shipping as many ducks
+to a given city as it might be possible to sell – the linear
+program will optimize profitability.</p>
+</blockquote></li>
 </ol>
 <table>
 <caption>Profit by city (in $ per duck)</caption>
