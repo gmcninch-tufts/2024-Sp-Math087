@@ -97,7 +97,7 @@ to create and execute `python` code for the course on my computer?"  and
 notebooks on my computer?"
 
 I suggest that you use a tool known as `conda` (short for *anaconda*;
-together with `python`, I this amounts to a bunch of snakes ...). 
+together with `python`, this amounts to a bunch of snakes ...). 
 
 [`conda`](https://conda.org) describes itself as follows:
 

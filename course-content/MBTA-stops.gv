@@ -1,0 +1,22 @@
+graph "MBTA-stops" {
+	"Central Square"
+	Hynes
+	"Mass Ave"
+	"Park St"
+	"Govt Center"
+	"Downtown Crossing"
+	"South Station"
+	"State St."
+	HayMarket
+	"Central Square" -- Hynes [label=50]
+	Hynes -- "Park St" [label=200]
+	Hynes -- "Mass Ave" [label=50]
+	"Mass Ave" -- "Downtown Crossing" [label=100]
+	"Park St" -- "Govt Center" [label=150]
+	"Park St" -- "Downtown Crossing" [label=200]
+	"Govt Center" -- "State St." [label=100]
+	"Govt Center" -- HayMarket [label=100]
+	"Downtown Crossing" -- "State St." [label=100]
+	"Downtown Crossing" -- "South Station" [label=200]
+	"State St." -- HayMarket [label=100]
+}

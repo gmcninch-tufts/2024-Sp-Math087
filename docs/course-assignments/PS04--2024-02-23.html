@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - ProblemSet 4 -- Integer programs and max flow
+</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>ProblemSet 4 -- Integer programs and max flow
+</h1>
+            <ol type="1">
+<li><p>One man’s trash</p>
+<p>You are at a yard sale, and have spied four crates of goods. You’ve
+estimated the value of each crate; these values are listed as
+<strong>actual value</strong> in the following table.</p>
+<p>The owner has no idea what these items are worth, and is selling
+them for far less than they are worth; the prices being asked are
+listed as <strong>sales price</strong> in the following table).</p>
+<p>Finally, the <em>weight</em> of each of the crates is listed in the table,
+as well.</p>
+<table>
+<thead>
+<tr class="header">
+<th>crate</th>
+<th>actual value</th>
+<th>sales price</th>
+<th>weight in kg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>$ 5000</td>
+<td>$ 24</td>
+<td>75.5</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>$ 600</td>
+<td>$ 76</td>
+<td>2.7</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>$ 3500</td>
+<td>$ 43</td>
+<td>3.3</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>$ 6000</td>
+<td>$ 754</td>
+<td>6.7</td>
+</tr>
+</tbody>
+</table>
+<p>You realize that you can purchase these crates and sell them at a
+much higher mark up. However, you walked to the yard sale and can
+only buy what you can carry on your person.</p>
+<p>You have 800 dollars, and you and your friend together can carry an estimated 85 kg.</p>
+<p>Fortunately, you have identified this as an integer programming
+problem!</p>
+<ol type="a">
+<li><p>Describe an integer linear program which models the situation
+(think carefully about what values the variables can take).</p></li>
+<li><p>Use the branch and bound algorithm to find the optimal solution,
+explaining your choices for which variables to branch on and
+where to prune the tree.</p></li>
+<li><p>Draw the branch and bound tree for your solution.</p></li>
+</ol>
+<p>(<strong>Hint</strong>: Note that you should use <code>linprog</code> to solve the relaxed
+linear program, initially with your variables constrained between 0
+and 1).</p></li>
+<li><p>Consider the following directed graph (see below for the code producing this graph).</p>
+<p><img src="../course-assets/images/PS4--graph.png" /></p>
+<ol type="a">
+<li><p>Find the <code>minimum cut</code> value for this weighted
+directed graph.</p>
+<p>(Recall that this means to consider all possible partitions of
+the nodes into an <span class="math inline">\(s\)</span>-group and a <span class="math inline">\(t\)</span>-group.</p>
+<p>To identify such a partition, it is enough to indicate the
+<span class="math inline">\(s\)</span>-group. For example, <span class="math inline">\(s\)</span>, <span class="math inline">\(a\)</span> and <span class="math inline">\(c\)</span> together form a
+possible <span class="math inline">\(s\)</span>-group. The edge-cuts required to form this
+<span class="math inline">\(s\)</span>-group involve the edges <span class="math inline">\(c \to d\)</span> and <span class="math inline">\(a \to b\)</span>; thus the
+cut-value for this partition is <span class="math inline">\(14 + 12 = 26\)</span>.</p>
+<p>Make a list all possible <span class="math inline">\(s\)</span>-groups and indicate the
+corresponding cut-values. Remember that we are only interested
+in partitions that arise “from cuts” – thus, an <span class="math inline">\(s\)</span>-group
+should be “connected”. And remember that cut value only involve
+capacities of edges <span class="math inline">\(u \to v\)</span> where <span class="math inline">\(u\)</span> is in the <span class="math inline">\(s\)</span>-group and
+<span class="math inline">\(v\)</span> is in the <span class="math inline">\(t\)</span>-group (you would not also count the capacity
+of an edge <span class="math inline">\(v \to u\)</span> if it exists).</p></li>
+<li><p>By strong duality, you now know the <code>maximum flow</code> value for the
+graph. Does strong duality tell you how to find a flow which
+achieves this value? Why or why not?</p></li>
+<li><p>Suppose that the capacity on the edge <span class="math inline">\(d \to t\)</span> is increased
+from its current value of 4. By how much must this capacity
+change in order to change the <code>min cut</code> configuration?</p></li>
+<li><p>Would increasing the capacity for the edge <span class="math inline">\(b \to t\)</span> from its
+current value of 20 affect the maximum flow value? Why or why
+not?</p></li>
+<li><p>Explain whether or not the following statement seems reasonable,
+and why: “The <code>min cut</code> configuration (i.e. the edges involved
+in the <code>min cut</code>) reflects the maximal bottleneck in the
+system.”</p></li>
+</ol>
+<p>Here is the code used to produce the graph; you can <a href="../course-assets/images/PS4--graph.py">download it here.</a></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dg <span class="op">=</span> Digraph()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#dg = Digraph(engine='neato')</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dg.attr(rankdir<span class="op">=</span><span class="st">'LR'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> [ <span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>, <span class="st">'t'</span> ]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> { (<span class="st">'s'</span>,<span class="st">'a'</span>):   <span class="dv">16</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'s'</span>,<span class="st">'c'</span>):   <span class="dv">13</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'c'</span>,<span class="st">'a'</span>):    <span class="dv">4</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'a'</span>,<span class="st">'c'</span>):   <span class="dv">10</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'a'</span>,<span class="st">'b'</span>):   <span class="dv">12</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'c'</span>,<span class="st">'d'</span>):   <span class="dv">14</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'d'</span>,<span class="st">'b'</span>):    <span class="dv">7</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'b'</span>,<span class="st">'d'</span>):    <span class="dv">6</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'b'</span>,<span class="st">'t'</span>):   <span class="dv">20</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'d'</span>,<span class="st">'t'</span>):    <span class="dv">4</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>           } </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>c.node(<span class="st">'t'</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> dg.subgraph() <span class="im">as</span> c:</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    c.attr(rank<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> [<span class="st">'a'</span>,<span class="st">'c'</span>]:</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        c.node(x)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> dg.subgraph() <span class="im">as</span> c:</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    c.attr(rank<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> [<span class="st">'b'</span>,<span class="st">'d'</span>]:</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        c.node(x)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>c.node(<span class="st">'s'</span>)        </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (f,t) <span class="kw">in</span> weights.keys():</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    wt <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>weights[(f,t)]<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    dg.edge(f,t,wt)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>dg.filename<span class="op">=</span><span class="st">'PS4--graph'</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>dg.<span class="bu">format</span><span class="op">=</span><span class="st">'png'</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>dg.render()</span></code></pre></div></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>
