@@ -51,7 +51,7 @@ main = hakyllWith config $ do
     --         >>= relativizeUrls
 
 
-    match ("course-content/*ipynb" .||. "course-content/*pdf" ) $ version "copy" $ do
+    match ("course-content/*ipynb" .||. "course-content/*pdf" .||. "course-assignments/**/*png") $ version "copy" $ do
         route   idRoute
         compile copyFileCompiler
 

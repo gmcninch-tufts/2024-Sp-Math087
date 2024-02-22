@@ -8,7 +8,7 @@ PDJ=pandoc
 
 CMD=/home/george/.local/bin/course report
 
-VPATH = .:course-pages:course-posts
+VPATH = .:course-pages:course-posts:course-assets/images
 
 CSS_DEFAULT="build-assets/default.css"
 
@@ -28,7 +28,7 @@ posts_pdf=$(addprefix course-assets/posts-pdf/,$(posts:.md=.pdf))
 problems=$(wildcard course-assignments/*.md)
 problems_pdf=$(problems:.md=.pdf)
 
-all: pages posts   notebooks # problems # slides
+all: pages posts   notebooks problems # slides
 
 pages: $(pages_pdf)
 posts: $(posts_pdf)
