@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - ProblemSet 3 -- Dual linear programs - solutions
+</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>ProblemSet 3 -- Dual linear programs - solutions
+</h1>
+            <ol type="1">
+<li><p>Consider the primal linear program</p>
+<p><code>Maximize</code>
+<span class="math display">\[11x + 5y\]</span>
+<code>subject to</code>
+<span class="math display">\[\begin{bmatrix}
+1 &amp; 1 \\
+10 &amp; 4
+\end{bmatrix}
+\begin{bmatrix}
+x \\ y
+\end{bmatrix}
+\le \begin{bmatrix}
+7 \\
+40
+\end{bmatrix} \quad
+\text{and}
+\quad
+\begin{bmatrix}
+x \\ y
+\end{bmatrix} \ge \mathbf{0}\]</span></p></li>
+</ol>
+<ol type="a">
+<li><p>Write the dual linear program.</p>
+<div class="solution">
+<p>The dual linear program is:</p>
+<p><code>minimize</code> <span class="math display">\[7 u + 40 v\]</span></p>
+<p>subject to
+<span class="math display">\[\begin{bmatrix} 1 &amp; 10 \\ 1 &amp; 4 \end{bmatrix} \begin{bmatrix} u \\ v \end{bmatrix}  \ge 
+\begin{bmatrix} 11 \\ 5 \end{bmatrix}\]</span></p>
+<p>Here the entries (variables) <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are the <em>dual prices</em>.</p>
+</div></li>
+<li><p>Find the optimal solution to both the primal and the dual linear
+programs. You may do this using <code>python</code>’s <code>linprog</code>, or by
+plotting the feasible sets. Confirm that both the strong duality
+theorem and complementary slackness are satisfied. What are the
+dual prices of each of the constraints?</p>
+<div class="solution">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> linprog</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.array([<span class="dv">11</span>,<span class="dv">5</span>])</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">10</span>,<span class="dv">4</span>]])</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">7</span>,<span class="dv">40</span>])</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>primal <span class="op">=</span> linprog((<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>c,A_ub <span class="op">=</span> A, b_ub <span class="op">=</span> b)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>dual <span class="op">=</span> linprog(b,A_ub <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>A.T, b_ub <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>c)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;primal: </span><span class="ch">\n</span><span class="st">&quot;</span>,primal,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;dual: </span><span class="ch">\n</span><span class="st">&quot;</span>,dual)</span></code></pre></div>
+<p>Resulting output:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>primal: </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         message: Optimization terminated successfully. (HiGHS Status <span class="dv">7</span>: Optimal)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        success: <span class="va">True</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         status: <span class="dv">0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            fun: <span class="op">-</span><span class="fl">47.0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>              x: [ <span class="fl">2.000e+00</span>  <span class="fl">5.000e+00</span>]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            nit: <span class="dv">2</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>          lower:  residual: [ <span class="fl">2.000e+00</span>  <span class="fl">5.000e+00</span>]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                 marginals: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>          upper:  residual: [       inf        inf]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                 marginals: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>          eqlin:  residual: []</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                 marginals: []</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        ineqlin:  residual: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                 marginals: [<span class="op">-</span><span class="fl">1.000e+00</span> <span class="op">-</span><span class="fl">1.000e+00</span>]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a> mip_node_count: <span class="dv">0</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a> mip_dual_bound: <span class="fl">0.0</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        mip_gap: <span class="fl">0.0</span> </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>dual: </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>         message: Optimization terminated successfully. (HiGHS Status <span class="dv">7</span>: Optimal)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        success: <span class="va">True</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>         status: <span class="dv">0</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>            fun: <span class="fl">47.0</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>              x: [ <span class="fl">1.000e+00</span>  <span class="fl">1.000e+00</span>]</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            nit: <span class="dv">2</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>          lower:  residual: [ <span class="fl">1.000e+00</span>  <span class="fl">1.000e+00</span>]</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                 marginals: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>          upper:  residual: [       inf        inf]</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>                 marginals: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>          eqlin:  residual: []</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>                 marginals: []</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        ineqlin:  residual: [ <span class="fl">0.000e+00</span>  <span class="fl">0.000e+00</span>]</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>                 marginals: [<span class="op">-</span><span class="fl">2.000e+00</span> <span class="op">-</span><span class="fl">5.000e+00</span>]</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a> mip_node_count: <span class="dv">0</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a> mip_dual_bound: <span class="fl">0.0</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        mip_gap: <span class="fl">0.0</span></span></code></pre></div>
+<p>Notice that the two linear programs have the same optimal value
+(recall that <code>primal.fun</code> is negative because we <code>maximize</code> in
+this program).</p>
+<p>Indeed:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">abs</span>(primal.fun) <span class="op">==</span> <span class="bu">abs</span>(dual.fun)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">==&gt;</span> <span class="va">True</span></span></code></pre></div>
+<p>This confirms the <em>Strong Duality Theorem</em> in this case.</p>
+<p>Let <code>x0 = primal.x</code> be the optimal solution found by the primal linear program.
+The primal slack vectors is given by <code>b - A @ x0</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">-</span> A <span class="op">@</span> primal.x</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> array([<span class="fl">0.</span>, <span class="fl">0.</span>])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">## or simply</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>primal.slack</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>array([<span class="fl">0.</span>, <span class="fl">0.</span>])</span></code></pre></div>
+<p>Let <code>u0 = dual.x</code> be the optimal solution found by the dual linear program.
+The dual slack vector is given by <code>A.T @ y0 - c</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> A.T <span class="op">@</span> dual.x <span class="op">-</span> c</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> array([ <span class="fl">0.0000000e+00</span>, <span class="op">-</span><span class="fl">8.8817842e-16</span>])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> dual.slack</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> array([<span class="fl">0.</span>, <span class="fl">0.</span>])</span></code></pre></div>
+<p>So the dual slack vector is also 0 (note that <code>A.T @ dual.x - c</code>
+is very close to 0; this is just an artifact of floating point
+arithmetic.).</p>
+<p>At any rate, we can confirm the <em>Complementary Slackness Theorem</em>:</p>
+<pre><code>&gt;&gt;&gt; primal.slack @ dual.x == dual.slack @ primal.x
+==&gt; True</code></pre>
+<p>This is of course easy to see directly since both <code>primal.slack</code>
+and <code>dual.slack</code> are just the zero vectors.</p>
+<p>The dual price of the constraint <code>x + y &lt;= 7</code> is <code>u=1</code> – i.e. <code>dual.x[0]</code>–, and the
+dual price of the constraint <code>10x + 4y &lt;= 40</code> is <code>v=1</code> – i.e. <code>dual.x[1]</code>.</p>
+</div></li>
+<li><p>Does the dual price provide an accurate prediction of the
+increase in the primal objective function when the right-hand
+side of the first constraint is increased from 7 to 8? From 7 to
+9? From 7 to 11?</p>
+<div class="solution">
+<p>We consider the change in the objective function for the primal linear program
+when the first constraint is changed.</p>
+<p>Thus we consider perturbing the constraints by the vector
+<span class="math inline">\(\Delta \mathbf{b} = \begin{bmatrix} c \\ 0 \end{bmatrix}.\)</span></p>
+<p>The <em>dual price lemma</em> says that if <span class="math inline">\(x^*\)</span> is an ,optimal solution
+to the original linear program and if <span class="math inline">\(x'\)</span> is an optimal solution
+to the linear program</p>
+<p><code>maximize</code> <span class="math inline">\(11x + 5y\)</span>
+subject to
+<span class="math display">\[\begin{bmatrix}
+1 &amp; 1 \\
+10 &amp; 4
+\end{bmatrix}
+\begin{bmatrix}
+x \\ y
+\end{bmatrix}
+\le \begin{bmatrix}
+7 + c \\
+40
+\end{bmatrix} = \begin{bmatrix} 7 \\ 40 \end{bmatrix} + \Delta \mathbf{b} \quad
+\text{and}
+\quad
+\begin{bmatrix}
+x \\ y
+\end{bmatrix} \ge \mathbf{0}\]</span>
+then</p>
+<p><span class="math display">\[c x' \le c x^* + \Delta \mathbf{b}^T u^* = 47 + \begin{bmatrix}
+c &amp; 0 \end{bmatrix} \begin{bmatrix} 7 \\ 40 \end{bmatrix} = 47 +
+7c\]</span> and that <em>equality holds when <span class="math inline">\(c\)</span> is small enough</em>.</p>
+<p>We investigate the solutions to the perturbed linear program for
+the indicated values of <span class="math inline">\(c\)</span>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> deltaB(d):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.array([d,<span class="dv">0</span>])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_optimal(d):</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># run the linear program with the perturbed upper bounds</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> linprog((<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>c, A_ub<span class="op">=</span>A, b_ub <span class="op">=</span> b <span class="op">+</span> deltaB(d))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># now compare the results</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    s1 <span class="op">=</span> <span class="ss">f&quot;d = </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">: x + y &lt;= </span><span class="sc">{</span><span class="dv">7</span><span class="op">+</span>d<span class="sc">}</span><span class="ss">, x' = </span><span class="sc">{</span><span class="bu">abs</span>(result.fun)<span class="sc">:.2f}</span><span class="ss">&quot;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    s2 <span class="op">=</span> <span class="ss">f&quot;x* + Δb @ dual.x = </span><span class="sc">{</span><span class="bu">abs</span>(primal.fun) <span class="op">+</span> deltaB(d) <span class="op">@</span> dual<span class="sc">.</span>x<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s1 <span class="op">+</span> <span class="st">&quot;, &quot;</span> <span class="op">+</span> s2</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>pprint([ get_optimal(d) <span class="cf">for</span> d <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>]])</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>[<span class="st">&quot;d = 1: x + y &lt;= 8, x' = 48.00, x* + Δb @ dual.x = 48.0&quot;</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a> <span class="st">&quot;d = 2: x + y &lt;= 9, x' = 49.00, x* + Δb @ dual.x = 49.0&quot;</span>,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a> <span class="st">&quot;d = 4: x + y &lt;= 11, x' = 50.00, x* + Δb @ dual.x = 51.0&quot;</span>]</span></code></pre></div>
+<p>Thus when <code>d=1,2</code> the equality prediction of the dual price Lemma
+holds, but when <code>d=4</code>, the value of the objective function is
+only 50, while the dual price lemma predicted it would be 51.</p>
+</div></li>
+</ol>
+<hr />
+<ol start="2" type="1">
+<li><p>Consider the linear program</p>
+<p><code>maximize</code> <span class="math inline">\(\quad y + z\)</span></p>
+<p><code>subject to</code>
+<span class="math inline">\(\quad \mathbf{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix} \ge 0\)</span></p>
+<p>and <span class="math inline">\(A \mathbf{x} \le \mathbf{b}\)</span></p>
+<p>where <span class="math inline">\(A = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; -1 \end{bmatrix}\)</span>
+and <span class="math inline">\(\mathbf{b} = \begin{bmatrix} 10 \\ 1 \end{bmatrix}\)</span>.</p>
+<ol type="a">
+<li><p>What is the value of the objective function at points of the
+form</p>
+<p><span class="math display">\[\mathbf{p}(c,t) = \begin{bmatrix} c \\ 0 \\ 0 \end{bmatrix} +
+t\begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} = \begin{bmatrix}
+c\\t\\t \end{bmatrix} \quad c,t \in \mathbb{R}?\]</span></p>
+<div class="solution">
+<p>The value of the objective function at <span class="math inline">\(\mathbf{p}(c,t)\)</span> is
+<span class="math inline">\(2t\)</span></p>
+</div></li>
+<li><p>Under what conditions on <span class="math inline">\(c,t\)</span> is the point <span class="math inline">\(\mathbf{p}(c,t)\)</span>
+in the <em>feasible region</em> of the linear program?</p>
+<div class="solution">
+<p>Notice that
+<span class="math display">\[A \cdot \mathbf{p}(c,t) = \begin{bmatrix} c \\ 0 \end{bmatrix}.\]</span>
+Thus the inequality <span class="math inline">\(A \cdot \mathbf{p}(c,t) \le \mathbf{b}\)</span> holds
+for all <span class="math inline">\(t\)</span> provided that <span class="math inline">\(c \le 10\)</span>.</p>
+</div></li>
+<li><p>Does the linear program have an optimal solution?</p>
+<div class="solution">
+<p>The linear program has no optimal solution. Indeed, the value of
+the objective function at the feasible point <span class="math inline">\(\mathbf{p}(1,t)\)</span>
+is <span class="math inline">\(2t\)</span> and <span class="math inline">\(2t \to \infty\)</span> as <span class="math inline">\(t \to \infty\)</span>. Thus, there is no
+maximum value for the objective function on feasible points.</p>
+</div></li>
+<li><p>What is the dual linear program? Does the dual linear program
+have any feasible points? Does it have an optimal solution?</p>
+<div class="solution">
+<p>The dual program is</p>
+<p><code>minimize</code> <span class="math inline">\(10 u + v\)</span> <code>subject to</code> <span class="math inline">\(A^T \begin{bmatrix} u \\ v \end{bmatrix} = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \\ 0 &amp; -1 \end{bmatrix} \begin{bmatrix} u \\ v \end{bmatrix} \ge \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}.\)</span></p>
+<p>The inequality condition amounts to the inequalities: <span class="math inline">\(u \ge 0\)</span>, <span class="math inline">\(v \ge 1\)</span>,
+and <span class="math inline">\(-v \ge 1\)</span>.</p>
+<p>But <span class="math inline">\(v \ge 1\)</span> and <span class="math inline">\(v \le -1\)</span> are incompatible, so there are <em>no
+feasible points</em> (and hence no optimal solution).</p>
+</div></li>
+</ol></li>
+</ol>
+<hr />
+<ol start="3" type="1">
+<li><p>An author of a dystopian novel wants to write a scene in which a
+characters plans and builds a <em>doomsday shelter</em> under his
+home.</p>
+<p>In the novel, the character will store food supplies in a large underground
+storage container, which has 50 liters of storage in which he will
+store <code>dried beans</code> and <code>rice</code>.</p>
+<p>It seems at least somewhat realistic to expect that a liter of beans
+provides nutrition for approx. 9 days, while a liter of rice
+provides nutrition for approx. 5 day.</p>
+<p>Each liter of beans costs $12.0 and each liter of rice costs $5.00.</p>
+<p>The character will spend $60.</p>
+<ol type="a">
+<li><p>Write the primal and dual linear programs.</p>
+<p>In each case, indicate the variables, the objective, and the
+constraints.</p>
+<div class="solution">
+<p>The primal linear program is</p>
+<p><code>maximize</code>: <span class="math inline">\(9 x_1 + 5 x_2\)</span><br />
+subject to <span class="math inline">\(A \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \le \begin{bmatrix} 50 \\ 60 \end{bmatrix}\)</span>
+where <span class="math inline">\(A = \begin{bmatrix} 1 &amp; 1 \\ 12 &amp; 5 \end{bmatrix}\)</span> (and where <span class="math inline">\(\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \ge \mathbf{0})\)</span>.)</p>
+<p>Here <span class="math inline">\(x_1\)</span> represents the liters of beans purchased and stored,
+and <span class="math inline">\(x_2\)</span> represents liters of rice purchased and stored; thus the first
+entry of <span class="math inline">\(A \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}\)</span> represents the liters of the storage container
+used by the supplies, and
+and the second entry represents the purchase price in dollars of the supplies.</p>
+<p>On the other hand, the dual program is</p>
+<p><code>minimize</code>: <span class="math inline">\(50y_1 + 60y_2\)</span><br />
+subject to <span class="math inline">\(A^T \begin{bmatrix} y_1 \\ y_2 \end{bmatrix} \ge \begin{bmatrix} 9 \\ 5 \end{bmatrix}\)</span></p>
+<p>Here the <span class="math inline">\(y_1\)</span> represents the <code>dual price</code> of a liter of storage in the container,
+and <span class="math inline">\(y_2\)</span> represents the <code>dual price</code> of a dollar in the purchase budget.</p>
+</div></li>
+<li><p>Find solutions to both the primal and dual linear
+programs. Confirm that both the <code>strong duality theorem</code> and
+<code>complementary slackness</code> hold.</p>
+<div class="solution">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> linprog</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pprint</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.array([<span class="dv">9</span>,<span class="dv">5</span>])</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">12</span>,<span class="dv">5</span>]])</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">50</span> , <span class="dv">60</span>])</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>primal  <span class="op">=</span> linprog((<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>c,A_ub <span class="op">=</span> A, b_ub <span class="op">=</span> b)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>dual <span class="op">=</span> linprog(b,A_ub <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>A.T, b_ub <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>c)</span></code></pre></div>
+<p>To confirm strong duality, notice</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;primal optimal value </span><span class="sc">{</span>primal<span class="sc">.</span>fun<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;dual optimal value </span><span class="sc">{</span>dual<span class="sc">.</span>fun<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>primal optimal value <span class="op">-</span><span class="fl">60.0</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>dual optimal value <span class="fl">60.0</span></span></code></pre></div>
+<p>Now let’s check complementary slackness. This amounts to two assertions:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>primal.slack <span class="op">@</span> dual.x <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> <span class="va">True</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>dual.slack <span class="op">@</span> primal.x <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> <span class="va">True</span></span></code></pre></div>
+</div></li>
+<li><p>Indicate and explain the <em>dual prices</em> for each of the <code>primal</code>
+constraints.</p>
+<div class="solution">
+<p>We’ve already identified the dual prices – i.e. the variables
+<span class="math inline">\(y_1,y_2\)</span> for the dual linear program – above.</p>
+<p>It is maybe useful to analyze the <em>units</em> in order to understand
+why these represent “dual prices”.</p>
+<p>Well, we should measure <span class="math inline">\(y_1\)</span> in price/liter and
+<span class="math inline">\(y_2\)</span> in price/budget-dollar.</p>
+<p>The value of the objective function for the dual program is then</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">50</span> storage<span class="op">-</span>liters × y_1 price <span class="op">/</span>storage<span class="op">-</span>liter <span class="op">+</span> <span class="dv">60</span> dollars × y_2 price <span class="op">/</span>budget<span class="op">-</span>dollar</span></code></pre></div>
+<p>so that the objective function has the (mysterious-seeming) units of “price”.</p>
+<p>Note that <span class="math inline">\(A^T \cdot \begin{bmatrix} y_1 \\ y_2 \end{bmatrix} \ge \begin{bmatrix} 9 \\ 5 \end{bmatrix}\)</span>.</p>
+<p>The units of both entries of <span class="math inline">\(A^T \cdot \begin{bmatrix} y_1 \\ y_2 \end{bmatrix}\)</span> are measured in</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> storage<span class="op">-</span>liter<span class="op">/</span>purchase<span class="op">-</span>liter × y_1 price<span class="op">/</span>storage<span class="op">-</span>liter <span class="op">+</span> <span class="dv">12</span> dollars<span class="op">/</span>purchase<span class="op">-</span>liter × y_2 price<span class="op">/</span>budget<span class="op">-</span>dollar</span></code></pre></div>
+<p>This represents the <code>price/purchase-liter</code>. In the first row – corresponding to beans – it must exceed <code>9</code>,
+and in the second row – corresponding to rice - it must exceed 5; this tells us that <code>price</code> is valuing
+<code>days of nutrition</code>.</p>
+</div></li>
+<li><p>Suppose the author had instead envisioned a storage container
+holding an additional <code>c</code> liters of food. Does the dual price
+for this modified constraint provide an accurate prediction for
+the increase in the primal objective function (i.e. for the
+number of days of nutrition provided?)</p>
+<div class="solution">
+<p>Notice that the optimal dual price is <span class="math inline">\(y₁ = 0\)</span> and <span class="math inline">\(y₂ = 1\)</span></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> dual.x</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> array([<span class="fl">0.</span>, <span class="fl">1.</span>])</span></code></pre></div>
+<p>This shows that increasing the liters of storage in the container
+will not increase the value of the primal objective function.</p>
+<p>Indeed, the dual price lemma shows if <code>x'</code> is the optimal
+solution to the updated linear program with constraints
+<code>b + deltaB</code> then</p>
+<p><code>c @ x' &lt;= c @ primal.x + deltaB @ dual.x = c @ primal.x</code>
+since <code>deltaB @ dual.x == 0</code>.</p>
+<p>We can confirm this by checking a few cases</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> deltaB(d):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([d,<span class="dv">0</span>])</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compare(c,A,b,d):</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    primal  <span class="op">=</span> linprog((<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>c,A_ub <span class="op">=</span> A, b_ub <span class="op">=</span> b)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    dual    <span class="op">=</span> linprog(b,A_ub <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>A.T, b_ub <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>c)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    tweaked <span class="op">=</span> linprog((<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>c, A_ub<span class="op">=</span>A, b_ub <span class="op">=</span> b <span class="op">+</span> deltaB(d))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(b<span class="op">+</span>deltaB(d))</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    s1 <span class="op">=</span> <span class="ss">f&quot;d = </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">: x_1 + x_2 &lt;= </span><span class="sc">{</span><span class="dv">50</span><span class="op">+</span>d<span class="sc">}</span><span class="ss">, c @ x' = </span><span class="sc">{</span><span class="bu">abs</span>(tweaked.fun)<span class="sc">:.2f}</span><span class="ss">&quot;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    s2 <span class="op">=</span> <span class="ss">f&quot;c @ x* + Δb @ dual.x = </span><span class="sc">{</span><span class="bu">abs</span>(primal.fun) <span class="op">+</span> deltaB(d) <span class="op">@</span> dual<span class="sc">.</span>x<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s1 <span class="op">+</span> <span class="st">&quot;, &quot;</span> <span class="op">+</span> s2</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> [ compare(c,A,b,d) <span class="cf">for</span> d <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">2</span>) ]</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>pprint(results)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> </span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>[<span class="st">&quot;d = 0: x_1 + x_2 &lt;= 50, c @ x' = 60.00, c @ x* + Δb @ dual.x = 60.0&quot;</span>,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a> <span class="st">&quot;d = 2: x_1 + x_2 &lt;= 52, c @ x' = 60.00, c @ x* + Δb @ dual.x = 60.0&quot;</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a> <span class="st">&quot;d = 4: x_1 + x_2 &lt;= 54, c @ x' = 60.00, c @ x* + Δb @ dual.x = 60.0&quot;</span>,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a> <span class="st">&quot;d = 6: x_1 + x_2 &lt;= 56, c @ x' = 60.00, c @ x* + Δb @ dual.x = 60.0&quot;</span>,</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a> <span class="st">&quot;d = 8: x_1 + x_2 &lt;= 58, c @ x' = 60.00, c @ x* + Δb @ dual.x = 60.0&quot;</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a> ]</span></code></pre></div>
+</div></li>
+</ol></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

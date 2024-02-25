@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - PS 05 -- Matching & Finite state machines</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>PS 05 -- Matching & Finite state machines</h1>
+            <ol type="1">
+<li><p>A mining company needs to set up supply line between a set of
+quarries <span class="math inline">\(U\)</span> and a set of processing plants <span class="math inline">\(W\)</span>. The company is
+interested in setting up perfect matchings of quarries to plants,
+i.e. each quarry should have a supply line to a unique processing
+plant, such that no quarry or plant is on two supply
+lines. Conveniently, there are as many quarries as there are
+processing plants. Less conveniently, supply lines need to travel
+along roads. Let <span class="math inline">\(E\)</span> be the set of roads. We assume that each road in
+<span class="math inline">\(E\)</span> starts at a quarry and travels directly to a processing plant,
+and that the roads do not intersect.</p>
+<ol type="a">
+<li><p>Suppose that |U| = |W| = 4 and that there are seven roads
+total. Construct an example where no perfect matching is
+possible.</p>
+<p><strong>Suggestion</strong>: for this problem and the rest, we suggest you model this set up as a bipartite graph.</p></li>
+<li><p>If no perfect matching exists, the company would like to know
+what is the maximal number of quarry/plant pairs such that no
+quarry or plant is on two supply chains (call this a maximal
+matching). Compute this for your example in a). How many
+additional roads must be made in order for a perfect matching to
+exist?</p></li>
+<li><p>If <span class="math inline">\(|U| = |W| = n\)</span>, what is the largest possible size of <span class="math inline">\(E\)</span>?
+Give your answer as an expression in <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Suppose that for each <span class="math inline">\(x ∈ U\)</span>, there is exactly one road
+involving <span class="math inline">\(x\)</span>, and write this edge as <span class="math inline">\(x → w(x)\)</span> for some <span class="math inline">\(w(x) ∈ W\)</span>. Explain why the size of a maximum matching is equal to the
+number of distinct nodes <span class="math inline">\(\{w(x)\}\)</span>.</p></li>
+<li><p>(Optional) Suppose that |U | = |W | = n and let m = |E|. Can you
+always find a configuration of roads such that a perfect
+matching is impossible? Put differently, is there a minimal m
+such that a perfect matching will exist no matter how the roads
+are placed?</p></li>
+</ol></li>
+<li><p>A streaming service wants to model the annual growth rate of its
+subscribers. The data shows that they can roughly predict the
+behavior of customers based on how long they have been users of the
+service: Let <span class="math inline">\(p_n\)</span> be the current number of subscribers who have had
+the service for less than a year, and <span class="math inline">\(p_o\)</span> be the current number of
+subscribers who have had the service for more than a year (so in
+total there are <span class="math inline">\(p_n + p_o\)</span> subscribers). For convenience we will
+refer to the two types of subscriber as “new” and
+“old”.</p>
+<p>Let <span class="math inline">\(\mathbf{p}= \begin{bmatrix} p_n \\ p_o \end{bmatrix}\)</span> be a vector
+recording the current subscriber population, and write <span class="math inline">\(\mathbf{p}^*\)</span> be the
+subscriber population in one year’s time. Then the data shows that <span class="math inline">\(\mathbf{p}∗ = A\mathbf{p}\)</span>, where <span class="math inline">\(A\)</span> is the matrix given by
+<span class="math display">\[A = \begin{bmatrix} 1 &amp; 0 \\ 0.8 &amp; 0.5 \end{bmatrix}.\]</span></p>
+<p>This is, writing <span class="math inline">\(\mathbf{p}^* = \begin{bmatrix} q_n \\ q_o \end{bmatrix}\)</span>, there will be <span class="math inline">\(q_n\)</span> “new” users in one years time,
+and <span class="math inline">\(q_o\)</span> “old” users.</p>
+<ol type="a">
+<li><p>What percentage of current new users will still be subscribed by
+the start of the next year?</p>
+<p>How does this retention rate differ for old users?</p></li>
+<li><p>It turns out that A has eigenvalues <span class="math inline">\(λ = 1\)</span> and <span class="math inline">\(\lambda = 0.5\)</span>. Find an
+eigenvector for the eigenvalue <span class="math inline">\(λ = 1\)</span> and use it to describe the
+long term behavior of the user population for this streaming
+service. In the long run, what will the ratio of new to old
+users be?</p></li>
+<li><p>Suppose that a different streaming service has the rate matrix
+<span class="math display">\[B = \begin{bmatrix}
+0.5 &amp; 0 \\
+0.8 &amp; 0.4 \end{bmatrix}.\]</span></p>
+<p>The matrix <span class="math inline">\(B\)</span> has <span class="math inline">\(λ = 0.5\)</span> and <span class="math inline">\(\lambda = 0.4\)</span> as its
+eigenvalues. Using the eigenvector for the larger of the two
+eigenvalues, describe the long term behavior of this streaming
+service?</p></li>
+<li><p>Suppose that both streaming services (which we will refer to by
+their rate matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>), start with the same population
+vector p this year, and that both charge $n for a yearly
+subscription. Write an expression (in terms of n, pa , pb ) for
+the total income obtained by A and B after 4 years.</p></li>
+</ol></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

@@ -12,7 +12,9 @@ of linear programs (the network-flow point of view might be useful
 when you work - next week - on your first `midterm report`).
 
 - [**[problem set 3]**](/course-assignments/PS03--2024-02-09.html) 
-  [**[pdf]**](/course-assignments/PS03--2024-02-09.pdf) (due 2024-02-09)
+  [**[pdf]**](/course-assignments/PS03--2024-02-09.pdf) (due 2024-02-09)  
+
+  [**[problem set 3 solutions]**](/course-assignments/PS03--2024-02-09--solutions.html) 
 
 
 - **Network flows** (from last week)
