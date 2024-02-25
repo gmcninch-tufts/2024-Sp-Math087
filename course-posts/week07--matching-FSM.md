@@ -4,8 +4,8 @@ title: |
 date: 2024-02-19
 ---
 
-- [[PS04]](/course-assignments/PS05--2024-03-01.html) 
-  [[pdf]](/course-assignments/PS05--2024-03-01.pdf)
+- [[problem set 5]](/course-assignments/PS05--2024-03-01.html) 
+  [[pdf]](/course-assignments/PS05--2024-03-01.pdf) due 2024-03-01
   
 Here are notebooks which will support the lectures this week:
 
