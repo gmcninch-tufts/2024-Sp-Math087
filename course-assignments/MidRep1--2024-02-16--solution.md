@@ -178,7 +178,7 @@ for e in edges:
 dot.render('graph.png')
 ```
 
-![](/course-assets/images/graph.png)
+<!-- ![](/course-assets/images/graph.png) -->
 
 
 Now we need to create the `objective function` for the linear program that we will use to 
