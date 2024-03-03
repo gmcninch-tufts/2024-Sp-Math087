@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - PS 06 -- Markov chains</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>PS 06 -- Markov chains</h1>
+            <ol type="1">
+<li><p>Suppose you’re standing on a street with buildings labelled by the
+integers (specifically, you’re in front of the building labelled
+<span class="math inline">\(0\)</span>, and suppose that the indices are increasing to the
+right). Suppose that every minute you flip a coin. If the coin is
+heads you walk right and if the coin is tails you walk left.</p>
+<ol type="a">
+<li><p>Explain why your position (i.e. the building you’re in front of)
+as a function of time can be modeled as a Markov Chain.</p></li>
+<li><p>Is the distance from where you started as a function of time a
+Markov Chain?</p></li>
+<li><p>Now suppose that every minute you flip two coins. If both are
+heads, you move right, if both are tails you move left and
+otherwise you stay put. Is your distance from where you started
+a Markov chain in this scenario? How do you expect this to
+compare to the process described in part b?</p></li>
+<li><p>For both experiments, compute the probability that you are
+standing on an odd number for minute <span class="math inline">\(0,1,2,3,4\)</span>.</p></li>
+<li><p>(Optional food for thought) Suppose your friend is playing the
+same game, but started at position −100. Do you think it is more
+likely that you two will eventually meet or that you two will
+never meet? Does this answer change when your friend starts at
+−1? How about −10000000?</p></li>
+</ol></li>
+</ol>
+<p>2 Rain or shine On Planet X, the weather is strangely predictable: The
+weather is always either sunny, rainy, foggy or snowy. If it rains
+today, its sunny tomorrow. If it is sunny today, its rainy
+tomorrow. If its foggy today, its not sunny tomorrow. Finally, the
+weather is never the same two days in a row. Apart from these rules,
+the weather is completely random, in that if e.g. its foggy today it
+is equally likely to be either rainy or snowy tomorrow. You live on
+Planet X and are trying to figure out what to wear this week, so
+you’d like to develop a model for the weather.</p>
+<ol type="a">
+<li><p>Explain why the weather can be modeled as a Markov chain. Write
+out the transition matrix, and draw the corresponding finite
+state machine.</p></li>
+<li><p>Check whether the conditions for the Perron-Frobenius theorem is
+satisfied for this problem (aperiodic and strongly
+connected). Explain your reasoning.</p></li>
+<li><p>Do you expect power iteration to be effective for computing the
+greatest eigenvector of your transition matrix?</p></li>
+<li><p>Find the eigenvalue decomposition for the transition matrix, and
+the associated eigenvectors. Explain why these values confirm
+your answer to part 2.</p></li>
+<li><p>Suppose that the “weather rules” change so that if its sunny
+today, it is equally likely to be snowy or rainy tomorrow. Write
+out the new transition matrix, associated finite state machine,
+and determine whether the conditions for the Perron-Frobenius are
+satisfied. Compute the eigenvalue decomposition and compare to
+the previous set of eigenvalues.</p></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

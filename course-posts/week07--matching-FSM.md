@@ -1,10 +1,10 @@
 ---
 title: |
   Week07 -- Matching and finite-state machines
-date: 2024-02-19
+date: 2024-02-26
 ---
 
-- [[problem set 5]](/course-assignments/PS05--2024-03-01.html) 
+- [[Problem set 5]](/course-assignments/PS05--2024-03-01.html) 
   [[pdf]](/course-assignments/PS05--2024-03-01.pdf) due 2024-03-01
   
 Here are notebooks which will support the lectures this week:
