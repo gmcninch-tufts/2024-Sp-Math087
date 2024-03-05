@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - ProblemSet 4 -- Integer programs and max flow **solutions**
+</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>ProblemSet 4 -- Integer programs and max flow **solutions**
+</h1>
+            <ol type="1">
+<li><p>One man’s trash</p>
+<p>You are at a yard sale, and have spied four crates of goods. You’ve
+estimated the value of each crate; these values are listed as
+<strong>actual value</strong> in the following table.</p>
+<p>The owner has no idea what these items are worth, and is selling
+them for far less than they are worth; the prices being asked are
+listed as <strong>sales price</strong> in the following table).</p>
+<p>Finally, the <em>weight</em> of each of the crates is listed in the table,
+as well.</p>
+<table>
+<thead>
+<tr class="header">
+<th>crate</th>
+<th>actual value</th>
+<th>sales price</th>
+<th>weight in kg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>$ 5000</td>
+<td>$ 24</td>
+<td>75.5</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>$ 600</td>
+<td>$ 76</td>
+<td>2.7</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>$ 3500</td>
+<td>$ 43</td>
+<td>3.3</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>$ 6000</td>
+<td>$ 754</td>
+<td>6.7</td>
+</tr>
+</tbody>
+</table>
+<p>You realize that you can purchase these crates and sell them at a
+much higher mark up. However, you walked to the yard sale and can
+only buy what you can carry on your person.</p>
+<p>You have 800 dollars, and you and your friend together can carry an estimated 85 kg.</p>
+<p>Fortunately, you have identified this as an integer programming
+problem!</p>
+<ol type="a">
+<li><p>Describe an integer linear program which models the situation
+(think carefully about what values the variables can take).</p>
+<div class="solution">
+<p>The integer program problem is:</p>
+<p>consider a vector <code>x = [A, B, C, D]</code> of variables, where <code>A</code>
+represents the purchase of the crate <code>A</code>, <code>B</code> represents the
+purchase of the crate <code>B</code>, etc.</p>
+<p><code>maximize</code></p>
+<p><code>value = actual_value - purchase_price</code></p>
+<p>where</p>
+<pre><code>  actual_value = [ 5000, 600, 3500, 6000 ] . [ A, B, C, D].T   
+              = 5000 A + 600 B + 3500 C + 6000 D
+
+
+ purchase_price = [ 75.7, 27, 3.3, 6.7 ] . [ A, B, C, D].T 
+                = 75.7 A + 27 B + 3.3 C + 6.7 D</code></pre>
+<p>subject to:</p>
+<ul>
+<li><p><code>[ 24, 76, 43, 754 ] . x.T &lt;= 800</code> (i.e. <code>24 A + 76 B + 43 C + 754 D &lt;= 800</code>),</p></li>
+<li><p><code>[ 75.5, 27, 3.3, 6.7] . x.T &lt;= 85</code> (i.e. <code>75.5 A + 27 B + 3.3 C + 6.7 D &lt;= 85</code>), and</p></li>
+<li><p><code>A,B,C,D</code> in <code>[ 0,1 ]</code></p></li>
+</ul>
+</div></li>
+<li><p>Use the branch and bound algorithm to find the optimal solution,
+explaining your choices for which variables to branch on and
+where to prune the tree.</p>
+<div class="solution">
+<p>We first solve the <em>relaxed</em> linear program. Note that we specify
+<code>0 &lt;= A,B,C,D &lt;=</code> using the <code>bounds</code> argument to <code>linprog</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> linprog</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>actual_value <span class="op">=</span> np.array([ <span class="dv">5000</span>, <span class="dv">600</span>, <span class="dv">3500</span>, <span class="dv">6000</span> ])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sales_price  <span class="op">=</span> np.array([ <span class="dv">24</span>, <span class="dv">76</span>, <span class="dv">43</span>, <span class="dv">754</span> ])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>weight       <span class="op">=</span> np.array([ <span class="fl">75.5</span>, <span class="dv">27</span>, <span class="fl">3.3</span>, <span class="fl">6.7</span> ])</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>obj <span class="op">=</span> actual_value <span class="op">-</span> sales_price</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>bounds <span class="op">=</span> <span class="dv">4</span><span class="op">*</span>[(<span class="dv">0</span>,<span class="dv">1</span>)]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>Aub <span class="op">=</span> np.array([sales_price,weight])</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>bub <span class="op">=</span> np.array([<span class="dv">800</span>,<span class="dv">85</span>])</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> linprog((<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>obj, A_ub <span class="op">=</span> Aub, b_ub <span class="op">=</span> bub,bounds<span class="op">=</span>bounds)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>pprint({ <span class="st">'obj_value'</span>: res.fun, <span class="st">'solution'</span>: res.x})</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>{<span class="st">'obj_value'</span>: <span class="op">-</span><span class="fl">13512.872801068243</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">'solution'</span>: array([<span class="fl">0.99583731</span>, <span class="fl">0.</span>        , <span class="fl">1.</span>        , <span class="fl">0.97228104</span>])}	  </span></code></pre></div>
+<p>We are now going to branch; we’ll use the following code.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use the python pretty-printer</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># make the jth standard basis vector of length 'size'</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sbv(j,size):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> np.array([<span class="fl">1.0</span> <span class="cf">if</span> i <span class="op">==</span> j <span class="cf">else</span> <span class="fl">0.0</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(size)])</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># record the data for the linear program as a dictionary, for ease of passage</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>lp <span class="op">=</span> { <span class="st">'obj'</span>: obj,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Aub'</span>: Aub,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>       <span class="st">'bub'</span>: bub,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>       <span class="st">'bounds'</span>: bounds</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>       }</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> branch(specs,lp):</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(lp[<span class="st">&quot;obj&quot;</span>])</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># each spec is a dictionary {&quot;var&quot;: a, &quot;value&quot;: b}</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># first, lookup the indices of the variable for each spec</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    crates <span class="op">=</span> [<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>,<span class="st">'D'</span>]</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    indices <span class="op">=</span> [ crates.index(spec[<span class="st">'var'</span>]) <span class="cf">for</span> spec <span class="kw">in</span> specs ]</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># now create equality constraints for the &quot;specs&quot;</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    Aeq <span class="op">=</span> np.array([sbv(index,<span class="dv">4</span>) <span class="cf">for</span> index <span class="kw">in</span> indices])</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    beq <span class="op">=</span> np.array([spec[<span class="st">&quot;value&quot;</span>] <span class="cf">for</span> spec <span class="kw">in</span> specs]) </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> linprog((<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>lp[<span class="st">&quot;obj&quot;</span>], </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                     bounds <span class="op">=</span> lp[<span class="st">&quot;bounds&quot;</span>], </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>                     A_ub<span class="op">=</span>lp[<span class="st">&quot;Aub&quot;</span>], </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>                     b_ub<span class="op">=</span>lp[<span class="st">&quot;bub&quot;</span>], </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>                     A_eq <span class="op">=</span> Aeq, </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>                     b_eq <span class="op">=</span> beq)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> result.success:</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">&quot;obj_value&quot;</span>: (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>result.fun,</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;solution&quot;</span>: result.x}</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;lin program failed&quot;</span></span></code></pre></div>
+<p>Since the values of <code>B</code> and <code>C</code> are already integers in the
+relaxed solution, and since <code>1-A &lt; 1-D</code>, we first branch on
+<code>A</code>.</p>
+<ul>
+<li><p><code>A=0</code>: We solve the linear program specifying <code>A=0</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> res_A0 <span class="op">=</span> branch([{<span class="st">'var'</span>: <span class="st">'A'</span>, <span class="st">'val'</span>: <span class="dv">0</span>}],lp)  </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> pprint(res_A0)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> <span class="op">=&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> {<span class="st">'obj_value'</span>: <span class="fl">8723.684210526317</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a> <span class="st">'solution'</span>: array([<span class="op">-</span><span class="fl">0.</span>        ,  <span class="fl">0.03947368</span>,  <span class="fl">1.</span>        ,  <span class="fl">1.</span>        ])}		</span></code></pre></div></li>
+<li><p><code>A=1</code>: We solve the linear program specifying <code>A=1</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> res_A1 <span class="op">=</span> branch([{<span class="st">'var'</span>: <span class="st">'A'</span>, <span class="st">'val'</span>: <span class="dv">1</span>}],lp)  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> pprint(res_A1)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> <span class="op">=&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> {<span class="st">'obj_value'</span>: <span class="fl">13287.50746268657</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a> <span class="st">'solution'</span>: array([<span class="fl">1.</span>        , <span class="fl">0.</span>        , <span class="fl">1.</span>        , <span class="fl">0.92537313</span>])}		</span></code></pre></div></li>
+</ul>
+<p>Since the <code>obj_value</code> is larger for <code>A=1</code>, we branch below that value on <code>D</code>.</p>
+<ul>
+<li><code>A=1, D=0</code></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>res_A1_D0 <span class="op">=</span> branch([{<span class="st">'var'</span>: <span class="st">'A'</span>, <span class="st">'val'</span>: <span class="dv">1</span>}, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                    {<span class="st">'var'</span>: <span class="st">'D'</span>, <span class="st">'val'</span>: <span class="dv">0</span>}],lp)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pprint(res_A1_D0)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>{<span class="st">'obj_value'</span>: <span class="fl">8553.325925925925</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">'solution'</span>: array([ <span class="fl">1.</span>        ,  <span class="fl">0.22962963</span>,  <span class="fl">1.</span>        , <span class="op">-</span><span class="fl">0.</span>        ])}		  </span></code></pre></div>
+<ul>
+<li><p><code>A=1, D=1</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>res_A1_D1 <span class="op">=</span> branch([{<span class="st">'var'</span>: <span class="st">'A'</span>, <span class="st">'val'</span>: <span class="dv">1</span>}, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                    {<span class="st">'var'</span>: <span class="st">'D'</span>, <span class="st">'val'</span>: <span class="dv">1</span>}],lp)		  </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>pprint(res_A1_D1)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>{<span class="st">'obj_value'</span>: <span class="fl">11990.697674418605</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="st">'solution'</span>: array([<span class="fl">1.</span>        , <span class="fl">0.</span>        , <span class="fl">0.51162791</span>, <span class="fl">1.</span>        ])}							  		  </span></code></pre></div></li>
+</ul>
+<p>The largest objective value so far is <code>A=1,D=1</code> so we branch
+below that node, on the variable <code>C</code>.</p>
+<ul>
+<li><p><code>A=1, D=1, C=0</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  res_A1_D1_C0 <span class="op">=</span> branch([{<span class="st">'var'</span>: <span class="st">'A'</span>, <span class="st">'val'</span>: <span class="dv">1</span>},</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                       {<span class="st">'var'</span>: <span class="st">'D'</span>, <span class="st">'val'</span>: <span class="dv">1</span>},</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a> 					{<span class="st">'var'</span>: <span class="st">'C'</span>, <span class="st">'val'</span>: <span class="dv">0</span>}],lp)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>pprint(res_A1_D1_C0)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">=&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  {<span class="st">'obj_value'</span>: <span class="fl">10276.34074074074</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'solution'</span>: array([ <span class="fl">1.</span>       ,  <span class="fl">0.1037037</span>, <span class="op">-</span><span class="fl">0.</span>       ,  <span class="fl">1.</span>       ])}		 </span></code></pre></div></li>
+<li><p><code>A=1, D=1, C=1</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  res_A1_D1_C1 <span class="op">=</span> branch([{<span class="st">'var'</span>: <span class="st">'A'</span>, <span class="st">'val'</span>: <span class="dv">1</span>},</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                       {<span class="st">'var'</span>: <span class="st">'D'</span>, <span class="st">'val'</span>: <span class="dv">1</span>},</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                       {<span class="st">'var'</span>: <span class="st">'C'</span>, <span class="st">'val'</span>: <span class="dv">1</span>}],lp)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  pprint(res_A1_D1_C1)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">=&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">'lin program failed'</span></span></code></pre></div></li>
+</ul>
+<p><em>This linear program is infeasible</em>, so we <strong>prune</strong>.</p>
+<p>Now we branch on <code>B</code> below <code>A=1, D=1, C=0</code>:</p>
+<ul>
+<li><p><code>A=1, D=1, C=0, B=0</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a> res_A1_D1_C0_B0 <span class="op">=</span> branch([{<span class="st">'var'</span>: <span class="st">'A'</span>, <span class="st">'val'</span>: <span class="dv">1</span>},</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                          {<span class="st">'var'</span>: <span class="st">'D'</span>, <span class="st">'val'</span>: <span class="dv">1</span>},</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  					  {<span class="st">'var'</span>: <span class="st">'C'</span>, <span class="st">'val'</span>: <span class="dv">0</span>},</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  					  {<span class="st">'var'</span>: <span class="st">'B'</span>, <span class="st">'val'</span>: <span class="dv">0</span>}],lp)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a> pprint(res_A1_D1_C0_B0)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a> <span class="op">=&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a> {<span class="st">'obj_value'</span>: <span class="fl">10222.0</span>, <span class="st">'solution'</span>: array([ <span class="fl">1.</span>, <span class="op">-</span><span class="fl">0.</span>, <span class="op">-</span><span class="fl">0.</span>,  <span class="fl">1.</span>])}		</span></code></pre></div></li>
+<li><p><code>A=1, D=1, C=0, B=1</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a> res_A1_D1_C0_B1 <span class="op">=</span> branch([{<span class="st">'var'</span>: <span class="st">'A'</span>, <span class="st">'val'</span>: <span class="dv">1</span>},</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                          {<span class="st">'var'</span>: <span class="st">'D'</span>, <span class="st">'val'</span>: <span class="dv">1</span>},</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  					  {<span class="st">'var'</span>: <span class="st">'C'</span>, <span class="st">'val'</span>: <span class="dv">0</span>},</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  					  {<span class="st">'var'</span>: <span class="st">'B'</span>, <span class="st">'val'</span>: <span class="dv">1</span>}],lp)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>pprint(res_A1_D1_C0_B1)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a> <span class="op">=&gt;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a> <span class="co">'lin program failed'</span></span></code></pre></div>
+<p><em>This linear program is infeasible</em>, so we <strong>prune</strong> this node.</p></li>
+</ul>
+<p>Now we pause to inspect our results so far. We have found an integral solution
+<code>A=1, D=1, C=0, B=0</code> with <code>obj_value = 10222</code>.</p>
+<p>This objective value exceeds <code>8724</code> which is the <code>obj_value</code> at <code>A=0</code>.
+So we prune at <code>A=0</code></p>
+<p>And this objective value exceeds <code>8553</code> which is the <code>obj_value</code>
+at <code>A=1,D=0</code>. So we prune at <code>A=1,D=0</code>.</p>
+<p>So we find that the optimal integral solution to the linear
+program is to buy the <code>A</code>-crate and the <code>D</code>-crate, getting a
+real value of <code>10,222</code> from the purchase.</p>
+</div></li>
+<li><p>Draw the branch and bound tree for your solution.</p>
+<div class="solution">
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> graphviz <span class="im">import</span> Graph</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>nodes <span class="op">=</span> { <span class="dv">0</span>: <span class="ss">f&quot;</span><span class="sc">{</span>(<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>res<span class="sc">.</span>fun<span class="sc">:.2F}</span><span class="ss">&quot;</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>          <span class="dv">1</span>: <span class="ss">f&quot;</span><span class="sc">{</span>res_A0[<span class="st">'obj_value'</span>]<span class="sc">:.2f}</span><span class="ss">&quot;</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>          <span class="dv">2</span>: <span class="ss">f&quot;</span><span class="sc">{</span>res_A1[<span class="st">'obj_value'</span>]<span class="sc">:.2f}</span><span class="ss">&quot;</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>          <span class="dv">3</span>: <span class="ss">f&quot;</span><span class="sc">{</span>res_A1_D0[<span class="st">'obj_value'</span>]<span class="sc">:.2f}</span><span class="ss">&quot;</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>          <span class="dv">4</span>: <span class="ss">f&quot;</span><span class="sc">{</span>res_A1_D1[<span class="st">'obj_value'</span>]<span class="sc">:.2f}</span><span class="ss">&quot;</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>          <span class="dv">5</span>: <span class="ss">f&quot;</span><span class="sc">{</span>res_A1_D1_C0[<span class="st">'obj_value'</span>]<span class="sc">:.2f}</span><span class="ss">&quot;</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>          <span class="dv">6</span>: <span class="st">&quot;infeas&quot;</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>          <span class="dv">7</span>: <span class="ss">f&quot;</span><span class="sc">{</span>res_A1_D1_C0_B0[<span class="st">'obj_value'</span>]<span class="sc">:.2f}</span><span class="ss">&quot;</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>          <span class="dv">8</span>: <span class="st">&quot;infeas&quot;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>          }</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>pruned <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">8</span>]</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> describe(n):</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="kw">in</span> pruned:</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f&quot;</span><span class="sc">{</span>nodes[n]<span class="sc">}</span><span class="ch">\n</span><span class="ss"> **pruned**&quot;</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f&quot;</span><span class="sc">{</span>nodes[n]<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>dot <span class="op">=</span> Graph()</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>dot.filename<span class="op">=</span><span class="st">'PS4--tree'</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>dot.<span class="bu">format</span><span class="op">=</span><span class="st">'png'</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">9</span>):</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    dot.node(<span class="ss">f&quot;</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">&quot;</span>,describe(n))</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'0'</span>,<span class="st">'1'</span>,<span class="st">'A=0'</span>)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'0'</span>,<span class="st">'2'</span>,<span class="st">'A=1'</span>)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'2'</span>,<span class="st">'3'</span>,<span class="st">'D=0'</span>)</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'2'</span>,<span class="st">'4'</span>,<span class="st">'D=1'</span>)</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'4'</span>,<span class="st">'5'</span>,<span class="st">'C=0'</span>)</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'4'</span>,<span class="st">'6'</span>,<span class="st">'C=1'</span>)</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'5'</span>,<span class="st">'7'</span>,<span class="st">'B=0'</span>)</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>dot.edge(<span class="st">'5'</span>,<span class="st">'8'</span>,<span class="st">'B=1'</span>)</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>dot.render()</span></code></pre></div>
+<p><img src="../course-assets/images/PS4--tree.png" /></p>
+</div></li>
+</ol>
+<p>(<strong>Hint</strong>: Note that you should use <code>linprog</code> to solve the relaxed
+linear program, initially with your variables constrained between 0
+and 1).</p></li>
+<li><p>Consider the following directed graph (see below for the code producing this graph).</p>
+<p><img src="../course-assets/images/PS4--graph.png" /></p>
+<ol type="a">
+<li><p>Find the <code>minimum cut</code> value for this weighted
+directed graph.</p>
+<p>(Recall that this means to consider all possible partitions of
+the nodes into an <span class="math inline">\(s\)</span>-group and a <span class="math inline">\(t\)</span>-group.</p>
+<p>To identify such a partition, it is enough to indicate the
+<span class="math inline">\(s\)</span>-group. For example, <span class="math inline">\(s\)</span>, <span class="math inline">\(a\)</span> and <span class="math inline">\(c\)</span> together form a
+possible <span class="math inline">\(s\)</span>-group. The edge-cuts required to form this
+<span class="math inline">\(s\)</span>-group involve the edges <span class="math inline">\(c \to d\)</span> and <span class="math inline">\(a \to b\)</span>; thus the
+cut-value for this partition is <span class="math inline">\(14 + 12 = 26\)</span>.</p>
+<p>Make a list all possible <span class="math inline">\(s\)</span>-groups and indicate the
+corresponding cut-values. Remember that we are only interested
+in partitions that arise “from cuts” – thus, an <span class="math inline">\(s\)</span>-group
+should be “connected”. And remember that cut value only involve
+capacities of edges <span class="math inline">\(u \to v\)</span> where <span class="math inline">\(u\)</span> is in the <span class="math inline">\(s\)</span>-group and
+<span class="math inline">\(v\)</span> is in the <span class="math inline">\(t\)</span>-group (you would not also count the capacity
+of an edge <span class="math inline">\(v \to u\)</span> if it exists).</p>
+<div class="solution">
+<p>We make a list whose elements are pairs
+<code>( s-groups, edge-cut values )</code>
+for all possible <code>s</code>-groups:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pp <span class="op">=</span> [ ( [<span class="st">'s'</span>], [<span class="dv">13</span>, <span class="dv">16</span>] ),</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       ( [<span class="st">'s'</span>, <span class="st">'a'</span>], [<span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">12</span>] ),</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>       ( [<span class="st">'s'</span>, <span class="st">'c'</span>], [<span class="dv">16</span>, <span class="dv">4</span>, <span class="dv">14</span>] ),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>       ( [<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>], [<span class="dv">12</span>, <span class="dv">14</span>] ),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>       ( [<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>], [<span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">20</span>] ),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>       ( [<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>], [<span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">20</span>] ),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>       ( [<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">4</span>] ),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>       ( [<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="dv">4</span>,<span class="dv">20</span>])</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      ]</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># sum the cut-values, and sort by the results</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> min_cut(data):</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    aa <span class="op">=</span> [ (s, <span class="bu">sum</span>(cuts) ) <span class="cf">for</span>  (s,cuts) <span class="kw">in</span> data]</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    aa.sort(key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>])</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> aa</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>pprint(min_cut_data)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>[([<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>], <span class="dv">23</span>),</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a> ([<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>], <span class="dv">24</span>), </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a> ([<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>], <span class="dv">26</span>),</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a> ([<span class="st">'s'</span>], <span class="dv">29</span>),</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a> ([<span class="st">'s'</span>, <span class="st">'c'</span>], <span class="dv">34</span>),</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a> ([<span class="st">'s'</span>, <span class="st">'a'</span>], <span class="dv">35</span>),</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a> ([<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>], <span class="dv">40</span>),</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a> ([<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>], <span class="dv">50</span>)]</span></code></pre></div>
+<p>The result shows that the <code>min-cut</code> is achieved by considering
+the <code>s</code>-group <code>['s','a','c','d']</code>. For this, you must cut the
+edge <code>a -&gt; b</code>, <code>d-&gt;b</code>, and <code>d-&gt;t</code>; these have value 12, 7, 4. This shows
+that the <code>min-cut</code> value is 23.</p>
+</div></li>
+<li><p>By strong duality, you now know the <code>maximum flow</code> value for the
+graph. Does strong duality tell you how to find a flow which
+achieves this value? Why or why not?</p>
+<div class="solution">
+<p>Strong duality tells us that the <code>max-flow</code> is 23. But It doesn’t tell us
+how to find the flow <code>f</code> that achieves <code>|f| = 23</code>.</p>
+</div></li>
+<li><p>Suppose that the capacity on the edge <span class="math inline">\(d \to t\)</span> is increased
+from its current value of 4. By how much must this capacity
+change in order to change the <code>min cut</code> configuration?</p>
+<div class="solution">
+<p>Since the <code>min-cut</code> is achieved with the group
+<code>['s','a','c','d']</code>, the edge <code>d -&gt; t</code> is involved in the edge cuts.
+So increasing the edge weight will change the configuration.</p>
+<p>To see what happens, we can create a function to modify the
+specified edge-weight:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pp1(x):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [ ( [<span class="st">'s'</span>], [<span class="dv">13</span>, <span class="dv">16</span>] ),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>           ( [<span class="st">'s'</span>, <span class="st">'a'</span>], [<span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">12</span>] ),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a> 		 ( [<span class="st">'s'</span>, <span class="st">'c'</span>], [<span class="dv">16</span>, <span class="dv">4</span>, <span class="dv">14</span>] ),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a> 		 ( [<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>], [<span class="dv">12</span>, <span class="dv">14</span>] ),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a> 		 ( [<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>], [<span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">20</span>] ),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a> 		 ( [<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>], [<span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">20</span>] ),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a> 		 ( [<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">4</span><span class="op">+</span>x] ),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a> 		 ( [<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="dv">4</span><span class="op">+</span>x, <span class="dv">20</span>])</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a> 		 ]</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">5</span>):</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>c<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>min_cut(pp1(c))[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">-&gt;</span> ([<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>], <span class="dv">24</span>)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">-&gt;</span> ([<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>], <span class="dv">25</span>)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">-&gt;</span> ([<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>], <span class="dv">26</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="op">-&gt;</span> ([<span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>], <span class="dv">26</span>)</span></code></pre></div>
+<p>We see that raising the indicated edge weight by 1 or 2 (i.e. to
+a value of 5), the <code>min-cut</code> is achieved with the same
+<code>s</code>-group, but once the edge weight is increased by 3 the
+<code>min-cut</code> is achieved by a different choice of <code>s</code>-group.</p>
+</div></li>
+<li><p>Would increasing the capacity for the edge <span class="math inline">\(b \to t\)</span> from its
+current value of 20 affect the maximum flow value? Why or why
+not?</p>
+<div class="solution">
+<p>No, because the edge <code>b -&gt; t</code> is not involved in the <code>min-cut</code> configuration.</p>
+</div></li>
+<li><p>Explain whether or not the following statement seems reasonable,
+and why: “The <code>min cut</code> configuration (i.e. the edges involved
+in the <code>min cut</code>) reflects the maximal bottleneck in the
+system.”</p></li>
+</ol>
+<p>Here is the code used to produce the graph; you can <a href="../course-assets/images/PS4--graph.py">download it here.</a></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>dg <span class="op">=</span> Digraph()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#dg = Digraph(engine='neato')</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>dg.attr(rankdir<span class="op">=</span><span class="st">'LR'</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> [ <span class="st">'s'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>, <span class="st">'t'</span> ]</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> { (<span class="st">'s'</span>,<span class="st">'a'</span>):   <span class="dv">16</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'s'</span>,<span class="st">'c'</span>):   <span class="dv">13</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'c'</span>,<span class="st">'a'</span>):    <span class="dv">4</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'a'</span>,<span class="st">'c'</span>):   <span class="dv">10</span>,</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'a'</span>,<span class="st">'b'</span>):   <span class="dv">12</span>,</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'c'</span>,<span class="st">'d'</span>):   <span class="dv">14</span>,</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'d'</span>,<span class="st">'b'</span>):    <span class="dv">7</span>,</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'b'</span>,<span class="st">'d'</span>):    <span class="dv">6</span>,</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'b'</span>,<span class="st">'t'</span>):   <span class="dv">20</span>,</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>            (<span class="st">'d'</span>,<span class="st">'t'</span>):    <span class="dv">4</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>           } </span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>c.node(<span class="st">'t'</span>)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> dg.subgraph() <span class="im">as</span> c:</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    c.attr(rank<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> [<span class="st">'a'</span>,<span class="st">'c'</span>]:</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>        c.node(x)</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> dg.subgraph() <span class="im">as</span> c:</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    c.attr(rank<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> [<span class="st">'b'</span>,<span class="st">'d'</span>]:</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>        c.node(x)</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>c.node(<span class="st">'s'</span>)        </span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (f,t) <span class="kw">in</span> weights.keys():</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>    wt <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>weights[(f,t)]<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>    dg.edge(f,t,wt)</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>dg.filename<span class="op">=</span><span class="st">'PS4--graph'</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>dg.<span class="bu">format</span><span class="op">=</span><span class="st">'png'</span></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>dg.render()</span></code></pre></div></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>
