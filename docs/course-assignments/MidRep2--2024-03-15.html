@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - Midterm Project 2 -- ``PageRank``</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>Midterm Project 2 -- ``PageRank``</h1>
+            <h1 id="instructions">Instructions</h1>
+<p>There are 6 questions contained in the presentation below. You should
+submit to gradescope a report as a <code>PDF</code> file containing responses
+to those questions, written in the style of a <em>lab report</em>: you should
+write in such a manner that a reader who didn’t know the assignment in
+advance could read and follow your response.</p>
+<p>In some cases, you are asked to write <code>python</code> code. You should
+include the text of the code embedded in your submission.</p>
+<p>(And: You don’t have to include any discussion on the
+<strong>for-fun</strong> section at the end…)</p>
+<h1 id="pagerank"><code>PageRank</code></h1>
+<p>Markov chains formed the original basis for the <a href="https://en.wikipedia.org/wiki/PageRank">PageRank
+algorithm</a> used by
+<a href="http://www.google.com">Google</a> to rank web-pages by “importance”.</p>
+<p>Consider the following basic model of surfing the web. A user begins
+surfing at a particular website. From the set of outgoing links from
+this site, a choice is made, with each link given equal
+probability. This transition brings the user to a new page, where the
+process is repeated. Let’s model this system as a Markov Chain: the
+nodes in our transition diagram correspond to a certain collection of
+websites, and there is a directed edge from node <code>A</code> to node <code>B</code>
+if site <code>A</code> contains a hyperlink to the site <code>B</code>. Consider a fixed
+node <code>A</code>: to assign the probabilities on edges <code>A</code> <span class="math inline">\(\to\)</span> <code>B</code> we
+just need to count the number <code>N(A)</code> of outgoing links from site
+<code>A</code>; then all edges <code>A</code> <span class="math inline">\(\to\)</span> <code>B</code> will be given probability
+<code>1/N(A)</code>.</p>
+<p>Number the nodes <span class="math inline">\(a_0,\dots,a_{n-1}\)</span> and write <span class="math inline">\(\mathbf{e}_i\)</span> for the
+standard basis vectors. <span class="math inline">\(0 \le i \le n-1\)</span>. We wish to define the
+adjacency matrix <span class="math inline">\(A\)</span>. It should have the property that <span class="math inline">\(A\mathbf{e}_i\)</span>
+is the sum of all the standard basis vectors <span class="math inline">\(\mathbf{e}_j\)</span> for which
+there is an edge <span class="math inline">\(a_i \to a_j\)</span>. A little thought shows that the <span class="math inline">\(s,t\)</span>
+entry satisfies <span class="math display">\[A_{s,t} = \left\{\begin{matrix} 1 &amp; \text{if there
+is an edge $a_t \to a_s$} \\ 0 &amp; \text{otherwise}\end{matrix}
+\right.\]</span></p>
+<p>Using <span class="math inline">\(A\)</span>, one can create the “naive” transition matrix <span class="math inline">\(T\)</span> whose
+entries are the probabilities discussed above: as in the course
+notebooks, one views the directed graph as the transition diagram of a
+probabilistic finite-state machine, and <span class="math inline">\(T\)</span> is the associated
+transition matrix.</p>
+<p>Suppose the sites we consider were described by the following directed
+graph:</p>
+<p><img src="../course-assets/images/MidRep2--graph-simple-1.gv.png" /></p>
+<p>Treating this naively, we obtain the following adjacency matrix and
+“naive” transition matrix:</p>
+<p><span class="math display">\[A=\begin{bmatrix}
+  0 &amp; 0 &amp; 0 &amp; 0 &amp; 0  \\
+  1 &amp; 0 &amp; 0 &amp; 0 &amp; 0  \\
+  1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+  1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\
+\end{bmatrix}
+\quad \text{and}
+\quad
+T=\begin{bmatrix}
+  0   &amp; 0 &amp; 0 &amp; 0 &amp; 0  \\
+  1/3 &amp; 0 &amp; 0 &amp; 0 &amp; 0  \\
+  1/3 &amp; 1/2 &amp; 0 &amp; 0 &amp; 0 \\
+  1/3 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+  0   &amp; 1/2 &amp; 0 &amp; 1 &amp; 0 \\
+\end{bmatrix}\]</span></p>
+<p>Notice that <code>V5</code> is a <em>sink</em> - there are no outgoing edges (the site
+<code>V5</code> has no links to any of the sites under consideration). This is
+problematic – the transition diagram we obtain isn’t <code>strongly connected</code> and the corresponding transition matrix isn’t <em>stochastic</em>
+(the entries in the last column don’t sum to 1).</p>
+<p>Now, the model is supposed to represent a <em>random web-surfer</em>, so to
+recover a stochastic matrix, we model the transition from a <em>sink</em>
+node – i.e. a node with no “out-connections” – by having the surfer
+randomly choose a site (i.e. a node) from all sites with equal
+probability.</p>
+<p>In the example, this corresponds to replacing the final column of <span class="math inline">\(T\)</span> by the column
+<span class="math display">\[\dfrac{1}{5}\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 
+\end{bmatrix}^T\]</span></p>
+<p>The matrix <span class="math inline">\(T_1\)</span> obtained in this manner is <em>stochastic</em>, though it
+may well not satisfy the conclusion of the Perron-Frobenius Theorem.</p>
+<p>We now introduce a <em>damping factor</em>:</p>
+<blockquote>
+<p>The PageRank theory holds that an imaginary surfer who is randomly
+clicking on links will eventually stop clicking. The probability, at
+any step, that the person will stop is a damping factor
+p. </p>
+</blockquote>
+<p>We model this by declaring that with probability <code>p</code> the imaginary
+surfer will “stop clicking”. The transition that occurs in this case
+lands the surfer on a new node chosen at random from <em>all</em> available
+nodes (with equal probability).</p>
+<p>For the example, for the above diagram, we obtain the matrix</p>
+<p><span class="math display">\[C = (1-p) T_1 + \dfrac{p}{5} 
+\begin{bmatrix} 
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ 
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ 
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ 
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ 
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \end{bmatrix}\]</span></p>
+<p>which we call the <code>PageRank</code> transition matrix for the damping
+probability <span class="math inline">\(p\)</span>.</p>
+<hr />
+<ol type="1">
+<li><p>Given an adjacency matrix <span class="math inline">\(A\)</span>, complete the following description
+of the <code>i,j</code> entry of the corresponding <code>PageRank</code> transition
+matrix <span class="math inline">\(C\)</span> for the probability <span class="math inline">\(p\)</span>.</p>
+<ol type="a">
+<li><p>If the <code>j</code>-th column of the matrix <span class="math inline">\(A\)</span> is equal to
+<span class="math inline">\(\mathbf{0}\)</span>, then for each <code>i=0,...,n-1</code>:</p>
+<p><span class="math inline">\(C_{i,j} =\)</span> _______________</p></li>
+<li><p>Suppose that the sum of the entries of the <code>j</code>-th column of the matrix
+<span class="math inline">\(A\)</span> is equal to <span class="math inline">\(s&gt;0\)</span>, then for each <code>i=0,...,n-1</code>:</p>
+<p>If <span class="math inline">\(A_{i,j} = 0\)</span>, then <span class="math inline">\(C_{i,j} =\)</span> ______________</p>
+<p>If <span class="math inline">\(A_{i,j} = 1\)</span>, then <span class="math inline">\(C_{i,j} =\)</span> ______________</p></li>
+</ol></li>
+<li><p>Use your description in 1. to write a <code>python</code> function to create
+the <code>PageRank</code> transition matrix from an adjacency matrix <span class="math inline">\(A\)</span>.</p>
+<p>Here is a suggested starting point:</p>
+<hr />
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_transition(A,p):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    (n,m) <span class="op">=</span> A.shape </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n<span class="op">==</span>m:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        C <span class="op">=</span> np.zeros((n,n))   <span class="co">## create a matrix of </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">#                     ## zeros of the correct size</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">#</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">#                     ## insert code to modify </span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">#                     ## the entries C[i,j] </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">#</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> C</span></code></pre></div>
+<hr />
+<p>Recall that you can obtain the <em>sum</em> of the entries of the <code>i</code>th
+column of the matrix <code>A</code> using the following:</p>
+<p><code>s=np.ones(n) @ A[:,i]</code></p>
+<p>And you can <em>test</em> whether the <code>i</code>th column of <code>A</code> is equal to
+the zero-vector using <code>(A[:,i] == 0).all()</code>; this expression will
+be <code>True</code> if all entries in the <code>i</code>th column are equal to 0.</p>
+<p>You can use this expression in a conditional statement:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (A[:,i] <span class="op">==</span> <span class="dv">0</span>).<span class="bu">all</span>() then</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">## do something...</span></span></code></pre></div>
+<p>I recommend that you <em>build up</em> the matrix <code>C</code> by assigning
+values to the entries one column at a time, by using a <em>loop</em> as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">## insert code to assign values for the j-th column...</span></span></code></pre></div>
+<p>You can assign the value of <code>C</code> in the <code>i</code>th row and <code>j</code>th
+column using an expression like</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>C[i,j] <span class="op">=</span> ...</span></code></pre></div>
+<hr />
+<p>Test your code on the example above, as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> float_formatter <span class="op">=</span> <span class="st">&quot;</span><span class="sc">{:.5f}</span><span class="st">&quot;</span>.<span class="bu">format</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> np.set_printoptions(formatter<span class="op">=</span>{<span class="st">'float_kind'</span>:float_formatter})</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> A <span class="op">=</span> np.array([[ <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span> ],</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                  [ <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span> ],</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                  [ <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span> ],</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                  [ <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span> ],</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                  [ <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span> ]])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="co">## you should see the following output</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> make_transition(A,p<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>array([[<span class="fl">0.16000</span>, <span class="fl">0.16000</span>, <span class="fl">0.16000</span>, <span class="fl">0.16000</span>, <span class="fl">0.20000</span>],</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.22667</span>, <span class="fl">0.16000</span>, <span class="fl">0.16000</span>, <span class="fl">0.16000</span>, <span class="fl">0.20000</span>],</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.22667</span>, <span class="fl">0.26000</span>, <span class="fl">0.16000</span>, <span class="fl">0.16000</span>, <span class="fl">0.20000</span>],</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.22667</span>, <span class="fl">0.16000</span>, <span class="fl">0.36000</span>, <span class="fl">0.16000</span>, <span class="fl">0.20000</span>],</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.16000</span>, <span class="fl">0.26000</span>, <span class="fl">0.16000</span>, <span class="fl">0.36000</span>, <span class="fl">0.20000</span>]])</span></code></pre></div></li>
+</ol>
+<hr />
+<ol start="3" type="1">
+<li><p>Find a 1-eigenvector for the <code>PageRank</code> transition matrix <code>C</code>
+when <code>p=.8</code> and when <code>p=.4</code> for the directed graph</p>
+<p><img src="../course-assets/images/MidRep2--graph-simple-1.gv.png" /></p>
+<p>Be sure to normalize your eigenvector to obtain <em>probability
+vectors</em>.</p>
+<p>Explain what the entries in this vector predict about the
+probability of a random surfer landing on one of the five web-sites
+corresponding to the nodes in the diagram.</p>
+<p>Compare the information you get from the eigenvector with that
+obtained by studying powers of <code>C</code> calculated using
+<code>np.linalg.matrix_power(C,m)</code>.</p></li>
+</ol>
+<p><strong>Remark:</strong> <code>PageRank</code> uses the <code>long-term probability</code> as a proxy
+for the importance of the page – the probability with which a random
+surfer lands on a page in the long-run determines its ranking.</p>
+<ol start="4" type="1">
+<li><p>The following diagram describes the same nodes as in problem 2.,
+but includes some additional edges (i.e. links).</p>
+<p><img src="../course-assets/images/MidRep2--graph-simple-2.gv.png" /></p>
+<p>Assess the impact of the additional edges on the page rankings
+(when <code>p=.8</code> and when <code>p=.4</code>) – i.e. compare the ranking
+obtained for this diagram with that obtained in problem 2. Before
+making your comparison, you’ll need to first compute the adjacency
+matrix for this new configuration, and then use your code to find
+the corresponding <code>PageRank</code> transition matrix.</p></li>
+<li><p>For <em>any</em> directed graph, explain why the corresponding
+<code>PageRank</code> transition matrix for <code>p&gt;0</code> is a stochastic matrix
+corresponding to a strongly connected aperiodic transition
+diagram. In particular, explain why the conclusion of the
+<em>Perron-Frobenius Theorem</em> holds for this matrix.</p></li>
+<li><p>The following code can be used to extract formatted data (<code>json</code>)
+from a file. The parameter to the function is a file name; this
+<code>json</code> file should contain data like</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;from&quot;</span><span class="fu">:</span> <span class="st">&quot;Blue Whale&quot;</span><span class="fu">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;to&quot;</span><span class="fu">:</span> <span class="st">&quot;Snail&quot;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;from&quot;</span><span class="fu">:</span> <span class="st">&quot;Blue Whale&quot;</span><span class="fu">,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;to&quot;</span><span class="fu">:</span> <span class="st">&quot;Alligator&quot;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a> <span class="er">...</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span>	 </span></code></pre></div>
+<p>(Here we view these animal names as “sites”; a <code>from/to</code> pair
+indicates a link.)</p>
+<p>and the return value is a pair <code>(sites,A)</code> where <code>sites</code> is a
+list of strings containing the name of each “site” that appears in one of
+the <code>from/to</code> pairs, and <code>A</code> is the adjacency matrix determined
+by the indicated links.</p>
+<hr />
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>float_formatter <span class="op">=</span> <span class="st">&quot;</span><span class="sc">{:.5f}</span><span class="st">&quot;</span>.<span class="bu">format</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(formatter<span class="op">=</span>{<span class="st">'float_kind'</span>:float_formatter})</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bv(it,items):</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([<span class="fl">1.0</span> <span class="cf">if</span> i <span class="op">==</span> items.index(it)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                     <span class="cf">else</span> <span class="fl">0.0</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(items))])</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">## &gt;&gt;&gt; bv(&quot;c&quot;,[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;])</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">## array([0.00000, 0.00000, 1.00000, 0.00000])</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> adj_from_json(json_file):</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a> <span class="cf">with</span> <span class="bu">open</span>(json_file) <span class="im">as</span> f:</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>     adj_data <span class="op">=</span> json.load(f)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a> <span class="bu">dict</span> <span class="op">=</span> {}</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> i <span class="kw">in</span> adj_data:</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>     lfrom <span class="op">=</span> i[<span class="st">'from'</span>]</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>     lto   <span class="op">=</span> i[<span class="st">'to'</span>]</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> lfrom <span class="kw">in</span> <span class="bu">dict</span>.keys():</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>         <span class="bu">dict</span>[lfrom].add(lto)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>     <span class="cf">else</span>:</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>         <span class="bu">dict</span>[lfrom] <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>         <span class="bu">dict</span>[lfrom].add(lto)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> <span class="kw">not</span>(lto <span class="kw">in</span> <span class="bu">dict</span>.keys()):</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>         <span class="bu">dict</span>[lto] <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a> sites <span class="op">=</span> <span class="bu">list</span>(<span class="bu">dict</span>.keys())</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a> A <span class="op">=</span> np.array([<span class="bu">sum</span>([bv(l_to,sites) <span class="cf">for</span> l_to <span class="kw">in</span> <span class="bu">dict</span>[l_from]],</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>                   np.zeros(<span class="bu">len</span>(sites)))</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> l_from <span class="kw">in</span> sites]) </span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a> <span class="cf">return</span> (sites, A)</span></code></pre></div>
+<hr />
+<p>Now, here is a file some data from which you should build an adjacency
+matrix using <code>adj_from_json</code>:</p>
+<p><a href="../course-assets/code/MidRep2-data.json">data.json</a></p>
+<p>To use this file, follow these instructions:</p>
+<h2 id="local-computer-instructions">Local computer instructions</h2>
+<p>If you use <code>python</code> on your local computer, save this file to
+your drive and run <code>python</code> from a shell in the same directory. You can
+then call</p>
+<p><code>(ll,A) = adj_from_json("data.json")</code></p>
+<hr />
+<h2 id="colab-instructions"><code>Colab</code> instructions</h2>
+<p>If you use <code>colab</code>, proceed as follows. Save the file
+<code>data.json</code> to your local computer, and then upload that file to
+your <code>google drive</code>.</p>
+<p>To enable <code>colab</code> to see your <code>google drive</code>, execute the following commands in a <code>cell</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.colab <span class="im">import</span> drive</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>drive.mount(<span class="st">'/gdrive'</span>)</span></code></pre></div>
+<p>Now change to the correct directory in your <code>google drive</code> by
+executing the following in a <code>cell</code> in <code>colab</code> (you do need the
+<code>%</code> symbol):</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>cd <span class="op">/</span>gdrive<span class="op">/</span>My\ Drive<span class="op">/</span></span></code></pre></div>
+<p>Now you can run</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(ll,A) <span class="op">=</span> adj_from_json(<span class="st">&quot;data.json&quot;</span>):</span></code></pre></div>
+<p>in a <code>colab cell</code>.</p>
+<hr />
+<p>Once you have produced the adjacency matrix <code>A</code> from
+<code>data.json</code>, use the <code>make_transition</code> function you wrote in
+the previous exercises to build the <code>PageRank</code> transition matrix
+<code>C</code> from the adjacency matrix <code>A</code>, for <code>p=0.8</code></p>
+<p>Now find the page-rankings of these <code>pages</code>, using both the
+eigenvector method and the power-iteration method. For each method,
+report the top ten “sites” by name (when <code>p=0.8</code>). When using the
+power-iteration method, report the number of iterations used.</p>
+<blockquote>
+<p>Note that you can get the site name corresponding to index <code>i</code>
+as folows. If you used <code>(ll,A) = adj_from_json("data.json")</code> to
+build the adjacency matrix then the list <code>ll</code> contains the
+names, and in particular <code>ll[i]</code> is the name for index <code>i</code>.</p>
+</blockquote>
+<p>What happens if you reduce the value of <code>p</code>? How much must you
+vary <code>p</code> to see any change in the “top-ten” list?</p></li>
+<li><p>The damping probability <code>0 &lt; p ≤ 1</code> forces the <code>PageRank</code>
+transition matrix to satisfy the conclusion of the Perron-Frobenius
+Theorem. As we discussed above, from the point-of-view of ranking
+web pages this quantity represents the probability that a random
+web-surfer gets bored and makes a random new choice of sites. In
+particular, this provides a reasonable <em>self-contained</em> explanation
+for the use of this <code>PageRank</code> transition matrix.</p>
+<p>On the other hand, one might hope to use the <code>PageRank</code> approach
+to rank other “linked material”. For example, one might try to rank
+published academic papers by citation.</p>
+<p>More precisely: given a collection of academic papers, consider a
+directed graph whose nodes are the papers and for which there is a
+directed edge from <strong>paper A</strong> to <strong>paper B</strong> if <strong>paper A</strong>
+contains a citation to <strong>paper B</strong>.</p>
+<p>Suppose that each paper in the collection has at least one citation
+to another paper in the collection; under this assumption, the
+“naive” transition matrix <span class="math inline">\(T\)</span> <em>is</em> stochastic. But this transition
+matrix may fail to satisfy the conclusion of the Perron-Frobenius
+Theorem. One can “fix” this problem as before by introducing a
+“damping probability” <span class="math inline">\(0 &lt; p \le 1\)</span> – i.e. by replacing <span class="math inline">\(T\)</span> with
+the matrix</p>
+<p><span class="math display">\[(1-p) T + ̣\dfrac{p}{N}\mathbf{1}^{N \times N}\]</span></p>
+<p>where <span class="math inline">\(N\)</span> is the number of papers in the collection and
+<span class="math inline">\(\mathbf{1}^{N \times N}\)</span> denotes the <span class="math inline">\(N \times N\)</span> matrix all of
+whose entries are equal to 1.</p>
+<p>Do you think this is a reasonable proposal? What would be the
+explanation for the damping probability from the point-of-view of
+the model?</p></li>
+</ol>
+<hr />
+<p><strong>For Fun:</strong></p>
+<p>Here is some code for performing a <code>web-crawl</code>:</p>
+<p><a href="../course-assets/code/MidRep2_code.py">web-crawl code</a></p>
+<p>It contains a function</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crawl(start_url,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>          save_file,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>          n,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>          verbose<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>          follow_relative_links<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>          max_links_per_page<span class="op">=</span><span class="bu">float</span>(<span class="st">'inf'</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>          blacklist<span class="op">=</span>[],</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>          whitelist<span class="op">=</span>[]):</span></code></pre></div>
+<p>which when invoked will “scrape/crawl” the web, beginning at
+<code>start_url</code>. It finds all links in this first site, and then
+proceeds to recursively follow these links. The parameter <code>n</code> is the
+number of pages to include in the <code>adjacency data</code> to be reported
+(roughly speaking, the recursive search can stop once <code>n</code> pages have
+been found).</p>
+<p>For example, you could try something like</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>crawl(<span class="st">&quot;https://www.comap.com/contests/mcm-icm&quot;</span>,<span class="st">&quot;comap.txt&quot;</span>,<span class="dv">500</span>)</span></code></pre></div>
+<p>When finished, this function will output a <code>json</code> file with name
+<code>save_file</code>. This file will contain <code>from/to</code> pairs for links
+found in the search.</p>
+<p>You can then use the above function <code>adj_from_json</code> to build an
+adjacency matrix from the links in the file built by <code>crawl</code>.</p>
+<p>In turn, you can build the <code>PageRank</code> transition matrix from this
+adjacency matrix, and use either the eigenvalue method or the
+iteration method to rank the pages that you have considered.</p>
+<p>There are a number of comments in the code for <code>crawl</code> that are
+worth reading if you want to play with this code…</p>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

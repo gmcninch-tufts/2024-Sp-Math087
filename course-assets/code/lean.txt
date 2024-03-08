@@ -1,0 +1,4214 @@
+[
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/patrick-massot/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.convergentresearch.org/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://eudml.org/doc/88611"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.math.uni-bonn.de/people/scholze/Analytic.pdf"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/YaelDillies/LeanAPAP"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://arxiv.org/abs/2005.14165"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.youtube.com/watch?v=3XaL0tjnWSk&list=PLVZep5wTamMmRPvCLO4WVpCwkTi1F6OyF"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2022/07/29/teaching-formalisation-to-mathematics-undergraduates/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://emina.github.io/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/leanprover-community/mathlib4/wiki/Porting-wiki"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://icerm.brown.edu/topical_workshops/tw-22-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://siddhartha-gadgil.github.io/automating-mathematics/posts/formalizing-gardam-disproof-kaplansky-conjecture/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2021/10/14/new-year-new-teaching-material/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/b-mehta/exponential-ramsey/blob/main/src/main_results.lean"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://en.wikipedia.org/wiki/Gordan's_lemma"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://arxiv.org/abs/2303.10798"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://mathoverflow.net/questions/386796/nonconvexity-and-discretization"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/ImperialCollegeLondon/formalising-mathematics-2022"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://arxiv.org/abs/2112.03726"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://lean-fro.org/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/mathematics_in_lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/undergraduate/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.ma.imperial.ac.uk/~buzzard/xena/formalising-mathematics-2022/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://doi.org/10.1002/jgt.3190120406"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/sphere-eversion/blueprint/index.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/liquid/dep_graph_section_1.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.tandfonline.com/doi/full/10.1080/10586458.2021.1926016"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.cs.utexas.edu/~marijn/Schur/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/leanprover-community/lean-liquid"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://arxiv.org/abs/2311.05762"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "http://www.math.uni-bonn.de/people/scholze/Analytic.pdf"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.youtube.com/watch?v=QyIrjY3ntuY&list=PLVZep5wTamMnAF4b66BK0Emxhj5fv-bW_"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://teorth.github.io/pfr/blueprint/dep_graph_document.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/leanprover-community/mathlib4/blob/master/Archive/Imo/Imo2019Q2.lean"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/peter-scholze/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/liquid/index.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.nature.com/articles/d41586-023-00840-5"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.youtube.com/watch?v=7NAIXBANSj4&list=PLlF-CfQhukNmfMTzyvM5eXgugSzp9A5UB&index=26"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/lt2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/sphere-eversion/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://webdsl-2017.ewi.tudelft.nl/details/POPL-2023/CPP-2023-papers/22/Formalising-the-h-principle-and-sphere-eversion"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://icerm.brown.edu/video_archive/?play=2907"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/leanprover-community/mathlib3port"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://arxiv.org/abs/2303.09521"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.youtube.com/watch?v=kTQZiyniYYI&list=PLVZep5wTamMmeF968ovIjd-uc1I6kdirJ"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/johan-commelin/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.youtube.com/watch?v=dv_vmVs3SQQ"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://b-mehta.github.io/unit-fractions/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.quantamagazine.org/lean-computer-program-confirms-peter-scholze-proof-20210728/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/leanprover-community/lean-liquid/tree/master/src/examples"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.newscientist.com/article/2365577-breakthrough-in-fiendishly-hard-puzzle-has-mathematicians-partying/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/page/2/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover.zulipchat.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/Y022904/1"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2021/06/05/half-a-year-of-the-liquid-tensor-experiment-amazing-developments/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/ImperialCollegeLondon/formalising-mathematics-2024"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.nature.com/articles/d41586-021-01627-2"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/leanprover-community/mathlib4/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.youtube.com/watch?v=DWuAGt2RDaM&list=PLlF-CfQhukNmfMTzyvM5eXgugSzp9A5UB&index=24"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://teorth.github.io/pfr/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/mathematics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://lean-forward.github.io/e-g/e-g.pdf"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/ImperialCollegeLondon/formalising-mathematics"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2022/05/23/2022-xena-project-undergraduate-workshop/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://arxiv.org/abs/2205.12615"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.youtube.com/watch?v=4HHUGnHcDQw"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/math/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://projecteuclid.org/journals/duke-mathematical-journal/volume-172/issue-3/Diagonal-Ramsey-via-effective-quasirandomness/10.1215/00127094-2022-0048.short"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/leanprover-community/mathlib"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/ai/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/natural-language/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/leanprover-community/mathlib/blob/ae455e738408cee6cf0414794475225da76cacae/src/combinatorics/simple_graph/exponential_ramsey/main_results.lean"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://avigad.github.io/mathematics_in_lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.youtube.com/watch?v=KC6rlcsHUVs&list=PLlF-CfQhukNmfMTzyvM5eXgugSzp9A5UB&index=7"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://twitter.com/wtgowers/status/1636632071069106181"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.ams.org/notices/200811/tx081101382p.pdf"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://arxiv.org/abs/2302.05537"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/blog/posts/lte-final/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/liquid/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://openai.com/blog/openai-codex/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://lean-fro.org/about/roadmap/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://mathstodon.xyz/@tao/110034365802889269"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://wordpress.com/read/feeds/72557406"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/blog/posts/lte-examples/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://arxiv.org/abs/2210.07746"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://marketplace.visualstudio.com/items?itemName=hoskinson-ml.lean-chat-vscode"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://arxiv.org/abs/2102.11818"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2F2024%2F01%2F20%2Flean-in-2024%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://researchseminars.org/seminar/LondonLearningLean"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://annals.math.princeton.edu/2009/170-2/p15"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://gilkalai.wordpress.com/2023/03/16/some-news-from-a-seminar-in-cambridge/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://lean-lang.org/blog/2024-1-11-recursive-definitions-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://terrytao.wordpress.com/2023/12/05/a-slightly-longer-lean-4-proof-tour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://b-mehta.github.io/unit-fractions/blueprint/sect0001.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://wordpress.com/?ref=footer_blog"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/artificial-intelligence/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://leanprover-community.github.io/learn.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "http://leanprover.github.io/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/ImperialCollegeLondon/M40001_lean/blob/master/src/2021/README.md"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://lean-fro.org/jobs/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/teaching/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/tag/combinatorics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://en.wikipedia.org/wiki/Egorov%27s_theorem"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://github.com/leanprover-community/lean-liquid/graphs/contributors"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/author/xenaproject/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.quantamagazine.org/a-team-of-math-proves-a-critical-link-between-addition-and-sets-20231206/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2021/09/02/2021-xena-summer-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://xenaproject.wordpress.com/2020/12/05/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://mathweb.ucsd.edu/~ronspubs/90_06_ramsey_theory.pdf"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.cmu.edu/hoskinson/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://www.youtube.com/watch?v=VkKfIWoM3Ms&list=PLlF-CfQhukNmfMTzyvM5eXgugSzp9A5UB&index=15"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/",
+    "to": "https://doi.org/10.1112/plms/s2-30.1.264"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://en.wikipedia.org/wiki/Filter_(mathematics)"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://leanprover-community.github.io/mathlib_docs/topology/subset_properties.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://mathcs.clarku.edu/~djoyce/java/elements/bookI/bookI.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://leanprover.github.io/theorem_proving_in_lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2021/02/04/formalising-mathematics-workshop-3/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/induction/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2F2021%2F05%2F19%2Fthe-trace-of-an-endomorphism-without-picking-a-basis%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://en.wikipedia.org/wiki/Galois_connection"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://zelda.gamepedia.com/Crescent_Island"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2019/06/11/the-inverse-of-a-bijection/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/topology/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/quotients/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://github.com/ImperialCollegeLondon/formalising-mathematics/blob/master/src/week_3/Part_A_limits.lean"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://en.wikipedia.org/wiki/Closure_operator"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://leanprover-community.github.io/mathlib_docs/order/complete_lattice.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://github.com/ImperialCollegeLondon/formalising-mathematics/blob/2e0845c31925b1ccb8a345c1bc8c0b91041b278a/src/week_6/Part_A_tendsto.lean"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://twitter.com/andrejbauer/status/1383803239947128843?s=20"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://leanprover-community.github.io/lean-web-editor/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://github.com/ImperialCollegeLondon/formalising-mathematics"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2018/03/24/no-confusion-over-no_confusion/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/page/3/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://leanprover-community.github.io/mathlib_docs/tactics.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2021/02/10/formalising-mathematics-workshop-4/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/recursion/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2018/08/04/what-is-a-filter-how-some-computer-scientists-think-about-limits/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2021/05/19/the-trace-of-an-endomorphism-without-picking-a-basis/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://wordpress.com/read/feeds/72557406"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2021/04/03/induction-and-inductive-types/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://github.com/ImperialCollegeLondon/formalising-mathematics/blob/master/src/week_8/README.md"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://github.com/ImperialCollegeLondon/formalising-mathematics/tree/master/src/week_8/ideas"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://github.com/ImperialCollegeLondon/formalising-mathematics/tree/master/src/week_5"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/basis/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2021/02/25/formalising-mathematics-workshop-6-limits/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2Fpage%2F2%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2021/03/15/formalising-mathematics-workshop-8-group-cohomology/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2021/02/18/formalising-mathematics-workshop-5-filters/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://en.wikipedia.org/wiki/Canonical_map"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://www.maths.ox.ac.uk/groups/tcc"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2020/06/20/mathematics-in-type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/author/xenaproject/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/vector-space/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2021/01/28/formalising-mathematics-workshop-2/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/filter/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2021/03/04/formalising-mathematics-workshop-7-quotients/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/2021/04/18/induction-on-equality/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/formalising-mathematics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://xenaproject.wordpress.com/tag/equality/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "https://wordpress.com/?ref=footer_website"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/page/2/",
+    "to": "http://wwwf.imperial.ac.uk/~buzzard/xena/natural_number_game/"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://github.com/topics/lean4"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://lean-fro.org/about/roadmap/../../contact"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://leanprover.zulipchat.com/stats"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://lean-fro.org/about/roadmap/../../links"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://lean-fro.org/about/roadmap/../../"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://lean-lang.org"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://leanprover-community.github.io/teaching/courses.html"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "http://speed.lean-lang.org"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://lean-fro.org/about/roadmap/../../team"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://lean-fro.org/about/roadmap/../../events"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://lean-fro.org"
+  },
+  {
+    "from": "https://lean-fro.org/about/roadmap/",
+    "to": "https://lean-fro.org/about/roadmap/../../about"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://wordpress.com/?ref=footer_blog"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2Fcategory%2Fm1p1%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2F2021%2F02%2F04%2Fformalising-mathematics-workshop-3%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/author/xenaproject/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/2021/02/04/formalising-mathematics-workshop-3/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://wordpress.com/read/feeds/72557406"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1p1/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C08_Groups_and_Rings.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C05_Elementary_Number_Theory.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C06_Structures.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C10_Differential_Calculus.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://github.com/readthedocs/sphinx_rtd_theme"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C04_Sets_and_Functions.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C02_Basics.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C09_Topology.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://readthedocs.org"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C03_Logic.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://www.sphinx-doc.org/"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/genindex.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/_sources/index.rst.txt"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C07_Hierarchies.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C01_Introduction.html"
+  },
+  {
+    "from": "https://avigad.github.io/mathematics_in_lean/",
+    "to": "https://avigad.github.io/mathematics_in_lean/C11_Integration_and_Measure_Theory.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/tag/lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/tag/artificial-intelligence/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/tag/ai/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/tag/natural-language/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/author/xenaproject/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2F2022%2F08%2F16%2Fthe-future-of-interactive-theorem-proving%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://wordpress.com/read/feeds/72557406"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2Fcategory%2Fmachine-learning%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/tag/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/machine-learning/",
+    "to": "https://wordpress.com/?ref=footer_website"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/surround.py"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://replicate.com/docs/arxiv/about"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://txyz.ai"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/search/math?searchtype=author&query=Goodman-Strauss,+C"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/about/donate.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/labs/showcase.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/abs/2303.10798"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/abs/2303.10798?context=cs"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://sciencecast.org/welcome"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/kitegrid.pdf"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/abs/2303.10798/{url_path('ignore_me')}"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/patchmap.py"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/pdf/2303.10798.pdf"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/abs/2303.10798v2"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/help/policies/privacy_policy.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/abs/2303.10798?context=cs.DM"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://www.cornell.edu/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/tb/2303.10798"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/list/math.CO/new"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/help/mathjax.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/about"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://influencemap.cmlab.dev/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/search/math?searchtype=author&query=Smith,+D"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/viz_neighbours.py"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://core.ac.uk/services/recommender"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/about/ourmembers.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://ui.adsabs.harvard.edu/abs/arXiv:2303.10798"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/list/math/recent"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://huggingface.co/docs/hub/spaces"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/help/license/index.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/ct?url=http://www.bibsonomy.org/BibtexHandler?requTask%3Dupload%26url%3Dhttps://arxiv.org/abs/2303.10798%26description%3DAn+aperiodic+monotile&v=f8e89117"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://www.scite.ai/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/abs/2303.10798?context=math"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/auth/show-endorsers/2303.10798"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://paperswithcode.com/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://www.catalyzex.com"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/prevnext?id=2303.10798&function=next&context=math.CO"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/ct?url=https://reddit.com/submit?url%3Dhttps://arxiv.org/abs/2303.10798%26title%3DAn+aperiodic+monotile&v=e866e061"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/kitegrid.py"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://www.litmaps.co/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://doi.org/10.48550/arXiv.2303.10798"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "http://gotit.pub/faq"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/abs/2303.10798v1"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/search/math?searchtype=author&query=Kaplan,+C+S"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/readme.txt"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://api.semanticscholar.org/arXiv:2303.10798"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://www.connectedpapers.com/about"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/neighbours.pdf"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://dagshub.com/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/list/math.CO/recent"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/2patches.txt"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://status.arxiv.org"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/abs/2303.10798?context=math.MG"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/geom.py"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/help"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/format/2303.10798"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/list/math.CO/2303"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/hat.py"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/help/subscribe"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/search/advanced"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://scholar.google.com/scholar_lookup?arxiv_id=2303.10798"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/login"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/static/browse/0.3.4/css/cite.css"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/help/contact.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/help/web_accessibility.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/labs/index.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/src/2303.10798v2/anc/validate/matching.py"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/prevnext?id=2303.10798&function=prev&context=math.CO"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://subscribe.sorryapp.com/24846f03/slack/new"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/show-email/851e6ada/2303.10798"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://info.arxiv.org/help/trackback.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://arxiv.org/search/math?searchtype=author&query=Myers,+J+S"
+  },
+  {
+    "from": "https://arxiv.org/abs/2303.10798",
+    "to": "https://subscribe.sorryapp.com/24846f03/email/new"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/perfectoid-space/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/patrick-massot/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/jeremy-avigad/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/ramon-fernandez-mir/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/idris/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/theorem-provers/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/hol-light/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/coq/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/peter-scholze/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2Ftag%2Fjohan-commelin%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/zhouhang-zhou/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/kenny-lau/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/sphere-eversion/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/unimath/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/author/xenaproject/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://wordpress.com/?ref=footer_website"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2F2023%2F01%2F08%2Flean-2022-round-up%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/isabelle-hol/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/2019/05/11/perfectoid-spaces/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/2019/07/17/lean-does-not-yet-have-real-manifolds/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/sebastien-gouezel/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/agda/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/mizar/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://wordpress.com/read/feeds/72557406"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/chris-hughes/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/johan-commelin/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/perfectoid-spaces/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/bochner-integral/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/johan-commelin/",
+    "to": "https://xenaproject.wordpress.com/tag/manifold/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://automattic.com/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/blog/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/wp-login.php?redirect_to=https%3A%2F%2Fwordpress.com%2Fabuse%2F%3Freport_url%3Dhttps%3A%2F%2Fxenaproject.wordpress.com"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/tos/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/features/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/website-design-service/?ref=footer-link"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/learn/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/create-blog/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wpvip.com/wordpress-vip-agile-content-platform?utm_source=WordPresscom&utm_medium=automattic_referral&utm_campaign=footer"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/partners/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/support/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/business-name-generator/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/about/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/abuse?report_type=technology&report_url=https%3A%2F%2Fxenaproject.wordpress.com"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://developer.wordpress.com/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/p2/?ref=wpcom-product-menu"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/abuse?report_type=abuse&report_url=https%3A%2F%2Fxenaproject.wordpress.com"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/themes"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/webinars/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/plugins"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/tags/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/start?ref="
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/logo-maker/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/domains/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/go/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/start/?ref=websitebluefooter"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://automattic.com/privacy/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/hosting/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://automattic.com/press/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/abuse?report_type=privacy&report_url=https%3A%2F%2Fxenaproject.wordpress.com"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/abuse?report_type=regulation&report_url=https%3A%2F%2Fxenaproject.wordpress.com"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/themes/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/professional-email/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/forums/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/website-builder/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/pricing/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/support/user-guidelines/"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/abuse?report_type=at-risk&report_url=https%3A%2F%2Fxenaproject.wordpress.com"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/abuse?report_type=legal&report_url=https%3A%2F%2Fxenaproject.wordpress.com"
+  },
+  {
+    "from": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com",
+    "to": "https://wordpress.com/google/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/kckennylau/local-langlands-abelian"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/Lix0120/eudoxus/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/ImperialCollegeLondon/dots_and_boxes"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2Fstudent-projects%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/ramonfmir/lean-scheme"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "http://wwwf.imperial.ac.uk/~buzzard/xena/pdfs/Shenyang_Group_Cohomology_in_Lean_Theorem_Prover.pdf"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://wordpress.com/?ref=footer_blog"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://leanprover-community.github.io/lean_projects.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://wordpress.com/read/blogs/135737082/posts/2508"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/mhk119/fibonacci_squares"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/Shenyang1995/M4R"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/student-projects/?share=facebook"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://wp.me/P9bxpM-Es"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2Fstudent-projects%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/jamiebell2805/BSD-conjecture/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/anca797/group-cohomology"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "http://wwwf.imperial.ac.uk/~buzzard/docs/Anca_project.pdf"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/LAC1213/compact_unit_ball"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/ImperialCollegeLondon/xena-UROP-2018/tree/master/src/Geometry"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://github.com/ChrisHughes24/Sylow"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/student-projects/",
+    "to": "https://xenaproject.wordpress.com/student-projects/?share=twitter"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/perfectoid-space/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/patrick-massot/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/jeremy-avigad/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2Ftag%2Fpatrick-massot%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/ramon-fernandez-mir/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/idris/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/theorem-provers/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/hol-light/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/coq/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/peter-scholze/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/zhouhang-zhou/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/sander-dahmen/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/2020/06/05/the-sphere-eversion-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/kenny-lau/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/sphere-eversion/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/unimath/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/author/xenaproject/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://wordpress.com/?ref=footer_website"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2F2023%2F01%2F08%2Flean-2022-round-up%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/isabelle-hol/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/2019/05/11/perfectoid-spaces/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/2019/07/17/lean-does-not-yet-have-real-manifolds/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/cap-set/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/sebastien-gouezel/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/johannes-holzl/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/agda/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/mizar/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://wordpress.com/read/feeds/72557406"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/chris-hughes/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/scheme/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/johan-commelin/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/perfectoid-spaces/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/rob-lewis/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/bochner-integral/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/patrick-massot/",
+    "to": "https://xenaproject.wordpress.com/tag/manifold/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://api.semanticscholar.org/arXiv:2112.03726"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://www.cornell.edu/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/src/2112.03726"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/abs/2112.03726v1"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/help/mathjax.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/prevnext?id=2112.03726&function=prev&context=math.NT"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://replicate.com/docs/arxiv/about"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/list/math.NT/new"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/help/subscribe"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/about"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://www.litmaps.co/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://influencemap.cmlab.dev/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/help/policies/privacy_policy.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://scholar.google.com/scholar_lookup?arxiv_id=2112.03726"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://txyz.ai"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "http://gotit.pub/faq"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "http://www.bibsonomy.org/BibtexHandler?requTask=upload&url=https://arxiv.org/abs/2112.03726&description=On a density conjecture about unit fractions"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/search/math?searchtype=author&query=Bloom,+T+F"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/about/donate.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://core.ac.uk/services/recommender"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/abs/2112.03726?context=math"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/tb/2112.03726"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/about/ourmembers.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/list/math/recent"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/pdf/2112.03726"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://www.catalyzex.com"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/search/advanced"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://huggingface.co/docs/hub/spaces"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/abs/2112.03726/{url_path('ignore_me')}"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://www.connectedpapers.com/about"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/login"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/static/browse/0.3.4/css/cite.css"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/labs/showcase.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/list/math.NT/2112"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://dagshub.com/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/help/license/index.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://sciencecast.org/welcome"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://subscribe.sorryapp.com/24846f03/email/new"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/help/contact.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/abs/2112.03726v2"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/help/web_accessibility.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/abs/2112.03726"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://www.scite.ai/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://status.arxiv.org"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/labs/index.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://doi.org/10.48550/arXiv.2112.03726"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/format/2112.03726"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://reddit.com/submit?url=https://arxiv.org/abs/2112.03726&title=On a density conjecture about unit fractions"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://ui.adsabs.harvard.edu/abs/arXiv:2112.03726"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/auth/show-endorsers/2112.03726"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/list/math.NT/recent"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://subscribe.sorryapp.com/24846f03/slack/new"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://paperswithcode.com/"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/help/trackback.html"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://info.arxiv.org/help"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/prevnext?id=2112.03726&function=next&context=math.NT"
+  },
+  {
+    "from": "https://arxiv.org/abs/2112.03726",
+    "to": "https://arxiv.org/show-email/934fe296/2112.03726"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2F2021%2F04%2F18%2Finduction-on-equality%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2Fcategory%2Fm1f%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2018/01/09/complex-numbers-and-m1f-theorems/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2020/07/05/division-by-zero-in-type-theory-a-faq/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2018/10/21/maths-undergraduate-example-sheets/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2019/05/06/m1f-imperial-undergraduates-and-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2019/06/11/the-inverse-of-a-bijection/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2018/11/17/blue-eyed-islanders-guest-post/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2017/10/26/rational-powers/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/quotients/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/kenny-lau/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/author/xenaproject/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/division-by-zero/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2018/09/21/happy-birthday-xena/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2021/03/04/formalising-mathematics-workshop-7-quotients/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/page/2/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://wordpress.com/read/feeds/72557406"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/induction/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2021/04/18/induction-on-equality/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/formalising-mathematics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/division/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/chris-hughes/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/abhimanyu-pallavi-sudhir/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://xenaproject.wordpress.com/tag/equality/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/category/m1f/",
+    "to": "https://wordpress.com/?ref=footer_website"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/mochizuki/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/patrick-massot/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/coq/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/ashvni-narayanan/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/david-hansen/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/johan-de-jong/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/bill-thurston/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/2019/12/07/rigorous-mathematics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/brian-conrad/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/peter-scholze/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/dustin-clausen/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/grothendieck-topology/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/sphere-eversion/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/2019/12/07/prove-a-theorem-write-a-function/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/mizar/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/johan-commelin/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/metamath/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/vincent-pilloni/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/2021/06/05/half-a-year-of-the-liquid-tensor-experiment-amazing-developments/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/toby-gee/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/lsgnt/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2F2023%2F01%2F08%2Flean-2022-round-up%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://wordpress.com/read/feeds/72557406"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/compact-unit-ball/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/liquid-mathematics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/dominic-verity/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/london-school-of-geometry-and-number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/jaffe-and-quinn/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/etale-cohomology/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://wordpress.com/?ref=footer_blog"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/frank-calegari/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/canonical/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/unimath/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/zfc/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/author/xenaproject/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2Ftag%2Fpeter-scholze%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/isabelle-hol/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/2020/12/05/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/emily-riehl/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/george-boxer/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/peter-scholze/",
+    "to": "https://xenaproject.wordpress.com/tag/collection/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/tag/lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://arxiv.org/abs/2205.12615"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://arxiv.org/abs/2005.14165"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/tag/artificial-intelligence/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/2022/07/29/teaching-formalisation-to-mathematics-undergraduates/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2F2022%2F08%2F16%2Fthe-future-of-interactive-theorem-proving%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/tag/ai/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/?share=twitter"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/tag/natural-language/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://wordpress.com/read/blogs/135737082/posts/3367"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/author/xenaproject/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://openai.com/blog/openai-codex/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2F2022%2F08%2F16%2Fthe-future-of-interactive-theorem-proving%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://www.cmu.edu/hoskinson/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/tag/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://wp.me/p9bxpM-Sj"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/?share=facebook"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://marketplace.visualstudio.com/items?itemName=hoskinson-ml.lean-chat-vscode"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/",
+    "to": "https://wordpress.com/?ref=footer_website"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/undergrad-maths/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/tag/lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/tag/mathematics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/tactics/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/2023/01/08/lean-2022-round-up/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/formalising-mathematics-course/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/m40001/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/number-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/type-theory/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/rigour/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/computability/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://wordpress.com/?ref=footer_blog"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/technical-assistance/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/tag/artificial-intelligence/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/tag/math/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/tag/ai/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/what-is-the-xena-project/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/tag/natural-language/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/general/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/useful-links/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://subscribe.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "http://en.wordpress.com/abuse/?report_url=https://xenaproject.wordpress.com"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/uncategorized/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/m4p33/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/2022/09/12/beyond-the-liquid-tensor-experiment/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/olympiad-stuff/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/2024/01/20/lean-in-2024/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/imperial/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/algebraic-geometry/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/author/xenaproject/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fxenaproject.wordpress.com%2Ftag%2Fartificial-intelligence%2F"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/m1f/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://wordpress.com/start/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/learning-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/what-maths-is-in-lean/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://wordpress.com/read/feeds/72557406"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/tag/machine-learning/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/research-formalisation/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://automattic.com/cookies/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/2022/08/16/the-future-of-interactive-theorem-proving/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/category/m1p1/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/2023/11/04/formalising-modern-research-mathematics-in-real-time/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://xenaproject.wordpress.com/student-projects/"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fxenaproject.wordpress.com%2F2024%2F01%2F20%2Flean-in-2024%2F&signup_flow=account"
+  },
+  {
+    "from": "https://xenaproject.wordpress.com/tag/artificial-intelligence/",
+    "to": "https://leanprover-community.github.io/get_started.html"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://resources.github.com/devops/fundamentals/devsecops/"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/wiki"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/issues"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/login?return_to=%2Fleanprover-community%2Flean-liquid"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/security"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://education.github.com"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/features/copilot"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/features/packages"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/pricing"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/features/security"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/security"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/graphs/code-frequency"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://docs.github.com/repositories/viewing-activity-and-data-for-your-repository/analyzing-changes-to-a-repositorys-content"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/features/discussions"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/forks"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/network/dependencies"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://docs.github.com/site-policy/github-terms/github-terms-of-service"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://skills.github.com/"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/features/actions"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/enterprise/startups"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/pulls"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://resources.github.com/"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://partner.github.com/"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/projects"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/graphs/commit-activity"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/network"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.blog"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/collections"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/topics"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/graphs/contributors"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/graphs/contributors/{{ contributorUrl }}"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/solutions/ci-cd/"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fgraphs%2Fcontributors&source=header-repo&source_repo=leanprover-community%2Flean-liquid"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/community"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/customer-stories"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://support.github.com?tags=dotcom-footer"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/enterprise"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/features/issues"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/pulse"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fleanprover-community%2Flean-liquid%2Fgraphs%2Fcontributors"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/sponsors"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/team"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/features/codespaces"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/readme"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://resources.github.com/learn/pathways/"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://docs.github.com"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/trending"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/actions"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/features/code-review"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/leanprover-community/lean-liquid/graphs/contributors/{{ authorUrl }}"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/features"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com/solutions/devops/"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://github.com"
+  },
+  {
+    "from": "https://github.com/leanprover-community/lean-liquid/graphs/contributors",
+    "to": "https://www.githubstatus.com/"
+  }
+]
