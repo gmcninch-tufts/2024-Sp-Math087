@@ -53,8 +53,9 @@ process is repeated. Let’s model this system as a Markov Chain: the
 nodes in our transition diagram correspond to a certain collection of
 websites, and there is a directed edge from node <code>A</code> to node <code>B</code>
 if site <code>A</code> contains a hyperlink to the site <code>B</code>. Consider a fixed
-node <code>A</code>: to assign the probabilities on edges <code>A</code> <span class="math inline">\(\to\)</span> <code>B</code> we
-just need to count the number <code>N(A)</code> of outgoing links from site
+node <code>A</code>: to assign the probabilities on an edge
+<code>A</code> <span class="math inline">\(\to\)</span> <code>B</code>
+we just need to count the number <code>N(A)</code> of outgoing links from site
 <code>A</code>; then all edges <code>A</code> <span class="math inline">\(\to\)</span> <code>B</code> will be given probability
 <code>1/N(A)</code>.</p>
 <p>Number the nodes <span class="math inline">\(a_0,\dots,a_{n-1}\)</span> and write <span class="math inline">\(\mathbf{e}_i\)</span> for the
@@ -258,52 +259,55 @@ by the indicated links.</p>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">## array([0.00000, 0.00000, 1.00000, 0.00000])</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> adj_from_json(json_file):</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a> <span class="cf">with</span> <span class="bu">open</span>(json_file) <span class="im">as</span> f:</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>     adj_data <span class="op">=</span> json.load(f)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> <span class="bu">open</span>(json_file) <span class="im">as</span> f:</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>      adj_data <span class="op">=</span> json.load(f)</span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a> <span class="bu">dict</span> <span class="op">=</span> {}</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="bu">dict</span> <span class="op">=</span> {}</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> i <span class="kw">in</span> adj_data:</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>     lfrom <span class="op">=</span> i[<span class="st">'from'</span>]</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>     lto   <span class="op">=</span> i[<span class="st">'to'</span>]</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> lfrom <span class="kw">in</span> <span class="bu">dict</span>.keys():</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>         <span class="bu">dict</span>[lfrom].add(lto)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>     <span class="cf">else</span>:</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>         <span class="bu">dict</span>[lfrom] <span class="op">=</span> <span class="bu">set</span>()</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>         <span class="bu">dict</span>[lfrom].add(lto)</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> <span class="kw">not</span>(lto <span class="kw">in</span> <span class="bu">dict</span>.keys()):</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>         <span class="bu">dict</span>[lto] <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> adj_data:</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      lfrom <span class="op">=</span> i[<span class="st">'from'</span>]</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>      lto   <span class="op">=</span> i[<span class="st">'to'</span>]</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> lfrom <span class="kw">in</span> <span class="bu">dict</span>.keys():</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>          <span class="bu">dict</span>[lfrom].add(lto)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span>:</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>          <span class="bu">dict</span>[lfrom] <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>          <span class="bu">dict</span>[lfrom].add(lto)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> <span class="kw">not</span>(lto <span class="kw">in</span> <span class="bu">dict</span>.keys()):</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>          <span class="bu">dict</span>[lto] <span class="op">=</span> <span class="bu">set</span>()</span>
 <span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a> sites <span class="op">=</span> <span class="bu">list</span>(<span class="bu">dict</span>.keys())</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  sites <span class="op">=</span> <span class="bu">list</span>(<span class="bu">dict</span>.keys())</span>
 <span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a> A <span class="op">=</span> np.array([<span class="bu">sum</span>([bv(l_to,sites) <span class="cf">for</span> l_to <span class="kw">in</span> <span class="bu">dict</span>[l_from]],</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>                   np.zeros(<span class="bu">len</span>(sites)))</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> l_from <span class="kw">in</span> sites]) </span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a> <span class="cf">return</span> (sites, A)</span></code></pre></div>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  A <span class="op">=</span> np.array([<span class="bu">sum</span>([bv(l_to,sites) <span class="cf">for</span> l_to <span class="kw">in</span> <span class="bu">dict</span>[l_from]],</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>                    np.zeros(<span class="bu">len</span>(sites)))</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> l_from <span class="kw">in</span> sites]) </span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (sites, A)</span></code></pre></div>
 <hr />
-<p>Now, here is a file some data from which you should build an adjacency
-matrix using <code>adj_from_json</code>:</p>
+<p>Now, here is a file containing data from which you should build an
+adjacency matrix using the function <code>adj_from_json</code>:</p>
 <p><a href="../course-assets/code/MidRep2-data.json">data.json</a></p>
 <p>To use this file, follow these instructions:</p>
 <h2 id="local-computer-instructions">Local computer instructions</h2>
 <p>If you use <code>python</code> on your local computer, save this file to
 your drive and run <code>python</code> from a shell in the same directory. You can
 then call</p>
-<p><code>(ll,A) = adj_from_json("data.json")</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(ll,A) <span class="op">=</span> adj_from_json(<span class="st">&quot;data.json&quot;</span>)</span></code></pre></div>
 <hr />
 <h2 id="colab-instructions"><code>Colab</code> instructions</h2>
 <p>If you use <code>colab</code>, proceed as follows. Save the file
 <code>data.json</code> to your local computer, and then upload that file to
 your <code>google drive</code>.</p>
 <p>To enable <code>colab</code> to see your <code>google drive</code>, execute the following commands in a <code>cell</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.colab <span class="im">import</span> drive</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>drive.mount(<span class="st">'/gdrive'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.colab <span class="im">import</span> drive</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>drive.mount(<span class="st">'/gdrive'</span>)</span></code></pre></div>
 <p>Now change to the correct directory in your <code>google drive</code> by
 executing the following in a <code>cell</code> in <code>colab</code> (you do need the
 <code>%</code> symbol):</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>cd <span class="op">/</span>gdrive<span class="op">/</span>My\ Drive<span class="op">/</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>cd <span class="op">/</span>gdrive<span class="op">/</span>My\ Drive<span class="op">/</span></span></code></pre></div>
+<p>Note for example that you can use the following
+command to see the contents of the currently selected directory of your google drive:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>ls</span></code></pre></div>
 <p>Now you can run</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(ll,A) <span class="op">=</span> adj_from_json(<span class="st">&quot;data.json&quot;</span>):</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>(ll,A) <span class="op">=</span> adj_from_json(<span class="st">&quot;data.json&quot;</span>):</span></code></pre></div>
 <p>in a <code>colab cell</code>.</p>
 <hr />
 <p>Once you have produced the adjacency matrix <code>A</code> from
@@ -353,17 +357,17 @@ the model?</p></li>
 </ol>
 <hr />
 <p><strong>For Fun:</strong></p>
-<p>Here is some code for performing a <code>web-crawl</code>:</p>
+<p>Here is some code <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> for performing a <code>web-crawl</code>:</p>
 <p><a href="../course-assets/code/MidRep2_code.py">web-crawl code</a></p>
-<p>It contains a function</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crawl(start_url,</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>          save_file,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>          n,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>          verbose<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>          follow_relative_links<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>          max_links_per_page<span class="op">=</span><span class="bu">float</span>(<span class="st">'inf'</span>),</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>          blacklist<span class="op">=</span>[],</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>          whitelist<span class="op">=</span>[]):</span></code></pre></div>
+<p>It contains a function with the following signature</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crawl(start_url,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>          save_file,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>          n,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>          verbose<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>          follow_relative_links<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>          max_links_per_page<span class="op">=</span><span class="bu">float</span>(<span class="st">'inf'</span>),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>          blacklist<span class="op">=</span>[],</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>          whitelist<span class="op">=</span>[]):</span></code></pre></div>
 <p>which when invoked will “scrape/crawl” the web, beginning at
 <code>start_url</code>. It finds all links in this first site, and then
 proceeds to recursively follow these links. The parameter <code>n</code> is the
@@ -371,7 +375,7 @@ number of pages to include in the <code>adjacency data</code> to be reported
 (roughly speaking, the recursive search can stop once <code>n</code> pages have
 been found).</p>
 <p>For example, you could try something like</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>crawl(<span class="st">&quot;https://www.comap.com/contests/mcm-icm&quot;</span>,<span class="st">&quot;comap.txt&quot;</span>,<span class="dv">500</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>crawl(<span class="st">&quot;https://www.comap.com/contests/mcm-icm&quot;</span>,<span class="st">&quot;comap.txt&quot;</span>,<span class="dv">500</span>)</span></code></pre></div>
 <p>When finished, this function will output a <code>json</code> file with name
 <code>save_file</code>. This file will contain <code>from/to</code> pairs for links
 found in the search.</p>
@@ -382,6 +386,14 @@ adjacency matrix, and use either the eigenvalue method or the
 iteration method to rank the pages that you have considered.</p>
 <p>There are a number of comments in the code for <code>crawl</code> that are
 worth reading if you want to play with this code…</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>[2024-03-08] I needed to install some packages via <code>conda</code> to get it running just now:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> install lxml beautifulsoup4</span></code></pre></div>
+<p>I believe it works in colab.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
         </main>
 
         <footer>
