@@ -54,21 +54,4 @@ date: 2024-01-01
 
 # final reports {#reports}
 
-  Since you *choose* and get approval for a topic, there are some
-  additional rubric criteria. The submission should:
-
-  -  give a clear statement of the problem and your modeling goals.
-   
-  -  provide an explanation for assumptions made, including discussion
-     of how they affect the problem.
-   
-  -  describe the model used or developed.
-   
-  -  describe model testing, sensitivity analysis, computational
-     requirements, and error analysis.
-   
-  -  discuss the strengths and weaknesses of your model or approach.
-   
-  -  provide a literature review. This includes citation of a few
-     references of existing research on the subject.
-   
+  See [The Final Report Guidelines](final-project-guidelines.html)
