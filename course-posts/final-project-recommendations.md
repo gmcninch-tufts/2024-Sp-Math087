@@ -1,7 +1,6 @@
 ---
 author: George McNinch
 title: |
- Math 87 Spring 2024 -
  Final Project Recommendations
 date: 2024-03-09
 ---

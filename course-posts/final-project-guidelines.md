@@ -1,7 +1,6 @@
 ---
 author: George McNinch
 title: |
- Math 87 Spring 2024 -
  Final Project Guidelines
 date: 2024-03-09
 ---
@@ -18,7 +17,7 @@ You must submit the following *deliverables*:
 2. written report by [2024-04-26 Friday]
 3. video presentation to accompany the report, also by [2024-04-26 Friday]
 4. you will watch two of the presentations submitted by your class-mates, 
-   write some *brief* comments, and submit them by [2024-03-06].
+   write some *brief* comments, and submit them by [2024-05-06 Monday].
 
 Here are the details:
 
@@ -104,6 +103,17 @@ some calculation from your report on a whiteboard.
 
 I'm including some *suggestions* in the [*final project
 recommendations*](final-project-recommendations.html).
+
+# Viewing Video Presentations
+
+As indicated above, I'll create a folder at *tufts.box.com* for the
+class Videos; the class will have *read-access* to this folder.  You
+must *watch* (at least) two videos submitted by your classmates, and
+write *brief* comments (a paragraph or two).
+
+You must submit these comments in a PDF to gradescope by [2024-05-06
+Monday].
+
 
 # Requirements for the Report
 
