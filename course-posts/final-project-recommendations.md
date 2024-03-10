@@ -27,7 +27,7 @@ this site a bit clunky and I wanted you to see some samples quickly).
   - ['22 - cyclists' power profile](https://www.mathmodels.org/Problems/2022/MCM-A/2022_MCM_Problem_A.pdf)
   - ['22 - hydro-electric sharing](https://www.mathmodels.org/Problems/2022/MCM-B/2022_MCM_Problem_B.pdf)
 
-Of course, these problems don't point you to the *literature* that may exist on these problems.
+Of course, these problems don't point you to relevant *literature*, but maybe they will inspire some thoughts.
 
 
 # Report samples 
