@@ -8,19 +8,11 @@ date: 2024-03-09
 # Examples of modeling problems
 
 It might be useful to look at sample "modeling problems" for
-inspiration. Here are a couple of online resources ("MathWorks
-Modeling Challenge" and "COMAP") with problems from past modeling
-contests.
+inspiration. Here are some problems which appeared in Mathematical Contest in Modeling ( "COMAP")
 
 In both cases, there are *a lot* more problems than I've linked
 here. (I included some precise links e.g. because I found navigating
-these sites a bit clunky and I wanted you to see some samples quickly).
-
-- [MathWorks Math Modeling Challenge](https://m3challenge.siam.org/resources/sample-problems/)  
-  - ['23 - e-bikes](https://m3challenge.siam.org/resources/archives/2023-year-at-a-glance/2023-problem-remote-work-fad-or-future/)
-  - ['22 - remote work](https://m3challenge.siam.org/resources/archives/2022-year-at-a-glance/2022-problem-remote-work-fad-or-future/)
-  - ['21 - digital divide](https://m3challenge.siam.org/resources/archives/2021-year-at-a-glance/2021-problem-defeating-the-digital-divide-internet-costs-needs-and-optimal-planning/)
-  - [more problems here...](https://m3challenge.siam.org/resources/past-problems/)
+this site a bit clunky and I wanted you to see some samples quickly).
   
 
 - [COMAP problems](https://www.contest.comap.com/undergraduate/contests/mcm/previous-contests.php)
@@ -35,6 +27,9 @@ these sites a bit clunky and I wanted you to see some samples quickly).
   - ['22 - cyclists' power profile](https://www.mathmodels.org/Problems/2022/MCM-A/2022_MCM_Problem_A.pdf)
   - ['22 - hydro-electric sharing](https://www.mathmodels.org/Problems/2022/MCM-B/2022_MCM_Problem_B.pdf)
 
+Of course, these problems don't point you to the *literature* that may exist on these problems.
+
+
 # Report samples 
 
   (this example should more-or-less match the given specifications, except that it is 10 pages rather than 8)
@@ -44,7 +39,34 @@ these sites a bit clunky and I wanted you to see some samples quickly).
   - [report sample](/course-assets/samples/FinalReport_Sample.pdf)
 
 
+# Including graphical images in your report
 
+If you produce your report using `LaTeX` (recommended!) the following example shows how
+to include graphical images:
+
+  - [[latex example with graphics]](/course-assets/latex-examples/graphic-example.tex)
+	[[graphic]](/course-assets/latex-examples/graph-example.png)
+	[[pdf]](/course-assets/latex-examples/graphic-example.pdf)
+
+The main point here is that you need to use the `graphicx` package
+
+``` latex
+\usepackage{graphicx, color}
+```
+
+and that the command
+
+```latex
+  \includegraphics[scale=.5]{graph-example}
+```
+displays the graphic found in the file named `graph-example.png` (or `graph-example.jpg` or...)
+
+The `[pdf]` link shows the output. To use this yourself, you'll need
+to save the `latex` file as well as the `png` graphic file. You can
+read a bit more
+[here](https://www.overleaf.com/learn/latex/Inserting_Images) about
+how to use this in overleaf. You'll need to *upload* the file
+`graph-example.png` to Overleaf...
 
 # Video recommendations
 
@@ -67,4 +89,19 @@ these sites a bit clunky and I wanted you to see some samples quickly).
   - using these tools will make it easier to *visually demonstrate
     some aspect of mathematics involved in your report*
   
+  - here is an example of some beamer slides:
   
+    [[latex]](/course-assets/latex-examples/beamer-example.tex)
+	[[graph]](/course-assets/latex-examples/graph-example.png)
+	[[pdf]](/course-assets/latex-examples/beamer-example.pdf)
+
+    This example includes an illustration of how to include *images* in a latex file.
+	In order to use this example, you'll need to save both the `LaTeX`
+	file and the graphical `png` file.
+
+    The `[pdf]` link shows the output. To use this yourself, you'll need
+	to save the `latex` file as well as the `png` graphic file. You can
+	read a bit more
+	[here](https://www.overleaf.com/learn/latex/Inserting_Images) about
+	how to use this in overleaf. You'll need to *upload* the file
+	`graph-example.png` to Overleaf...

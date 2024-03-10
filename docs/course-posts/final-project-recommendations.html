@@ -43,20 +43,11 @@
     <section>
         <h1 id="examples-of-modeling-problems">Examples of modeling problems</h1>
 <p>It might be useful to look at sample “modeling problems” for
-inspiration. Here are a couple of online resources (“MathWorks
-Modeling Challenge” and “COMAP”) with problems from past modeling
-contests.</p>
+inspiration. Here are some problems which appeared in Mathematical Contest in Modeling ( “COMAP”)</p>
 <p>In both cases, there are <em>a lot</em> more problems than I’ve linked
 here. (I included some precise links e.g. because I found navigating
-these sites a bit clunky and I wanted you to see some samples quickly).</p>
+this site a bit clunky and I wanted you to see some samples quickly).</p>
 <ul>
-<li><p><a href="https://m3challenge.siam.org/resources/sample-problems/">MathWorks Math Modeling Challenge</a></p>
-<ul>
-<li><a href="https://m3challenge.siam.org/resources/archives/2023-year-at-a-glance/2023-problem-remote-work-fad-or-future/">’23 - e-bikes</a></li>
-<li><a href="https://m3challenge.siam.org/resources/archives/2022-year-at-a-glance/2022-problem-remote-work-fad-or-future/">’22 - remote work</a></li>
-<li><a href="https://m3challenge.siam.org/resources/archives/2021-year-at-a-glance/2021-problem-defeating-the-digital-divide-internet-costs-needs-and-optimal-planning/">’21 - digital divide</a></li>
-<li><a href="https://m3challenge.siam.org/resources/past-problems/">more problems here…</a></li>
-</ul></li>
 <li><p><a href="https://www.contest.comap.com/undergraduate/contests/mcm/previous-contests.php">COMAP problems</a></p>
 <p>You should be able to see the <em>problems</em> here, though apparently you
 can’t see the submissions &amp; judges comments without a membership.</p>
@@ -69,12 +60,32 @@ can’t see the submissions &amp; judges comments without a membership.</p>
 <li><a href="https://www.mathmodels.org/Problems/2022/MCM-B/2022_MCM_Problem_B.pdf">’22 - hydro-electric sharing</a></li>
 </ul></li>
 </ul>
+<p>Of course, these problems don’t point you to the <em>literature</em> that may exist on these problems.</p>
 <h1 id="report-samples">Report samples</h1>
 <p>(this example should more-or-less match the given specifications, except that it is 10 pages rather than 8)</p>
 <ul>
 <li><p><a href="../course-assets/samples/FinalProposal_Sample.pdf">proposal sample</a></p></li>
 <li><p><a href="../course-assets/samples/FinalReport_Sample.pdf">report sample</a></p></li>
 </ul>
+<h1 id="including-graphical-images-in-your-report">Including graphical images in your report</h1>
+<p>If you produce your report using <code>LaTeX</code> (recommended!) the following example shows how
+to include graphical images:</p>
+<ul>
+<li><a href="../course-assets/latex-examples/graphic-example.tex">[latex example with graphics]</a>
+<a href="../course-assets/latex-examples/graph-example.png">[graphic]</a>
+<a href="../course-assets/latex-examples/graphic-example.pdf">[pdf]</a></li>
+</ul>
+<p>The main point here is that you need to use the <code>graphicx</code> package</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">graphicx, color</span>}</span></code></pre></div>
+<p>and that the command</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="bu">\includegraphics</span>[scale=.5]{<span class="ex">graph-example</span>}</span></code></pre></div>
+<p>displays the graphic found in the file named <code>graph-example.png</code> (or <code>graph-example.jpg</code> or…)</p>
+<p>The <code>[pdf]</code> link shows the output. To use this yourself, you’ll need
+to save the <code>latex</code> file as well as the <code>png</code> graphic file. You can
+read a bit more
+<a href="https://www.overleaf.com/learn/latex/Inserting_Images">here</a> about
+how to use this in overleaf. You’ll need to <em>upload</em> the file
+<code>graph-example.png</code> to Overleaf…</p>
 <h1 id="video-recommendations">Video recommendations</h1>
 <ul>
 <li><p>The <em>simplest</em> way to make the required video for the final project
@@ -90,6 +101,19 @@ produce in <code>LaTeX</code> using the package <code>beamer</code>.</p>
 <li><p>discussion of <code>beamer</code> at the <code>overleaf</code> site: <a href="https://www.overleaf.com/learn/latex/Beamer"><code>beamer</code></a></p></li>
 <li><p>using these tools will make it easier to <em>visually demonstrate
 some aspect of mathematics involved in your report</em></p></li>
+<li><p>here is an example of some beamer slides:</p>
+<p><a href="../course-assets/latex-examples/beamer-example.tex">[latex]</a>
+<a href="../course-assets/latex-examples/graph-example.png">[graph]</a>
+<a href="../course-assets/latex-examples/beamer-example.pdf">[pdf]</a></p>
+<p>This example includes an illustration of how to include <em>images</em> in a latex file.
+In order to use this example, you’ll need to save both the <code>LaTeX</code>
+file and the graphical <code>png</code> file.</p>
+<p>The <code>[pdf]</code> link shows the output. To use this yourself, you’ll need
+to save the <code>latex</code> file as well as the <code>png</code> graphic file. You can
+read a bit more
+<a href="https://www.overleaf.com/learn/latex/Inserting_Images">here</a> about
+how to use this in overleaf. You’ll need to <em>upload</em> the file
+<code>graph-example.png</code> to Overleaf…</p></li>
 </ul></li>
 </ul>
     </section>

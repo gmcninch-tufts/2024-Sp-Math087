@@ -59,7 +59,7 @@ homework assignment).
 
 
 [Here is a link for a very basic
-template](/course-assets/latex-template.tex) for homework assignments
+template](/course-assets/latex-examples/latex-template.tex) for homework assignments
 that you can start with. I've also include the contents of this template in this post -- see below.
 
 This template makes some stylistic choices that you are of course
@@ -69,7 +69,7 @@ template that is provided for the new project, and paste this into the
 editor. Now, when you click "recompile", overleaf should render the
 output.
 
-[Here is the resulting `PDF` obtained from compiling this `latex` document](/course-assets/latex-template.pdf).
+[Here is the `PDF` obtained from compiling this `latex` document](/course-assets/latex-examples/latex-template.pdf).
 
 ----
 
