@@ -8,6 +8,8 @@ date: due [2024-03-29 Friday]
 
 *due [2024-03-29 Friday]* on *gradescope*.
 
+Your proposal should be submitted as a *PDF* on *gradescope*.
+
 The aim of the proposal is to articulate a clearly defined goal for
 your analysis, and to briefly discuss how it you will carry out the
 investigation. 

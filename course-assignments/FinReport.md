@@ -1,12 +1,12 @@
 ---
 title: |
   Final Report
-date: due [2024-05-03 Friday]
+date: due [2024-04-26 Friday]
 ---
 
 # Report
 
-*due [2024-05-03 Friday]*
+*due [2024-04-26 Friday]*
 
 Your report should be submitted as a *PDF* on *gradescope*.
 
@@ -39,7 +39,7 @@ Your report should include the following:
 
 # Video Presentation
 
-*due [2024-05-03 Friday]*
+*due [2024-04-26 Friday]*
 
 > Your video presentation will be uploaded to *tufts.box.com*, but I
 > haven't yet set up the necessary folder.
