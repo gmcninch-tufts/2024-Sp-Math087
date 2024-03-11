@@ -208,9 +208,7 @@ array([0., 0., 0., 6., 3., 3., 7., 7., 2., 5., 7., 6., 4., 0., 0., 0., 0.,
 # we then create the vector for the relay costs
 relay_costs_obj = sum([ relay_costs(e['from'],e['to'])*sbv(edges.index(e),len(edges))
                         for e in edges_relay])
-```
 
-``` python
 relay_costs_obj
 => 
 array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 4., 5., 6., 2.,
@@ -220,9 +218,7 @@ array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 4., 5., 6., 2.,
 ``` python
 # the objective function is then the vector sum of the previous two results
 costs_obj = ship_costs_obj + relay_costs_obj
-```
 
-``` python
 costs_obj
 =>
 array([0., 0., 0., 6., 3., 3., 7., 7., 2., 5., 7., 6., 4., 4., 5., 6., 2.,
@@ -786,6 +782,11 @@ def profit(e):
             return 0
 
 sales = np.array([ profit(e) for e in edges])
+
+sales
+=>
+array([ -8,  -5, -10,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+         0,   0,   0,   0,   0,   0,   0,  15,  20,  25,  10,  10])
 ```
 
 Now the objective function for the profit linear program is given by
@@ -794,7 +795,11 @@ the shipping costs.
 
 ``` python
 profit_obj = sales - ship_costs_obj
-
+probit_obj
+=>
+array([ -8.,  -5., -10.,  -6.,  -3.,  -3.,  -7.,  -7.,  -2.,  -5.,  -7.,
+        -6.,  -4.,   0.,   0.,   0.,   0.,   0.,   0.,   0.,  15.,  20.,
+        25.,  10.,  10.])
 ```
 
 Now, when maximizing profit, we no longer want to *require* that we
@@ -844,7 +849,7 @@ profit_result = linprog((-1)*profit_obj,
 This shows that the maximum profit is $13,450.00.
 ``` python
 profit_result.fun
--13450.0
+-6750.0
 
 report(profit_result.x)
 Source     -> Santa Fe  :   700.00
