@@ -39,21 +39,67 @@ right). Suppose that every minute you flip a coin. If the coin is
 heads you walk right and if the coin is tails you walk left.</p>
 <ol type="a">
 <li><p>Explain why your position (i.e. the building you’re in front of)
-as a function of time can be modeled as a Markov process.</p></li>
+as a function of time can be modeled as a Markov process.</p>
+<div class="solution">
+<p>Your position at time t is (randomly chosen to be) one step to
+the left or to the right of your previous position, and hence is
+only dependent on your position at time t − 1. It doesn’t matter
+(for instance) what sequence of steps took you to get to your
+position at time t − 1, and hence this is a Markov chain.</p>
+<p>Somewhat more precisely, the nodes of the <em>transition diagram</em>
+are in one-to-one correspondence with the integers <span class="math inline">\(\{0, \pm 1, \pm 2, \cdots\}\)</span>, and each node <code>[n]</code> has two outgoing
+edges. There is an edge <code>[n] --&gt; [n+1]</code> labeled with probability
+1/2, and an edge <code>[n-1] &lt;-- [n]</code> also labeled with probability
+1/2. Thus, the probabilities on the outgoing edges always sum to 1.</p>
+<p>And the state of the system evolves each minute by applying the
+rules of this <em>state machine</em>; this is the definition of a
+<em>Markov process</em> (or <em>Markov chain</em>).</p>
+</div></li>
 <li><p>Can the distance from where you started as a function of time be
-modeled by a Markov process?</p></li>
+modeled by a Markov process?</p>
+<div class="solution">
+<p>Yes. In this case, consider the <em>transition diagram</em> whose nodes
+are <em>non-negative</em> integers. For any node <code>[n]</code> with <code>n&gt;0</code>,
+there are <em>two</em> outgoing edges: <code>[n] --&gt; [n+1]</code> and <code>[n-1] &lt;-- [n]</code>, both of which are labeled with probability 1/2.</p>
+<p>If you are standing in front of building
+<code>m</code>, the effect of a <code>heads</code> toss and of a <code>tails</code> toss depend
+on the <em>sign</em> of <code>m</code>. Namely, if <code>m&gt;0</code> and you toss <code>heads</code>, you
+move one building to the right and hence increase your distance
+to the origin by one unit, and if you toss <code>tails</code>, you move one
+building to the left and hence decrease your distance to the
+origin by one unit.</p>
+<p>On the other hand, if <code>m&lt;0</code> and you toss <code>heads</code>, your
+one-building to the right move <em>increases</em> your distance to the
+origin by one unit, and if you toss <code>tails</code>, your distance to
+the origin <em>decreases</em> by one unit.</p>
+<p>Finally, if your distance is <code>0</code>, there is only one outgoing
+edge <code>[0] --&gt; [1]</code> and it is assigned a probability of 1, since
+either a <code>heads</code> or <code>tails</code> results in a distance of 1 unit from
+the origin.</p>
+<p>In summary, <code>distance to the origin</code> is governed by the
+transition diagram we just described, hence is a Markov process.</p>
+</div></li>
 <li><p>Now suppose that every minute you flip two coins. If both are
 heads, you move right, if both are tails you move left and
 otherwise you stay put. Is your distance from where you started
 modeled by a Markov process in this scenario? How do you expect
-this to compare to the process described in part b?</p></li>
+this to compare to the process described in part b?</p>
+<div class="solution">
+
+</div></li>
 <li><p>For both experiments, compute the probability that you are
-standing on an odd number for minute <span class="math inline">\(0,1,2,3,4\)</span>.</p></li>
+standing on an odd number for minute <span class="math inline">\(0,1,2,3,4\)</span>.</p>
+<div class="solution">
+
+</div></li>
 <li><p>(Optional food for thought) Suppose your friend is playing the
 same game, but started at position −100. Do you think it is more
 likely that you two will eventually meet or that you two will
 never meet? Does this answer change when your friend starts at
-−1? How about −10000000?</p></li>
+−1? How about −10000000?</p>
+<div class="solution">
+
+</div></li>
 </ol></li>
 <li><p>Rain or shine On Planet X, the weather is strangely predictable:
 The weather is always either sunny, rainy, foggy or snowy. If it
@@ -67,21 +113,36 @@ wear this week, so you’d like to develop a model for the weather.</p>
 <ol type="a">
 <li><p>Explain why the weather can be modeled as a Markov process. Write
 out the transition matrix, and draw the corresponding finite
-state machine.</p></li>
+state machine.</p>
+<div class="solution">
+
+</div></li>
 <li><p>Check whether the conditions for the Perron-Frobenius theorem is
 satisfied for this problem (aperiodic and strongly
-connected). Explain your reasoning.</p></li>
+connected). Explain your reasoning.</p>
+<div class="solution">
+
+</div></li>
 <li><p>Do you expect power iteration to be effective for computing the
-greatest eigenvector of your transition matrix?</p></li>
+greatest eigenvector of your transition matrix?</p>
+<div class="solution">
+
+</div></li>
 <li><p>Find the eigenvalue decomposition for the transition matrix, and
 the associated eigenvectors. Explain why these values confirm
-your answer to part 2.</p></li>
+your answer to part 2.</p>
+<div class="solution">
+
+</div></li>
 <li><p>Suppose that the “weather rules” change so that if its sunny
 today, it is equally likely to be snowy or rainy tomorrow. Write
 out the new transition matrix, associated finite state machine,
 and determine whether the conditions for the Perron-Frobenius
 are satisfied. Compute the eigenvalue decomposition and compare
-to the previous set of eigenvalues.</p></li>
+to the previous set of eigenvalues.</p>
+<div class="solution">
+
+</div></li>
 </ol></li>
 </ol>
         </main>
