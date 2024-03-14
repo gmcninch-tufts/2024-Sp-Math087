@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - PS 05 -- Matching & Finite state machines **Solutions**</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>PS 05 -- Matching & Finite state machines **Solutions**</h1>
+            <ol type="1">
+<li><p>A mining company needs to set up supply line between a set of
+quarries <span class="math inline">\(U\)</span> and a set of processing plants <span class="math inline">\(W\)</span>. The company is
+interested in setting up perfect matchings of quarries to plants,
+i.e. each quarry should have a supply line to a unique processing
+plant, such that no quarry or plant is on two supply
+lines. Conveniently, there are as many quarries as there are
+processing plants. Less conveniently, supply lines need to travel
+along roads. Let <span class="math inline">\(E\)</span> be the set of roads. We assume that each road in
+<span class="math inline">\(E\)</span> starts at a quarry and travels directly to a processing plant,
+and that the roads do not intersect.</p>
+<ol type="a">
+<li><p>Suppose that |U| = |W| = 4 and that there are seven roads
+total. Construct an example where no perfect matching is
+possible.</p>
+<p><strong>Suggestion</strong>: for this problem and the rest, we suggest you
+model this set up as a bipartite graph.</p>
+<div class="solution">
+<p>Write <code>U0,U1,U2,U3</code> for the <code>U</code>-nodes, and similarly for the <code>V</code> nodes. Then</p>
+<p><img src="../course-assets/images/ps5-sol1a.png" /></p>
+<p>describes a bi-partite graph with 7 edges and no perfect matches.
+To see that there are no perfect matchings, note that
+the set <code>[U0,U1]</code> has two elements, but its set of neighbors is
+<code>[V0]</code>, which has only one element. So the “marriage Theorem” implies
+that there is no perfect matching.</p>
+<p>(<em>Of course, there are many other graphs that work!</em>)</p>
+</div></li>
+<li><p>If no perfect matching exists, the company would like to know
+what is the maximal number of quarry/plant pairs such that no
+quarry or plant is on two supply chains (call this a maximal
+matching). Compute this for your example in a). How many
+additional roads must be made in order for a perfect matching to
+exist?</p>
+<div class="solution">
+<p>We know there can be no perfect matching, so any matching <code>M</code> must have size <code>&lt;= 3</code>.
+So we will have found a maximal matching if we find a matching of size <code>3</code>.</p>
+<p>Now, just notice that <code>M = [(U1,V0),(U2,V1),(U3,V2)]</code> is a matching
+of length 3; it is therefore a <em>maximal</em> matching.</p>
+<p>We only need 1 additional edge (road) to create a perfect
+matching; namely, we require the existence of an edge <code>(U0,V3)</code>.</p>
+</div></li>
+<li><p>If <span class="math inline">\(|U| = |W| = n\)</span>, what is the largest possible size of <span class="math inline">\(E\)</span>?
+Give your answer as an expression in <span class="math inline">\(n\)</span>.</p>
+<div class="solution">
+<p>Each vertex <code>u ∈ U</code> can be connected to at most <code>n</code> vertices in <code>V</code>.
+Since there are <code>n</code> choices for <code>u</code>, there are no more than <code>n*n</code>=<span class="math inline">\(n²\)</span> edges.</p>
+</div></li>
+<li><p>Suppose that for each <span class="math inline">\(x ∈ U\)</span>, there is exactly one road
+involving <span class="math inline">\(x\)</span>, and write this edge as <span class="math inline">\(x → w(x)\)</span> for some <span class="math inline">\(w(x) ∈ W\)</span>. Explain why the size of a maximum matching is equal to the
+number of distinct nodes <span class="math inline">\(\{w(x)\}\)</span>.</p>
+<div class="solution">
+<p>Write <code>W0 = [ w(x) for x in V ]</code>. We must argue two things:</p>
+<ul>
+<li><p>any matching <code>M</code> has <code>|M| &lt;= |W0|</code>,</p></li>
+<li><p>there is a matching <code>M0</code> with <code>|M0| = |W0|</code>.</p></li>
+</ul>
+<p>If <code>M</code> is any matching, consider the subset <code>T=[ v for (u,v) in M ]</code> of <code>W</code> consisting of the targets of edges in <code>M</code>. By the
+assumption on the graph, <code>T</code> is contained in the set <code>W0</code>, so</p>
+<pre><code>|M| = |T| &lt;= |W0|</code></pre>
+<p>This proves the first requirement.</p>
+<p>As to the second, for each <code>w in W0</code> we may <em>choose</em> an element <code>x_w in V</code> with
+<code>w = w(x_w)</code>.</p>
+<blockquote>
+<p>(We can even make this choice algorithmic if we choose an
+<em>ordering</em> of <code>V</code>. To find <code>x_w</code> for a given <code>w in W</code>, we
+just search through elements <code>x</code> of <code>V</code> in order, and take for
+<code>x_w</code> the <em>first</em> element <code>x in V</code> for which <code>w(x) = w</code>.)</p>
+</blockquote>
+<p>Then form the matching</p>
+<pre><code>M0 = [ (x_w,w) for w in W0 ]</code></pre>
+<p>Then <code>|M0| = |W0|</code> so by the previous observation, <code>M0</code> is a <em>maximal</em> matching.</p>
+</div></li>
+<li><p>(Optional) Suppose that <code>|U| = |W| = n</code> and let <code>m = |E|</code>. Can you
+always find a configuration of roads such that a perfect
+matching is impossible? Put differently, is there a minimal m
+such that a perfect matching will exist no matter how the roads
+are placed?</p>
+<div class="solution">
+<p>At one extreme, for the <em>regular graph</em> having
+<span class="math inline">\(n²\)</span> edges, there is of course a perfect matching; e.g. this
+follows from the Marriage Theorem, since <code>|N(X)| = n &gt;= |X|</code> for each
+non-empty subset <code>X</code> of <code>V</code>.</p>
+<p>At the other extreme, we see from (d) that there are graphs with
+<code>|E| = n</code> for which there is no perfect matching (in the
+notation of part (d), just arrange that</p>
+<pre><code>|W0| = length([ w(x) for x in V ]) &lt; n.</code></pre>
+<p>(For example, this can be achieved by choosing a vertex <code>w0</code> in
+<code>W</code>, and - in the notation of (d) - declare that <code>w(x) = w0</code> for
+every <code>x in V</code>.)</p>
+<p>So there is <em>some</em> minimal <code>m</code> with <span class="math inline">\(n &lt; m ≤ n^2\)</span> such that if <code>|E| = m</code>
+there is always a perfect matching. Of course, this argument doesn’t give
+a formula for <code>m</code>…</p>
+</div></li>
+</ol></li>
+<li><p>A streaming service wants to model the annual growth rate of its
+subscribers. The data shows that they can roughly predict the
+behavior of customers based on how long they have been users of the
+service: Let <span class="math inline">\(p_n\)</span> be the current number of subscribers who have had
+the service for less than a year, and <span class="math inline">\(p_o\)</span> be the current number of
+subscribers who have had the service for more than a year (so in
+total there are <span class="math inline">\(p_n + p_o\)</span> subscribers). For convenience we will
+refer to the two types of subscriber as “new” and
+“old”.</p>
+<p>Let <span class="math inline">\(\mathbf{p}= \begin{bmatrix} p_n \\ p_o \end{bmatrix}\)</span> be a vector
+recording the current subscriber population, and write <span class="math inline">\(\mathbf{p}^*\)</span> be the
+subscriber population in one year’s time. Then the data shows that <span class="math inline">\(\mathbf{p}∗ = A\mathbf{p}\)</span>, where <span class="math inline">\(A\)</span> is the matrix given by
+<span class="math display">\[A = \begin{bmatrix} 1 &amp; 0 \\ 0.8 &amp; 0.5 \end{bmatrix}.\]</span></p>
+<p>This is, writing <span class="math inline">\(\mathbf{p}^* = \begin{bmatrix} q_n \\ q_o \end{bmatrix}\)</span>, there will be <span class="math inline">\(q_n\)</span> “new” users in one years time,
+and <span class="math inline">\(q_o\)</span> “old” users.</p>
+<ol type="a">
+<li><p>What percentage of current new users will still be subscribed by
+the start of the next year?</p>
+<p>How does this retention rate differ for old users?</p>
+<div class="solution">
+<p>Since <span class="math inline">\(A \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0.8 \end{bmatrix}\)</span>,
+we see that 80% of the current <em>new users</em> will be <em>old users</em> next year.</p>
+<p>On the other hand,
+<span class="math inline">\(A \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 0.5 \end{bmatrix}\)</span>,
+so we see that 50% of current <em>old users</em> will remain <em>old users</em> next year.</p>
+<p>The retention rate is higher for <em>new users</em>.</p>
+</div></li>
+<li><p>It turns out that A has eigenvalues <span class="math inline">\(λ = 1\)</span> and <span class="math inline">\(\lambda = 0.5\)</span>. Find an
+eigenvector for the eigenvalue <span class="math inline">\(λ = 1\)</span> and use it to describe the
+long term behavior of the user population for this streaming
+service. In the long run, what will the ratio of new to old
+users be?</p>
+<div class="solution">
+<p>To find an eigenvector for <span class="math inline">\(\lambda = 1\)</span>, we must solve the matrix equation
+<span class="math display">\[0 = (A - I)\mathbf{x}= \begin{bmatrix} 0 &amp; 0 \\ 0.8 &amp; -0.5 \end{bmatrix} \mathbf{x}.\]</span>
+So <span class="math display">\[\mathbf{x}= \begin{bmatrix} 0.5 \\ 0.8 \end{bmatrix}\]</span>
+is a 1-eigenvector.</p>
+<p>Since <span class="math inline">\(.5 &lt; 1\)</span>, we know that <span class="math display">\[\lim_{n \to \infty} A^n \mathbf{p}= \mathbf{x}
+= c \begin{bmatrix} 0.5 \\ 0.8 \end{bmatrix}\]</span>
+for some constant <span class="math inline">\(c\)</span>.</p>
+<p>(Indeed, let <span class="math inline">\(\mathbf{y}\)</span> be a <code>0.5</code>-eigenvector. Then <span class="math inline">\(\mathbf{x},\mathbf{y}\)</span> form a
+basis for <span class="math inline">\(\mathbb{R}^2\)</span>, so we may write <span class="math inline">\(\mathbf{p}= a \mathbf{x}+ b \mathbf{y}\)</span>
+for scalars <span class="math inline">\(a,b\)</span>. Then <span class="math display">\[A^n\mathbf{p}= a (A^n \mathbf{x}) + b(A^n \mathbf{y}) = a \mathbf{x}+ b (1/2)^n \mathbf{y}\to
+a \mathbf{x}\]</span> as <span class="math inline">\(n \to \infty\)</span>).</p>
+<p>Now, <span class="math inline">\(A \mathbf{p}\)</span> represents the state after 1 year, <span class="math inline">\(A^2 \mathbf{p}\)</span>
+represents the state after 2 years, and <span class="math inline">\(A^n \mathbf{p}\)</span> represents the
+state after <span class="math inline">\(n\)</span> years. In the limit, we see that the
+equilibrium state is <span class="math inline">\(c \begin{bmatrix} 0.5 \\ 0.8 \end{bmatrix}.\)</span> In particular, we see that the ratio <code>(# new users)/(# old users)</code> is given by <code>5/8</code>.</p>
+<p>(This calculation depends on the assumption that the initial condition is not just a
+multiple of the <span class="math inline">\(0.5\)</span>-eigenvector, otherwise <span class="math inline">\(c=0\)</span>.</p>
+<p>Note that a <span class="math inline">\(0.5\)</span>-eigenvector is <span class="math inline">\(\mathbf{y}=\begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span>.
+Thus, so long as there are <em>some</em> new users in the first year, <span class="math inline">\(c \ne 0\)</span> so in the long run
+the ratio of new to old users is indeed 5/8.)</p>
+</div></li>
+<li><p>Suppose that a different streaming service has the rate matrix
+<span class="math display">\[B = \begin{bmatrix}
+0.5 &amp; 0 \\
+0.8 &amp; 0.4 \end{bmatrix}.\]</span></p>
+<p>The matrix <span class="math inline">\(B\)</span> has <span class="math inline">\(λ = 0.5\)</span> and <span class="math inline">\(\lambda = 0.4\)</span> as its
+eigenvalues. Using the eigenvector for the larger of the two
+eigenvalues, describe the long term behavior of this streaming
+service?</p>
+<div class="solution">
+<p>Let <span class="math inline">\(\mathbf{x}\)</span> be a <span class="math inline">\(0.5\)</span>-eigenvector and <span class="math inline">\(\mathbf{y}\)</span> be a <span class="math inline">\(0.4\)</span>-eigenvector.</p>
+<p>Since <span class="math inline">\(\mathbf{x},\mathbf{y}\)</span> form a basis for <span class="math inline">\(\mathbb{R}^2\)</span>, we can write
+<span class="math inline">\(\mathbf{p}= a \mathbf{x}+ b \mathbf{y}\)</span> for scalars <span class="math inline">\(a,b\)</span>. Now,</p>
+<p>For a natural number <span class="math inline">\(n\)</span>, we have <span class="math display">\[A^n \mathbf{p}= A^n (a \mathbf{x}+ b \mathbf{y})
+= a (0.5)^n \mathbf{x}+ b (0.4)^n \mathbf{y}\to 0\]</span>
+as <span class="math inline">\(n \to \infty\)</span>.</p>
+<p>Thus eventually this system will lose all its users.</p>
+</div></li>
+<li><p>Suppose that both streaming services (which we will refer to by
+their rate matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>), start with the same population
+vector p this year, and that both charge $n for a yearly
+subscription. Write an expression (in terms of n, pa , pb ) for
+the total income obtained by A and B after 4 years.</p>
+<div class="solution">
+<p><span class="math inline">\(A^j \mathbf{p}\)</span> and <span class="math inline">\(B^j \mathbf{p}\)</span> are the vectors describing the populations in year <span class="math inline">\(j\)</span>.</p>
+<p>Write <span class="math inline">\(\mathbf{w}= \begin{bmatrix} 1 &amp; 1 \end{bmatrix}\)</span> and recall
+that for a population vector <span class="math inline">\(\mathbf{p}\)</span>, the total number of
+subscribers is given by <span class="math display">\[\mathbf{w}\mathbf{p}= \begin{bmatrix} 1 &amp; 1
+\end{bmatrix} \begin{bmatrix} p_n \\ p_o \end{bmatrix} = p_n +
+p_0.\]</span></p>
+<p>Thus the vector expressions for the total subscribers for the first four years
+are given by
+<span class="math display">\[\operatorname{tot}_A = \mathbf{w}(\mathbf{p}+ A \mathbf{p}+ A^2 \mathbf{p}+ A^3 \mathbf{p})\]</span>
+and
+<span class="math display">\[\operatorname{tot}_B = \mathbf{w}(\mathbf{p}+ B \mathbf{p}+ B^2 \mathbf{p}+ B^3 \mathbf{p})\]</span></p>
+<p>Let’s implement this in python:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.linalg <span class="im">import</span> matrix_power</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">0</span>],[<span class="fl">0.8</span>,<span class="fl">0.5</span>]])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([[<span class="fl">0.5</span>,<span class="dv">0</span>],[<span class="fl">0.8</span>,<span class="fl">0.4</span>]])</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">1</span>])</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>pn,po <span class="op">=</span> sp.symbols(<span class="st">'p_n p_o'</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># initial (symbolic) population</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> np.array([pn,po])</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the total number of subscribers after the indicated number of years</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># for service governed by `mat`</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tot(mat,years):</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w <span class="op">@</span> <span class="bu">sum</span>([matrix_power(mat,j) <span class="op">@</span> p <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(years)])</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">## total number of subscribers for service A after 4 years</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tot(A,<span class="dv">4</span>))</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fl">7.4</span><span class="op">*</span>p_n <span class="op">+</span> <span class="fl">1.875</span><span class="op">*</span>p_o</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">## total number of subscribers for service B after 4 years</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tot(B,<span class="dv">4</span>))</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="fl">3.883</span><span class="op">*</span>p_n <span class="op">+</span> <span class="fl">1.624</span><span class="op">*</span>p_o</span></code></pre></div>
+</div></li>
+</ol></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>

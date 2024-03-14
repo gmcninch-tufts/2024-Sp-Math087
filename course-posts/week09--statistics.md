@@ -13,7 +13,7 @@ spring break when we study *Monte-Carlo simulations*, among other things.
 
 Here is the notebook:
 
-- *Statistics*
+- *statistics*
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week09--statistics.ipynb)
   [[download notebook]](/course-content/week09--statistics.ipynb)
   [[pdf]](/course-content/week09--statistics.pdf)
