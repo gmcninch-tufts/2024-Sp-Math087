@@ -8,7 +8,7 @@ The first of two *midterm reports* is due this Friday. If you want,
 you can look back over the [comments on rubrics I made in an earlier
 post](resources--expectations-and-rubrics.html).
 
-- [**[midterm report 1]**](/course-assignments/MidRep1--2024-02-16.html)
+- due 2024-202-16 [**[midterm report 1]**](/course-assignments/MidRep1--2024-02-16.html)
   [**[pdf]**](/course-assignments/MidRep1--2024-02-16.pdf)  
   [**[solution]**](/course-assignments/MidRep1--2024-02-16--solution.html)
   [**[solution pdf]**](/course-assignments/MidRep1--2024-02-16--solution.pdf)  
