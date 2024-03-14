@@ -52,7 +52,7 @@ notebooks: $(notebooks_pdf)
 
 #course-assets/pages-pdf/%.pdf course-assets/posts-pdf/%.pdf %.pdf: %.md
 %.pdf: %.md
-	$(PD) $(META) $< build-assets/biblio.md --pdf-engine=xelatex $(PFP)  --resource-path=$(RP) -t latex -o $@
+	$(PD) $(META) $< build-assets/biblio.md --pdf-engine=xelatex $(PFP)  --highlight-style=zenburn --resource-path=$(RP) -t latex -o $@
 
 
 
