@@ -12,7 +12,8 @@ Here is this week's homework assignment.
 - [**[PS04]**](/course-assignments/PS04--2024-02-23.html)
   [**[pdf]**](/course-assignments/PS04--2024-02-23.pdf)
   [**[solutions]**](/course-assignments/PS04--2024-02-23--solutions.html)
-  [**[solutions pdf]**](/course-assignments/PS03--2024-02-09--solutions.pdf)
+  [**[solutions pdf]**](/course-assignments/PS04--2024-02-23--solutions.pdf)  
+  
 
 This week we are going to investigate *Graph Models*. These models
 include the *network flows* we previously studied. But now we will
