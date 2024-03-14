@@ -10,8 +10,8 @@ post](resources--expectations-and-rubrics.html).
 
 - [**[midterm report 1]**](/course-assignments/MidRep1--2024-02-16.html)
   [**[pdf]**](/course-assignments/MidRep1--2024-02-16.pdf)  
-
-  [**[midterm report 1 solutions]**](/course-assignments/MidRep1--2024-02-16--solution.html)
+  [**[solution]**](/course-assignments/MidRep1--2024-02-16--solution.html)
+  [**[solution pdf]**](/course-assignments/MidRep1--2024-02-16--solution.pdf)  
 
 
 This week, we are going to talk about solving linear programs where we
