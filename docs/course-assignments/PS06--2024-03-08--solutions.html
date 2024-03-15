@@ -234,24 +234,104 @@ wear this week, so you’d like to develop a model for the weather.</p>
 out the transition matrix, and draw the corresponding finite
 state machine.</p>
 <div class="solution">
-
+<p>The system is governed by a transition diagram for which the
+probabilities on the outgoing edges from each node sum
+to 1. Thus, the system is a <em>Markov process</em>.</p>
+<p>We describe the <em>transition diagram</em>. It has 4 nodes: <code>sunny</code>,
+<code>rainy</code>, <code>foggy</code> and <code>snowy</code>. We are going to draw the diagram
+using <code>graphviz</code> so we describe the probabilities as a python
+dictionary:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> [ <span class="st">'sunny'</span>, <span class="st">'rainy'</span>, <span class="st">'foggy'</span>, <span class="st">'snowy'</span> ]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>transitions <span class="op">=</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'rainy'</span>, <span class="st">'sunny'</span>): <span class="dv">1</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>   (<span class="st">'sunny'</span>, <span class="st">'rainy'</span>): <span class="dv">1</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>   <span class="op">**</span>{ (<span class="st">'foggy'</span>,w): <span class="dv">1</span><span class="op">/</span><span class="dv">2</span> <span class="cf">for</span> w <span class="kw">in</span> weather <span class="cf">if</span> w <span class="op">!=</span> <span class="st">'sunny'</span> <span class="kw">and</span> w <span class="op">!=</span> <span class="st">'foggy'</span> },</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>   <span class="op">**</span>{ (<span class="st">'snowy'</span>,w): <span class="dv">1</span><span class="op">/</span><span class="dv">3</span> <span class="cf">for</span> w <span class="kw">in</span> weather <span class="cf">if</span> w <span class="op">!=</span> <span class="st">'snowy'</span> }</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>transitions </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>{(<span class="st">'rainy'</span>, <span class="st">'sunny'</span>): <span class="dv">1</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a> (<span class="st">'sunny'</span>, <span class="st">'rainy'</span>): <span class="dv">1</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a> (<span class="st">'foggy'</span>, <span class="st">'rainy'</span>): <span class="fl">0.5</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a> (<span class="st">'foggy'</span>, <span class="st">'snowy'</span>): <span class="fl">0.5</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a> (<span class="st">'snowy'</span>, <span class="st">'sunny'</span>): <span class="fl">0.3333333333333333</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a> (<span class="st">'snowy'</span>, <span class="st">'rainy'</span>): <span class="fl">0.3333333333333333</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a> (<span class="st">'snowy'</span>, <span class="st">'foggy'</span>): <span class="fl">0.3333333333333333</span>}</span></code></pre></div>
+<p>Now we create the labeled digram:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dot <span class="op">=</span> Digraph()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>dot.attr(rankdir<span class="op">=</span><span class="st">'LR'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> dot.subgraph() <span class="im">as</span> c:</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    c.attr(rank<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'rainy'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'sunny'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> dot.subgraph() <span class="im">as</span> c:</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    c.attr(rank<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'foggy'</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'snowy'</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (v1,v2) <span class="kw">in</span> product(weather,weather):</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (v1,v2) <span class="kw">in</span> transitions.keys():</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        dot.edge(v1,v2,<span class="ss">f&quot;</span><span class="sc">{</span>transitions[(v1,v2)]<span class="sc">:.02f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>dot.render(<span class="st">'weather.png'</span>)</span></code></pre></div>
+<p><img src="../course-assets/images/weather.png" /></p>
+<p>And we create the transition matrix:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy.linalg <span class="im">as</span> npl</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transition_prob(v,w):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the probability for the transition v--&gt;w</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (v,w) <span class="kw">in</span> transitions.keys():</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> transitions[(v,w)]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> np.array([[ transition_prob(v,w) <span class="cf">for</span> v <span class="kw">in</span> weather] <span class="cf">for</span> w <span class="kw">in</span> weather ])</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>array([[<span class="fl">0.</span>        , <span class="fl">1.</span>        , <span class="fl">0.</span>        , <span class="fl">0.33333333</span>],</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">1.</span>        , <span class="fl">0.</span>        , <span class="fl">0.5</span>       , <span class="fl">0.33333333</span>],</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>        , <span class="fl">0.</span>        , <span class="fl">0.</span>        , <span class="fl">0.33333333</span>],</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>        , <span class="fl">0.</span>        , <span class="fl">0.5</span>       , <span class="fl">0.</span>        ]])</span></code></pre></div>
 </div></li>
 <li><p>Check whether the conditions for the Perron-Frobenius theorem is
 satisfied for this problem (aperiodic and strongly
 connected). Explain your reasoning.</p>
 <div class="solution">
-
+<p>The hypothesis of the Frobenius-Perron theorem do not hold.
+The transition diagram is not <em>strongly connected</em>. For example,
+there is no path from the node <code>sunny</code> to the node <code>foggy</code>.</p>
 </div></li>
 <li><p>Do you expect power iteration to be effective for computing the
 greatest eigenvector of your transition matrix?</p>
 <div class="solution">
-
+<p>Because the conclusion of the Frobenius-Perron theorem is not known to hold,
+it is possible that <code>p</code> has more than one eigenvalue with absolute value 1.
+In that case, power iteration will not help to compute the greatest eigenvector.</p>
 </div></li>
 <li><p>Find the eigenvalue decomposition for the transition matrix, and
 the associated eigenvectors. Explain why these values confirm
 your answer to part 2.</p>
 <div class="solution">
-
+<p>(the problem should have read: “Explain why these values confirm your answer to (c)”).</p>
+<p>Let’s look at the eigenvalues of <code>p</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vals,vecs <span class="op">=</span> npl.eig(p)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>vals</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>array([ <span class="fl">1.</span>        ,  <span class="fl">0.40824829</span>, <span class="op">-</span><span class="fl">1.</span>        , <span class="op">-</span><span class="fl">0.40824829</span>])</span></code></pre></div>
+<p>We note that <code>p</code> has an eigenvalue 1, but also an eigenvalue -1.</p>
+<p>If <code>v</code> is an eigenvector with eigenvalue -1, then</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>npl.matrix_power(p,n) <span class="op">@</span> v <span class="op">=</span> ± v</span></code></pre></div>
+<p>depending on the parity of <code>n</code>.</p>
+<p>So the long-term behavior of <em>powers of <code>p</code></em> fails to stabilize,
+so we do not expect power iteration to be an effective way of
+computing the greatest eigenvector.</p>
 </div></li>
 <li><p>Suppose that the “weather rules” change so that if its sunny
 today, it is equally likely to be snowy or rainy tomorrow. Write
@@ -260,7 +340,81 @@ and determine whether the conditions for the Perron-Frobenius
 are satisfied. Compute the eigenvalue decomposition and compare
 to the previous set of eigenvalues.</p>
 <div class="solution">
-
+<p>We update the transition probabilities to reflect the new weather rules:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>new_transitions <span class="op">=</span> {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'rainy'</span>, <span class="st">'sunny'</span>): <span class="dv">1</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'sunny'</span>, <span class="st">'rainy'</span>): <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'sunny'</span>, <span class="st">'snowy'</span>): <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">**</span>{ (<span class="st">'foggy'</span>,w): <span class="dv">1</span><span class="op">/</span><span class="dv">2</span> <span class="cf">for</span> w <span class="kw">in</span> weather <span class="cf">if</span> w <span class="op">!=</span> <span class="st">'sunny'</span> <span class="kw">and</span> w <span class="op">!=</span> <span class="st">'foggy'</span> },</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">**</span>{ (<span class="st">'snowy'</span>,w): <span class="dv">1</span><span class="op">/</span><span class="dv">3</span> <span class="cf">for</span> w <span class="kw">in</span> weather <span class="cf">if</span> w <span class="op">!=</span> <span class="st">'snowy'</span> }</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
+<p>We get a new diagram as follows:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>new_dot <span class="op">=</span> Digraph(<span class="bu">format</span><span class="op">=</span><span class="st">'png'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>dot.attr(rankdir<span class="op">=</span><span class="st">'LR'</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> dot.subgraph() <span class="im">as</span> c:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    c.attr(rank<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'rainy'</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'sunny'</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> dot.subgraph() <span class="im">as</span> c:</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    c.attr(rank<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'foggy'</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    c.node(<span class="st">'snowy'</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (v1,v2) <span class="kw">in</span> product(weather,weather):</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (v1,v2) <span class="kw">in</span> new_transitions.keys():</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        dot.edge(v1,v2,<span class="ss">f&quot;</span><span class="sc">{</span>new_transitions[(v1,v2)]<span class="sc">:.02f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>dot.render(<span class="st">'new_weather'</span>)		  </span></code></pre></div>
+<p><img src="../course-assets/images/new_weather.png" /></p>
+<p>And we get a new transition matrix <code>q</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> np.array([[ transition_prob(v,w,new_transitions) <span class="cf">for</span> v <span class="kw">in</span> weather] <span class="cf">for</span> w <span class="kw">in</span> weather ])</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>q</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>array([[<span class="fl">0.</span>        , <span class="fl">1.</span>        , <span class="fl">0.</span>        , <span class="fl">0.33333333</span>],</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.5</span>       , <span class="fl">0.</span>        , <span class="fl">0.5</span>       , <span class="fl">0.33333333</span>],</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>        , <span class="fl">0.</span>        , <span class="fl">0.</span>        , <span class="fl">0.33333333</span>],</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.5</span>       , <span class="fl">0.</span>        , <span class="fl">0.5</span>       , <span class="fl">0.</span>        ]])</span></code></pre></div>
+<p>We observe that in this case, the transition diagram is <em>strong
+connected</em>. Moreover, it is also acyclic e.g. because there are
+cycles of length two (<code>snowy --&gt; foggy --&gt; snowy</code> for example)
+as well as cycles of length three (<code>sunny --&gt; snowy --&gt; rainy --&gt; sunny</code>).
+Since <code>gcd(2,3) = 1</code> there only natural number dividing all cycle lengths is 1.</p>
+<p>Thus the Frobenius Perron Theorem holds. It promises that <code>q</code> has eigenvalue
+1 with multiplicity 1. If <code>v</code> is an eigenvector with eigenvalue 1, normalized
+so that <code>v</code> is a probability vector, then we know that</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>npl.matrix_power(p,n)</span></code></pre></div>
+<p>converges as <span class="math inline">\(n \to \infty\)</span> to the matrix <code>B</code> with 4 columns equal to the vector <code>v</code>.</p>
+<p>We can observe this phenomenon by compute “big” powers of <code>q</code>:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>npl.matrix_power(q,<span class="dv">100</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>array([[<span class="fl">0.38461538</span>, <span class="fl">0.38461538</span>, <span class="fl">0.38461538</span>, <span class="fl">0.38461538</span>],</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.30769231</span>, <span class="fl">0.30769231</span>, <span class="fl">0.30769231</span>, <span class="fl">0.30769231</span>],</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.07692308</span>, <span class="fl">0.07692308</span>, <span class="fl">0.07692308</span>, <span class="fl">0.07692308</span>],</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.23076923</span>, <span class="fl">0.23076923</span>, <span class="fl">0.23076923</span>, <span class="fl">0.23076923</span>]])	  </span></code></pre></div>
+<p>We check the eigenvalues:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vals,vecs <span class="op">=</span> npl.eig(q)  </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>vals</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>array([ <span class="fl">1.</span>        , <span class="op">-</span><span class="fl">0.78867513</span>, <span class="op">-</span><span class="fl">0.21132487</span>,  <span class="fl">0.</span>        ])</span></code></pre></div>
+<p>In this case, as promised by Frobenius-Perron, there is exactly
+one eigenvalue with absolute value 1. All other eigenvalues <span class="math inline">\(\lambda\)</span>
+have <span class="math inline">\(|\lambda| &lt; 1\)</span>.</p>
+<p>Note that after normalizing, the eigenvector <code>vecs[:,0]</code> is close to the columns of the
+matrix <span class="math inline">\(q^{100}\)</span> we computed above:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the eigenvector computed by numpy for eigenvalue 1</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># remember that it is the first *column* of the matrix ev,</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># not the first row...!!</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>ev <span class="op">=</span> vecs[:,<span class="dv">0</span>]</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># normalize to make a probability vector</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="op">@</span> ev  <span class="co"># c is the sum of the entries of ev</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>p_ev <span class="op">=</span> (<span class="dv">1</span><span class="op">/</span>c)<span class="op">*</span>ev               <span class="co"># the entries of p_ev sum to 1</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>p_ev</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>array([<span class="fl">0.38461538</span>, <span class="fl">0.30769231</span>, <span class="fl">0.07692308</span>, <span class="fl">0.23076923</span>])</span></code></pre></div>
 </div></li>
 </ol></li>
 </ol>

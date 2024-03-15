@@ -246,7 +246,85 @@ date: 2024-03-08
       out the transition matrix, and draw the corresponding finite
       state machine.  
 	 
-	  ::: {.solution}
+	  ::: {.solution} 
+	  
+	  The system is governed by a transition diagram for which the
+	  probabilities on the outgoing edges from each node sum
+	  to 1. Thus, the system is a *Markov process*.
+	  
+	  We describe the *transition diagram*. It has 4 nodes: `sunny`,
+	  `rainy`, `foggy` and `snowy`. We are going to draw the diagram
+	  using `graphviz` so we describe the probabilities as a python
+	  dictionary:
+	  
+	  ``` python
+	  weather = [ 'sunny', 'rainy', 'foggy', 'snowy' ]
+
+	  transitions = {
+          ('rainy', 'sunny'): 1,
+		  ('sunny', 'rainy'): 1,
+		  **{ ('foggy',w): 1/2 for w in weather if w != 'sunny' and w != 'foggy' },
+		  **{ ('snowy',w): 1/3 for w in weather if w != 'snowy' }
+		  }
+	  transitions 
+	  =>
+	  {('rainy', 'sunny'): 1,
+	   ('sunny', 'rainy'): 1,
+	   ('foggy', 'rainy'): 0.5,
+	   ('foggy', 'snowy'): 0.5,
+	   ('snowy', 'sunny'): 0.3333333333333333,
+	   ('snowy', 'rainy'): 0.3333333333333333,
+	   ('snowy', 'foggy'): 0.3333333333333333}
+	  ```
+	  Now we create the labeled digram:
+	  
+	  ``` python
+      from graphviz import Digraph
+      
+      dot = Digraph()
+      dot.attr(rankdir='LR')
+         
+      with dot.subgraph() as c:
+          c.attr(rank='same')
+          c.node('rainy')
+          c.node('sunny')
+      with dot.subgraph() as c:
+          c.attr(rank='same')
+          c.node('foggy')
+          c.node('snowy')
+          
+      from itertools import product
+         
+      for (v1,v2) in product(weather,weather):
+          if (v1,v2) in transitions.keys():
+              dot.edge(v1,v2,f"{transitions[(v1,v2)]:.02f}")
+      dot.render('weather.png')
+	  ```
+	  
+	  ![](/course-assets/images/weather.png)
+	  
+	  And we create the transition matrix:
+	  ``` python
+      import numpy as np
+	  import numpy.linalg as npl
+      
+      def transition_prob(v,w):
+          # get the probability for the transition v-->w
+          if (v,w) in transitions.keys():
+              return transitions[(v,w)]
+          else:
+              return 0
+      
+      p = np.array([[ transition_prob(v,w) for v in weather] for w in weather ])
+      
+      p
+      =>
+      array([[0.        , 1.        , 0.        , 0.33333333],
+             [1.        , 0.        , 0.5       , 0.33333333],
+             [0.        , 0.        , 0.        , 0.33333333],
+             [0.        , 0.        , 0.5       , 0.        ]])
+      ```
+	  
 	  
 	  :::
 	 
@@ -255,19 +333,54 @@ date: 2024-03-08
       connected). Explain your reasoning.
 
       ::: {.solution}
+	  
+	  The hypothesis of the Frobenius-Perron theorem do not hold.
+	  The transition diagram is not *strongly connected*. For example,
+	  there is no path from the node `sunny` to the node `foggy`.
+	  
 	  :::
 
    c. Do you expect power iteration to be effective for computing the
       greatest eigenvector of your transition matrix?
 
       ::: {.solution}
+	  Because the conclusion of the Frobenius-Perron theorem is not known to hold,
+	  it is possible that `p` has more than one eigenvalue with absolute value 1.
+	  In that case, power iteration will not help to compute the greatest eigenvector.
 	  :::
 	  
+
    d. Find the eigenvalue decomposition for the transition matrix, and
       the associated eigenvectors. Explain why these values confirm
       your answer to part 2.
 
+
       ::: {.solution}
+	  
+	  (the problem should have read: "Explain why these values confirm your answer to (c)").
+	  
+	  Let's look at the eigenvalues of `p`:
+	  
+	  ``` python
+	  vals,vecs = npl.eig(p)
+	  vals
+	  =>
+	  array([ 1.        ,  0.40824829, -1.        , -0.40824829])
+	  ```
+	  
+	  We note that `p` has an eigenvalue 1, but also an eigenvalue -1.
+	  
+	  If `v` is an eigenvector with eigenvalue -1, then
+	  ``` python
+	  npl.matrix_power(p,n) @ v = ± v
+	  ```
+	  depending on the parity of `n`.
+	  
+	  So the long-term behavior of *powers of `p`* fails to stabilize,
+	  so we do not expect power iteration to be an effective way of
+	  computing the greatest eigenvector.
+	  
+	  
 	  :::
 	  
    e. Suppose that the “weather rules” change so that if its sunny
@@ -278,4 +391,106 @@ date: 2024-03-08
       to the previous set of eigenvalues.
 
       ::: {.solution}
+	  We update the transition probabilities to reflect the new weather rules:
+	  ``` python
+      new_transitions = {
+          ('rainy', 'sunny'): 1,
+          ('sunny', 'rainy'): 1/2,
+          ('sunny', 'snowy'): 1/2,
+          **{ ('foggy',w): 1/2 for w in weather if w != 'sunny' and w != 'foggy' },
+          **{ ('snowy',w): 1/3 for w in weather if w != 'snowy' }
+          }
+	  ```
+	  
+	  We get a new diagram as follows:
+	  
+	  ``` python
+		  
+      new_dot = Digraph(format='png')
+      dot.attr(rankdir='LR')
+      
+      with dot.subgraph() as c:
+          c.attr(rank='same')
+          c.node('rainy')
+          c.node('sunny')
+      with dot.subgraph() as c:
+          c.attr(rank='same')
+          c.node('foggy')
+          c.node('snowy')
+       
+      for (v1,v2) in product(weather,weather):
+          if (v1,v2) in new_transitions.keys():
+              dot.edge(v1,v2,f"{new_transitions[(v1,v2)]:.02f}")
+      dot.render('new_weather')		  
+	  ```
+	  ![](/course-assets/images/new_weather.png)
+	  
+	  
+	  And we get a new transition matrix `q`.
+	  
+	  ``` python
+      q = np.array([[ transition_prob(v,w,new_transitions) for v in weather] for w in weather ])
+
+      q
+      =>
+      array([[0.        , 1.        , 0.        , 0.33333333],
+             [0.5       , 0.        , 0.5       , 0.33333333],
+             [0.        , 0.        , 0.        , 0.33333333],
+             [0.5       , 0.        , 0.5       , 0.        ]])
+	  ```
+	  
+	  We observe that in this case, the transition diagram is *strong
+	  connected*.  Moreover, it is also acyclic e.g. because there are
+	  cycles of length two (`snowy --> foggy --> snowy` for example)
+	  as well as cycles of length three (`sunny --> snowy --> rainy --> sunny`).
+	  Since `gcd(2,3) = 1` there only natural number dividing all cycle lengths is 1.
+	  
+	  Thus the Frobenius Perron Theorem holds. It promises that `q` has eigenvalue
+	  1 with multiplicity 1. If `v` is an eigenvector with eigenvalue 1, normalized
+	  so that `v` is a probability vector, then we know that
+	  
+	  ``` python
+	  npl.matrix_power(p,n)
+	  ```
+	  converges as $n \to \infty$ to the matrix `B` with 4 columns equal to the vector `v`.
+	  
+	  We can observe this phenomenon by compute "big" powers of `q`:
+	  ``` python
+      npl.matrix_power(q,100)
+      =>
+      array([[0.38461538, 0.38461538, 0.38461538, 0.38461538],
+             [0.30769231, 0.30769231, 0.30769231, 0.30769231],
+             [0.07692308, 0.07692308, 0.07692308, 0.07692308],
+             [0.23076923, 0.23076923, 0.23076923, 0.23076923]])	  
+	  ```
+	  
+	  We check the eigenvalues:
+	  ``` python
+      vals,vecs = npl.eig(q)  
+	  vals
+	  =>
+	  array([ 1.        , -0.78867513, -0.21132487,  0.        ])
+	  ```
+	  
+	  In this case, as promised by Frobenius-Perron, there is exactly
+	  one eigenvalue with absolute value 1. All other eigenvalues $\lambda$
+	  have $|\lambda| < 1$.
+	  
+	  Note that after normalizing, the eigenvector `vecs[:,0]` is close to the columns of the 
+	  matrix $q^{100}$ we computed above:
+	  
+	  ```python
+	  # get the eigenvector computed by numpy for eigenvalue 1
+	  # remember that it is the first *column* of the matrix ev,
+	  # not the first row...!!
+	  ev = vecs[:,0]
+
+      # normalize to make a probability vector
+	  c = np.array([1,1,1,1]) @ ev  # c is the sum of the entries of ev
+	  p_ev = (1/c)*ev               # the entries of p_ev sum to 1
+	  
+	  p_ev
+	  =>
+	  array([0.38461538, 0.30769231, 0.07692308, 0.23076923])
+	  ```
 	  :::

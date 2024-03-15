@@ -1,0 +1,20 @@
+digraph {
+	rankdir=LR
+	{
+		rank=same
+		rainy
+		sunny
+	}
+	{
+		rank=same
+		foggy
+		snowy
+	}
+	sunny -> rainy [label=1.00]
+	rainy -> sunny [label=1.00]
+	foggy -> rainy [label=0.50]
+	foggy -> snowy [label=0.50]
+	snowy -> sunny [label=0.33]
+	snowy -> rainy [label=0.33]
+	snowy -> foggy [label=0.33]
+}
