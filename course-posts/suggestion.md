@@ -1,7 +1,7 @@
 ---
 title: |
   Midterm Report 2 - coding suggestion
-date: 2024-03-165
+date: 2024-03-15
 ---
 
 In carrying out work for [midterm report 2](MidRep2--2024-03-15.html), at some point you will
