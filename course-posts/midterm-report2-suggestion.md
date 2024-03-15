@@ -164,14 +164,16 @@ In fact, we could have skipped using the numerical index altogether:
 
 ``` python
 M = np.array([0.54271742, 0.08356579, 0.84459914, 0.31623228, 0.83783749,
-       0.08603638, 0.58023307, 0.73584079, 0.48756939, 0.15952226,
-       0.49337045, 0.50012207, 0.83147688, 0.19603904, 0.56062997,
-       0.2623    , 0.12932203, 0.53814636, 0.26040894, 0.51886249])
+              0.08603638, 0.58023307, 0.73584079, 0.48756939, 0.15952226,
+              0.49337045, 0.50012207, 0.83147688, 0.19603904, 0.56062997,
+              0.2623    , 0.12932203, 0.53814636, 0.26040894, 0.51886249])
 
 MMM = list(zip(colors,M))
 # or 
+#
 #   MMM = [ (colors[i],M[i]) for i in range(len(M)) ] 
-# will also work
+#
+# will achieve the same result
 MMM
 =>
 [('Gainsboro', 0.54271742),
@@ -205,5 +207,4 @@ MMM[0:5]
  ('Golden yellow', 0.58023307)]
 ```
 
-(Okay I admit that probably `"Glossy grape"` shouldn't actually win the
-popularity contest... ;^)...)
+Okay I admit that I'm not precisely sure what the color `"Glossy grape"` looks like! ;^)...

@@ -159,47 +159,48 @@ because we want to sort from high-to-low).</p>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden yellow'</span>, <span class="fl">0.5802330689338201</span>)]</span></code></pre></div>
 <p>In fact, we could have skipped using the numerical index altogether:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([<span class="fl">0.54271742</span>, <span class="fl">0.08356579</span>, <span class="fl">0.84459914</span>, <span class="fl">0.31623228</span>, <span class="fl">0.83783749</span>,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.08603638</span>, <span class="fl">0.58023307</span>, <span class="fl">0.73584079</span>, <span class="fl">0.48756939</span>, <span class="fl">0.15952226</span>,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.49337045</span>, <span class="fl">0.50012207</span>, <span class="fl">0.83147688</span>, <span class="fl">0.19603904</span>, <span class="fl">0.56062997</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.2623</span>    , <span class="fl">0.12932203</span>, <span class="fl">0.53814636</span>, <span class="fl">0.26040894</span>, <span class="fl">0.51886249</span>])</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.08603638</span>, <span class="fl">0.58023307</span>, <span class="fl">0.73584079</span>, <span class="fl">0.48756939</span>, <span class="fl">0.15952226</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.49337045</span>, <span class="fl">0.50012207</span>, <span class="fl">0.83147688</span>, <span class="fl">0.19603904</span>, <span class="fl">0.56062997</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.2623</span>    , <span class="fl">0.12932203</span>, <span class="fl">0.53814636</span>, <span class="fl">0.26040894</span>, <span class="fl">0.51886249</span>])</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>MMM <span class="op">=</span> <span class="bu">list</span>(<span class="bu">zip</span>(colors,M))</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   MMM = [ (colors[i],M[i]) for i in range(len(M)) ] </span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># will also work</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>MMM</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>[(<span class="st">'Gainsboro'</span>, <span class="fl">0.54271742</span>),</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gamboge'</span>, <span class="fl">0.08356579</span>),</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Glossy grape'</span>, <span class="fl">0.84459914</span>),</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gold (metallic)'</span>, <span class="fl">0.31623228</span>),</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gold (Crayola)'</span>, <span class="fl">0.83783749</span>),</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden poppy'</span>, <span class="fl">0.08603638</span>),</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden yellow'</span>, <span class="fl">0.58023307</span>),</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Goldenrod'</span>, <span class="fl">0.73584079</span>),</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gotham green'</span>, <span class="fl">0.48756939</span>),</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Granite gray'</span>, <span class="fl">0.15952226</span>),</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Granny Smith apple'</span>, <span class="fl">0.49337045</span>),</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gray (web)'</span>, <span class="fl">0.50012207</span>),</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gray (X11 gray)'</span>, <span class="fl">0.83147688</span>),</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green'</span>, <span class="fl">0.19603904</span>),</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (Crayola)'</span>, <span class="fl">0.56062997</span>),</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (web)'</span>, <span class="fl">0.2623</span>),</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (Munsell)'</span>, <span class="fl">0.12932203</span>),</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (pigment)'</span>, <span class="fl">0.53814636</span>),</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green-blue'</span>, <span class="fl">0.26040894</span>),</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green Lizard'</span>, <span class="fl">0.51886249</span>)]</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>MMM.sort(key<span class="op">=</span><span class="kw">lambda</span> x: <span class="op">-</span>x[<span class="dv">1</span>])</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>MMM[<span class="dv">0</span>:<span class="dv">5</span>]</span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>[(<span class="st">'Glossy grape'</span>, <span class="fl">0.84459914</span>),</span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gold (Crayola)'</span>, <span class="fl">0.83783749</span>),</span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gray (X11 gray)'</span>, <span class="fl">0.83147688</span>),</span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Goldenrod'</span>, <span class="fl">0.73584079</span>),</span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden yellow'</span>, <span class="fl">0.58023307</span>)]</span></code></pre></div>
-<p>(Okay I admit that probably <code>"Glossy grape"</code> shouldn’t actually win the
-popularity contest… ;^)…)</p>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   MMM = [ (colors[i],M[i]) for i in range(len(M)) ] </span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># will achieve the same result</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>MMM</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>[(<span class="st">'Gainsboro'</span>, <span class="fl">0.54271742</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gamboge'</span>, <span class="fl">0.08356579</span>),</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Glossy grape'</span>, <span class="fl">0.84459914</span>),</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gold (metallic)'</span>, <span class="fl">0.31623228</span>),</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gold (Crayola)'</span>, <span class="fl">0.83783749</span>),</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden poppy'</span>, <span class="fl">0.08603638</span>),</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden yellow'</span>, <span class="fl">0.58023307</span>),</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Goldenrod'</span>, <span class="fl">0.73584079</span>),</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gotham green'</span>, <span class="fl">0.48756939</span>),</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Granite gray'</span>, <span class="fl">0.15952226</span>),</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Granny Smith apple'</span>, <span class="fl">0.49337045</span>),</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gray (web)'</span>, <span class="fl">0.50012207</span>),</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gray (X11 gray)'</span>, <span class="fl">0.83147688</span>),</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green'</span>, <span class="fl">0.19603904</span>),</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (Crayola)'</span>, <span class="fl">0.56062997</span>),</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (web)'</span>, <span class="fl">0.2623</span>),</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (Munsell)'</span>, <span class="fl">0.12932203</span>),</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (pigment)'</span>, <span class="fl">0.53814636</span>),</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green-blue'</span>, <span class="fl">0.26040894</span>),</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green Lizard'</span>, <span class="fl">0.51886249</span>)]</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>MMM.sort(key<span class="op">=</span><span class="kw">lambda</span> x: <span class="op">-</span>x[<span class="dv">1</span>])</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>MMM[<span class="dv">0</span>:<span class="dv">5</span>]</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>[(<span class="st">'Glossy grape'</span>, <span class="fl">0.84459914</span>),</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gold (Crayola)'</span>, <span class="fl">0.83783749</span>),</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gray (X11 gray)'</span>, <span class="fl">0.83147688</span>),</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Goldenrod'</span>, <span class="fl">0.73584079</span>),</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden yellow'</span>, <span class="fl">0.58023307</span>)]</span></code></pre></div>
+<p>Okay I admit that I’m not precisely sure what the color <code>"Glossy grape"</code> looks like! ;^)…</p>
     </section>
 </article>
 
