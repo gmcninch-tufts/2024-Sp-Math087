@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - Midterm Report 2 - coding suggestion
+</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>Midterm Report 2 - coding suggestion
+</h1>
+            <article>
+    <section class="header">
+        Posted on 2024-03-165
+        
+    </section>
+    <section>
+        <p>In carrying out work for <a href="MidRep2--2024-03-15.html">midterm report 2</a>, at some point you will
+have found a list of probabilities which correspond to “<em>web pages</em>”. You then need to find the <em>top 10 pages</em>. The following example will show you some techniques to use to do this in <code>python</code>.</p>
+<p>If you have a list in python, you’d like to be able to extract (say)
+the top 10 elements of this list.</p>
+<p>This is reasonably straightforward. Let me show how.
+I’ll use <code>numpy</code> to generate a (random) list of 20 numbers:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> np.random.rand(<span class="dv">20</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>L</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>array([<span class="fl">0.59888876</span>, <span class="fl">0.8826809</span> , <span class="fl">0.42848286</span>, <span class="fl">0.18837597</span>, <span class="fl">0.30193246</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.40512774</span>, <span class="fl">0.4572338</span> , <span class="fl">0.9270912</span> , <span class="fl">0.86225708</span>, <span class="fl">0.64631983</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.31700121</span>, <span class="fl">0.89030269</span>, <span class="fl">0.9270727</span> , <span class="fl">0.63719131</span>, <span class="fl">0.74485076</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.84501848</span>, <span class="fl">0.66773513</span>, <span class="fl">0.60551784</span>, <span class="fl">0.69047995</span>, <span class="fl">0.70457981</span>])</span></code></pre></div>
+<p>To extract (say) the top 5, I can <em>sort</em> the list.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>L.sort()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>L</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>array([<span class="fl">0.18837597</span>, <span class="fl">0.30193246</span>, <span class="fl">0.31700121</span>, <span class="fl">0.40512774</span>, <span class="fl">0.42848286</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.4572338</span> , <span class="fl">0.59888876</span>, <span class="fl">0.60551784</span>, <span class="fl">0.63719131</span>, <span class="fl">0.64631983</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.66773513</span>, <span class="fl">0.69047995</span>, <span class="fl">0.70457981</span>, <span class="fl">0.74485076</span>, <span class="fl">0.84501848</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.86225708</span>, <span class="fl">0.8826809</span> , <span class="fl">0.89030269</span>, <span class="fl">0.9270727</span> , <span class="fl">0.9270912</span> ])</span></code></pre></div>
+<p>This gives the numbers in low-to-high order. We can reverse this if we like:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.flip(L)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>array([<span class="fl">0.9496391</span> , <span class="fl">0.91727302</span>, <span class="fl">0.91398948</span>, <span class="fl">0.82344881</span>, <span class="fl">0.77745334</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.70005671</span>, <span class="fl">0.66957984</span>, <span class="fl">0.57729601</span>, <span class="fl">0.53240024</span>, <span class="fl">0.5023616</span> ,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.47431738</span>, <span class="fl">0.46758215</span>, <span class="fl">0.45056234</span>, <span class="fl">0.42273064</span>, <span class="fl">0.40681106</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.40064446</span>, <span class="fl">0.2809288</span> , <span class="fl">0.26337749</span>, <span class="fl">0.05807318</span>, <span class="fl">0.05140198</span>])</span></code></pre></div>
+<p>And then easily extract the top 5:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>np.flip(L)[<span class="dv">0</span>:<span class="dv">5</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>array([<span class="fl">0.9496391</span> , <span class="fl">0.91727302</span>, <span class="fl">0.91398948</span>, <span class="fl">0.82344881</span>, <span class="fl">0.77745334</span>])</span></code></pre></div>
+<p>However, this leaves us with a problem. After sorting, we no longer
+know the <em>original positions</em> of these top-five values.</p>
+<p>Consider a list of 20 identifiers (I’ve scraped up some <em>color names</em> to use as identifiers),
+and let’s generate a new list of 20 numbers.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [ <span class="st">&quot;Gainsboro&quot;</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Gamboge&quot;</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Glossy grape&quot;</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Gold (metallic)&quot;</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Gold (Crayola)&quot;</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Golden poppy&quot;</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Golden yellow&quot;</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Goldenrod&quot;</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Gotham green&quot;</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Granite gray&quot;</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Granny Smith apple&quot;</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Gray (web)&quot;</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Gray (X11 gray)&quot;</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Green&quot;</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Green (Crayola)&quot;</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Green (web)&quot;</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Green (Munsell)&quot;</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Green (pigment)&quot;</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Green-blue&quot;</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Green Lizard&quot;</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>           ]</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.random.rand(<span class="dv">20</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>array([<span class="fl">0.54271742</span>, <span class="fl">0.08356579</span>, <span class="fl">0.84459914</span>, <span class="fl">0.31623228</span>, <span class="fl">0.83783749</span>,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.08603638</span>, <span class="fl">0.58023307</span>, <span class="fl">0.73584079</span>, <span class="fl">0.48756939</span>, <span class="fl">0.15952226</span>,</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.49337045</span>, <span class="fl">0.50012207</span>, <span class="fl">0.83147688</span>, <span class="fl">0.19603904</span>, <span class="fl">0.56062997</span>,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.2623</span>    , <span class="fl">0.12932203</span>, <span class="fl">0.53814636</span>, <span class="fl">0.26040894</span>, <span class="fl">0.51886249</span>])</span></code></pre></div>
+<p>Let’s assume that the <code>i</code>th entry of the array <code>M</code> corresponds to the
+<em>popularity</em> <code>i</code>th entry of <code>colors</code>.</p>
+<p>We want to know the top 5 most popular colors, in order.</p>
+<p>Well, we start by creating an auxiliary list of numbers <code>MM</code> whose
+entries have the form <code>(i,M[i])</code>. Sorting the list <code>MM</code> will allow us
+to keep track of the index to which the numerical entry belongs.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>MM <span class="op">=</span> [ (i,M[i]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(M)) ]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>MM</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">0</span>, <span class="fl">0.5427174230907871</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a> (<span class="dv">1</span>, <span class="fl">0.08356578675164472</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a> (<span class="dv">2</span>, <span class="fl">0.8445991409147532</span>),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a> (<span class="dv">3</span>, <span class="fl">0.3162322837557817</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a> (<span class="dv">4</span>, <span class="fl">0.8378374910762032</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a> (<span class="dv">5</span>, <span class="fl">0.08603638182768714</span>),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a> (<span class="dv">6</span>, <span class="fl">0.5802330689338201</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a> (<span class="dv">7</span>, <span class="fl">0.7358407928154617</span>),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a> (<span class="dv">8</span>, <span class="fl">0.48756938882888645</span>),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a> (<span class="dv">9</span>, <span class="fl">0.1595222604249248</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a> (<span class="dv">10</span>, <span class="fl">0.4933704534494878</span>),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a> (<span class="dv">11</span>, <span class="fl">0.5001220683132755</span>),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a> (<span class="dv">12</span>, <span class="fl">0.8314768835810168</span>),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a> (<span class="dv">13</span>, <span class="fl">0.19603903842858328</span>),</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a> (<span class="dv">14</span>, <span class="fl">0.5606299700383907</span>),</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a> (<span class="dv">15</span>, <span class="fl">0.2623000018631262</span>),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a> (<span class="dv">16</span>, <span class="fl">0.12932203084493898</span>),</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a> (<span class="dv">17</span>, <span class="fl">0.5381463621629631</span>),</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a> (<span class="dv">18</span>, <span class="fl">0.2604089399287458</span>),</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a> (<span class="dv">19</span>, <span class="fl">0.5188624872343434</span>)]</span></code></pre></div>
+<p>Now we sort the array <code>MM</code> using a <code>key</code>. Namely, we sort by the
+negative of component 1 of each tuple in <code>MM</code> (we use negative
+because we want to sort from high-to-low).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>MM.sort( key <span class="op">=</span> <span class="kw">lambda</span> x: <span class="op">-</span>x[<span class="dv">1</span>] )</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>MM[<span class="dv">0</span>:<span class="dv">5</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">2</span>, <span class="fl">0.8445991409147532</span>),</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> (<span class="dv">4</span>, <span class="fl">0.8378374910762032</span>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a> (<span class="dv">12</span>, <span class="fl">0.8314768835810168</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a> (<span class="dv">7</span>, <span class="fl">0.7358407928154617</span>),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a> (<span class="dv">6</span>, <span class="fl">0.5802330689338201</span>)]</span></code></pre></div>
+<p>And now we can see the colors with their popularity scores!</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>[ (colors[i],m) <span class="cf">for</span> (i,m) <span class="kw">in</span> MM[<span class="dv">0</span>:<span class="dv">5</span>] ]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>[(<span class="st">'Glossy grape'</span>, <span class="fl">0.8445991409147532</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gold (Crayola)'</span>, <span class="fl">0.8378374910762032</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gray (X11 gray)'</span>, <span class="fl">0.8314768835810168</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Goldenrod'</span>, <span class="fl">0.7358407928154617</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden yellow'</span>, <span class="fl">0.5802330689338201</span>)]</span></code></pre></div>
+<p>In fact, we could have skipped using the numerical index altogether:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([<span class="fl">0.54271742</span>, <span class="fl">0.08356579</span>, <span class="fl">0.84459914</span>, <span class="fl">0.31623228</span>, <span class="fl">0.83783749</span>,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.08603638</span>, <span class="fl">0.58023307</span>, <span class="fl">0.73584079</span>, <span class="fl">0.48756939</span>, <span class="fl">0.15952226</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.49337045</span>, <span class="fl">0.50012207</span>, <span class="fl">0.83147688</span>, <span class="fl">0.19603904</span>, <span class="fl">0.56062997</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.2623</span>    , <span class="fl">0.12932203</span>, <span class="fl">0.53814636</span>, <span class="fl">0.26040894</span>, <span class="fl">0.51886249</span>])</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>MMM <span class="op">=</span> <span class="bu">list</span>(<span class="bu">zip</span>(colors,M))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>MMM</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>[(<span class="st">'Gainsboro'</span>, <span class="fl">0.54271742</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gamboge'</span>, <span class="fl">0.08356579</span>),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Glossy grape'</span>, <span class="fl">0.84459914</span>),</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gold (metallic)'</span>, <span class="fl">0.31623228</span>),</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gold (Crayola)'</span>, <span class="fl">0.83783749</span>),</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden poppy'</span>, <span class="fl">0.08603638</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden yellow'</span>, <span class="fl">0.58023307</span>),</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Goldenrod'</span>, <span class="fl">0.73584079</span>),</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gotham green'</span>, <span class="fl">0.48756939</span>),</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Granite gray'</span>, <span class="fl">0.15952226</span>),</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Granny Smith apple'</span>, <span class="fl">0.49337045</span>),</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gray (web)'</span>, <span class="fl">0.50012207</span>),</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gray (X11 gray)'</span>, <span class="fl">0.83147688</span>),</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green'</span>, <span class="fl">0.19603904</span>),</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (Crayola)'</span>, <span class="fl">0.56062997</span>),</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (web)'</span>, <span class="fl">0.2623</span>),</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (Munsell)'</span>, <span class="fl">0.12932203</span>),</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green (pigment)'</span>, <span class="fl">0.53814636</span>),</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green-blue'</span>, <span class="fl">0.26040894</span>),</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Green Lizard'</span>, <span class="fl">0.51886249</span>)]</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>MMM.sort(key<span class="op">=</span><span class="kw">lambda</span> x: <span class="op">-</span>x[<span class="dv">1</span>])</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>MMM[<span class="dv">0</span>:<span class="dv">5</span>]</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>[(<span class="st">'Glossy grape'</span>, <span class="fl">0.84459914</span>),</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gold (Crayola)'</span>, <span class="fl">0.83783749</span>),</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Gray (X11 gray)'</span>, <span class="fl">0.83147688</span>),</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Goldenrod'</span>, <span class="fl">0.73584079</span>),</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden yellow'</span>, <span class="fl">0.58023307</span>)]</span></code></pre></div>
+    </section>
+</article>
+
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>
