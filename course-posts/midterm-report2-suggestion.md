@@ -95,7 +95,7 @@ array([0.54271742, 0.08356579, 0.84459914, 0.31623228, 0.83783749,
 ```
 
 Let's assume that the `i`th entry of the array `M` corresponds to the
-*popularity* `i`th entry of `colors`.
+*popularity* of the `i`th entry of `colors`.
 
 We want to know the top 5 most popular colors, in order. 
 
@@ -135,6 +135,10 @@ MM
  
  ``` python
  MM.sort( key = lambda x: -x[1] )
+ 
+ # we could of course display the whole sorted array MM
+ # but since we are only interested in the "top 5", we 
+ # can just display the first 5 elements of the sorted array, as follows:
  MM[0:5]
  =>
  [(2, 0.8445991409147532),
@@ -165,6 +169,9 @@ M = np.array([0.54271742, 0.08356579, 0.84459914, 0.31623228, 0.83783749,
        0.2623    , 0.12932203, 0.53814636, 0.26040894, 0.51886249])
 
 MMM = list(zip(colors,M))
+# or 
+#   MMM = [ (colors[i],M[i]) for i in range(len(M)) ] 
+# will also work
 MMM
 =>
 [('Gainsboro', 0.54271742),
@@ -198,3 +205,5 @@ MMM[0:5]
  ('Golden yellow', 0.58023307)]
 ```
 
+(Okay I admit that probably `"Glossy grape"` shouldn't actually win the
+popularity contest... ;^)...)
