@@ -134,9 +134,11 @@ to keep track of the index to which the numerical entry belongs.</p>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a> (<span class="dv">17</span>, <span class="fl">0.5381463621629631</span>),</span>
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a> (<span class="dv">18</span>, <span class="fl">0.2604089399287458</span>),</span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a> (<span class="dv">19</span>, <span class="fl">0.5188624872343434</span>)]</span></code></pre></div>
-<p>Now we sort the array <code>MM</code> using a <code>key</code>. Namely, we sort by the
-negative of component 1 of each tuple in <code>MM</code> (we use negative
-because we want to sort from high-to-low).</p>
+<p>When sorting <code>MM</code>, we need to <em>ignore</em> the first component of each
+pair <code>(i,M[i])</code>. To accomplish this, we sort the array <code>MM</code> using a
+<code>key</code>. Namely, we sort by the negative of component 1 of each tuple
+in <code>MM</code> (we use negative because we want to sort from high-to-low).
+<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>MM.sort( key <span class="op">=</span> <span class="kw">lambda</span> x: <span class="op">-</span>x[<span class="dv">1</span>] )</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># we could of course display the whole sorted array MM</span></span>
@@ -201,6 +203,16 @@ because we want to sort from high-to-low).</p>
 <span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Goldenrod'</span>, <span class="fl">0.73584079</span>),</span>
 <span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a> (<span class="st">'Golden yellow'</span>, <span class="fl">0.58023307</span>)]</span></code></pre></div>
 <p>Okay I admit that I’m not precisely sure what the color <code>"Glossy grape"</code> looks like! ;^)…</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>We use a <code>lambda</code> for the key, i.e. an <a href="https://en.wikipedia.org/wiki/Anonymous_function"><em>anonymous
+function</em></a>.
+This function is applied to each element of the list, and the
+resulting values are used to sort the list. You can safely
+ignore these details and just copy the code, of course!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
     </section>
 </article>
 

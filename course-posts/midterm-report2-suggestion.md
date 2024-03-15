@@ -128,10 +128,18 @@ MM
  (18, 0.2604089399287458),
  (19, 0.5188624872343434)]
  ```
+
+ When sorting `MM`, we need to *ignore* the first component of each
+ pair `(i,M[i])`. To accomplish this, we sort the array `MM` using a
+ `key`. Namely, we sort by the negative of component 1 of each tuple
+ in `MM` (we use negative because we want to sort from high-to-low).
+ [^1]
  
- Now we sort the array `MM` using a `key`. Namely, we sort by the
- negative of component 1 of each tuple in `MM` (we use negative
- because we want to sort from high-to-low).
+ [^1]: We use a `lambda` for the key, i.e. an [*anonymous
+       function*](https://en.wikipedia.org/wiki/Anonymous_function).
+       This function is applied to each element of the list, and the
+       resulting values are used to sort the list. You can safely
+       ignore these details and just copy the code, of course!
  
  ``` python
  MM.sort( key = lambda x: -x[1] )
