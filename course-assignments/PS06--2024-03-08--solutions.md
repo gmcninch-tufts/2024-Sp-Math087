@@ -45,13 +45,13 @@ date: 2024-03-08
 	  there are *two* outgoing edges: `[n] --> [n+1]` and `[n-1] <--
 	  [n]`, both of which are labeled with probability 1/2.
 	  
-	  If you are standing in front of building
-	  `m`, the effect of a `heads` toss and of a `tails` toss depend
-	  on the *sign* of `m`. Namely, if `m>0` and you toss `heads`, you
-	  move one building to the right and hence increase your distance
-	  to the origin by one unit, and if you toss `tails`, you move one
-	  building to the left and hence decrease your distance to the
-	  origin by one unit.
+	  If you are standing in front of building `m` - so that the
+	  distance from building `0` is `|m|` - , the effect of a `heads`
+	  toss and of a `tails` toss depend on the *sign* of `m`. Namely,
+	  if `m>0` and you toss `heads`, you move one building to the
+	  right and hence increase your distance to the origin by one
+	  unit, and if you toss `tails`, you move one building to the left
+	  and hence decrease your distance to the origin by one unit.
 	  
 	  On the other hand, if `m<0` and you toss `heads`, your
       one-building to the right move *increases* your distance to the
@@ -59,9 +59,9 @@ date: 2024-03-08
       the origin *decreases* by one unit. 
 	  
 	  Finally, if your distance is `0`, there is only one outgoing
-	  edge `[0] --> [1]` and it is assigned a probability of 1, since
-	  either a `heads` or `tails` results in a distance of 1 unit from
-	  the origin.
+	  edge `[0] --> [1]` and it has a probability of 1, since a toss
+	  of either `heads` or `tails` results in a move placing you
+	  exactly 1 unit from the origin.
 	  
 	  In summary, `distance to the origin` is governed by the
 	  transition diagram we just described, hence is a Markov process.
@@ -75,12 +75,137 @@ date: 2024-03-08
       this to compare to the process described in part b?
 	  
 	  ::: {.solution}
+	  
+	  This is again a Markov process, with a different transition
+      diagram which we now describe.
+	  
+	  Again the nodes of the diagram are non-negative integers `[n]`.
+	  
+	  The outgoing edges from `[0]` are a loop `[0] --> [0]` together
+	  with an edge `[0] --> [1]`. In this case each edge occurs with
+	  probability 1/2. (A result of `heads,head` or `tails,tails`
+	  causes a move `[0] --> [1]`, while a mixed toss results in the
+	  move `[0] --> [0]`.
+	  
+	  For `|n| > 0`, there are 3 outgoing edges from `[n]`:
+      -	 `[n] --> [n]` is labeled with probability 1/2 and results from 
+	     `heads,tails` or `tails,heads`
+	  -  `[n] --> [n+1]` is labeled with probability 1/4; if `n>0` this 
+	     move results from `heads,head` while if `n<0` this move
+		 results from `tails,tails`.
+	  -  `[n] --> [n-1]` is also labeled with probability 1/4; if `n>0` this
+	     move results from `tails,tails` while if `n<0` this move results
+		 from `heads,heads`.
+	  
 	  :::
 	  
    d. For both experiments, compute the probability that you are
       standing on an odd number for minute $0,1,2,3,4$.
 
       ::: {.solution}
+	  
+	  I'll do this calculation with the following code:
+	  ```python
+	  from pprint import pprint
+ 
+      # we represent the probabilities for a certain state
+	  # of our system using a dictionary
+	  # The initial state is { 0:1 } - this means with probability 1 you are at distance 0
+      # The state { 0: p0, 1: p1, 2: p2, ... } indicates that with probability pi you are ate distance i.
+	  #
+      def prob(state,pos):
+	      # return the probability recorded in the state dictionary for the indicated position
+          if pos in state.keys():
+              return state[pos]
+          else:
+              return 0
+      
+      def step(f,state):
+          # update the state using the transition function f
+          # f should be a function of two arguments: f(old_pos,new_pos)
+          # should return the probability of transitioning from old_pos to new_pos
+          # We use f to update the probabilities, and we return the new state
+          results = len(state.keys())
+          return { r: f(r-1,r)*prob(state,r-1) + f(r,r)*prob(state,r) + f(r+1,r)*prob(state,r+1)
+                   for r in range(results+1) }
+      
+      def iterate(num,f,state):
+          if num<=0:
+              return state
+          else:
+              return iterate(num-1,f,step(f,state))
+      
+      def count_odd(state):
+          return sum([ state[r] for r in state.keys() if r % 2 == 1 ])
+
+	  ```
+	  
+	  In the case described in (b), using only one coin, we find the following results:
+	  
+	  ``` python
+	  # we'll use this function as the update function f when
+	  # calling the `step` function defined above.
+	  #
+	  def one_coin(old_pos,new_pos):
+          # return the probability of 
+          # transition from old_pos to new_pos
+          match (old_pos,new_pos):
+              case 0,1:  return 1
+              case 0,_:  return 0
+              case m,n: 
+                  if abs(m-n) == 1:
+                      return .5
+                  else: 
+                      return 0
+      
+      
+      S = [ (m,iterate(m,one_coin,{0:1})) for m in [0,1,2,3,4] ]
+      T = [ (m,count_odd(state)) for (m,state) in S ]
+      pprint(S)
+      print(T)
+	  =>
+      [(0, {0: 1}),
+       (1, {0: 0.0, 1: 1.0}),
+       (2, {0: 0.5, 1: 0.0, 2: 0.5}),
+       (3, {0: 0.0, 1: 0.75, 2: 0.0, 3: 0.25}),
+       (4, {0: 0.375, 1: 0.0, 2: 0.5, 3: 0.0, 4: 0.125})]
+      [(0, 0), (1, 1.0), (2, 0.0), (3, 1.0), (4, 0.0)]	  
+	  ``` 
+	  
+	  Here we see that after 0,2,4 steps we are *never* in front
+	  of an odd-numbered building, and after 1,3 steps we are *always*
+	  in front of an odd-numbered building.
+	  
+	  In the case described in (c), we use instead the following results:
+	  
+	  ``` python
+	  def two_coin(old_pos,new_pos):
+          match (old_pos,new_pos):
+              case 0,1: return .5
+              case 0,0: return .5
+              case m,n:
+                  if m==n:
+                      return .5
+                  if abs(m-n) == 1:
+                      return .25
+                  else:
+                      return 0
+      
+      S = [ (m,iterate(m,two_coin,{0:1})) for m in [0,1,2,3,4] ]
+      T = [ (m,count_odd(state)) for (m,state) in S ]
+      pprint(S)
+      print(T)
+	  =>
+      [(0, {0: 1}),
+       (1, {0: 0.5, 1: 0.5}),
+       (2, {0: 0.375, 1: 0.5, 2: 0.125}),
+       (3, {0: 0.3125, 1: 0.46875, 2: 0.1875, 3: 0.03125}),
+       (4, {0: 0.2734375, 1: 0.4375, 2: 0.21875, 3: 0.0625, 4: 0.0078125})]
+      [(0, 0), (1, 0.5), (2, 0.5), (3, 0.5), (4, 0.5)]	  
+      ```
+	  So after 0 steps, we are (of course) never in front of an odd numbered building,
+	  but after 1,2,3 or 4 steps we are in front of an odd numbered building
+	  with probability 1/2.
 	  :::
 
    e. (Optional food for thought) Suppose your friend is playing the

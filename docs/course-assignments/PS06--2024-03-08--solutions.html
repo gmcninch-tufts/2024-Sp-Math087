@@ -61,21 +61,21 @@ modeled by a Markov process?</p>
 <p>Yes. In this case, consider the <em>transition diagram</em> whose nodes
 are <em>non-negative</em> integers. For any node <code>[n]</code> with <code>n&gt;0</code>,
 there are <em>two</em> outgoing edges: <code>[n] --&gt; [n+1]</code> and <code>[n-1] &lt;-- [n]</code>, both of which are labeled with probability 1/2.</p>
-<p>If you are standing in front of building
-<code>m</code>, the effect of a <code>heads</code> toss and of a <code>tails</code> toss depend
-on the <em>sign</em> of <code>m</code>. Namely, if <code>m&gt;0</code> and you toss <code>heads</code>, you
-move one building to the right and hence increase your distance
-to the origin by one unit, and if you toss <code>tails</code>, you move one
-building to the left and hence decrease your distance to the
-origin by one unit.</p>
+<p>If you are standing in front of building <code>m</code> - so that the
+distance from building <code>0</code> is <code>|m|</code> - , the effect of a <code>heads</code>
+toss and of a <code>tails</code> toss depend on the <em>sign</em> of <code>m</code>. Namely,
+if <code>m&gt;0</code> and you toss <code>heads</code>, you move one building to the
+right and hence increase your distance to the origin by one
+unit, and if you toss <code>tails</code>, you move one building to the left
+and hence decrease your distance to the origin by one unit.</p>
 <p>On the other hand, if <code>m&lt;0</code> and you toss <code>heads</code>, your
 one-building to the right move <em>increases</em> your distance to the
 origin by one unit, and if you toss <code>tails</code>, your distance to
 the origin <em>decreases</em> by one unit.</p>
 <p>Finally, if your distance is <code>0</code>, there is only one outgoing
-edge <code>[0] --&gt; [1]</code> and it is assigned a probability of 1, since
-either a <code>heads</code> or <code>tails</code> results in a distance of 1 unit from
-the origin.</p>
+edge <code>[0] --&gt; [1]</code> and it has a probability of 1, since a toss
+of either <code>heads</code> or <code>tails</code> results in a move placing you
+exactly 1 unit from the origin.</p>
 <p>In summary, <code>distance to the origin</code> is governed by the
 transition diagram we just described, hence is a Markov process.</p>
 </div></li>
@@ -85,12 +85,119 @@ otherwise you stay put. Is your distance from where you started
 modeled by a Markov process in this scenario? How do you expect
 this to compare to the process described in part b?</p>
 <div class="solution">
-
+<p>This is again a Markov process, with a different transition
+diagram which we now describe.</p>
+<p>Again the nodes of the diagram are non-negative integers <code>[n]</code>.</p>
+<p>The outgoing edges from <code>[0]</code> are a loop <code>[0] --&gt; [0]</code> together
+with an edge <code>[0] --&gt; [1]</code>. In this case each edge occurs with
+probability 1/2. (A result of <code>heads,head</code> or <code>tails,tails</code>
+causes a move <code>[0] --&gt; [1]</code>, while a mixed toss results in the
+move <code>[0] --&gt; [0]</code>.</p>
+For <code>|n| &gt; 0</code>, there are 3 outgoing edges from <code>[n]</code>:
+<ul>
+<li><code>[n] --&gt; [n]</code> is labeled with probability 1/2 and results from
+<code>heads,tails</code> or <code>tails,heads</code></li>
+<li><code>[n] --&gt; [n+1]</code> is labeled with probability 1/4; if <code>n&gt;0</code> this
+move results from <code>heads,head</code> while if <code>n&lt;0</code> this move
+results from <code>tails,tails</code>.</li>
+<li><code>[n] --&gt; [n-1]</code> is also labeled with probability 1/4; if <code>n&gt;0</code> this
+move results from <code>tails,tails</code> while if <code>n&lt;0</code> this move results
+from <code>heads,heads</code>.</li>
+</ul>
 </div></li>
 <li><p>For both experiments, compute the probability that you are
 standing on an odd number for minute <span class="math inline">\(0,1,2,3,4\)</span>.</p>
 <div class="solution">
-
+<p>I’ll do this calculation with the following code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># we represent the probabilities for a certain state</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># of our system using a dictionary</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The initial state is { 0:1 } - this means with probability 1 you are at distance 0</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The state { 0: p0, 1: p1, 2: p2, ... } indicates that with probability pi you are ate distance i.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prob(state,pos):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># return the probability recorded in the state dictionary for the indicated position</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pos <span class="kw">in</span> state.keys():</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> state[pos]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> step(f,state):</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># update the state using the transition function f</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># f should be a function of two arguments: f(old_pos,new_pos)</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># should return the probability of transitioning from old_pos to new_pos</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># We use f to update the probabilities, and we return the new state</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> <span class="bu">len</span>(state.keys())</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> { r: f(r<span class="op">-</span><span class="dv">1</span>,r)<span class="op">*</span>prob(state,r<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> f(r,r)<span class="op">*</span>prob(state,r) <span class="op">+</span> f(r<span class="op">+</span><span class="dv">1</span>,r)<span class="op">*</span>prob(state,r<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>             <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(results<span class="op">+</span><span class="dv">1</span>) }</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> iterate(num,f,state):</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num<span class="op">&lt;=</span><span class="dv">0</span>:</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> state</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> iterate(num<span class="op">-</span><span class="dv">1</span>,f,step(f,state))</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_odd(state):</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>([ state[r] <span class="cf">for</span> r <span class="kw">in</span> state.keys() <span class="cf">if</span> r <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span> ])</span></code></pre></div>
+<p>In the case described in (b), using only one coin, we find the following results:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we'll use this function as the update function f when</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># calling the `step` function defined above.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_coin(old_pos,new_pos):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># return the probability of </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># transition from old_pos to new_pos</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    match (old_pos,new_pos):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="dv">0</span>,<span class="dv">1</span>:  <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="dv">0</span>,_:  <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> m,n: </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">abs</span>(m<span class="op">-</span>n) <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="fl">.5</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>: </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> [ (m,iterate(m,one_coin,{<span class="dv">0</span>:<span class="dv">1</span>})) <span class="cf">for</span> m <span class="kw">in</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>] ]</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> [ (m,count_odd(state)) <span class="cf">for</span> (m,state) <span class="kw">in</span> S ]</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>pprint(S)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(T)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">0</span>, {<span class="dv">0</span>: <span class="dv">1</span>}),</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a> (<span class="dv">1</span>, {<span class="dv">0</span>: <span class="fl">0.0</span>, <span class="dv">1</span>: <span class="fl">1.0</span>}),</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a> (<span class="dv">2</span>, {<span class="dv">0</span>: <span class="fl">0.5</span>, <span class="dv">1</span>: <span class="fl">0.0</span>, <span class="dv">2</span>: <span class="fl">0.5</span>}),</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a> (<span class="dv">3</span>, {<span class="dv">0</span>: <span class="fl">0.0</span>, <span class="dv">1</span>: <span class="fl">0.75</span>, <span class="dv">2</span>: <span class="fl">0.0</span>, <span class="dv">3</span>: <span class="fl">0.25</span>}),</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a> (<span class="dv">4</span>, {<span class="dv">0</span>: <span class="fl">0.375</span>, <span class="dv">1</span>: <span class="fl">0.0</span>, <span class="dv">2</span>: <span class="fl">0.5</span>, <span class="dv">3</span>: <span class="fl">0.0</span>, <span class="dv">4</span>: <span class="fl">0.125</span>})]</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">0</span>, <span class="dv">0</span>), (<span class="dv">1</span>, <span class="fl">1.0</span>), (<span class="dv">2</span>, <span class="fl">0.0</span>), (<span class="dv">3</span>, <span class="fl">1.0</span>), (<span class="dv">4</span>, <span class="fl">0.0</span>)]	  </span></code></pre></div>
+<p>Here we see that after 0,2,4 steps we are <em>never</em> in front
+of an odd-numbered building, and after 1,3 steps we are <em>always</em>
+in front of an odd-numbered building.</p>
+<p>In the case described in (c), we use instead the following results:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> two_coin(old_pos,new_pos):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    match (old_pos,new_pos):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="dv">0</span>,<span class="dv">1</span>: <span class="cf">return</span> <span class="fl">.5</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="dv">0</span>,<span class="dv">0</span>: <span class="cf">return</span> <span class="fl">.5</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> m,n:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> m<span class="op">==</span>n:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="fl">.5</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">abs</span>(m<span class="op">-</span>n) <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="fl">.25</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> [ (m,iterate(m,two_coin,{<span class="dv">0</span>:<span class="dv">1</span>})) <span class="cf">for</span> m <span class="kw">in</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>] ]</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> [ (m,count_odd(state)) <span class="cf">for</span> (m,state) <span class="kw">in</span> S ]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>pprint(S)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(T)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">0</span>, {<span class="dv">0</span>: <span class="dv">1</span>}),</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a> (<span class="dv">1</span>, {<span class="dv">0</span>: <span class="fl">0.5</span>, <span class="dv">1</span>: <span class="fl">0.5</span>}),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a> (<span class="dv">2</span>, {<span class="dv">0</span>: <span class="fl">0.375</span>, <span class="dv">1</span>: <span class="fl">0.5</span>, <span class="dv">2</span>: <span class="fl">0.125</span>}),</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a> (<span class="dv">3</span>, {<span class="dv">0</span>: <span class="fl">0.3125</span>, <span class="dv">1</span>: <span class="fl">0.46875</span>, <span class="dv">2</span>: <span class="fl">0.1875</span>, <span class="dv">3</span>: <span class="fl">0.03125</span>}),</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a> (<span class="dv">4</span>, {<span class="dv">0</span>: <span class="fl">0.2734375</span>, <span class="dv">1</span>: <span class="fl">0.4375</span>, <span class="dv">2</span>: <span class="fl">0.21875</span>, <span class="dv">3</span>: <span class="fl">0.0625</span>, <span class="dv">4</span>: <span class="fl">0.0078125</span>})]</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">0</span>, <span class="dv">0</span>), (<span class="dv">1</span>, <span class="fl">0.5</span>), (<span class="dv">2</span>, <span class="fl">0.5</span>), (<span class="dv">3</span>, <span class="fl">0.5</span>), (<span class="dv">4</span>, <span class="fl">0.5</span>)]	  </span></code></pre></div>
+<p>So after 0 steps, we are (of course) never in front of an odd numbered building,
+but after 1,2,3 or 4 steps we are in front of an odd numbered building
+with probability 1/2.</p>
 </div></li>
 <li><p>(Optional food for thought) Suppose your friend is playing the
 same game, but started at position −100. Do you think it is more
