@@ -35,6 +35,8 @@ assignments
   [**[solutions pdf]**](/course-assignments/PS06--2024-03-08--solutions.pdf)  
 - due 2024-03-15 [**[midterm report 2]**](/course-assignments/MidRep2--2024-03-15.html)
   [**[pdf]**](/course-assignments/MidRep2--2024-03-15.pdf)
+  [**[solutions]**](/course-assignments/MidRep2--2024-03-15--solution.html)
+  [**[solutions pdf]**](/course-assignments/MidRep2--2024-03-15--solution.pdf)  
 - due 2024-03-29 [**[final report proposal]**](/course-assignments/FinReport-Proposal.html)
   [**[pdf]**](/course-assignments/FinReport-Proposal.pdf)
 - due 2024-04-26 [**[final report]**](/course-assignments/FinReport.html)
