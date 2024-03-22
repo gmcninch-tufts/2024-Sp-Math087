@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - PS 07 -- Monte Carlo integration & simulations</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>PS 07 -- Monte Carlo integration & simulations</h1>
+            <ol type="1">
+<li><p>Consider the function <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> defined on the interval
+<span class="math inline">\(I=\left[\dfrac{1}{2},1\right]\)</span>. Note that <span class="math inline">\(f\)</span> is a decreasing
+function on the interval, and in particular</p>
+<p><span class="math display">\[\dfrac{1}{x} \le 4\]</span></p>
+<p>for each <span class="math inline">\(x \in I\)</span>. Recall that</p>
+<p><span class="math display">\[\int_{1/2}^1 \dfrac{1}{x}dx = \ln(x)\bigg\vert^1_{1/2} =
+-\ln(1/2) = \ln(2).\]</span></p>
+<ol type="a">
+<li><p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables uniformly distributed
+respectively on the intervals <span class="math inline">\([1/2,1]\)</span> and <span class="math inline">\([0,4]\)</span>, explain why</p>
+<p><span class="math display">\[P\left(\dfrac{1}{2} \le X \le 1, 0 \le Y \le \dfrac{1}{X}
+\right) = \dfrac{\ln(2)}{2}.\]</span></p></li>
+<li><p>Write a <code>python</code> function which takes as argument a whole
+number <code>n</code> and estimates <span class="math inline">\(\ln(2)\)</span> by generating <code>n</code> random
+points <code>(x,y)</code> in the region <span class="math inline">\([1/2,1] \times [0,4]\)</span>, counting
+the number <code>m</code> of those points <code>(x,y)</code> for which <span class="math inline">\(y\)</span> is
+<em>below</em> the graph <span class="math inline">\(y = \dfrac{1}{x}\)</span>, and using the ratio
+<code>m/n</code> to produce an estimate of <span class="math inline">\(\ln(2)\)</span>.</p>
+<p>Include the text of your function in your problem submission,
+and include a brief explanation of how it works.</p>
+<p>Compare your result to <code>npumpy.log(2)</code> (note that <code>numpy.log</code> is
+the natural logarithm). How large must <code>n</code> be in order that
+your estimate matches <code>numpy.log(2)</code> to 2 decimal places?</p>
+<hr />
+<p>Here are some suggestions/reminders:</p>
+<p>You should execute the following code to create a random number
+generator in <code>python</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> default_rng</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> default_rng()</span></code></pre></div>
+<p>Now <code>rng.random()</code> will return a random number in the interval
+<span class="math inline">\([0,1]\)</span>.</p>
+<p>The <code>python</code> function</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> estimate_log_two(n):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ...</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ...</span></span></code></pre></div>
+<p>should take as
+argument a variable <code>n</code> and return an estimate of <span class="math inline">\(\ln(2)\)</span>; it
+should proceed as follows:</p>
+<ul>
+<li><p>generate a list <code>xl</code> of length <code>n</code> of random numbers between
+<code>0.5</code> and <code>1</code>.</p></li>
+<li><p>generate a list <code>yl</code> of length <code>n</code> of random numbers between
+<code>0</code> and <code>4</code>.</p></li>
+<li><p>count the number <code>m</code> of pairs <code>(x,y)</code> from the list
+<code>zip(xl,yl)</code> for which <code>y &lt; 1.0/x</code>.</p></li>
+</ul>
+<p>Then <code>m/n</code> is an estimate for <span class="math inline">\(\ln(2)/2\)</span> (why?).</p></li>
+</ol></li>
+</ol>
+<hr />
+<h1 id="janes-fish-tank-emporium-jfte-revisited."><em>Jane’s Fish Tank Emporium</em> (<em>JFTE</em>) revisited.</h1>
+<p>Recall that in the course notebook, we discussed the operation of
+<em>JFTE</em> by considering the question: what is the optimal ordering
+strategy for fish tanks?</p>
+<p>Is it <em>on-demand</em> ordering (where an order is made after a sale)?</p>
+<p>Or is it better to have <em>standing orders</em> (where an order is made
+regularly – say, on a particular day of the week)?</p>
+<ol start="2" type="1">
+<li><p>In the notebook, we studied the case for which the probability of a
+customer arriving at the store on any particular day was <code>1/7</code>.
+Let’s now consider the case where the probability of the arrival of
+a customer to the store depends on the day of the week, as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Day</th>
+<th>Sun</th>
+<th>Mon</th>
+<th>Tue</th>
+<th>Wed</th>
+<th>Thur</th>
+<th>Fri</th>
+<th>Sat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DOW</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>Prob</td>
+<td>0.16</td>
+<td>0.08</td>
+<td>0.04</td>
+<td>0.08</td>
+<td>0.12</td>
+<td>0.25</td>
+<td>0.27</td>
+</tr>
+</tbody>
+</table>
+<p>Here the <code>DOW</code> (“day of week”) row just indicates that we view
+<code>Mon</code> as day 1 of a week, <code>Tue</code> as day 2, etc.</p>
+<p>In the notebook, we constructed a <code>python</code> class <code>JFTE</code> to keep
+track of our simulations. The <em>constructor</em> of the class <code>JFTE</code>
+(i.e. its member function <code>__init__</code>) creates the <code>customer</code>
+instance variable; to do this, it invokes the function</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> customer(prob<span class="op">=</span><span class="fl">1.</span><span class="op">/</span><span class="dv">7</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> rng.choice([<span class="dv">1</span>,<span class="dv">0</span>],p<span class="op">=</span>[prob,<span class="dv">1</span><span class="op">-</span>prob])</span></code></pre></div>
+<p>Make an alternative to this function <code>customer</code> by creating a new
+function <code>customer_alt</code> taking an integer argument <code>m</code> which
+returns <code>1</code> with probability as indicated in the above table (for
+the <code>DOW</code> corresponding to <code>m</code>) and otherwise returns <code>0</code>.</p>
+<p>Recall that we may use <code>np.mod(m,7)</code> to compute the <code>DOW</code> of
+<code>m</code> e.g. the condition <code>np.mod(m,7) == 3</code> is <code>True</code> if <code>m</code>
+is a <code>Wed</code>.</p>
+<p>Now edit the code for the <code>JFTE</code> class, so that the <code>__init__</code>
+function instead uses your <em>new</em> function <code>customer_alt</code> to
+produce the instance variable <code>customers</code>. You can assume that
+the days for your simulations always begin on a Sunday!</p>
+<p>The notebook implemented <code>strategy</code> functions <code>stand_order</code> and
+<code>order_on_demand</code> which take as arguments an instance of the
+class <code>JFTE</code>.</p>
+<p>You may now apply these <code>strategy</code> functions to an instance of
+the <code>JFTE</code> class constructed using your alternative
+customer-arrival function.</p>
+<p>Run the simulation 10 times with both strategy functions, as was
+done in the notebook. Discuss similarities/differences between the
+results obtained in the notebook.</p>
+<p>In addition to discussion, be sure to include the code for your
+function <code>customer_alt</code> and a summary of the results of your 10
+simulations for each strategy.</p></li>
+<li><p>In this problem, let’s consider again the “constant” customer
+arrival probability described in the notebook.</p>
+<p>For each strategy <code>stand_order</code> and <code>order_on_demand</code> , compute
+the average <code>storage_days</code> and the average <code>sales</code> for 10
+simulations. (So you’ll have averages for <code>stand_order</code> and
+averages for <code>order_on_demand</code>).</p>
+<p>If the storage costs are $1 per tank per day, use your averages to
+estimate what the profit per tank needs to be for <code>JFTE</code> to have
+a positive <code>net_profit</code> for each of these strategies.</p></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>
