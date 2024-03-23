@@ -54,7 +54,7 @@ where <span class="math inline">\(\mathbf{1}\)</span> is the “all-ones matrix�
 <span class="math inline">\(n \times n\)</span> <code>PageRank</code> transition matrix, where <span class="math inline">\(p\)</span> denotes the <em>damping</em> probability.</p>
 <p>If the <code>j</code>-th column of the matrix <span class="math inline">\(A\)</span> is equal to
 <span class="math inline">\(\mathbf{0}\)</span>, then for each <span class="math inline">\(0 \le i \le n-1\)</span>, we have
-<span class="math inline">\(C_{i,j} = p.\)</span></p>
+<span class="math inline">\(C_{i,j} = \dfrac{1-p}{n} + \dfrac{p}{n} = \dfrac{1}{n}.\)</span></p>
 <p>Note that the sum <span class="math inline">\(s\)</span> of the entries in the <span class="math inline">\(j\)</span>-th column of <span class="math inline">\(A\)</span> is
 given by the product <span class="math inline">\(\mathbf{1}^T \cdot A \cdot \mathbf{e}_j\)</span> where
 <span class="math inline">\(\mathbf{1}\)</span> denotes the “all-ones column vector”.</p>
@@ -65,8 +65,8 @@ given by the product <span class="math inline">\(\mathbf{1}^T \cdot A \cdot \mat
 <p>Now, suppose the sum <span class="math inline">\(s\)</span> of the entries of the <code>j</code>-th column of the matrix
 <span class="math inline">\(A\)</span> satisfies <span class="math inline">\(s&gt;0\)</span>. For each <code>i=0,...,n-1</code> we have</p>
 <ul>
-<li><p><span class="math inline">\(C_{i,j} = p\)</span> whenever <span class="math inline">\(A_{i,j} = 0\)</span></p></li>
-<li><p><span class="math inline">\(C_{i,j} = \dfrac{1-p}{s} + p\)</span> whenever <span class="math inline">\(A_{i,j} \ne 0\)</span>.</p></li>
+<li><p><span class="math inline">\(C_{i,j} = \dfrac{p}{n}\)</span> whenever <span class="math inline">\(A_{i,j} = 0\)</span></p></li>
+<li><p><span class="math inline">\(C_{i,j} = \dfrac{1-p}{s} + \dfrac{p}{n}\)</span> whenever <span class="math inline">\(A_{i,j} \ne 0\)</span>.</p></li>
 </ul>
 <h1 id="producing-the-damped-transition-matrix-via-code"><strong>2</strong> Producing the damped transition matrix via <code>code</code></h1>
 <p>Using these formulas, we can write a <code>python</code> function <code>make_transition</code> to create

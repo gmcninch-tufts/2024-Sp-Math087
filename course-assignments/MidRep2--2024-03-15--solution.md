@@ -38,7 +38,7 @@ where $\mathbf{1}$ is the "all-ones matrix".
   
   If the ``j``-th column of the matrix $A$ is equal to
   $\mathbf{0}$, then for each $0 \le i \le n-1$, we have
-  $C_{i,j} = p.$
+  $C_{i,j} = \dfrac{1-p}{n} + \dfrac{p}{n} = \dfrac{1}{n}.$
 	 
   Note that the sum $s$ of the entries in the $j$-th column of $A$ is
   given by the product $\mathbf{1}^T \cdot A \cdot \e_j$ where
@@ -55,9 +55,9 @@ where $\mathbf{1}$ is the "all-ones matrix".
   Now, suppose the sum $s$ of the entries of the ``j``-th column of the matrix
   $A$ satisfies $s>0$. For each ``i=0,...,n-1`` we have
   
-  - $C_{i,j} = p$ whenever $A_{i,j} = 0$
+  - $C_{i,j} = \dfrac{p}{n}$ whenever $A_{i,j} = 0$
   
-  - $C_{i,j} = \dfrac{1-p}{s} + p$ whenever $A_{i,j} \ne 0$.
+  - $C_{i,j} = \dfrac{1-p}{s} + \dfrac{p}{n}$ whenever $A_{i,j} \ne 0$.
 
 # **2** Producing the damped transition matrix via `code`
 
