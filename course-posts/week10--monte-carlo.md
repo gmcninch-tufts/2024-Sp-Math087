@@ -14,10 +14,10 @@ date: 2024-03-25
 # Notebooks
 
 - *Monte Carlo methods*
-  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/week10-01--monte-carlo.ipynb)
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week10-01--monte-carlo.ipynb)
   [[download notebook]](/course-content/week10-01--monte-carlo.ipynb)
   [[pdf]](/course-content/week10-01--monte-carlo.pdf)  
 - *Monte Carlo simulation*
-  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/week10-02--monte-carlo-simulation.ipynb)
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week10-02--monte-carlo-simulation.ipynb)
   [[download notebook]](/course-content/week10-02--monte-carlo-simulation.ipynb)
   [[pdf]](/course-content/week10-02--monte-carlo-simulation.pdf)  
