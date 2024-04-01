@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - PS 8 -- Binomial & Poisson distribution</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>PS 8 -- Binomial & Poisson distribution</h1>
+            <ol type="1">
+<li><p>For a whole number <span class="math inline">\(N \ge 1\)</span>, recall the following identity:</p>
+<p><span class="math display">\[(X+Y)^N = \sum_{j=0}^N \dbinom{N}{j} X^j Y^{N-j}\]</span></p>
+<p>where <span class="math inline">\(X,Y\)</span> are <em>variables</em>.</p>
+<ol type="a">
+<li><p>Explain why the identity <span class="math inline">\((X+Y)^N = (Y+X)^N\)</span> implies that</p>
+<p><span class="math display">\[\dbinom{N}{j} = \dbinom{N}{N-j}\]</span></p>
+<p>for each <span class="math inline">\(0 \le j \le N\)</span>.</p></li>
+<li><p>Explain why the identity</p>
+<p><span class="math display">\[(X+Y)^N = (X+Y)(X+Y)^{N-1}\]</span>
+<span class="math display">\[ = X(X+Y)^{N-1} + Y(X+Y)^{N-1}\]</span></p>
+<p>implies that</p>
+<p><span class="math display">\[\dbinom{N}{j} = \dbinom{N-1}{j} + \dbinom{N-1}{j-1}\]</span></p>
+<p>for each <span class="math inline">\(0 \le j \le N-1\)</span>.</p></li>
+</ol>
+<p><strong>Hint:</strong> In each case, observe what the indicated identity says
+about the coefficient of <span class="math inline">\(X^j Y^{N-j}\)</span> in the given expression(s).</p></li>
+<li><p>Using the identities in 1., one can argue inductively that</p>
+<p><span class="math display">\[\dbinom{N}{j} = \dfrac{N!}{j! \cdot (N-j)!}\]</span></p>
+<p>(in fact, this formula has been used in the <code>notebook</code>!)</p>
+<p>Use this identity to compute the following limits:</p>
+<p><span class="math display">\[\lim_{N \to \infty} \dfrac{1}{N^3} \dbinom{2N}{3}
+\qquad \text{and} \qquad
+\lim_{N \to \infty} \dfrac{1}{e^N} \dbinom{N}{N-4}.\]</span></p></li>
+<li><p>Suppose you have estimated the probability that your pet songbird
+will sing during a one-hour time period is <code>0.35</code>.</p>
+<p>For the following, you should use the <em>binomial distribution</em>.</p>
+<ol type="a">
+<li><p>Indicate an expression for the probability that the bird will
+sing during a ten-minute time period.</p></li>
+<li><p>Indicate an expression for the probability that the bird will
+not sing during a twenty-minute time period.</p></li>
+</ol></li>
+<li><p>Suppose that the probability that an automobile accident occurs
+during a 24 hour period in a certain stretch of freeway is given by
+the number <span class="math inline">\(p\)</span>, <span class="math inline">\(0&lt;p&lt;1\)</span>.</p>
+<p>Assume that the random variable <span class="math inline">\(X\)</span> describing the <em>number of
+automobile accidents</em> is given by the Poisson distribution.</p>
+<p>Thus the probability that there are <span class="math inline">\(k\)</span> accidents is given by</p>
+<p><span class="math display">\[P(X = k) = e^{-p} \cdot \dfrac{p^k}{k!}\]</span></p>
+<p>Give an expression for the probability that there no more than 3
+accidents in a 24-hour period.</p></li>
+<li><p><em>Jane’s Fish Tank Emporium</em> (<em>JFTE</em>) yet again</p>
+<p>Recall that in a <a href="https://colab.research.google.com/github/gmcninch-tufts/math87-notebooks/blob/master/week10/week10--monte-carlo-simulation.ipynb">notebook</a> last week, we discussed the operation
+of <em>JFTE</em> by considering the question: what is the optimal ordering
+strategy for fish tanks: ordering <em>on-demand</em>?, or putting in place
+a <em>standing order</em>?</p>
+<p>Our simulation used a <code>python</code> class <code>JFTE</code>; the <em>constructor</em>
+of the class <code>JFTE</code> (i.e. its member function <code>__init__</code>)
+creates the <code>customers</code> instance variable. For this, the version
+in the notebook invokes the function</p>
+<pre><code>def customer(prob=1./7):
+   return rng.choice([1,0],p=[prob,1-prob])</code></pre>
+<p>In [this-week’s-notebook], we created a function <code>arrival</code> which
+takes two arguments: <code>p</code> and <code>num_max</code>; this function returns
+the integer <code>k</code> with probability determined by the Poisson
+distribution and base probability <code>p</code>, where</p>
+<pre><code>0 &lt;= k &lt;= num_max.</code></pre>
+<p>Edit the <code>JFTE</code> class so that is constructor uses the Poisson
+distribution to simulat arrival.</p>
+<p>Recall that the constructor is the function <code>__init__</code>; it has the form:</p>
+<pre><code>def __init__(self,N,prob=1./7):
+# ...
+self.rest()</code></pre>
+<p>You need to replace “<code># ...</code>” with code to create the instance
+variable <code>self.customers</code> and assign it to be a list of integers
+containing <code>N</code> values returned by the function
+<code>arrival(prob,5)</code>.</p>
+<p>You may now apply these <code>strategy</code> functions to an instance of
+the <code>JFTE</code> class constructed using the Poisson customer-arrival
+function.</p>
+<p>Run the simulation 10 times with both strategy functions, as was
+done in the notebook. Discuss similarities/differences between the
+results obtained in the notebook.</p></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>
