@@ -7,7 +7,7 @@ date: 2024-04-01
 # Upcoming assignments
 
 - 2024-04-05 [**[problem set 08]**](/course-assignments/PS08--2024-04-05.html)
-  [**[pdf]**](/course-assignments/PS07--2024-04-05.pdf)
+  [**[pdf]**](/course-assignments/PS08--2024-04-05.pdf)
 
 # Notebooks
 
