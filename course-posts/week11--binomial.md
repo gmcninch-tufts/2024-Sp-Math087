@@ -1,6 +1,6 @@
 ---
 title: |
-  Week10 -- Monte Carlo methods
+  Week11 -- The Binomial and Poisson distributions
 date: 2024-03-25
 ---
 
