@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Math87-Tufts University - PS 07 -- Monte Carlo integration & simulations -- solutions</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+        <link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="../css/haddock.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" rel="stylesheet" media="screen" />
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" type="text/css" rel="stylesheet" media="screen" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />			
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <a href="../">
+	      Math87 - Spring 2024 - Tufts Univ</a>
+          </div>
+          <nav>
+            <a href="../about.html">About</a>
+	    <a href="../course-pages/Math087--course-info.html">Info</a>	    
+            <a href="../archive.html">Archive</a>
+          </nav>
+        </header>
+
+        <main role="main">
+            <h1>PS 07 -- Monte Carlo integration & simulations -- solutions</h1>
+            <ol type="1">
+<li><p>Consider the function <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> defined on the interval
+<span class="math inline">\(I=\left[\dfrac{1}{2},1\right]\)</span>. Note that <span class="math inline">\(f\)</span> is a decreasing
+function on the interval, and in particular</p>
+<p><span class="math display">\[\dfrac{1}{x} \le 4\]</span></p>
+<p>for each <span class="math inline">\(x \in I\)</span>. Recall that</p>
+<p><span class="math display">\[\int_{1/2}^1 \dfrac{1}{x}dx = \ln(x)\bigg\vert^1_{1/2} =
+-\ln(1/2) = \ln(2).\]</span></p>
+<ol type="a">
+<li><p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables uniformly distributed
+respectively on the intervals <span class="math inline">\([1/2,1]\)</span> and <span class="math inline">\([0,4]\)</span>, explain why</p>
+<p><span class="math display">\[P\left(\dfrac{1}{2} \le X \le 1, 0 \le Y \le \dfrac{1}{X}
+\right) = \dfrac{\ln(2)}{2}.\]</span></p>
+<div class="solution">
+<p>The value <span class="math inline">\((X,Y)\)</span> of the random variables represents the choice
+of a “random” point in the rectangle <span class="math inline">\(R\)</span> defined by <span class="math inline">\(1/2 \le x \le 1\)</span> and <span class="math inline">\(0 \le y \le 4\)</span>.</p>
+<p>The area of <span class="math inline">\(R\)</span> is   = 2.
+The probability that this point
+is below the curve <span class="math inline">\(y = 1/x\)</span> is the ratio <span class="math inline">\(\dfrac{A}{2}\)</span>
+where <span class="math inline">\(A\)</span> represents the <em>area under the curve</em> <span class="math inline">\(y = 1/x\)</span>.</p>
+<p>Using the Fundamental Theorem of Calculus, we find this area
+under the curve as the integral of <span class="math inline">\(y=\dfrac{1}{x}\)</span> over the
+given interval:</p>
+<p><span class="math display">\[\int_{1/2}^1 \dfrac{1}{x} dx = \ln x \vert^1_{1/2} = \ln(1) - \ln(1/2) = \ln(2)\]</span></p>
+<p>Thus the probability <span class="math inline">\(P\left(\dfrac{1}{2} \le X \le 1, 0 \le Y \le \dfrac{1}{X} \right)\)</span> is given by the ratio <span class="math inline">\(\dfrac{A}{2} = \dfrac{\ln 2}{2}\)</span>.</p>
+</div></li>
+<li><p>Write a <code>python</code> function which takes as argument a whole
+number <code>n</code> and estimates <span class="math inline">\(\ln(2)\)</span> by generating <code>n</code> random
+points <code>(x,y)</code> in the region <span class="math inline">\([1/2,1] \times [0,4]\)</span>, counting
+the number <code>m</code> of those points <code>(x,y)</code> for which <span class="math inline">\(y\)</span> is
+<em>below</em> the graph <span class="math inline">\(y = \dfrac{1}{x}\)</span>, and using the ratio
+<code>m/n</code> to produce an estimate of <span class="math inline">\(\ln(2)\)</span>.</p>
+<p>Include the text of your function in your problem submission,
+and include a brief explanation of how it works.</p>
+<p>Compare your result to <code>npumpy.log(2)</code> (note that <code>numpy.log</code> is
+the natural logarithm). How large must <code>n</code> be in order that
+your estimate matches <code>numpy.log(2)</code> to 2 decimal places?</p>
+<div class="solution">
+<p>Here is the required code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> default_rng</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> default_rng()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> randomPoint():</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># return a random point in the rectangl [1/2,1] x [0,4]</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (rng.uniform(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">1</span>),rng.uniform(<span class="dv">0</span>,<span class="dv">4</span>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> estimate_log_two(n):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    ll <span class="op">=</span> [ randomPoint() <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n) ]    <span class="co"># make a list of n random points</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    lr <span class="op">=</span> [ (x,y) <span class="cf">for</span> (x,y) <span class="kw">in</span> ll <span class="cf">if</span> y <span class="op">&lt;=</span> <span class="dv">1</span><span class="op">/</span>x ]  <span class="co"># find the points below the curve</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">len</span>(lr)<span class="op">/</span><span class="bu">len</span>(ll)                      <span class="co"># return the fraction of points below the curve</span></span></code></pre></div>
+<p>Now, we can compute <code>log(2)/2</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>np.log(<span class="dv">2</span>)<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fl">0.34657359027997264</span></span></code></pre></div>
+<p>We consider:</p>
+<blockquote>
+<p>Compare your result to npumpy.log(2) (note that numpy.log is
+the natural logarithm). How large must n be in order that your
+estimate matches numpy.log(2) to 2 decimal places?</p>
+</blockquote>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>[ (n,estimate(<span class="dv">1000</span><span class="op">*</span>n)) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">40</span>,<span class="dv">2</span>)]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>[(<span class="dv">10</span>, <span class="fl">0.3462</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> (<span class="dv">12</span>, <span class="fl">0.34991666666666665</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> (<span class="dv">14</span>, <span class="fl">0.34985714285714287</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a> (<span class="dv">16</span>, <span class="fl">0.3485</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a> (<span class="dv">18</span>, <span class="fl">0.3448888888888889</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a> (<span class="dv">20</span>, <span class="fl">0.3505</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a> (<span class="dv">22</span>, <span class="fl">0.34745454545454546</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a> (<span class="dv">24</span>, <span class="fl">0.3445416666666667</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a> (<span class="dv">26</span>, <span class="fl">0.34465384615384614</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a> (<span class="dv">28</span>, <span class="fl">0.35010714285714284</span>),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a> (<span class="dv">30</span>, <span class="fl">0.3442</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a> (<span class="dv">32</span>, <span class="fl">0.346</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a> (<span class="dv">34</span>, <span class="fl">0.34755882352941175</span>),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a> (<span class="dv">36</span>, <span class="fl">0.3487222222222222</span>),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a> (<span class="dv">38</span>, <span class="fl">0.3465526315789474</span>)]</span></code></pre></div>
+<p>The estimate of course depends on <em>pseudo-random</em> numbers, but it appears to be more-or-less reliably
+correct to two decimals places with <span class="math inline">\(n \equiv 30 \cdot 1000 = 30,000\)</span></p>
+</div></li>
+</ol></li>
+</ol>
+<hr />
+<h1 id="janes-fish-tank-emporium-jfte-revisited."><em>Jane’s Fish Tank Emporium</em> (<em>JFTE</em>) revisited.</h1>
+<p>Recall that in the course notebook, we discussed the operation of
+<em>JFTE</em> by considering the question: what is the optimal ordering
+strategy for fish tanks?</p>
+<p>Is it <em>on-demand</em> ordering (where an order is made after a sale)?</p>
+<p>Or is it better to have <em>standing orders</em> (where an order is made
+regularly – say, on a particular day of the week)?</p>
+<ol start="2" type="1">
+<li><p>In the notebook, we studied the case for which the probability of a
+customer arriving at the store on any particular day was <code>1/7</code>.
+Let’s now consider the case where the probability of the arrival of
+a customer to the store depends on the day of the week, as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Day</th>
+<th>Sun</th>
+<th>Mon</th>
+<th>Tue</th>
+<th>Wed</th>
+<th>Thur</th>
+<th>Fri</th>
+<th>Sat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DOW</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>Prob</td>
+<td>0.16</td>
+<td>0.08</td>
+<td>0.04</td>
+<td>0.08</td>
+<td>0.12</td>
+<td>0.25</td>
+<td>0.27</td>
+</tr>
+</tbody>
+</table>
+<p>Here the <code>DOW</code> (“day of week”) row just indicates that we view
+<code>Mon</code> as day 1 of a week, <code>Tue</code> as day 2, etc.</p>
+<p>In the notebook, we constructed a <code>python</code> class <code>JFTE</code> to keep
+track of our simulations. The <em>constructor</em> of the class <code>JFTE</code>
+(i.e. its member function <code>__init__</code>) creates the <code>customer</code>
+instance variable; to do this, it invokes the function</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> customer(prob<span class="op">=</span><span class="fl">1.</span><span class="op">/</span><span class="dv">7</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> rng.choice([<span class="dv">1</span>,<span class="dv">0</span>],p<span class="op">=</span>[prob,<span class="dv">1</span><span class="op">-</span>prob])</span></code></pre></div>
+<p>Make an alternative to this function <code>customer</code> by creating a new
+function <code>customer_alt</code> taking an integer argument <code>m</code> which
+returns <code>1</code> with probability as indicated in the above table (for
+the <code>DOW</code> corresponding to <code>m</code>) and otherwise returns <code>0</code>.</p>
+<div class="solution">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we'll keep the probabilities in a dictionary</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dow_probs <span class="op">=</span> { <span class="dv">0</span>: <span class="fl">.16</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>              <span class="dv">1</span>: <span class="fl">.08</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>              <span class="dv">2</span>: <span class="fl">.04</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>              <span class="dv">3</span>: <span class="fl">.08</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>              <span class="dv">4</span>: <span class="fl">.12</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>              <span class="dv">5</span>: <span class="fl">.25</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>              <span class="dv">6</span>: <span class="fl">.27</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a> 		   }   </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> customer_alt(d,dow_probs):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  pp <span class="op">=</span> dow_probs[mod(d,<span class="dv">7</span>)]             <span class="co"># get the probability `pp` for the `dow` of `d`</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> rng.choice([<span class="dv">1</span>,<span class="dv">0</span>],p<span class="op">=</span>[pp,<span class="dv">1</span><span class="op">-</span>pp]) <span class="co"># return a random choice based on `pp`</span></span></code></pre></div>
+<p>Now we <em>copy</em> the code for analyzing <code>Janes Fish Tank Emporium</code>. We have
+to modify the <code>__init__</code> method of the class <code>JFTE</code> slightly, in order to use the
+new function <code>customer_alt</code> to generate customers.
+More precisely, the <code>__init__</code> function now takes arguments <code>N, dow_probs</code>
+where <code>N</code> is the number of days and <code>dow_probs</code> is a dictionary representing
+the probability of a customer for the given day of the week.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> JFTE():</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,N,dow_probs):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.customers <span class="op">=</span> [customer_alt(n,dow_probs) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.num_days <span class="op">=</span> N</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reset()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> reset(<span class="va">self</span>):</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.stock <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.sales <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lost_sales <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.storage_days <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.max_stock <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add_stock(<span class="va">self</span>):</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.stock <span class="op">=</span> <span class="va">self</span>.stock <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.stock <span class="op">&gt;</span> <span class="va">self</span>.max_stock:</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.max_stock <span class="op">=</span> <span class="va">self</span>.stock</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sale(<span class="va">self</span>):</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.stock <span class="op">=</span> <span class="va">self</span>.stock <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.sales <span class="op">=</span> <span class="va">self</span>.sales <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> result(<span class="va">self</span>):</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> { <span class="st">'number_days'</span>: <span class="va">self</span>.num_days,</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'weeks'</span>: <span class="va">self</span>.num_days<span class="op">/</span><span class="fl">7.0</span>,</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'sales'</span>: <span class="va">self</span>.sales,</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'lost_sales'</span>: <span class="va">self</span>.lost_sales,</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'storage_days'</span>: <span class="va">self</span>.storage_days,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'max_stock'</span>: <span class="va">self</span>.max_stock</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>               }</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> stand_order(J,dow<span class="op">=</span><span class="dv">6</span>):</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">## dow = arrival day-of-week for standing order; should be in [0,1,2,3,4,5,6]</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="co">## we'll assume that the first day of the ``days`` list is dow=0.</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> J.num_days</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    J.reset()</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># loop through the days</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N):</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>        c <span class="op">=</span> J.customers[i]            <span class="co">## c is 1 if there is a customer on day i, 0 otherwise</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> dow <span class="op">==</span> np.mod(i,<span class="dv">7</span>):        <span class="co">## add stock on the dow for order arrival</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>            J.add_stock()</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> c<span class="op">&gt;</span><span class="dv">0</span> <span class="kw">and</span> J.stock <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>            J.lost_sales <span class="op">=</span> J.lost_sales <span class="op">+</span> <span class="dv">1</span>   <span class="co">## lost sale if no stock</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> c<span class="op">&gt;</span><span class="dv">0</span> <span class="kw">and</span> J.stock <span class="op">&gt;</span> <span class="dv">0</span>:               <span class="co">## sale if adequate stock</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>            J.sale()</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>        J.storage_days <span class="op">=</span> J.storage_days <span class="op">+</span> J.stock    <span class="co">## accumulate total storage costs</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> J.result()</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> order_on_demand(J):</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    J.reset()</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    order_wait <span class="op">=</span> np.inf                        <span class="co">## order_wait represents wait-time</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>                                               <span class="co">## until next order arrival</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>    <span class="co">## loop through the customers</span></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> c <span class="kw">in</span> J.customers:</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> c<span class="op">&gt;</span><span class="dv">0</span> <span class="kw">and</span> J.stock<span class="op">==</span><span class="dv">0</span>:                 <span class="co">## record lost sale if no stock</span></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>            J.lost_sales <span class="op">=</span> J.lost_sales <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> c<span class="op">&gt;</span><span class="dv">0</span> <span class="kw">and</span> J.stock<span class="op">&gt;</span><span class="dv">0</span>:                  <span class="co">## record sale if adequate stock</span></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>            J.sale()</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>        J.storage_days <span class="op">+=</span> J.stock              <span class="co">## accumulate storage days</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>  J.stock<span class="op">==</span><span class="dv">0</span> <span class="kw">and</span> order_wait <span class="op">==</span> np.inf:  <span class="co">## reorder if stock is empty and no current order</span></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>            order_wait <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> order_wait <span class="op">==</span> <span class="dv">0</span>:                    <span class="co">## stock arrives</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>            J.add_stock()</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>            order_wait <span class="op">=</span> np.inf</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> order_wait<span class="op">&gt;</span><span class="dv">0</span>:                       <span class="co">## decrement arrival time for in-transit orders</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>            order_wait <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> J.result()   </span></code></pre></div>
+<blockquote>
+<p>Run the simulation 10 times with both strategy functions, as was
+done in the notebook. Discuss similarities/differences between
+the results obtained in the notebook.</p>
+</blockquote>
+<p>Now we run the simulation. We make 10 trials, each of length 2 years:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_trials(dow_probs,trial_weeks <span class="op">=</span> <span class="dv">2</span><span class="op">*</span><span class="dv">52</span>, num_trials <span class="op">=</span> <span class="dv">10</span>):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [ JFTE(<span class="dv">7</span><span class="op">*</span>trial_weeks,dow_probs) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_trials) ]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> report_trials(strategy,trials):</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> [ strategy(t) <span class="cf">for</span> t <span class="kw">in</span> trials ]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    details <span class="op">=</span> [<span class="st">'weeks'</span>, <span class="st">'sales'</span>, <span class="st">'lost_sales'</span>, <span class="st">'storage_days'</span>, <span class="st">'max_stock'</span>]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    sd <span class="op">=</span> {i: [r[i] <span class="cf">for</span> r <span class="kw">in</span> results ] <span class="cf">for</span> i <span class="kw">in</span> details}</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(sd)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">## make a list of 10 trials. Each trial has length 2 years</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">## use the `new_dow_probs`</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>ten_trials <span class="op">=</span> make_trials(new_dow_probs)</span></code></pre></div>
+<p>We first report the results for the <code>standing orders</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>stand_results <span class="op">=</span> report_trials(stand_order,ten_trials)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>stand_results</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>   weeks  sales  lost_sales  storage_days  max_stock</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  <span class="fl">104.0</span>     <span class="dv">91</span>          <span class="dv">12</span>          <span class="dv">3573</span>         <span class="dv">14</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>  <span class="fl">104.0</span>    <span class="dv">103</span>          <span class="dv">13</span>          <span class="dv">1805</span>          <span class="dv">7</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  <span class="fl">104.0</span>     <span class="dv">97</span>          <span class="dv">10</span>          <span class="dv">1819</span>          <span class="dv">8</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>  <span class="fl">104.0</span>    <span class="dv">103</span>           <span class="dv">0</span>          <span class="dv">2083</span>          <span class="dv">6</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>  <span class="fl">104.0</span>     <span class="dv">99</span>           <span class="dv">0</span>          <span class="dv">3548</span>          <span class="dv">9</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>  <span class="fl">104.0</span>     <span class="dv">92</span>           <span class="dv">7</span>          <span class="dv">6062</span>         <span class="dv">16</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>  <span class="fl">104.0</span>     <span class="dv">86</span>           <span class="dv">2</span>          <span class="dv">6980</span>         <span class="dv">19</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span>  <span class="fl">104.0</span>     <span class="dv">93</span>           <span class="dv">8</span>          <span class="dv">2630</span>         <span class="dv">12</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span>  <span class="fl">104.0</span>    <span class="dv">102</span>           <span class="dv">6</span>          <span class="dv">3408</span>         <span class="dv">11</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>  <span class="fl">104.0</span>     <span class="dv">97</span>           <span class="dv">5</span>          <span class="dv">4687</span>         <span class="dv">14</span>   </span></code></pre></div>
+<p>And now we report the results for <code>on demand ordering</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>demand_results <span class="op">=</span> report_trials(order_on_demand, ten_trials)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>demand_results   </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    weeks    sales   lost_sales  storage_days    max_stock</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>   <span class="fl">104.0</span>       <span class="dv">61</span>           <span class="dv">42</span>           <span class="dv">362</span>            <span class="dv">1</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>   <span class="fl">104.0</span>       <span class="dv">69</span>           <span class="dv">47</span>           <span class="dv">314</span>            <span class="dv">1</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>   <span class="fl">104.0</span>       <span class="dv">66</span>           <span class="dv">41</span>           <span class="dv">332</span>            <span class="dv">1</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>   <span class="fl">104.0</span>       <span class="dv">65</span>           <span class="dv">38</span>           <span class="dv">338</span>            <span class="dv">1</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>   <span class="fl">104.0</span>       <span class="dv">63</span>           <span class="dv">36</span>           <span class="dv">354</span>            <span class="dv">1</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>   <span class="fl">104.0</span>       <span class="dv">63</span>           <span class="dv">36</span>           <span class="dv">354</span>            <span class="dv">1</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>   <span class="fl">104.0</span>       <span class="dv">55</span>           <span class="dv">33</span>           <span class="dv">402</span>            <span class="dv">1</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span>   <span class="fl">104.0</span>       <span class="dv">63</span>           <span class="dv">38</span>           <span class="dv">350</span>            <span class="dv">1</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span>   <span class="fl">104.0</span>       <span class="dv">69</span>           <span class="dv">39</span>           <span class="dv">316</span>            <span class="dv">1</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>   <span class="fl">104.0</span>       <span class="dv">65</span>           <span class="dv">37</span>           <span class="dv">338</span>            <span class="dv">1</span></span></code></pre></div>
+<p>Since we report the trials as a <code>pandas</code> <code>DataFrame</code>, we can easily
+use a <code>pandas</code> method to compute the <em>means</em> of the various values:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>stand_results.mean()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>weeks            <span class="fl">104.0</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>sales             <span class="fl">96.3</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>lost_sales         <span class="fl">6.3</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>storage_days    <span class="fl">3659.5</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>max_stock         <span class="fl">11.6</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>dtype: float64</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>demand_results.mean()</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>weeks           <span class="fl">104.0</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>sales            <span class="fl">63.9</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>lost_sales       <span class="fl">38.7</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>storage_days    <span class="fl">346.0</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>max_stock         <span class="fl">1.0</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>dtype: float64</span></code></pre></div>
+<p>As was already the case with the version we discussed in the
+lecture, the standing-order strategy results in a much larger
+number of days required to store fish-tanks – 3659 days of storage
+– than the on-demand strategy.</p>
+<p>On the other hand, we make more sales using the standing order strategy,
+and have many fewer lost sales</p>
+</div></li>
+<li><p>In this problem, let’s consider again the “constant” customer
+arrival probability described in the notebook.</p>
+<p>For each strategy <code>stand_order</code> and <code>order_on_demand</code> , compute
+the average <code>storage_days</code> and the average <code>sales</code> for 10
+simulations. (So you’ll have averages for <code>stand_order</code> and
+averages for <code>order_on_demand</code>).</p>
+<p>If the storage costs are $1 per tank per day, use your averages to
+estimate what the profit per tank needs to be for <code>JFTE</code> to have
+a positive <code>net_profit</code> for each of these strategies.</p>
+<div class="solution">
+<p>We can just use the code we used in problem 2 if we specify the
+<code>constant probabilities</code> as a dictionary.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>const_probs <span class="op">=</span> { n: <span class="fl">1.</span><span class="op">/</span><span class="dv">7</span> <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">7</span>) }</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>const_probs </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>{<span class="dv">0</span>: <span class="fl">0.14285714285714285</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>: <span class="fl">0.14285714285714285</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>: <span class="fl">0.14285714285714285</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>: <span class="fl">0.14285714285714285</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>: <span class="fl">0.14285714285714285</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>: <span class="fl">0.14285714285714285</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span>: <span class="fl">0.14285714285714285</span>}   </span></code></pre></div>
+<p>Now we make 10 trials and get the</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">## make a list of 10 trials. Each trial has length 2 years</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">## this time use constant probabilities</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>const_ten_trials <span class="op">=</span> make_trials(const_probs)   </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>const_stand_results <span class="op">=</span> report_trials(stand_order,const_ten_trials)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>const_demand_results <span class="op">=</span> report_trials(demand_order,const_ten_trials)</span></code></pre></div>
+<p>Now we can inspect the results:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>const_stand_results</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    weeks   sales   lost_sales  storage_days    max_stock</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>   <span class="fl">104.0</span>   <span class="dv">102</span>              <span class="dv">1</span>          <span class="dv">3331</span>           <span class="dv">10</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>   <span class="fl">104.0</span>    <span class="dv">94</span>              <span class="dv">0</span>          <span class="dv">4322</span>           <span class="dv">12</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>   <span class="fl">104.0</span>    <span class="dv">98</span>             <span class="dv">15</span>          <span class="dv">1430</span>            <span class="dv">9</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>   <span class="fl">104.0</span>    <span class="dv">92</span>              <span class="dv">2</span>          <span class="dv">5146</span>           <span class="dv">14</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>   <span class="fl">104.0</span>   <span class="dv">100</span>              <span class="dv">9</span>          <span class="dv">1834</span>            <span class="dv">8</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>   <span class="fl">104.0</span>   <span class="dv">102</span>              <span class="dv">6</span>          <span class="dv">2704</span>           <span class="dv">10</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>   <span class="fl">104.0</span>    <span class="dv">98</span>              <span class="dv">6</span>          <span class="dv">2273</span>            <span class="dv">9</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span>   <span class="fl">104.0</span>    <span class="dv">91</span>              <span class="dv">0</span>          <span class="dv">8034</span>           <span class="dv">16</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span>   <span class="fl">104.0</span>    <span class="dv">95</span>              <span class="dv">2</span>          <span class="dv">3031</span>           <span class="dv">10</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>   <span class="fl">104.0</span>   <span class="dv">101</span>              <span class="dv">8</span>          <span class="dv">2369</span>            <span class="dv">9</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>const_demand_results</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    weeks   sales   lost_sales  storage_days    max_stock</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>   <span class="fl">104.0</span>      <span class="dv">59</span>           <span class="dv">44</span>           <span class="dv">374</span>            <span class="dv">1</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>   <span class="fl">104.0</span>      <span class="dv">55</span>           <span class="dv">39</span>           <span class="dv">401</span>            <span class="dv">1</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>   <span class="fl">104.0</span>      <span class="dv">66</span>           <span class="dv">47</span>           <span class="dv">332</span>            <span class="dv">1</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>   <span class="fl">104.0</span>      <span class="dv">56</span>           <span class="dv">38</span>           <span class="dv">392</span>            <span class="dv">1</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>   <span class="fl">104.0</span>      <span class="dv">60</span>           <span class="dv">49</span>           <span class="dv">370</span>            <span class="dv">1</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>   <span class="fl">104.0</span>      <span class="dv">64</span>           <span class="dv">44</span>           <span class="dv">344</span>            <span class="dv">1</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>   <span class="fl">104.0</span>      <span class="dv">62</span>           <span class="dv">42</span>           <span class="dv">356</span>            <span class="dv">1</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span>   <span class="fl">104.0</span>      <span class="dv">51</span>           <span class="dv">40</span>           <span class="dv">422</span>            <span class="dv">1</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span>   <span class="fl">104.0</span>      <span class="dv">58</span>           <span class="dv">39</span>           <span class="dv">380</span>            <span class="dv">1</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>   <span class="fl">104.0</span>      <span class="dv">58</span>           <span class="dv">51</span>           <span class="dv">380</span>            <span class="dv">1</span></span></code></pre></div>
+<p>And even inspect the <em>means</em>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>const_stand_results.mean()</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>weeks            <span class="fl">104.0</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>sales             <span class="fl">97.3</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>lost_sales         <span class="fl">4.9</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>storage_days    <span class="fl">3447.4</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>max_stock         <span class="fl">10.7</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>dtype: float64</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>const_demand_results.mean() </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>weeks           <span class="fl">104.0</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>sales            <span class="fl">58.9</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>lost_sales       <span class="fl">43.3</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>storage_days    <span class="fl">375.1</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>max_stock         <span class="fl">1.0</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>dtype: float64   </span></code></pre></div>
+<p>We use these means to answer the question</p>
+<blockquote>
+<p>If the storage costs are $1 per tank per day, use your averages
+to estimate what the profit per tank needs to be for <code>JFTE</code> to
+have a positive <code>net_profit</code> for each of these strategies.</p>
+</blockquote>
+<p>Using the <em>standing order</em> strategy, over a two year period we
+expect to pay for $3447 storage-days, so at the indicated rate, we
+expect to pay $3447 in storage costs for the period.</p>
+<p>On the other hand, we make on average 97 sales. To make a profit,
+our profit per tank needs to be at least
+<span class="math inline">\(3447/97 = 35.53\)</span> dollars per tank.</p>
+<p>Using the <em>on demand</em> ordering strategy, over a two year period
+we expect to pay $375 in storage costs.</p>
+<p>On the other hand, we make on average 58 sales. To make a profit,
+the profit-per-tank needs to be at least
+<span class="math inline">\(375/58 = 6.46\)</span> dollars per tank.</p>
+<p>In fact, we can compute these requirements with a function:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> required_profit(results):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we'll take the pandas DataFrame as argument</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  means <span class="op">=</span> results.mean()</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> means[<span class="st">&quot;storage_days&quot;</span>]<span class="op">/</span>means[<span class="st">&quot;sales&quot;</span>]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>required_profit(const_stand_results)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fl">35.430626927029806</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>required_profit(const_demand_results)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fl">6.36842105263158</span>   </span></code></pre></div>
+<p>Note that the two year length of our trial contributes to the
+storage costs (apparently because tanks build up in our
+warehouse). We can compute mean for 10 trials of 6 months, instead
+(still using the constant probabilities).</p>
+<p>We get in this case:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>six_month_ten_trials <span class="op">=</span> make_trials(const_probs,trial_weeks<span class="op">=</span><span class="dv">26</span>,num_trials<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>six_month_stand_results <span class="op">=</span> report_trials(stand_order,six_month_ten_trials)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>six_month_demand_results <span class="op">=</span> report_trials(order_on_demand,six_month_ten_trials)</span></code></pre></div>
+<p>Computing the <code>required_profits</code> we find</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>required_profit(six_month_stand_results)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fl">22.224944320712694</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>required_profit(six_month_demand_results)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="op">=&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fl">6.239202657807309</span></span></code></pre></div>
+<p>Thus there is a substantial difference in the required profit per
+tank for the standing order strategy when comparing a six-month
+time period to a two-year time period.</p>
+<p>But the required profit per tank for the on-demand order strategy
+was not substantially different for the six-month time period and
+the two-year time period.</p>
+</div></li>
+</ol>
+        </main>
+
+        <footer>
+	  <nav>
+	    <a href="http://www.tufts.edu">
+	      <i class="fas fa-chalkboard"></i>
+	      Tufts
+	    </a>	    
+	    <a href="http://math.tufts.edu">
+	      <i class="fas fa-chalkboard-teacher"></i>
+	      Tufts Math
+	    </a>
+	    <a href="https://gmcninch-tufts.github.io/math">
+	      <i class="fas fa-coffee"></i>
+	      G McNinch
+	    </a>
+	    <a href="https://github.com/gmcninch-tufts">
+	      <i class="fab fa-github"></i>
+	      GitHub
+	    </a>	    
+	  </nav>
+        </footer>
+    </body>
+</html>
