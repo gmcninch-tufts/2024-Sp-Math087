@@ -15,3 +15,9 @@ date: 2024-04-01
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week11-01--binomial-and-poisson.ipynb)
   [[download notebook]](/course-content/week11-01--binomial-and-poisson.ipynb)
   [[pdf]](/course-content/week11-01--binomial-and-poisson.pdf)  
+
+- *multinomial distributions*
+
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week11-01--multinomial.ipynb)
+  [[download notebook]](/course-content/week11-01--multinomial.ipynb)
+  [[pdf]](/course-content/week11-01--multinomial.pdf)  
