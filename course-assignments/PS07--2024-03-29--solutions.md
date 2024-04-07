@@ -27,7 +27,7 @@ date: 2024-03-29
 	  of a "random" point in the rectangle $R$ defined by $1/2 \le x
 	  \le 1$ and $0 \le y \le 4$.
 	  
-	  The area of $R$ is \dfrac{1}{2} \cdot 4 = 2.
+	  The area of $R$ is $\dfrac{1}{2} \cdot 4 = 2$.
 	  The probability that this point
 	  is below the curve $y = 1/x$ is the ratio $\dfrac{A}{2}$
 	  where $A$ represents the *area under the curve* $y = 1/x$.
