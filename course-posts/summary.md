@@ -34,13 +34,19 @@ assignments
   [**[solutions]**](/course-assignments/PS06--2024-03-08--solutions.html)
   [**[solutions pdf]**](/course-assignments/PS06--2024-03-08--solutions.pdf)  
 - due 2024-03-29 [**[problem set 07]**](/course-assignments/PS07--2024-03-29.html)
-  [**[pdf]**](/course-assignments/PS07--2024-03-29.pdf)  
+  [**[pdf]**](/course-assignments/PS07--2024-03-29.pdf)
+  [**[solutions]**](/course-assignments/PS07--2024-03-29--solutions.html)
+  [**[solutions pdf]**](/course-assignments/PS07--2024-03-29--solutions.pdf)    
 - due 2024-03-15 [**[midterm report 2]**](/course-assignments/MidRep2--2024-03-15.html)
   [**[pdf]**](/course-assignments/MidRep2--2024-03-15.pdf)
   [**[solutions]**](/course-assignments/MidRep2--2024-03-15--solution.html)
   [**[solutions pdf]**](/course-assignments/MidRep2--2024-03-15--solution.pdf)  
 - due 2024-03-29 [**[final report proposal]**](/course-assignments/FinReport-Proposal.html)
   [**[pdf]**](/course-assignments/FinReport-Proposal.pdf)
+- due 2024-04-05 [**[problem set 08]**](/course-assignments/PS08--2024-04-05.html)
+  [**[pdf]**](/course-assignments/PS08--2024-04-05.pdf)
+  [**[solutions]**](/course-assignments/PS08--2024-04-05--solutions.html)
+  [**[solutions pdf]**](/course-assignments/PS08--2024-04-05--solutions.pdf)    
 - due 2024-04-26 [**[final report]**](/course-assignments/FinReport.html)
   [**[pdf]**](/course-assignments/FinReport.pdf)
 
@@ -135,6 +141,22 @@ notebooks
   [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/week10-01--monte-carlo-simulation.ipynb)
   [[download notebook]](/course-content/week10-01--monte-carlo-simulation.ipynb)
   [[pdf]](/course-content/week10-01--monte-carlo-simulation.pdf)  
+- *Binomial and Poisson distributions*
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week11-01--binomial-and-poisson.ipynb)
+  [[download notebook]](/course-content/week11-01--binomial-and-poisson.ipynb)
+  [[pdf]](/course-content/week11-01--binomial-and-poisson.pdf)  
+- *multinomial distributions*
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week11-01--multinomial.ipynb)
+  [[download notebook]](/course-content/week11-01--multinomial.ipynb)
+  [[pdf]](/course-content/week11-01--multinomial.pdf)  
+- *Least Squares*
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week12-01--least-squares.ipynb)
+  [[download notebook]](/course-content/week12-01--least-squares.ipynb)
+  [[pdf]](/course-content/week12-01--least-squares.pdf)  
+- *Curve fitting*
+  [[via colab]](https://colab.research.google.com/github/gmcninch-tufts/2024-Sp-Math087/blob/main/course-content/week12-02--curve-fitting.ipynb)
+  [[download notebook]](/course-content/week12-02--curve-fitting.ipynb)
+  [[pdf]](/course-content/week12-02--curve-fitting.pdf)  
 
   
 

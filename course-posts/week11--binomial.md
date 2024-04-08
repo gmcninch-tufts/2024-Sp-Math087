@@ -8,6 +8,9 @@ date: 2024-04-01
 
 - 2024-04-05 [**[problem set 08]**](/course-assignments/PS08--2024-04-05.html)
   [**[pdf]**](/course-assignments/PS08--2024-04-05.pdf)
+  [**[solutions]**](/course-assignments/PS08--2024-04-05--solutions.html)
+  [**[solutions pdf]**](/course-assignments/PS08--2024-04-05--solutions.pdf)  
+
 
 # Notebooks
 
