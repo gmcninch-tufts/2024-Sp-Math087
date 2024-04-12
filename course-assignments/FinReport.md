@@ -6,9 +6,9 @@ date: due [2024-04-26 Friday]
 
 # Report
 
-*due [2024-04-26 Friday]*
-
+due ~~[2024-04-26 Friday]~~ [2024-05-03 Friday]*
 Your report should be submitted as a *PDF* on *gradescope*.
+*
 
 Your research is *not expected to be original or novel*. However, it
 is expected that you will do a review of the literature on the
@@ -39,7 +39,7 @@ Your report should include the following:
 
 # Video Presentation
 
-*due [2024-04-26 Friday]*
+*due ~~[2024-04-26 Friday]~~ [2024-05-03 Friday]*
 
 > Your video presentation will be uploaded to *tufts.box.com*, but I
 > haven't yet set up the necessary folder.
