@@ -10,7 +10,6 @@
   , "(no homework -- spring break)"
   , "PS07: Monte-Carlo methods"
   , "PS08: binomial & poisson distributions"
-  , "PS09: recurrence & generating functions"
-  , "PS10: least squares & inverse problems"
+  , "PS09: least squares & inverse problems"
   ]
 : List Text

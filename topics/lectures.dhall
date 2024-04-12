@@ -19,8 +19,6 @@
   , "Monte-Carlo simulation"
   , "Binomial & Poisson distributions"
   , "Binomial & Poisson distributions"
-  , "Recurrence relations & generating functions"
-  , "Recurrence relations & generating functions"
   , "Linear least squares"
   , "Linear least squares"
   ]

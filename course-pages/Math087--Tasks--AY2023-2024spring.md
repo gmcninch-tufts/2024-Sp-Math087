@@ -35,10 +35,10 @@ title: Math087 - Mathematical Modelling - AY2023-2024 spring
   | 04/03 | Wed | Tufts      |     | 12   | **Academic Date:** *Last day to withdraw from a course with W* |
   | 04/03 | Wed | Tufts      |     | 12   | **Academic Date:** *Last day to select Pass/Fail Option*       |
   | 04/05 | Fri | Assignment |     | 12   | PS08: binomial & poisson distributions                         |
-  | 04/12 | Fri | Assignment |     | 13   | PS09: recurrence & generating functions                        |
+  | 04/12 | Fri | Assignment |     | 13   | PS09: least squares & inverse problems                         |
   | 04/15 | Mon | Tufts      |     | 14   | **No classes:** *Patriots' Day*                                |
   | 04/17 | Wed | Tufts      |     | 14   | **No classes:** *Makeup Day (no classes)*                      |
-  | 04/19 | Fri | Assignment |     | 14   | PS10: least squares & inverse problems                         |
+  | 04/19 | Fri | Assignment |     | 14   |                                                                |
   | 04/26 | Fri | Assignment |     | 15   |                                                                |
   | 04/30 | Tue | Tufts      |     | 16   | **Academic Date:** *Reading Period*                            |
   | 05/01 | Wed | Tufts      |     | 16   | **Academic Date:** *Reading Period*                            |

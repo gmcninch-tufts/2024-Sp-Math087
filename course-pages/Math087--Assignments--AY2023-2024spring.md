@@ -20,7 +20,7 @@ title: Math087 - Mathematical Modelling - AY2023-2024 spring
   | 03/29 | Fri | Assignment |     | 11   | PS07: Monte-Carlo methods                |
   | 04/03 | Wed | Assignment |     | 12   | Final project proposals due              |
   | 04/05 | Fri | Assignment |     | 12   | PS08: binomial & poisson distributions   |
-  | 04/12 | Fri | Assignment |     | 13   | PS09: recurrence & generating functions  |
-  | 04/19 | Fri | Assignment |     | 14   | PS10: least squares & inverse problems   |
+  | 04/12 | Fri | Assignment |     | 13   | PS09: least squares & inverse problems   |
+  | 04/19 | Fri | Assignment |     | 14   |                                          |
   | 04/26 | Fri | Assignment |     | 15   |                                          |
   | 05/03 | Fri | Assignment |     | 16   | Final Project Due                        |

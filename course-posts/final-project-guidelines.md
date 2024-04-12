@@ -14,8 +14,8 @@ For your final project, you will use mathematical modeling to investigate a topi
 You must submit the following *deliverables*:
 
 1. a *proposal* by [2024-03-29 Friday]
-2. written report by [2024-04-26 Friday]
-3. video presentation to accompany the report, also by [2024-04-26 Friday]
+2. written report by ~~[2024-04-26 Friday]~~ [2024-05-03 Friday]
+3. video presentation to accompany the report, also by ~~[2024-04-26 Friday]~~ [2024-05-03 Friday]
 4. you will watch two of the presentations submitted by your class-mates, 
    write some *brief* comments, and submit them by [2024-05-06 Monday].
 
@@ -49,7 +49,7 @@ See below for a discussion of *formatting requirements* for the report.
 
 # Report
 
-*due [2024-04-26 Friday]*
+*due ~~[2024-04-26 Friday]~~ [2024-05-03 Friday]*
 
 Your report should be submitted as a *PDF* on *gradescope*. It should
 be 6-8 pages (not including references or code).
@@ -111,8 +111,8 @@ class Videos; the class will have *read-access* to this folder.  You
 must *watch* (at least) two videos submitted by your classmates, and
 write *brief* comments (a paragraph or two).
 
-You must submit these comments in a PDF to gradescope by [2024-05-06
-Monday].
+You must submit these comments in a PDF to gradescope by ~~[2024-05-06
+Monday]~~ [2024-05-07 Tuesday].
 
 
 # Requirements for the Report

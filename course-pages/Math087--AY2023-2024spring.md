@@ -88,19 +88,19 @@ title: Math087 - Mathematical Modelling - AY2023-2024 spring
   | 04/05 | Fri | Meeting    | Office hours 10 | 12   | **13:30-14:30 JCC 559                                           |
   | 04/05 | Fri | Assignment |                 | 12   | PS08: binomial & poisson distributions                          |
   | 04/08 | Mon | Meeting    | Office hours 9  | 13   | **13:30-14:30 JCC 559                                           |
-  | 04/08 | Mon | Lecture    | 22              | 13   | Recurrence relations & generating functions                     |
-  | 04/10 | Wed | Lecture    | 23              | 13   | Recurrence relations & generating functions                     |
+  | 04/08 | Mon | Lecture    | 22              | 13   | Linear least squares                                            |
+  | 04/10 | Wed | Lecture    | 23              | 13   | Linear least squares                                            |
   | 04/11 | Thu | Meeting    | Office hours 11 | 13   | **13:00-14:00 JCC 559                                           |
   | 04/12 | Fri | Meeting    | Office hours 11 | 13   | **13:30-14:30 JCC 559                                           |
-  | 04/12 | Fri | Assignment |                 | 13   | PS09: recurrence & generating functions                         |
+  | 04/12 | Fri | Assignment |                 | 13   | PS09: least squares & inverse problems                          |
   | 04/15 | Mon | Tufts      |                 | 14   | **No classes:** *Patriots' Day*                                 |
   | 04/17 | Wed | Tufts      |                 | 14   | **No classes:** *Makeup Day (no classes)*                       |
   | 04/18 | Thu | Meeting    | Office hours 12 | 14   | **13:00-14:00 JCC 559                                           |
   | 04/19 | Fri | Meeting    | Office hours 12 | 14   | **13:30-14:30 JCC 559                                           |
-  | 04/19 | Fri | Assignment |                 | 14   | PS10: least squares & inverse problems                          |
+  | 04/19 | Fri | Assignment |                 | 14   |                                                                 |
   | 04/22 | Mon | Meeting    | Office hours 10 | 15   | **13:30-14:30 JCC 559                                           |
-  | 04/22 | Mon | Lecture    | 24              | 15   | Linear least squares                                            |
-  | 04/24 | Wed | Lecture    | 25              | 15   | Linear least squares                                            |
+  | 04/22 | Mon | Lecture    | 24              | 15   |                                                                 |
+  | 04/24 | Wed | Lecture    | 25              | 15   |                                                                 |
   | 04/25 | Thu | Meeting    | Office hours 13 | 15   | **13:00-14:00 JCC 559                                           |
   | 04/26 | Fri | Meeting    | Office hours 13 | 15   | **13:30-14:30 JCC 559                                           |
   | 04/26 | Fri | Assignment |                 | 15   |                                                                 |

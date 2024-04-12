@@ -43,12 +43,12 @@ title: Math087 - Mathematical Modelling - AY2023-2024 spring
   | 04/03 | Wed | Lecture | 21  | 12   | Binomial & Poisson distributions                                |
   | 04/03 | Wed | Tufts   |     | 12   | **Academic Date:** *Last day to withdraw from a course with W*  |
   | 04/03 | Wed | Tufts   |     | 12   | **Academic Date:** *Last day to select Pass/Fail Option*        |
-  | 04/08 | Mon | Lecture | 22  | 13   | Recurrence relations & generating functions                     |
-  | 04/10 | Wed | Lecture | 23  | 13   | Recurrence relations & generating functions                     |
+  | 04/08 | Mon | Lecture | 22  | 13   | Linear least squares                                            |
+  | 04/10 | Wed | Lecture | 23  | 13   | Linear least squares                                            |
   | 04/15 | Mon | Tufts   |     | 14   | **No classes:** *Patriots' Day*                                 |
   | 04/17 | Wed | Tufts   |     | 14   | **No classes:** *Makeup Day (no classes)*                       |
-  | 04/22 | Mon | Lecture | 24  | 15   | Linear least squares                                            |
-  | 04/24 | Wed | Lecture | 25  | 15   | Linear least squares                                            |
+  | 04/22 | Mon | Lecture | 24  | 15   |                                                                 |
+  | 04/24 | Wed | Lecture | 25  | 15   |                                                                 |
   | 04/29 | Mon | Lecture | 26  | 16   |                                                                 |
   | 04/30 | Tue | Tufts   |     | 16   | **Academic Date:** *Reading Period*                             |
   | 05/01 | Wed | Tufts   |     | 16   | **Academic Date:** *Reading Period*                             |
