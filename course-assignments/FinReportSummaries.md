@@ -1,6 +1,6 @@
 ---
 title: |
-  Final Report
+  Final Report Summaries
 date: due [2024-05-07 Tuesday]
 ---
 
@@ -11,3 +11,8 @@ write *brief* comments (a paragraph or two).
 
 You must submit these comments in a PDF to gradescope by ~~[2024-05-06
 Monday]~~ [2024-05-07 Tuesday].
+
+
+- you should *identify* the 2 videos that you viewed.
+
+- for each video you viewed, write a brief summary.
