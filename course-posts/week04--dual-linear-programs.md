@@ -13,8 +13,6 @@ when you work - next week - on your first `midterm report`).
 
 - [**[problem set 3]**](/course-assignments/PS03--2024-02-09.html) 
   [**[pdf]**](/course-assignments/PS03--2024-02-09.pdf) (due 2024-02-09)
-  [**[solutions]**](/course-assignments/PS03--2024-02-09--solutions.html) 
-  [**[solutions pdf]**](/course-assignments/PS03--2024-02-09--solutions.pdf)
 
 
 - **Network flows** (from last week)

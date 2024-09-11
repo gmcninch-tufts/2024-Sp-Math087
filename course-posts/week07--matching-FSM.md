@@ -6,8 +6,6 @@ date: 2024-02-26
 
 - due 2024-03-01 [*[problem set 5]*](/course-assignments/PS05--2024-03-01.html) 
   [*[pdf]*](/course-assignments/PS05--2024-03-01.pdf) 
-  [*[solutions]*](/course-assignments/PS05--2024-03-01--solutions.html) 
-  [*[solutions pdf]*](/course-assignments/PS05--2024-03-01--solutions.pdf) 
   
 Here are notebooks which will support the lectures this week:
 

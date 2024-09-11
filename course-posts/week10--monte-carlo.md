@@ -10,8 +10,6 @@ date: 2024-03-25
 
 - 2024-03-29 [**[problem set 07]**](/course-assignments/PS07--2024-03-29.html)
   [**[pdf]**](/course-assignments/PS07--2024-03-29.pdf)
-  [**[solutions]**](/course-assignments/PS07--2024-03-29--solutions.html)
-  [**[solutions pdf]**](/course-assignments/PS07--2024-03-29--solutions.pdf)  
 
 # Notebooks
 

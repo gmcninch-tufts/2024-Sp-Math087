@@ -6,8 +6,6 @@ date: 2024-03-11
 
 - due 2024-03-15 [**[midterm report 2]**](/course-assignments/MidRep2--2024-03-15.html)
   [**[pdf]**](/course-assignments/MidRep2--2024-03-15.pdf)
-  [**[solutions]**](/course-assignments/MidRep2--2024-03-15--solution.html)
-  [**[solutions pdf]**](/course-assignments/MidRep2--2024-03-15--solution.pdf)  
 
 - [[Final Report Proposal]](/course-assignments/FinReport-Proposal.html) due 2024-03-29
 

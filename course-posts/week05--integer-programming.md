@@ -10,8 +10,6 @@ post](resources--expectations-and-rubrics.html).
 
 - due 2024-202-16 [**[midterm report 1]**](/course-assignments/MidRep1--2024-02-16.html)
   [**[pdf]**](/course-assignments/MidRep1--2024-02-16.pdf)
-  [**[solution]**](/course-assignments/MidRep1--2024-02-16--solution.html)
-  [**[solution pdf]**](/course-assignments/MidRep1--2024-02-16--solution.pdf)
 
 
 This week, we are going to talk about solving linear programs where we
